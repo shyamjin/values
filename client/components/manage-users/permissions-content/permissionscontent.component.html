@@ -1,0 +1,21 @@
+<!--PERMISSIONS TAB CONTENT COMPONENT START-->
+<div class="vp-permissionscont vp-control max" ng-controller="ManageRolesController">
+    <!--SELECT PERMISSIONS FORM-->
+    <div class="vp-permissionscont__form" ng-include="'static/components/manage-users/permissions-select/permissionsselect.component.html'"></div>
+
+    <div class="vp-permissionsselectcont__toolbar bg--cs06 max--width fixed pos--bottom pos-left">
+        <div class="vp-permissionsselectcont__innerbounded clearfix">
+            <div class="vp-teamscont__savechangesbtnwrap right">
+                <!--SAVE CHANGES BUTTON (MODIFIERS: # vp-uielement__button--deploydisabled )-->
+                <button type="button" class="vp-teamscont__savechangesbtn vp-uielement__button vp-uielement__button--deployenabled pr--lg pl--lg" ng-click="updateRolesPermissions('vp-permissionsselect__form')">Update</button>
+            </div>
+            <!--DISCARD CHANCHES BUTTON-->
+            <div class="vp-teamscont__discardbtnwrap mr--xxxl right">
+                <button type="button" class="vp-teamscont__discardbtn vp-uielement__button vp-uielement__button--cleanenabled" ng-click="discardRolePermissionChanges()">Discard</button>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+<!--PERMISSIONS TAB CONTENT COMPONENT END-->

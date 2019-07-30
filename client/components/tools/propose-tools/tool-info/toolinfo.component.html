@@ -1,0 +1,39 @@
+<!--TOOL INFO COMPONENT START (MODIFIERS: # vp-toolinfo--edit vp-toolinfo--new)-->
+<div class="vp-toolinfo vp-toolinfo--new vp-control bg--white max--width" ng-controller="ProposeToolInfoController">
+    <!--TOOL INFORMATION HEADER-->
+    <header class="vp-toolinfo__header">
+        <!--TOOL DISPLAY NAME-->
+        <label class="vp-toolinfo__descriptionlabel text--cs03 text--light text--md inblock" for="DESC">Tool name:</label>
+        <div class="vp-toolinfo__toolname inblock">
+            <input type="text" class="vp-toolinfo__toolnameinput input--clear text--cs03 text--light text--xxl pl--md " ng-model="toolData.name" name="tool_name" required>
+        </div>
+        <h5 class="validation_msg" ng-if="!ProposeNewToolForm.tool_name.$valid" style="margin-left: 11%;">Please provide proposed tool name</h5>
+    </header>
+    <!--BODY SECTION-->
+    <div class="vp-toolinfo__body max--width">
+        <!--DESCRIPTION FIELD-->
+        <div class="vp-toolinfo__descriptionwrap mt--xxl">
+            <label class="vp-toolinfo__descriptionlabel text--cs03 text--light text--md inblock" for="DESC">Description:</label>
+            <!--DESCRIPTION INPUT-->
+            <textarea ng-model="toolData.description" name="tool_description" id="DESC" length="500" class="vp-toolinfo__descriptioninput text--cs03 text--regular text--lg pl--md ml--xxl" required></textarea>
+            <h5 class="validation_msg" ng-if="!ProposeNewToolForm.tool_description.$valid" style="margin-left: 11%;">Please provide detailed description of this tool</h5>
+        </div>
+        <!--DESCRIPTION FIELD-->
+        <div class="vp-toolinfo__descriptionwrap mt--xxl">
+            <label class="vp-toolinfo__descriptionlabel text--cs03 text--light text--md inblock" for="DESC">Request reason:</label>
+            <!--DESCRIPTION INPUT-->
+            <textarea ng-model="toolData.request_reason" name="tool_request_reason" id="request_reason" length="500" class="vp-toolinfo__descriptioninput text--cs03 text--regular text--lg pl--md ml--xxl" required></textarea>
+            <h5 class="validation_msg" ng-if="!ProposeNewToolForm.tool_request_reason.$valid" style="margin-left: 11%;">Please provide detailed reason for the request of proposal of this tool</h5>
+        </div>
+        <div class="vp-toolinfo__tagswrap mt--xxl">
+            <!--SUPPORT SECTION-->
+            <div class="vp-toolinfo__supportwrap mt--sm">
+                <label class="vp-toolinfo__supportlabel text--cs03 text--light text--md inblock" for="SUPPORT_DETAILS">Your NTNET Email:</label>
+                <!--DESCRIPTION INPUT-->
+                <label class="vp-toolinfo__supportinput input--clear text--cs03 text--regular text--lg pl--md ml--xxl" name="support_details" ng-model="toolData.support_details">{{toolData.support_details}}</label>
+                <h5 class="validation_msg" ng-if="!ProposeNewToolForm.support_details.$valid" style="margin-left: 11%;">Please provide email as your NTNET@amdocs.com</h5>
+            </div>
+        </div>
+    </div>
+</div>
+<!--TOOL INFO COMPONENT END-->

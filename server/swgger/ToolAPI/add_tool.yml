@@ -1,0 +1,144 @@
+Create new Tool
+---
+tags:
+   - Tools
+parameters:
+- name: token
+  in: header
+  description: API key
+  required: false
+  type: string
+  format: string
+- name: access-token
+  in: header
+  description: API key
+  required: false
+  type: string
+  format: string 
+- name: input
+  in: body
+  description: Tools data
+  required: true
+  type: string
+  format: string
+  schema:
+    $ref: "#/definitions/Tools"     # <---------
+
+
+responses:
+  200:
+    description: Tool with it's version and deployment fields created successfully
+    schema:
+        $ref: "#/definitions/Data"     # <---------
+    examples:
+      result: "success"
+      message: "Tool with it's version and deployment fields created successfully"
+  404:
+    description: exception in creating tool
+    examples:
+      result: "failed"
+      message: "Throws an exception"
+
+
+definitions:
+  Tools:           # <----------
+    type: object
+    required:
+      - name
+      - support_details
+      - version
+    optional:
+      - tag
+      - description
+    properties:
+      name:
+        type: string
+      support_details:
+        type: string
+      description:
+        type: string
+      tag:
+        type: array
+        items:
+          type: string
+      version:
+        type: object
+        required:
+          - version_date
+          - version_name
+          - version_number
+          - branch_tag
+          - repository_to_use
+        optional:
+          - backward_compatible
+          - pre_requiests
+          - gitlab_repo
+          - gitlab_branch
+          - jenkins_job
+          - document
+          - release_notes
+          - mps_certified
+          - deployment_field
+          - dependent_tools
+        properties:
+          repository_to_use:
+            type: string
+          version_date:
+            type: string
+          version_name:
+            type: string
+          version_number:
+            type: string
+          branch_tag:
+            type: string
+          backward_compatible:
+            type: string
+          gitlab_repo:
+            type: string
+          gitlab_branch:
+            type: string
+          jenkins_job:
+            type: string
+          release_notes:
+            type: string
+          mps_certified:
+           type: array
+           items:
+                type: string
+          dependent_tools:
+            type: array
+            items:
+              type: object
+              required:
+                - tool_id
+                - version_id                
+              properties:
+                tool_id:
+                  type: string
+                version_id:
+                  type: string               
+
+
+  ArrayData:
+    type: array
+    items:
+      type: object
+      required:
+        - name
+        - version
+      properties:
+        name:
+          type: string
+        version:
+          type: number
+  nullData:
+    type: 'null'
+  Data:
+    type: object
+    properties:
+        data:
+          type: string
+        result:
+          type: string
+        message:
+           type: string

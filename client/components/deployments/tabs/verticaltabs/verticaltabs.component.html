@@ -1,0 +1,222 @@
+<!--TAB COMPONENT START-->
+<div class="vp-machdetails vp-tabsvertical vp-control max--width max--height clearfix" ng-controller="DeploymentVerticalTabsController">
+    <!--TABS HEADER NAVIGATION BAR-->
+    <div class="split-wrapper" style="font-size: 0px;">
+            <div class="left-data split">                
+                <li class="vp-machdetails__fielditem vp-machdetails__ipitem">
+                    <div class="vp-machdetails__fielditeminner">
+                        <!--IP FIELD LABEL-->
+                        <div class="vp-machdetails__fieldlabelwrap inblock">
+                            <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Completed:</label>
+                        </div>
+                        <!--IP FIELD CONTENT-->
+                        <div class="vp-machdetails__fieldcontent inblock">
+                            <div class="vp-machdetails__fieldipwrap inblock">
+                                <span class="vp-machdetails__fieldip text--regular text--lg text--ellipsis text--ellipsis--single">{{GroupData.requests_count.done}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="vp-machdetails__fielditem vp-machdetails__ipitem">
+                    <div class="vp-machdetails__fielditeminner">
+                        <!--IP FIELD LABEL-->
+                        <div class="vp-machdetails__fieldlabelwrap inblock">
+                            <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Failed:</label>
+                        </div>
+                        <!--IP FIELD CONTENT-->
+                        <div class="vp-machdetails__fieldcontent inblock">
+                            <div class="vp-machdetails__fieldipwrap inblock">
+                                <span class="vp-machdetails__fieldip text--regular text--lg text--ellipsis text--ellipsis--single">{{GroupData.requests_count.failed}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="vp-machdetails__fielditem vp-machdetails__ipitem">
+                    <div class="vp-machdetails__fielditeminner">
+                        <!--IP FIELD LABEL-->
+                        <div class="vp-machdetails__fieldlabelwrap inblock">
+                            <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Re-tried:</label>
+                        </div>
+                        <!--IP FIELD CONTENT-->
+                        <div class="vp-machdetails__fieldcontent inblock">
+                            <div class="vp-machdetails__fieldipwrap inblock">
+                                <span class="vp-machdetails__fieldip text--regular text--lg text--ellipsis text--ellipsis--single">{{GroupData.requests_count.retry}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                 <li class="vp-machdetails__fielditem vp-machdetails__ipitem">
+                    <div class="vp-machdetails__fielditeminner">
+                        <!--IP FIELD LABEL-->
+                        <div class="vp-machdetails__fieldlabelwrap inblock">
+                            <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Requested By:</label>
+                        </div>
+                        <!--IP FIELD CONTENT-->
+                        <div class="vp-machdetails__fieldcontent inblock">
+                            <div class="vp-machdetails__fieldipwrap inblock">
+                                <span class="vp-machdetails__fieldip text--regular text--lg text--ellipsis text--ellipsis--single">{{GroupData.requested_by}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                 <li class="vp-machdetails__fielditem vp-machdetails__ipitem">
+                    <div class="vp-machdetails__fielditeminner">
+                        <!--IP FIELD LABEL-->
+                        <div class="vp-machdetails__fieldlabelwrap inblock">
+                            <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Scheduled Date:</label>
+                        </div>
+                        <!--IP FIELD CONTENT-->
+                        <div class="vp-machdetails__fieldcontent inblock">
+                            <div class="vp-machdetails__fieldipwrap inblock">
+                                <span class="vp-machdetails__fieldip text--regular text--lg text--ellipsis text--ellipsis--single">{{GroupData.scheduled_date.$date | date : "medium" }}</span> 
+                            </div>
+                        </div>
+                    </div>
+                </li>
+               <li class="vp-machdetails__fielditem vp-machdetails__ipitem" ng-if="GroupData.parent_entity_set_name">
+                <div class="vp-machdetails__fielditeminner">
+                    <!--IP FIELD LABEL-->
+                    <div class="vp-machdetails__fieldlabelwrap inblock">
+                        <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">DU Package:</label>
+                    </div>
+                    <!--IP FIELD CONTENT-->
+                    <div class="vp-machdetails__fieldcontent inblock">
+                        <div class="vp-machdetails__fieldipwrap inblock">
+                            <span class="vp-machdetails__fieldip text--regular text--lg text--ellipsis text--ellipsis--single">{{GroupData.parent_entity_set_name }}</span>
+                        </div>
+                    </div>
+                </div>
+                </li>
+            </div>
+            <div class="right-data split">
+                <li class="vp-machdetails__fielditem vp-machdetails__ipitem">
+                    <div class="vp-machdetails__fielditeminner">
+                        <!--IP FIELD LABEL-->
+                        <div class="vp-machdetails__fieldlabelwrap inblock">
+                            <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Skipped:</label>
+                        </div>
+                        <!--IP FIELD CONTENT-->
+                        <div class="vp-machdetails__fieldcontent inblock">
+                            <div class="vp-machdetails__fieldipwrap inblock">
+                                <span class="vp-machdetails__fieldip text--regular text--lg text--ellipsis text--ellipsis--single">{{GroupData.requests_count.skipped}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="vp-machdetails__fielditem vp-machdetails__ipitem">
+                    <div class="vp-machdetails__fielditeminner">
+                        <!--IP FIELD LABEL-->
+                        <div class="vp-machdetails__fieldlabelwrap inblock">
+                            <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">In-Progress:</label>
+                        </div>
+                        <!--IP FIELD CONTENT-->
+                        <div class="vp-machdetails__fieldcontent inblock">
+                            <div class="vp-machdetails__fieldipwrap inblock">
+                                <span class="vp-machdetails__fieldip text--regular text--lg text--ellipsis text--ellipsis--single">{{GroupData.requests_count.inprogress}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="vp-machdetails__fielditem vp-machdetails__ipitem">
+                    <div class="vp-machdetails__fielditeminner">
+                        <!--IP FIELD LABEL-->
+                        <div class="vp-machdetails__fieldlabelwrap inblock">
+                            <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">New:</label>
+                        </div>
+                        <!--IP FIELD CONTENT-->
+                        <div class="vp-machdetails__fieldcontent inblock">
+                            <div class="vp-machdetails__fieldipwrap inblock">
+                                <span class="vp-machdetails__fieldip text--regular text--lg text--ellipsis text--ellipsis--single">{{GroupData.requests_count.new}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="vp-machdetails__fielditem vp-machdetails__ipitem">
+                    <div class="vp-machdetails__fielditeminner">
+                        <!--IP FIELD LABEL-->
+                        <div class="vp-machdetails__fieldlabelwrap inblock">
+                            <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Request Type:</label>
+                        </div>
+                        <!--IP FIELD CONTENT-->
+                        <div class="vp-machdetails__fieldcontent inblock">
+                            <div class="vp-machdetails__fieldipwrap inblock">
+                                <span class="vp-machdetails__fieldip text--regular text--lg text--ellipsis text--ellipsis--single">{{GroupData.request_type}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="vp-machdetails__fielditem vp-machdetails__ipitem">
+                    <div class="vp-machdetails__fielditeminner">
+                        <!--IP FIELD LABEL-->
+                        <div class="vp-machdetails__fieldlabelwrap inblock">
+                            <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Entity Type:</label>
+                        </div>
+                        <!--IP FIELD CONTENT-->
+                        <div class="vp-machdetails__fieldcontent inblock">
+                            <div class="vp-machdetails__fieldipwrap inblock">
+                                <span class="vp-machdetails__fieldip text--regular text--lg text--ellipsis text--ellipsis--single">{{GroupData.deployment_type}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="vp-machdetails__fielditem vp-machdetails__ipitem" ng-if="GroupData.package_state_name">
+                    <div class="vp-machdetails__fielditeminner">
+                        <!--IP FIELD LABEL-->
+                        <div class="vp-machdetails__fieldlabelwrap inblock">
+                            <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Package State:</label>
+                        </div>
+                        <!--IP FIELD CONTENT-->
+                        <div class="vp-machdetails__fieldcontent inblock">
+                            <div class="vp-machdetails__fieldipwrap inblock">
+                                <span class="vp-machdetails__fieldip text--regular text--lg text--ellipsis text--ellipsis--single">{{GroupData.package_state_name }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </div>
+        </div>
+    <div class="vp-tab-scroll">
+        <div class="vp-navvertical-width max--width left">
+            <nav>
+                <ul class="vp-tabsvertical__navlist text--center table">
+                    <!--TAB ACTIVE 'VERSION' STATE ( MODIFIERS: # vp-tabsvertical__tab--active )-->
+                    <div ng-repeat="oneDep in GroupData.details" ng-if="setRequestVisibility(oneDep, showSkippedRequests, $index)">
+                         <li class="vp-tabsvertical__tab tab_vertical  pointer left" ng-class="($index==selectedIndex) ? 'vp-tabsvertical__tab--active' : 'vp-tabsvertical__tab--nolabel'" style="height: auto;" >
+                            <span  ng-if="!oneDep.skipped_ind"  class="status-ind {{oneDep.status}}" style="margin-left: 2%;"></span>
+                            <span  ng-if="oneDep.skipped_ind"  class="status-ind skipped_ind" style="margin-left: 2%;"></span>
+                            <div class="vp-tabsvertical__tabinner max--height max--width intable">
+                               <tooltip id="tooltip_{{$index}}"tooltips="" tooltip-template="{{oneDep.machine_name}}" tooltip-side="top">
+                                <div class="pl--sm lh--font inblock table--cell vertical--middle" ng-click="selectDeployment($index)" >
+                                    <a class="vp-tabsvertical__tabversion text--cs03 text--light text--md text--ellipsis text--ellipsis--single block">
+                                        <span style="white-space: pre-wrap; word-break: break-all;">{{oneDep.machine_name}}</span>
+                                        <br>
+                                        <span style="white-space: initial; word-break: break-all;text-decoration-line: underline;">{{oneDep.parent_entity_name}}</span>
+                                    </a>
+                                </div>
+                               </tooltip>
+                            </div>
+                         </li>
+                    </div>
+
+                    <!--DEFAULT INACTIVE 'VERSION' TAB WITHOUT LABEL STATE ( MODIFIERS: # vp-tabsvertical__tab--active)-->
+                    <!--<li class="vp-tabsvertical__tab vp-tabsvertical__tab--active pointer left">
+                        <div class="vp-tabsvertical__tabinner max--height max--width intable">
+                            <div class="vp-tabsvertical__labelwrap pl--sm lh--font inblock table--cell vertical--middle">
+                                <a class="vp-tabsvertical__tabversion text--cs03 text--light text--md text--ellipsis text--ellipsis--single block">Deployed tools</a>
+                            </div>
+                        </div>
+                    </li>-->
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <!--TAB BODY WRAPPER, LOAD TEMPLATE INSIDE-->
+    <div class=" vp-tabcontent-width bg--white left max--height relative">
+        <!--MACHINE DETAILS TAB CONTENT-->
+        <div class="vp-tabsvertical__bodycontent max"  ng-if="!SingleData">
+            <h1 class="machine_verticalTab"> Select Entity to view details </h1>
+        </div>
+        <div class="vp-tabsvertical__bodycontent max" ng-if="SingleData" ng-include="'static/components/deployments/deployment-details-content/deploymentdetailscontent.component.html'"></div>
+    </div>
+</div>
+<!--TAB COMPONENT END-->

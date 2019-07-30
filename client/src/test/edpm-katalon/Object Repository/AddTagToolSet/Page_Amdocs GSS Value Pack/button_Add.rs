@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+   <description></description>
+   <name>button_Add</name>
+   <tag></tag>
+   <elementGuidId>a7c1c2dc-e6f1-4a7d-b6df-c9fd4a0c57a6</elementGuidId>
+   <selectorCollection>
+      <entry>
+         <key>BASIC</key>
+         <value>//button[@type = 'button' and @ng-click = 'showAddTag()']</value>
+      </entry>
+   </selectorCollection>
+   <selectorMethod>BASIC</selectorMethod>
+   <useRalativeImagePath>false</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>tag</name>
+      <type>Main</type>
+      <value>button</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>type</name>
+      <type>Main</type>
+      <value>button</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>class</name>
+      <type>Main</type>
+      <value>vp-versionform__addprerequisitesbtn vp-uielement__button pa--none vp-uielement__button--cleanenabled mr--xl skip_slideup</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>ng-click</name>
+      <type>Main</type>
+      <value>showAddTag()</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>text</name>
+      <type>Main</type>
+      <value>+Add</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath</name>
+      <type>Main</type>
+      <value>/html[@class=&quot;ng-scope&quot;]/body[1]/div[@class=&quot;vp-app__deploytoolspage max--height ng-scope&quot;]/div[@class=&quot;vp-edittools vp-control max--width ng-scope&quot;]/form[@class=&quot;ng-pristine ng-valid&quot;]/div[@class=&quot;vp-edittools__content bg--white max--height relative ng-scope&quot;]/div[@class=&quot;vp-edittools__contentbounded pr--xxxl&quot;]/div[@class=&quot;vp-edittools__toolinfo ng-scope&quot;]/div[@class=&quot;vp-toolinfo vp-toolinfo--new vp-control bg--white max--width ng-scope&quot;]/ul[@class=&quot;vp-userform__fieldslist text--cs03 pr--lg&quot;]/div[@class=&quot;vp-toolinfo__body max--width&quot;]/li[@class=&quot;vp-userform__fielditem vp-userform__emailitem pt--xxl&quot;]/div[@class=&quot;vp-userform__fielditeminner&quot;]/div[@class=&quot;vp-userform__fieldcontent vp-userform__emailcontent inblock&quot;]/div[@class=&quot;vp-versionform__content inblock&quot;]/div[@class=&quot;vp-versionform__prerequisitescontent--filled&quot;]/ul[@class=&quot;vp-versionform__prerequisiteslist clearfix&quot;]/li[@class=&quot;vp-versionform__prerequisitesaddbtn mb--sm left&quot;]/button[@class=&quot;vp-versionform__addprerequisitesbtn vp-uielement__button pa--none vp-uielement__button--cleanenabled mr--xl skip_slideup&quot;]</value>
+   </webElementProperties>
+</WebElementEntity>

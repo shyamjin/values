@@ -1,0 +1,25 @@
+// VARIABLES: SECTION 46
+.vp-machfileload {
+    .vp-machfileload__fieldlabelwrap:extend(.vp-createnewmachform .vp-createnewmachform__fieldlabelwrap) {}
+    .vp-machfileload__fieldcontent:extend(.vp-createnewmachform .vp-createnewmachform__fieldcontent) {}
+    // FILE INPUT NAME STYLE
+    .vp-machfileload__filenameinput:extend(.vp-createnewmachform .vp-createnewmachform__fieldcontent input) {
+        width: @fileNameInputWidth;
+    }
+    // DRAG AND DROP SECTION STYLES
+    .vp-machfileload__dragdrop {
+        width: @dragdropWidth;
+        height: @dragdropHeight;
+        line-height: @dragdropHeight;
+    }
+    .vp-machfileload__processingsection {
+        height: @fileProcessingSectionHeight;
+        line-height: @fileProcessingSectionHeight;
+    }
+    .vp-machfileload__processingmsg--show, .vp-machfileload__bulkreportsection--show {
+        .inblock;
+    }
+    .vp-machfileload__browselabel {
+        padding-top: 1px;
+    }
+}

@@ -1,0 +1,37 @@
+<!--PRE REQUISITIES EDIT POPUP COMPONENT START-->
+<div class="vp-tooldepqeditpopup vp-control">
+    <div class="vp-tooldepqeditpopup__popuptop vp-uielement__popuptop"></div>
+    <div class="vp-tooldepqeditpopup__container vp-uielement__popup pt--md pr--xl pb--xl pl--xl bg--white skip_slideup" style="height:250px; overflow: overlay;">
+        <div class="vp-tooldepqeditpopup__inputwrap">
+            <input type="text" class="vp-tooldepqeditpopup__input input--clear max--width text--cs03 text--regular text--lg skip_slideup" ng-model="searchToolWithVersionKeyword">
+        </div>
+        <div class="vp-tooldepqeditpopup__optionswrap mt--lg" style="height:150px;">
+            <!--VERSION OPTIONS LIST-->
+            <ul class="vp-tooldepqeditpopup__optionslist text--cs03 text--regular text--md skip_slideup">
+                <!--VERSION ITEM EXAMPLE-->
+                <li class="vp-tooldepqeditpopup__optionsitem mt--md skip_slideup" ng-repeat="tool in DependentTools | filter : searchToolWithVersionKeyword">
+                    <div class="vp-tooldepqeditpopup__iteminner text--ellipsis">
+                        <div class="vp-tooldepqeditpopup__checkbox vp-uielement__checkbox">
+                            <!--ITEM CHECKBOX-->
+                            <input type="checkbox" id="vp-deptoolseditpopup__c1_{{$index}}" class="skip_slideup" name="vp-deptoolseditpopup__c1" ng-model="depedentToolDetails[$index]" value="{{tool}}" ng-click="selectDependentTool(tool, vIndex)" ng-checked="isToolSelected(tool, vIndex)"/>
+                            <label for="vp-deptoolseditpopup__c1_{{$index}}" class="skip_slideup"></label>
+                            <!--ITEM NAME WRAPPER-->
+                            <div class="vp-tooldepqeditpopup__itemnamewrap ml--sm inblock vertical--bottom">
+                                <label for="vp-prereqeditpopup__c1" class="vp-tooldepqeditpopup__itemname text--ellipsis text--ellipsis--single skip_slideup" title="{{tool.tool_name}} {{tool.version_name}} {{tool.version_number}}">{{tool.tool_name}} {{tool.version_name}} {{tool.version_number}}</label>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="vp-tooldepqeditpopup__container vp-uielement__popup pt--md pr--xl pl--xl bg--white skip_slideup">
+        <div class="vp-tooldepqeditpopup__optionswrap">
+             <div class="vp-certifiedaddpopup__buttonswrap pb--md">
+                <!--APPLY BUTTON-->
+                <button type="button" class="vp-uielement__button  vp-uielement__button--apply mt--xl" ng-click="closeDependentTools()">Apply</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--PRE REQUISITIES EDIT POPUP COMPONENT END-->

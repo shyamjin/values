@@ -1,0 +1,70 @@
+Retry failed Deployment Request
+---
+tags:
+   - Deployment Requests
+parameters:
+- name: token
+  in: header
+  description: API key
+  required: false
+  type: string
+  format: string
+- name: access-token
+  in: header
+  description: API key
+  required: false
+  type: string
+  format: string 
+- name: input
+  in: body
+  description: Deployment Request Id
+  required: true
+  type: string
+  format: string
+  schema:
+    $ref: "#/definitions/Retry"     # <---------
+
+
+responses:
+  200:
+    description: New Deployment Request has been added successfully
+    schema:
+        $ref: "#/definitions/Data"     # <---------
+    examples:
+      result: "success"
+      message: "The request was updated successfully"
+  404:
+    description: exception in adding Deployment Request
+    examples:
+      result: "failed"
+      message: "Throws an exception"
+  405:
+    description: exception in adding Deployment Request
+    examples:
+      result: "failed"
+      message: "Only failed request can be retried"
+
+
+definitions:
+  Retry:           # <----------
+    type: object
+    required:
+      - _id
+    properties:
+      _id:
+        type: object
+        required:
+          - oid
+        properties:
+          oid: 
+           type: string
+
+  Data:
+    type: object
+    properties:
+        data:
+          type: string
+        result:
+          type: string
+        message:
+           type: string

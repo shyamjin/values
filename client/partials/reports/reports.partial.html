@@ -1,0 +1,23 @@
+<div class="vp-machines max" ng-controller="ViewReportsController">
+    <!--SIDE NAVBAR-->
+    <div class="vp-toolspage__headnotificationwrap" id="header_message">
+		<div class="vp-toolspage__headnotification" ng-include="'static/components/dashboard/header-message/headermessage.component.html'"></div>
+	</div>
+    <div class="vp-machines__navaside fixed pos--top pos--bottom" ng-include="'static/components/dashboard/navaside/navaside.component.html'"></div>
+    <div class="vp-machines__content max--height">
+        <div class="vp-machines__header" ng-include="'static/components/view-reports/header/header.component.html'"></div>
+        <!--MACHINES TABS COMPONENT-->
+        <div class="vp-machines__tabs left max--width">
+            <!--TAB COMPONENT START-->
+            <div class="vp-tabs vp-tabs--default vp-tabs--machines vp-control relative max--width max--height clearfix">
+
+                <!--TAB BODY WRAPPER, LOAD TEMPLATE INSIDE-->
+                <div class="vp-tabs__body overflow--auto left max--width">
+
+                    <!--'MANAGE MACHINES' TAB CONTENT-->
+                    <div class="vp-tabs__mmanagecontent text--none max" ng-include="'static/components/view-reports/report-info/reports.component.html'"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

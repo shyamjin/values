@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+   <description></description>
+   <name>button_Deploy</name>
+   <tag></tag>
+   <elementGuidId>3e129d8b-f039-4ab7-99e9-49ef6205c5f8</elementGuidId>
+   <selectorMethod>BASIC</selectorMethod>
+   <useRalativeImagePath>false</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>tag</name>
+      <type>Main</type>
+      <value>button</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>ng-click</name>
+      <type>Main</type>
+      <value>duSetDeploy({id:du._id.$oid,build_number: du.build_number, build_id : du.build_id})</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>type</name>
+      <type>Main</type>
+      <value>button</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>class</name>
+      <type>Main</type>
+      <value>vp-uielement__button vp-uielement__button--deployenabled vp-tooltile__deploybtn right</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>text</name>
+      <type>Main</type>
+      <value>Deploy</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath</name>
+      <type>Main</type>
+      <value>/html[@class=&quot;ng-scope&quot;]/body[1]/div[@class=&quot;vp-app__toolspage max--height ng-scope&quot;]/div[@class=&quot;vp-toolspage vp-toolspage--rightactive max--height max--width relative ng-scope&quot;]/div[@class=&quot;vp-toolspage__content max--height clearfix&quot;]/div[@class=&quot;vp-toolspage__centercolumn max--height max--width left clearfix&quot;]/div[@class=&quot;vp-toolspage__tabs left ng-scope&quot;]/div[@class=&quot;vp-tabs vp-tabs--default vp-control relative max--width max--height clearfix ng-scope&quot;]/div[@class=&quot;vp-tabs__body left max--width&quot;]/div[@class=&quot;vp-tabs__tilegrid ng-scope&quot;]/div[@class=&quot;vp-tilegrid vp-component overflow-y--auto max--height clearfix ng-scope&quot;]/div[@class=&quot;vp-tilegrid__listwrapper clearfix ng-scope&quot;]/ul[1]/li[@class=&quot;vp-tilegrid__tile pa--sm left ng-scope&quot;]/div[@class=&quot;vp-dutile vp-component text--cs03 pt--md pr--md pl--md vp-dutile__containingtoolmsg--active vp-tooltile__deprecatedwarning--active vp-tooltile__favorite--active  relative vp-dutile--not-selected&quot;]/div[@class=&quot;vp-dutile__footer absolute clearfix&quot;]/button[@class=&quot;vp-uielement__button vp-uielement__button--deployenabled vp-tooltile__deploybtn right&quot;]</value>
+   </webElementProperties>
+</WebElementEntity>

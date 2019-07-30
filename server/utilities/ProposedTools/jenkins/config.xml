@@ -1,0 +1,152 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <jenkins.model.BuildDiscarderProperty>
+      <strategy class="hudson.tasks.LogRotator">
+        <daysToKeep>-1</daysToKeep>
+        <numToKeep>3</numToKeep>
+        <artifactDaysToKeep>-1</artifactDaysToKeep>
+        <artifactNumToKeep>-1</artifactNumToKeep>
+      </strategy>
+    </jenkins.model.BuildDiscarderProperty>
+    <hudson.model.ParametersDefinitionProperty>
+      <parameterDefinitions>
+        <hudson.model.StringParameterDefinition>
+          <name>VERSION</name>
+          <description></description>
+          <defaultValue>VERNAME</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>MONGO_VERSION_ID</name>
+          <description></description>
+          <defaultValue>MONGOID</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>PACKAGE</name>
+          <description></description>
+          <defaultValue>PACNAME</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>ARTIFACT</name>
+          <description></description>
+          <defaultValue>ARTINAME</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>REPO_ID</name>
+          <description> </description>
+          <defaultValue>REPONAME</defaultValue>
+        </hudson.model.StringParameterDefinition>
+      </parameterDefinitions>
+    </hudson.model.ParametersDefinitionProperty>
+  </properties>
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@2.4.4">
+    <configVersion>2</configVersion>
+    <userRemoteConfigs>
+      <hudson.plugins.git.UserRemoteConfig>
+        <url>/git/GIT_DIR_NAME</url>
+      </hudson.plugins.git.UserRemoteConfig>
+    </userRemoteConfigs>
+    <branches>
+      <hudson.plugins.git.BranchSpec>
+        <name>*/master</name>
+      </hudson.plugins.git.BranchSpec>
+    </branches>
+    <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
+    <submoduleCfg class="list"/>
+    <extensions/>
+  </scm>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers>
+    <hudson.triggers.SCMTrigger>
+      <spec>* * * * *</spec>
+      <ignorePostCommitHooks>false</ignorePostCommitHooks>
+    </hudson.triggers.SCMTrigger>
+  </triggers>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>echo &quot;------------------------Starting zip process------------------------&quot;
+BUILD_FILE_NAME=&quot;${JOB_NAME}_${BUILD_NUMBER}.zip&quot;
+
+chmod 777 build.sh
+
+./build.sh ${BUILD_FILE_NAME}
+echo exit code $?
+
+echo &quot;Zip is fnished - `pwd`/${BUILD_FILE_NAME}&quot;
+</command>
+    </hudson.tasks.Shell>
+    <hudson.tasks.Shell>
+      <command>
+echo &quot;------------------------Uploading build to nexus------------------------&quot;
+
+BUILD_FILE_NAME=&quot;${JOB_NAME}_${BUILD_NUMBER}.zip&quot;
+
+mvn deploy:deploy-file -DgroupId=${PACKAGE} -DartifactId=${ARTIFACT} -Dversion=${VERSION} -Durl=${NEXUS_URL}/${REPO_ID} -Dfile=${BUILD_FILE_NAME} -DrepositoryId=releases -Dclassifier=${BUILD_NUMBER}
+
+if [ $? -eq 0 ]
+then  
+	echo &quot;Upload to Nexus finished fine&quot;
+    exit 0
+else
+	echo &quot;Upload to Nexus failed,removing the zip&quot;
+    rm -f ${BUILD_FILE_NAME}
+    exit 1
+fi
+</command>
+    </hudson.tasks.Shell>
+    <hudson.tasks.Shell>
+      <command>echo &quot;------------------------Uploading build to deployment manager------------------------&quot;
+
+BUILD_FILE_NAME=&quot;${JOB_NAME}_${BUILD_NUMBER}.zip&quot;
+SIZE=$(du -h ${BUILD_FILE_NAME} | awk &apos;{print $1}&apos;)
+
+echo ${PACKAGE}
+STATUS=1
+PACKAGE_NAME=${BUILD_FILE_NAME}
+VERSION_ID=&quot;${MONGO_VERSION_ID}&quot;
+NEW_PACKAGE=`echo ${PACKAGE} | sed s/\\\./\\\//g`
+RELATIVE_PATH=&quot;${REPO_ID}/${NEW_PACKAGE}/${ARTIFACT}/${VERSION}&quot;
+ADDITIONAL_INFO=&quot;{\&quot;version\&quot; : \&quot;${VERSION}\&quot;,\&quot;package\&quot; : \&quot;${PACKAGE}\&quot;,\&quot;artifact\&quot; : \&quot;${ARTIFACT}\&quot;,\&quot;repo_id\&quot; : \&quot;${REPO_ID}\&quot;,\&quot;relative_path\&quot; : \&quot;${RELATIVE_PATH}\&quot;,\&quot;file_name\&quot; : \&quot;${ARTIFACT}-${VERSION}-${BUILD_NUMBER}.zip\&quot;}&quot;
+FILE_PATH=&quot;${NEXUS_URL}/${REPO_ID}/${NEW_PACKAGE}/${ARTIFACT}/${VERSION}/${ARTIFACT}-${VERSION}-${BUILD_NUMBER}.zip&quot;
+ADD_BUILD_URL=${DP_MANAGER_URL}/versions/build/add
+JSON=&quot;{\&quot;status\&quot; : \&quot;${STATUS}\&quot;, \&quot;build_number\&quot; : \&quot;${BUILD_NUMBER}\&quot;, \&quot;package_name\&quot; : \&quot;${PACKAGE_NAME}\&quot;,\&quot;package_type\&quot;:\&quot;zip\&quot;,\&quot;version_id\&quot; : \&quot;${VERSION_ID}\&quot;,\&quot;type\&quot; : \&quot;url\&quot;,\&quot;file_path\&quot; : \&quot;${FILE_PATH}\&quot;,\&quot;file_size\&quot; : \&quot;${SIZE}\&quot;,\&quot;repo_type\&quot; : \&quot;nexus\&quot;,\&quot;additional_info\&quot; :${ADDITIONAL_INFO}}&quot;
+echo ${NEW_PACKAGE}
+
+
+RESULT=$(echo ${JSON} | curl -k --silent  --output /dev/stderr  --write-out &quot;%{http_code}&quot;  -H  &quot;Content-Type: application/json&quot; --request POST --data @- ${ADD_BUILD_URL})
+
+if [ $RESULT -eq 200 ]
+then
+               echo &quot;curl -k command passed, removing the ${BUILD_FILE_NAME}&quot;
+    rm -f ${BUILD_FILE_NAME}
+else
+               echo &quot;curl -k command failed,removing the ${BUILD_FILE_NAME}&quot;
+    rm -f ${BUILD_FILE_NAME}
+    exit 1
+fi</command>
+    </hudson.tasks.Shell>
+  </builders>
+  <publishers>
+    <hudson.plugins.ws__cleanup.WsCleanup plugin="ws-cleanup@0.30">
+      <patterns class="empty-list"/>
+      <deleteDirs>false</deleteDirs>
+      <skipWhenFailed>false</skipWhenFailed>
+      <cleanWhenSuccess>true</cleanWhenSuccess>
+      <cleanWhenUnstable>false</cleanWhenUnstable>
+      <cleanWhenFailure>false</cleanWhenFailure>
+      <cleanWhenNotBuilt>true</cleanWhenNotBuilt>
+      <cleanWhenAborted>true</cleanWhenAborted>
+      <notFailBuild>true</notFailBuild>
+      <cleanupMatrixParent>false</cleanupMatrixParent>
+      <externalDelete></externalDelete>
+    </hudson.plugins.ws__cleanup.WsCleanup>
+  </publishers>
+  <buildWrappers/>
+</project>

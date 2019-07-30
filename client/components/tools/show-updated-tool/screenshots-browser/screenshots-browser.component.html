@@ -1,0 +1,18 @@
+<!--SCREENSHOTS BROWSER/CAROUSEL COMPONENT START-->
+<div class="vp-screenshotbrowser text--none">
+    <!--'BROWSE LEFT' BUTTON WRAP-->
+    <div class="vp-screenshotbrowser__browseleftbtnwrap mr--xl vertical--top inblock">
+        <button type="button" class="vp-screenshotbrowser__browseleftbtn vp-uielement__button vp-uielement__button--browseleft" ng-click="showPrevious(displayTab)"></button>
+    </div>
+    <div class="vp-screenshotbrowser__browserbigscreenshotwrap inblock relative">
+        <button type="button" class="vp-screenshotbrowser__closebtn vp-uielement__button vp-uielement__button--smallclose pa--none absolute pos--top pos--right" ng-click="closeScreenshotBrowser()"></button>
+        <div class="vp-screenshotbrowser__browserbigscreenshot bg--white inblock">
+            <img alt="" src="{{screenshotURL}}" style="width:100%;">
+        </div>
+    </div>
+    <!--'BROWSE RIGHT' BUTTON WRAP-->
+    <div class="vp-screenshotbrowser__browserightbtnwrap ml--xl vertical--top inblock">
+        <button type="button" class="vp-screenshotbrowser__browseleftbtn vp-uielement__button vp-uielement__button--browseright" ng-click="showNext(displayTab)"></button>
+    </div>
+</div>
+<!--SCREENSHOTS BROWSER/CAROUSEL COMPONENT START-->

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+   <description></description>
+   <name>input_tool_name</name>
+   <tag></tag>
+   <elementGuidId>011bdb9a-961d-4063-9ee6-e2da25624621</elementGuidId>
+   <selectorMethod>BASIC</selectorMethod>
+   <useRalativeImagePath>false</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>tag</name>
+      <type>Main</type>
+      <value>input</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>type</name>
+      <type>Main</type>
+      <value>text</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>class</name>
+      <type>Main</type>
+      <value>vp-toolinfo__toolnameinput input--clear text--cs03 text--light text--xxl pl--md  ng-untouched ng-not-empty ng-dirty ng-valid-parse ng-valid ng-valid-required</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>ng-model</name>
+      <type>Main</type>
+      <value>toolData.name</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>name</name>
+      <type>Main</type>
+      <value>tool_name</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath</name>
+      <type>Main</type>
+      <value>/html[@class=&quot;ng-scope&quot;]/body[1]/div[@class=&quot;vp-app__deploytoolspage max--height ng-scope&quot;]/div[@class=&quot;vp-edittools vp-control max--width ng-scope&quot;]/form[@class=&quot;ng-invalid ng-invalid-required ng-valid-email ng-dirty ng-valid-parse&quot;]/div[@class=&quot;vp-edittools__content bg--white max--height relative&quot;]/div[@class=&quot;vp-edittools__contentbounded pr--xxxl&quot;]/div[@class=&quot;vp-edittools__toolinfo  ng-scope&quot;]/div[@class=&quot;vp-toolinfo vp-toolinfo--new vp-control bg--white max--width ng-scope&quot;]/header[@class=&quot;vp-toolinfo__header&quot;]/div[@class=&quot;vp-toolinfo__toolname inblock&quot;]/input[@class=&quot;vp-toolinfo__toolnameinput input--clear text--cs03 text--light text--xxl pl--md  ng-untouched ng-not-empty ng-dirty ng-valid-parse ng-valid ng-valid-required&quot;]</value>
+   </webElementProperties>
+</WebElementEntity>

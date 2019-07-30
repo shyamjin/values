@@ -1,0 +1,35 @@
+<!--MACHINE DETAILS VERTICAL TAB CONTENT COMPONENT START-->
+<div class="vp-machdetails vp-control pt--xxxl pr--xl pb--xxxl pl--xxxl bg--white clearfix max">
+    <div class="vp-permissionsselect bg--white max" ng-if="duOnMachine.length>0">
+        <div class="vp-deploymentrequestmodalwrap fixed max--position hidden"  id="show_tool_deployment_history_popup">
+            <div class="vp-deploymentrequestmodal absolute" ng-include="'static/components/machines/popups/tooldeploymenthistory-popup.component.html'"></div>
+        </div>
+        <!--COLUMN LABELS SECTION-->
+        <section class="vp-permissionsselect__header text--capitalize text--cs03 text--light text--md max--width">
+            <label class="vp-deployedtool_table_col inblock"><span class="permissionweight">Tool Name</span></label>
+            <label class="vp-deployedtool_table_col_ver inblock"><span class="permissionweight">Action</span></label>
+            <hr class="vp-permissionsselect__separator mt--md bg--cs09 ba--clear">
+        </section>
+        <!--PERMISSIONS SELECT SECTION-->
+        <section class="vp-permissionsselect__body max--width">
+            <form action="#" name="vp-permissionsselect__form">
+                <ul class="vp-permissionsselect__list pt--xl">
+                    <!--DEPLOY TOOLS PERMISSIONS-->
+                    <li class="vp-permissionsselect__item vp-permissionsselect__itemdeploytools pt--xxxl max--width" ng-repeat="tool in toolDeployments track by $index">
+                        <div class="vp-permissionsselect__iteminner">
+                            <div class="vp-deployedtool_toolname_col vertical--bottom text--regular text--lg inblock">
+                                <span class="text--ellipsis text--ellipsis--single">{{tool.name}}</span>
+                            </div>
+                            <div class="vp-deployedtool_actions_col vertical--bottom text--regular text--lg inblock">
+                                <div class="vp-machdetails__fieldtypewrap vp-machdetails__editablewrap inblock">
+                                    <button type="button" class="vp-machdetails__ipeditbtn vp-uielement__button vp-uielement__button--cleanenabled pa--none" ng-click="viewToolDeploymentHistory($index)">View deployments</button>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </form>
+        </section>
+    </div>
+</div>
+<!--MACHINE DETAILS VERTICAL TAB CONTENT COMPONENT END-->

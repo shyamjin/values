@@ -1,0 +1,29 @@
+<!--TOOLS PAGE PARTIALS ASSEMBLY START-->
+<!--( MODIFIERS: vp-toolspage--default # vp-toolspage--rightactive )-->
+<div class="vp-toolspage vp-toolspage--rightactive max--height max--width relative" ng-controller="DashboardController">
+	<!--HEAD MESSAGE (MODIFIERS: # vp-toolspage__headnotificationwrap--show )-->
+	<div class="vp-toolspage__headnotificationwrap" id="header_message">
+		<div class="vp-toolspage__headnotification" ng-include="'static/components/dashboard/header-message/headermessage.component.html'"></div>
+	</div>
+	<!--SIDE NAVBAR-->
+	<div class="vp-toolspage__navaside fixed pos--top pos--bottom" ng-include="'static/components/dashboard/navaside/navaside.component.html'"></div>
+	<!--LAYOUT CENTER COLUMN -->
+	<div class="vp-toolspage__content max--height clearfix">
+		<div class="vp-toolspage__centercolumn max--height max--width left clearfix">
+			<!--TOOLS page HEADER COMPONENT-->
+			<div class="vp-toolspage__header" ng-include="'static/components/dashboard/header/header.component.html'"></div>
+			<!--TOOLS page FILTER COMPONENT-->
+			<!--<div class="vp-toolspage__filter left" id="show_dashboard_filter" ng-include="'static/components/dashboard/filter/dashboardfilter.component.html'"></div>-->
+			<!--TOOLS page TABS COMPONENT-->
+			<div class="vp-toolspage__tabs left" ng-include="'static/components/dashboard/tabs/tabs.component.html'"></div>
+			<div class="vp-deploymentrequestmodalwrap fixed max--position hidden" id="show_deployment_progress_modal">
+				<div class="vp-running_deplopment_request absolute" ng-include="'static/components/dashboard/request-details-modal/running-deployment-details-modal.html'"></div>
+			</div>
+		</div>
+		<!--LAYOUT RIGHT COLUMN -->
+		<div class="vp-toolspage__rightcolumn max--height right">
+			<div class="vp-toolspage__rightsidebar max--height" ng-include="'static/components/dashboard/rightsidebar/rightsidebar.component.html'"></div>
+		</div>
+	</div>
+</div>
+<!--TOOLS PAGE PARTIALS ASSEMBLY END-->

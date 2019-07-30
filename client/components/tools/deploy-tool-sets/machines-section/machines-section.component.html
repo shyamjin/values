@@ -1,0 +1,10 @@
+<!--MACHINES-SECTION COMPONENT START-->
+<div class="vp-machinessection vp-control pl--xxxl pt--lg max--width">
+	<div class="vp-machinessection__labelwrap pt--md left" ng-repeat="toolset in toolSetsSelectedToDeploy" ng-if="toolset.toolset_name===selectedToolSet.toolset_name">
+		<label class="vp-machinessection__label text--ellipsis text--ellipsis--single text--cs01 text--light text--lg">Machines (<span class="vp-toolssection__toolscount">{{toolset.requests.length}}</span>):</label>
+	</div>
+	<div class="vp-machinessection__tabs inblock" ng-include="'static/components/tools/deploy-tool-sets/tabs/tabs.component.html'"></div>
+	<div class="vp-machinessection__machinessearch vertical--top inblock" ng-include="'static/components/tools/deploy-tool-sets/machines-search-column/machinesearchcolumn.component.html'"></div>
+	
+</div>
+<!--MACHINES-SECTION COMPONENT END-->

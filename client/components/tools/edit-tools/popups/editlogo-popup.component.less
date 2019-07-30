@@ -1,0 +1,16 @@
+// VARIABLES: SECTION 35
+.vp-eteditlogo {
+    width: @editLogoPopupWidth;
+    // TOP ARROW POSITION
+    .vp-eteditlogo__popuptop{
+        &:before{
+            left: @editLogoTopArrowLeft;
+        }
+    }
+    .vp-eteditlogo__searchfileinputcustomlabel:extend(.vp-uielement__searchbox  .vp-uielement__searchinput){
+        .ba--clear;
+        .max--width;
+        .inblock;
+        .pt--sm;
+    }
+}

@@ -1,0 +1,23 @@
+<!--USERS TAB COMPONENT START-->
+<div class="vp-userscont max relative" ng-controller="EditUserController">
+    <!--USERS SEARCH COLUMN-->
+    <div class="vp-userscont__userssearch vertical--top inblock" ng-include="'static/components/manage-users/users-list-search/userslistsearch.component.html'"></div>
+    <!--USER INFO COLUMN-->
+    <div class="vp-userscont__userinfo ml--xxxl vertical--to inblock" ng-include="'static/components/manage-users/user-info/userinfo.component.html'"></div>
+
+
+    <!--TOOLBAR-->
+    <div class="vp-userscont__toolbar bg--cs06 max--width fixed pos--bottom pos--left" ng-if="userSelected===true">
+        <div class="vp-userscont__innerbounded clearfix">
+            <div class="vp-userscont__updatebtnwrap right">
+                <!--UPDATE BUTTON (MODIFIERS: # vp-uielement__button--deploydisabled )-->
+                <button type="button" class="vp-userscont__updatebtn vp-uielement__button vp-uielement__button--deployenabled pr--lg pl--lg" ng-click="editNewUser(selectedData)">Update</button>
+            </div>
+            <!--DISCARD CHANCHES BUTTON-->
+            <div class="vp-userscont__discardbtnwrap mr--xxxl right">
+                <button type="button" class="vp-userscont__discardbtn vp-uielement__button vp-uielement__button--cleanenabled" ng-click="discardChanges()">Discard</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--USERS TAB COMPONENT END-->

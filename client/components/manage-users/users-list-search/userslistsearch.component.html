@@ -1,0 +1,36 @@
+<!--USERS SEARCH COLUMN COMPONENT START-->
+<div class="vp-userssearch vp-search bg--white max--width">
+    <span class="vp-search__topborder block"></span>
+    <div class="vp-search__searchboxwrap pa--md">
+        <!--SEARCH FIELD (MODIFIERS: # vp-search__searchbox--drop)-->
+        <div class="vp-search__searchbox vp-uielement__searchbox relative">
+            <div class="vp-search__searchautocomplete bg--cs06 absolute hidden" ng-include="'components/tools/deploy-tools/search-autocomplete/searchautocomplete.component.html'"></div>
+            <form id="vp-search__searchform vp-search__userslistsearchform vp-uielement__searchform">
+                <!--SEARCH INPUT TEXT-->
+                <input class="vp-search__searchinput vp-uielement__searchinput" name="searchUser" ng-model="searchUser" type="text" placeholder="Find a user" />
+                <!--SEARCH INPUT SUBMIT BUTON-->
+                <!--<button class="vp-search__searchbtn vp-uielementt__searchbtn" type="button"></button>-->
+            </form>
+            <span class="vp-search__hint vp-uielement__hint">Use the user,role,employee id or account</span>
+        </div>
+    </div>
+    <div class="vp-search__listwrapper max--width">
+        <ul class="vp-search__list machine_scroll max--width ">
+
+            <!--SELECTED USER ADMIN ITEM EXAMPLE (MODIFIERS: # vp-search__item--admin # vp-search__item--selected )-->
+            <li class="vp-search__item" ng-class="getAdminRoleClass(user)" ng-repeat="user in users.data |  orderBy:'user' | filter:{user: searchUser}">
+                <div class="vp-search__iteminner pl--xxxl text--regular text--md relative clearfix">
+                    <div class="vp-search__itemdescriptionwrap left">
+                        <span class="vp-search__itemdescription text--cs03 text--ellipsis text--ellipsis--single">{{user.user}}</span>
+                    </div>
+                    <!--ON :HOVER ELEMENT-->
+                    <div class="vp-search__itembtnwrap pointer relative right relative hidden">
+                        <span class="vp-search__itembtn bg--cs07 text--center text--cs06 text--regular text--md absolute" ng-click="isUserSelected(user)">Select</span>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<!---USERS SEARCH COLUMN COMPONENT END-->
+<!--USER-SEARCH COLUMN COMPONENT END-->

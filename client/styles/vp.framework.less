@@ -1,0 +1,1034 @@
+// APPENDIX:
+// 1. DISPLAYS
+// 2. TEXT
+// 3. SVG FILL
+// 4. INPUT CONTROLS
+// 5. MARGINS
+// 6. BG COLORS 
+// 7. LINE-HEIGHTS 
+// 8. PADDINGS
+// 9. SIZE & GRID BEHIVORS
+// 10. BORDERS
+// 11. POSITIONS
+// 12. COLUMNS
+// 13. OVERFLOWS
+// 14 MISC
+// ------------------------------------------------------------------
+// 1. DISPLAYS
+.block {
+    display: block;
+}
+
+.inblock {
+    display: inline-block;
+}
+
+.flex {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.intable {
+    display: inline-table;
+}
+
+.table {
+    display: table;
+}
+
+.table--cell {
+    display: table-cell;
+}
+
+.hidden {
+    display: none;
+}
+
+.no--decor {
+    text-decoration: none;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.clearfix:after, .clearfix:before {
+    display: table;
+    content: " ";
+    clear: both;
+}
+
+// ------------------------------------------------------------------
+// 2. TEXT
+.text--dark {
+    color: @csdark;
+}
+
+.text--white {
+    color: @cswhite;
+}
+
+.text--cs01 {
+    color: @cs01;
+}
+
+.text--cs02 {
+    color: @cs02;
+}
+
+.text--cs03 {
+    color: @cs03;
+}
+
+.text--cs04 {
+    color: @cs04;
+}
+
+.text--cs05 {
+    color: @cs05;
+}
+
+.text--cs06 {
+    color: @cs06;
+}
+
+.text--cs07 {
+    color: @cs07;
+}
+
+.text--cs08 {
+    color: @cs08;
+}
+
+.text--cs09 {
+    color: @cs09;
+}
+
+.text--cs10 {
+    color: @cs10;
+}
+
+.text--mutted {
+    color: @csmutted;
+}
+
+.text--darkmutted {
+    color: @csdarkmutted;
+}
+
+.text--disabled {
+    color: @csdisabled;
+}
+
+.text--error {
+    color: @cserror;
+}
+
+.text--none {
+    font-size: 0px;
+}
+
+.text--xsm {
+    font-size: 10px;
+}
+
+.text--sm {
+    font-size: 12px;
+}
+
+.text--md {
+    font-size: 14px;
+}
+
+.text--lg {
+    font-size: 16px;
+}
+
+.text--xl {
+    font-size: 18px;
+}
+
+.text--xxl {
+    font-size: 24px;
+}
+
+.text--xxxxl {
+    font-size: 40px;
+}
+
+.text--upper {
+    text-transform: uppercase;
+}
+
+.text--lower {
+    text-transform: lowercase;
+}
+
+.text--capitalize {
+    text-transform: capitalize;
+}
+
+.text--thin {
+    font-weight: 300;
+}
+
+.text--light {
+    font-weight: 400;
+}
+
+.text--regular {
+    font-weight: 500;
+}
+
+.text--semibold {
+    font-weight: 600;
+}
+
+.text--bold {
+    font-weight: 700;
+}
+
+.text--italic {
+    font-style: italic;
+}
+
+.text--ellipsis {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    &.text--ellipsis--single {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        display: block;
+    }
+    &.text--ellipsis--two {
+        -webkit-line-clamp: 2;
+    }
+    &.text--ellipsis--three {
+        -webkit-line-clamp: 3;
+    }
+    &.text--ellipsis--four {
+        -webkit-line-clamp: 4;
+    }
+    &.text--ellipsis--five {
+        -webkit-line-clamp: 5;
+    }
+}
+
+.noselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.nowrap {
+    white-space: nowrap;
+}
+
+.word--break {
+    word-wrap: break-word
+}
+
+.text--center {
+    text-align: center;
+}
+
+.text--left {
+    text-align: left;
+}
+
+.text--right {
+    text-align: right;
+}
+
+// ------------------------------------------------------------------
+// 3. SVG FILL
+.fill--white {
+    fill: @cswhite;
+}
+
+.fill--primary {
+    fill: @cs01;
+}
+
+.fill--secondary {
+    fill: @cs02;
+}
+
+.fill--dark {
+    fill: @csdark;
+}
+
+.fill--mutted {
+    fill: @csmutted;
+}
+
+.fill--mutteddark {
+    fill: @csdarkmutted;
+}
+
+.fill--cs03 {
+    fill: @cs03;
+}
+
+// ------------------------------------------------------------------
+// 4. INPUT CONTROLS
+.btn--clear {
+    border: 0;
+    cursor: pointer;
+    outline: none;
+    min-height: 10px;
+    letter-spacing: 0.5px;
+}
+
+.input--clear {
+    background-color: transparent;
+    border: 0;
+    outline: none;
+    padding: 0;
+}
+
+.input--header {
+    line-height: 20px;
+}
+
+// ------------------------------------------------------------------
+// 5. MARGINS
+.ma--center {
+    margin: 0 auto;
+}
+
+.ma-hor--auto {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.ma--sm {
+    margin: 5px;
+}
+
+.ma--md {
+    margin: 10px;
+}
+
+.ma--lg {
+    margin: 15px;
+}
+
+.ma--xl {
+    margin: 20px;
+}
+
+.ml--sm {
+    margin-left: 5px;
+}
+
+.ml--md {
+    margin-left: 10px;
+}
+
+.ml--lg {
+    margin-left: 15px;
+}
+
+.ml--xl {
+    margin-left: 20px;
+}
+
+.ml--xxl {
+    margin-left: 30px;
+}
+
+.ml--xxxl {
+    margin-left: 35px;
+}
+
+.mr--sm {
+    margin-right: 5px;
+}
+
+.mr--md {
+    margin-right: 10px;
+}
+
+.mr--lg {
+    margin-right: 15px;
+}
+
+.mr--xl {
+    margin-right: 20px;
+}
+
+.mr--xxl {
+    margin-right: 25px;
+}
+
+.mr--xxxl {
+    margin-right: 30px;
+}
+
+.mt--sm {
+    margin-top: 5px;
+}
+
+.mt--md {
+    margin-top: 10px;
+}
+
+.mt--lg {
+    margin-top: 15px;
+}
+
+.mt--xl {
+    margin-top: 20px;
+}
+
+.mt--xll {
+    margin-top: 25px;
+}
+
+.mt--xxl {
+    margin-top: 30px;
+}
+
+.mt--xxxl {
+    margin-top: 35px;
+}
+
+.mt--xxxxl {
+    margin-top: 40px;
+}
+
+.mb--sm {
+    margin-bottom: 5px;
+}
+
+.mb--md {
+    margin-bottom: 10px;
+}
+
+.mb--lg {
+    margin-bottom: 15px;
+}
+
+.mb--xl {
+    margin-bottom: 20px;
+}
+
+.mb--xxl {
+    margin-bottom: 25px;
+}
+
+.mb--xxxl {
+    margin-bottom: 30px;
+}
+
+// ------------------------------------------------------------------
+// 6. BG COLORS 
+.bg--transparent {
+    background-color: transparent;
+}
+
+.bg--white {
+    background-color: #ffffff;
+}
+
+.bg--dark {
+    background-color: @csdark;
+}
+
+.bg--mutted {
+    background-color: @csmutted;
+}
+
+.bg--cs01 {
+    background-color: @cs01;
+}
+
+.bg--cs02 {
+    background-color: @cs02;
+}
+
+.bg--cs03 {
+    background-color: @cs03;
+}
+
+.bg--cs04 {
+    background-color: @cs04;
+}
+
+.bg--cs05 {
+    background-color: @cs05;
+}
+
+.bg--cs06 {
+    background-color: @cs06;
+}
+
+.bg--cs07 {
+    background-color: @cs07;
+}
+
+.bg--cs08 {
+    background-color: @cs08;
+}
+
+.bg--cs09 {
+    background-color: @cs09;
+}
+
+.bg--cs10 {
+    background-color: @cs10;
+}
+
+.bg--cs11 {
+    background-color: @cs11;
+}
+
+.bg--cs12 {
+    background-color: @cs12;
+}
+
+.bg--cs13 {
+    background-color: @cs13;
+}
+
+.bg--cs14 {
+    background-color: @cs14;
+}
+
+.bg--cs16 {
+    background-color: @cs16;
+}
+
+.bg--cs17 {
+    background-color: @cs17;
+}
+
+.bg--cs18 {
+    background-color: @cs18;
+}
+
+// ------------------------------------------------------------------
+// 7. LINE-HEIGHTS 
+.lh--normal {
+    line-height: normal;
+}
+
+.lh--font {
+    line-height: 1;
+}
+
+.lh--sm {
+    line-height: 11px;
+}
+
+.lh--smd {
+    line-height: 15px;
+}
+
+.lh--md {
+    line-height: 20px;
+}
+
+.lh--lg {
+    line-height: 35px;
+}
+
+// ------------------------------------------------------------------
+// 8. PADDINGSL
+.pa--none {
+    padding: 0;
+}
+
+.pa--sm {
+    padding: 5px;
+}
+
+.pa--md {
+    padding: 10px;
+}
+
+.pa--lg {
+    padding: 15px;
+}
+
+.pa--xl {
+    padding: 20px;
+}
+
+.pa--xxl {
+    padding: 25px;
+}
+
+.pa--xxxl {
+    padding: 30px;
+}
+
+.pl--sm {
+    padding-left: 5px;
+}
+
+.pl--md {
+    padding-left: 10px;
+}
+
+.pl--lg {
+    padding-left: 15px;
+}
+
+.pl--xl {
+    padding-left: 20px;
+}
+
+.pl--xxl {
+    padding-left: 25px;
+}
+
+.pl--xxxl {
+    padding-left: 30px;
+}
+
+.pr--sm {
+    padding-right: 5px;
+}
+
+.pr--md {
+    padding-right: 10px;
+}
+
+.pr--lg {
+    padding-right: 15px;
+}
+
+.pr--xl {
+    padding-right: 20px;
+}
+
+.pr--xxl {
+    padding-right: 25px;
+}
+
+.pr--xxxl {
+    padding-right: 30px;
+}
+
+.pt--sm {
+    padding-top: 5px;
+}
+
+.pt--md {
+    padding-top: 10px;
+}
+
+.pt--lg {
+    padding-top: 15px;
+}
+
+.pt--xl {
+    padding-top: 20px;
+}
+
+.pt--xxl {
+    padding-top: 25px;
+}
+
+.pt--xxxl {
+    padding-top: 30px;
+}
+
+.pt--xxxxl {
+    padding-top: 35px;
+}
+
+.pb--sm {
+    padding-bottom: 5px;
+}
+
+.pb--md {
+    padding-bottom: 10px;
+}
+
+.pb--lg {
+    padding-bottom: 15px;
+}
+
+.pb--xl {
+    padding-bottom: 20px;
+}
+
+.pb--xxl {
+    padding-bottom: 25px;
+}
+
+.pb--xxxl {
+    padding-bottom: 30px;
+}
+
+.pb--xxxxl {
+    padding-bottom: 35px;
+}
+
+// ------------------------------------------------------------------
+// 9. SIZE & GRID BEHIVORS
+.max--width {
+    width: 100%;
+}
+
+.max--height {
+    height: 100%;
+}
+
+.max {
+    width: 100%;
+    height: 100%;
+}
+
+.max--position {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.pos--top {
+    top: 0;
+}
+
+.pos--right {
+    right: 0;
+}
+
+.pos--bottom {
+    bottom: 0;
+}
+
+.pos--left {
+    left: 0;
+}
+
+.auto--height {
+    height: auto;
+}
+
+.auto--width {
+    width: auto;
+}
+
+.abs-pos--center {
+    .absolute;
+    margin: auto;
+    .max--position;
+}
+
+.abs-pos-v--center {
+    .absolute;
+    margin-top: auto;
+    margin-bottom: auto;
+    .max--position;
+}
+
+.abs-pos-h--center {
+    .absolute;
+    margin-right: auto;
+    margin-left: auto;
+    .max--position;
+}
+
+.framed {
+    max-width: @Width;
+}
+
+.vertical--top {
+    vertical-align: top;
+}
+
+.vertical--bottom {
+    vertical-align: bottom;
+}
+
+.vertical--middle {
+    vertical-align: middle;
+}
+
+.vertical--textbottom {
+    vertical-align: text-bottom;
+}
+
+// ------------------------------------------------------------------
+// 10. BORDERS
+.ba--clear {
+    border: 0;
+}
+
+.br--clear {
+    border-right: 0;
+}
+
+.bl--clear {
+    border-left: 0;
+}
+
+.bt--clear {
+    border-top: 0;
+}
+
+.bb--clear {
+    border-bottom: 0;
+}
+
+.ba--solid( @borderColor: #000, @borderWidth: 1px) {
+    border-style: solid;
+    border-width: @borderWidth;
+    border-color: @borderColor;
+}
+
+.ba--mutted {
+    border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.br--mutted {
+    border-right: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.bl--mutted {
+    border-left: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.bt--mutted {
+    border-top: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.bb--mutted {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.ba--white {
+    border: 1px solid #ffffff;
+}
+
+.br--white {
+    border-right: 1px solid #ffffff;
+}
+
+.bl--white {
+    border-left: 1px solid #ffffff;
+}
+
+.bt--white {
+    border-top: 1px solid #ffffff;
+}
+
+.bb--white(@bbsize: 1px) {
+    border-bottom: @bbsize solid #ffffff;
+}
+
+.ba--dark {
+    border: 1px solid rgba(0, 0, 0, 0.25);
+}
+
+.br--dark {
+    border-right: 1px solid rgba(0, 0, 0, 0.25);
+}
+
+.bl--dark {
+    border-left: 1px solid rgba(0, 0, 0, 0.25);
+}
+
+.bt--dark {
+    border-top: 1px solid rgba(0, 0, 0, 0.25);
+}
+
+.bb--dark {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+}
+
+.ba--primary {
+    border: 1px solid @cs01;
+}
+
+.br--primary {
+    border-right: 1px solid @cs01;
+}
+
+.bl--primary {
+    border-left: 1px solid @cs01;
+}
+
+.bt--primary {
+    border-top: 1px solid @cs01;
+}
+
+.bb--primary {
+    border-bottom: 1px solid @cs01;
+}
+
+.ba--secondary {
+    border: 1px solid @cs02;
+}
+
+.br--secondary {
+    border-right: 1px solid @cs02;
+}
+
+.bl--secondary {
+    border-left: 1px solid @cs02;
+}
+
+.bt--secondary {
+    border-top: 1px solid @cs02;
+}
+
+.bb--secondary {
+    border-bottom: 1px solid @cs02;
+}
+
+// ------------------------------------------------------------------
+// 11. POSITIONS
+.relative {
+    position: relative;
+}
+
+.absolute {
+    position: absolute;
+}
+
+.fixed {
+    position: fixed;
+}
+
+// ------------------------------------------------------------------
+// 12. COLUMNS
+.columns {
+    &.columns--gap--sm {
+        -webkit-column-gap: 10px;
+        -moz-column-gap: 10px;
+        column-gap: 10px;
+    }
+    &.columns--gap--md {
+        -webkit-column-gap: 15px;
+        -moz-column-gap: 15px;
+        column-gap: 15px;
+    }
+    &.columns--gap--lg {
+        -webkit-column-gap: 20px;
+        -moz-column-gap: 20px;
+        column-gap: 20px;
+    }
+    &.columns--gap--xl {
+        -webkit-column-gap: 30px;
+        -moz-column-gap: 30px;
+        column-gap: 30px;
+    }
+    &.columns--gap--xxl {
+        -webkit-column-gap: 1210px;
+        -moz-column-gap: 1210px;
+        column-gap: 1210px;
+    }
+    &&.columns--ruller--mutted {
+        -webkit-column-rule: 1px solid rgba(255, 255, 255, 0.25);
+        -moz-column-rule: 1px solid rgba(255, 255, 255, 0.25);
+        column-rule: 1px solid rgba(255, 255, 255, 0.25);
+    }
+    &.columns--1 {
+        -webkit-column-count: 1;
+        -moz-column-count: 1;
+        column-count: 1;
+    }
+    &.columns--2 {
+        -webkit-column-count: 2;
+        -moz-column-count: 2;
+        column-count: 2;
+    }
+    &.columns--3 {
+        -webkit-column-count: 3;
+        -moz-column-count: 3;
+        column-count: 3;
+    }
+    &.columns--4 {
+        -webkit-column-count: 4;
+        -moz-column-count: 4;
+        column-count: 4;
+    }
+    &.columns--5 {
+        -webkit-column-count: 5;
+        -moz-column-count: 5;
+        column-count: 5;
+    }
+    &.columns--6 {
+        -webkit-column-count: 6;
+        -moz-column-count: 6;
+        column-count: 6;
+    }
+    &.columns--7 {
+        -webkit-column-count: 7;
+        -moz-column-count: 7;
+        column-count: 7;
+    }
+    &.columns--8 {
+        -webkit-column-count: 8;
+        -moz-column-count: 8;
+        column-count: 8;
+    }
+    &.columns--9 {
+        -webkit-column-count: 9;
+        -moz-column-count: 9;
+        column-count: 9;
+    }
+    &.columns--10 {
+        -webkit-column-count: 10;
+        -moz-column-count: 10;
+        column-count: 10;
+    }
+}
+
+.no--break {
+    -webkit-column-break-inside: avoid;
+    page-break-inside: avoid;
+    break-inside: avoid;
+}
+
+// ------------------------------------------------------------------
+// 13. OVERFLOWS
+.overflow--auto {
+    overflow: auto;
+}
+
+.overflow-y--auto {
+    overflow-y: auto;
+}
+
+.overflow-x--auto {
+    overflow-x: auto;
+}
+
+.overflow--hidden {
+    overflow: hidden;
+}
+
+// ------------------------------------------------------------------
+// 14. MISC
+.pointer {
+    cursor: pointer;
+}
+
+.zindex--negative {
+    z-index: -1;
+}
+
+// SOLID BOTTOM BORDER FOR NAVIGATION LINE
+.activeTabBorder(@tabBorderWidth, @tabBorderColor, @tabHeight, @bgColor) {
+    border: @tabBorderWidth solid @tabBorderColor;
+    height: @tabHeight + @tabBorderWidth;
+    margin-bottom: -@tabBorderWidth;
+    border-bottom: (@tabBorderWidth + 1) solid @bgColor;
+}

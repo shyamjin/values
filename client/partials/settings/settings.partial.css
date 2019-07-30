@@ -1,0 +1,6 @@
+.vp-setting .vp-setting__navaside {
+  z-index: 200;
+}
+.vp-setting .vp-setting__content {
+  z-index: 100;
+}

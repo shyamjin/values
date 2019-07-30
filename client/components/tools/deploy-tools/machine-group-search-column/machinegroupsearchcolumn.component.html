@@ -1,0 +1,58 @@
+<!--MACHINES SEARCH COLUMN COMPONENT START-->
+<div class="vp-machinessearch vp-search bg--white max--width">
+    <span class="vp-search__topborder block"></span>
+    <div class="vp-search__searchboxwrap pt--md pr--md pl--md">
+        <!--SEARCH FIELD (MODIFIERS: # vp-search__searchbox--drop)-->
+        <div class="vp-search__searchbox vp-uielement__searchbox relative">
+            <div class="vp-search__searchautocomplete bg--cs06 absolute hidden" ng-include="'static/components/tools/deploy-tools/search-autocomplete/searchautocomplete.component.html'"></div>
+            <form id="vp-search__searchform vp-uielement__searchform">
+                <!--SEARCH INPUT TEXT-->
+                <input class="vp-search__searchinput vp-uielement__searchinput" name="searchMachine" ng-model="searchMachineGroupKeyword" type="text" placeholder="Find a machine group" />
+                <!--SEARCH INPUT SUBMIT BUTON-->
+                <!--<button class="vp-search__searchbtn vp-uielementt__searchbtn" type="button"></button>-->
+            </form>
+            <!--SEARCH HINT-->
+            <span class="vp-search__hint vp-uielement__hint">Use the group name</span>
+        </div>
+    </div>
+    <div class="vp-search__listwrapper max--width">
+        <ul class="vp-search__list max--width">
+
+            <!--ITEM EXAMPLE (MODIFIERS: # vp-search__item--test # vp-search__item--prod # vp-search__item--selected )-->
+            <li class="vp-search__item" ng-repeat="group in machineGroups | filter:searchMachineGroupKeyword" ng-class="setMachineTypeCSS(machine.machine_type, group._id.$oid)">
+                <div class="vp-search__iteminner pl--xxxl text--regular text--md relative clearfix">
+                    <div class="vp-search__itemdescriptionwrap pt--sm pb--sm word--break left">
+                        <span class="vp-search__itemdescription text--cs03">{{group.group_name}}</span>
+                    </div>
+                    <div class="vp-search__statusiconwrap inblock absolute pos--right" ng-if="group.status==='0'">
+                        <!--STATUS ICON (MODIFIERS: # vp-uielement__versionstate--inactive # vp-uielement__versionstate--active)-->
+                        <span class="vp-search__statusicon vp-uielement__versionstate--inactive inblock mt--lg mr--md"></span>
+                    </div>
+                    <div class="vp-search__statusiconwrap inblock absolute pos--right" ng-if="group.status==='1'">
+                        <!--STATUS ICON (MODIFIERS: # vp-uielement__versionstate--inactive # vp-uielement__versionstate--active)-->
+                        <span class="vp-search__statusicon vp-uielement__versionstate--active inblock mt--lg mr--md"></span>
+                    </div>
+                    <div class="vp-search__itembtnwrap pointer relative right relative hidden" ng-if="toolsSelectedToDeploy.length === 1">
+                        <span class="vp-search__itembtn bg--cs07 text--center text--cs06 text--regular text--md absolute" ng-click="selectMachineGroup(group._id.$oid, selectedTool.tool_name, 'current')">Select</span>
+                    </div>
+                    <div class="vp-search__itembtnwrap pointer relative right relative hidden" ng-if="duSelectedToDeploy.length === 1">
+                        <span class="vp-search__itembtn bg--cs07 text--center text--cs06 text--regular text--md absolute" ng-click="selectMachineGroup(group._id.$oid, selectedDU, 'current')">Select</span>
+                    </div>
+                    <div class="vp-search__itembtnwrap pointer relative right relative hidden" ng-if="toolsSelectedToDeploy.length>1">
+                        <span class="vp-search__itembtn_multi bg--cs05 text--center text--cs06 text--regular text--md absolute" ng-click="selectMachineGroup(group._id.$oid, selectedTool.tool_name, 'current')">Select for this entity</span>
+                    </div>
+                    <div class="vp-search__itembtnwrap pointer relative right relative hidden" ng-if="duSelectedToDeploy.length>1">
+                        <span class="vp-search__itembtn_multi bg--cs05 text--center text--cs06 text--regular text--md absolute" ng-click="selectMachineGroup(group._id.$oid, selectedDU, 'current')">Select for this entity</span>
+                    </div>
+                    <div class="vp-search__itembtnwrap pointer relative right relative hidden" ng-if="toolsSelectedToDeploy.length>1">
+                        <span class="vp-search__itembtn_multi bg--cs07 text--center text--cs06 text--regular text--md absolute" ng-click="selectMachineGroup(group._id.$oid, selectedTool.tool_name, 'all')">Select for all entities</span>
+                    </div>
+                    <div class="vp-search__itembtnwrap pointer relative right relative hidden" ng-if="duSelectedToDeploy.length>1">
+                        <span class="vp-search__itembtn_multi bg--cs07 text--center text--cs06 text--regular text--md absolute" ng-click="selectMachineGroup(group._id.$oid, selectedDU.du_name, 'all')">Select for all entities</span>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<!---MACHINES SEARCH COLUMN COMPONENT END-->

@@ -1,0 +1,320 @@
+<!--MACHINE DETAILS VERTICAL TAB CONTENT COMPONENT START-->
+<div class="vp-machdetails vp-control pt--xxxl pr--xl pb--xxxl pl--xxxl bg--white clearfix max">
+    <form name="editMachineForm">
+    <ul class="vp-machdetails__fieldslist text--cs03">
+        <!--IP FIELD ROW-->
+       <li class="vp-machdetails__fielditem vp-machdetails__ipitem">
+           <div class="vp-machdetails__fielditeminner">
+                        <!--IP FIELD LABEL-->
+               <div class="vp-machdetails__fieldlabelwrap inblock">
+                   <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Machine ID:</label>
+               </div>
+                        <!--IP FIELD CONTENT-->
+               <div class="vp-machdetails__fieldcontent inblock">
+                   <div class="vp-machdetails__fieldipwrap inblock">
+                       <span class="vp-machdetails__fieldip text--regular text--lg text--ellipsis text--ellipsis--single">{{Machine.data._id.$oid}}</span>
+                   </div>
+               </div>
+           </div>
+       </li>
+        <li class="vp-machdetails__fielditem vp-machdetails__ipitem mt--xl">
+            <div class="vp-machdetails__fielditeminner">
+                <!--IP FIELD LABEL-->
+                <div class="vp-machdetails__fieldlabelwrap inblock">
+                    <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Machine Name<span class="vp-createnewmachform__fieldrequire">*</span>:</label>
+                </div>
+                <!--IP FIELD CONTENT-->
+                <div class="vp-machdetails__fieldcontent inblock">
+                    <div class="vp-machdetails__fieldipwrap inblock">
+                        <input type="text" id="machine_name" class="vp-machdetails__fieldip text--regular text--lg text--ellipsis text--ellipsis--single ba--primary" ng-model="Machine.data.machine_name" name="machine_name" required>
+                    </div>
+                </div>
+            </div>
+            <h5 class="validation_msg_machine" ng-show="editMachineForm.ip.$errors.required">Please enter valid ip</h5>
+        </li>
+        <li class="vp-machdetails__fielditem vp-machdetails__ipitem mt--xl">
+            <div class="vp-machdetails__fielditeminner">
+                <!--IP FIELD LABEL-->
+                <div class="vp-machdetails__fieldlabelwrap inblock">
+                    <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">IP<span class="vp-createnewmachform__fieldrequire">*</span>:</label>
+                </div>
+                <!--IP FIELD CONTENT-->
+                <div class="vp-machdetails__fieldcontent inblock">
+                    <div class="vp-machdetails__fieldipwrap inblock">
+                        <input type="text" id="edit_ip" class="vp-machdetails__fieldip text--regular text--lg text--ellipsis text--ellipsis--single ba--primary" ng-model="Machine.data.ip" name="ip" ng-readonly="edit_ip" required>
+                        <span class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single" style="margin-top: -20px; margin-left: 185px;">e.g. 192.0.0.1</span>
+                    </div>
+                </div>
+            </div>
+            <h5 class="validation_msg_machine" ng-show="editMachineForm.ip.$errors.required">Please enter valid ip</h5>
+        </li>
+        <!--<h5 class="validation_msg_tool_set" ng-show="editMachineForm.ip.$error.required">Please enter ip!</h5>-->
+        <!--TYPES FIELD ROW-->
+        <li class="vp-machdetails__fielditem vp-machdetails__typesitem mt--xl">
+            <!--TYPES FIELD LABEL-->
+            <div class="vp-machdetails__fieldlabelwrap inblock">
+                <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Types<span class="vp-createnewmachform__fieldrequire">*</span>:</label>
+            </div>
+            <!--TYPES FIELD CONTENT-->
+            <div class="vp-machdetails__fieldcontent inblock">
+                <div class="vp-createnewmachform__fieldcontent vp-createnewmachform__typescontent inblock">
+                    <div class="vp-machdetails__tunnelinglabelinputwrap vp-machdetails__tunnelingcolumn pr--md left">
+                        <select name="vp-versionform__dropdownlist1" id="dropdown_{{$index}}" ng-model="Machine.data.machine_type" class="vp-userform__dropdownlist dropdown_auth_type vp-uielement__select" style="width: 180px;">
+                            <option ng-repeat="machineType in types" value="{{machineType._id.$oid}}">{{machineType.type}}</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="vp-machdetails__connectionfielditem vp-machdetails__connectionhost mt--xl">
+            <div class="vp-machdetails__fieldlabelwrap inblock">
+                <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Host<span class="vp-createnewmachform__fieldrequire">*</span>:</label>
+            </div>
+            <!--HOST FIELD CONTENT-->
+            <div class="vp-machdetails__fieldcontent inblock">
+                <div class="vp-machdetails__fieldtypewrap vp-machdetails__editablewrap inblock">
+                    <input type="text" id="edit_host" class="vp-machdetails__fieldip text--regular text--lg text--ellipsis text--ellipsis--single ba--primary" ng-model="Machine.data.host" name="host" ng-readonly="edit_host" required>
+                    <span class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single" style="margin-top: -20px; margin-left: 185px;">e.g. illin1234</span>
+                </div>
+                <!--<button type="button" class="vp-machdetails__hosteditbtn vp-uielement__button vp-uielement__button&#45;&#45;edit ml&#45;&#45;md" title="edit"></button>-->
+            </div>
+        </li>
+        <!--PORT-->
+        <li class="vp-machdetails__connectionfielditem vp-machdetails__connectionhost mt--xl">
+            <div class="vp-machdetails__fieldlabelwrap inblock">
+                <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Port<span class="vp-createnewmachform__fieldrequire">*</span>:</label>
+            </div>
+            <!--HOST FIELD CONTENT-->
+            <div class="vp-machdetails__fieldcontent inblock">
+                <div class="vp-machdetails__fieldtypewrap vp-machdetails__editablewrap inblock">
+                    <input type="number" id="edit_port" class="vp-machdetails__fieldip text--regular text--lg text--ellipsis text--ellipsis--single ba--primary" ng-model="Machine.data.port" name="port" ng-readonly="edit_host" required>
+                </div>
+                <!--<button type="button" class="vp-machdetails__hosteditbtn vp-uielement__button vp-uielement__button&#45;&#45;edit ml&#45;&#45;md" title="edit"></button>-->
+            </div>
+        </li>
+        <!--USER NAME ITEM-->
+        <li class="vp-machdetails__connectionfielditem vp-machdetails__connectionusername mt--xl">
+            <div class="vp-machdetails__fieldlabelwrap inblock">
+                <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">User name<span class="vp-createnewmachform__fieldrequire">*</span>:</label>
+            </div>
+            <!--USER NAME FIELD CONTENT-->
+            <div class="vp-machdetails__fieldcontent inblock">
+                <div class="vp-machdetails__fieldtypewrap vp-machdetails__editablewrap inblock">
+                    <input type="text" id="edit_user" class="vp-machdetails__fieldip text--regular text--lg text--ellipsis text--ellipsis--single ba--primary" ng-model="Machine.data.username" name="user" ng-readonly="edit_user" required>
+                </div>
+                <!--EDIT BUTTON-->
+                <!--<button type="button" class="vp-machdetails__usernameeditbtn vp-uielement__button vp-uielement__button&#45;&#45;edit ml&#45;&#45;md" title="edit"></button>-->
+            </div>
+        </li>
+        <!--SHELL TYPE ITEM-->
+        <li class="vp-machdetails__connectionfielditem vp-machdetails__connectionusername mt--xl">
+            <div class="vp-machdetails__fieldlabelwrap inblock">
+                <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Authenticate using:</label>
+            </div>
+            <!--SHELL TYPE FIELD CONTENT-->
+            <div class="vp-machdetails__fieldcontent inblock">
+                <div class="vp-machdetails__tunnelinglabelinputwrap vp-machdetails__tunnelingcolumn pr--md left">
+                    <select id="authenticate_using_{{$index}}" name="authenticate_using" class="vp-userform__dropdownlist dropdown_auth_type vp-uielement__select" ng-model="Machine.data.auth_type" style="width: 180px;">
+                        <option value="password">password</option>
+                        <option value="ssh">ssh keys</option>
+                    </select>
+                </div>
+            </div>
+        </li>
+        <!--PWD ITEM-->
+        <li class="vp-machdetails__connectionfielditem vp-machdetails__connectionpwd mt--xl" ng-if="Machine.data.auth_type==='password'">
+            <div class="vp-machdetails__fieldlabelwrap inblock">
+                <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">PWD<span class="vp-createnewmachform__fieldrequire">*</span>:</label>
+            </div>
+            <!--PWD FIELD CONTENT-->
+            <div class="vp-machdetails__fieldcontent ma--none inblock">
+                <div class="vp-machdetails__fieldtypewrap vp-machdetails__editablewrap inblock">
+                    <button type="button" class="vp-machdetails__ipeditbtn vp-uielement__button vp-uielement__button--cleanenabled pa--none" title="" ng-click="showEditPassword()">Change password</button>
+                </div>
+            </div>
+        </li>
+        <!--SHELL TYPE ITEM-->
+        <li class="vp-machdetails__connectionfielditem vp-machdetails__connectionusername mt--xl">
+            <div class="vp-machdetails__fieldlabelwrap inblock">
+                <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Shell type:</label>
+            </div>
+            <!--SHELL TYPE FIELD CONTENT-->
+            <div class="vp-machdetails__fieldcontent inblock">
+                <div class="vp-machdetails__tunnelinglabelinputwrap vp-machdetails__tunnelingcolumn pr--md left">
+                    <select id="shell_type_{{$index}}" name="vp-shell_type" class="vp-userform__dropdownlist dropdown_auth_type vp-uielement__select" ng-model="Machine.data.shell_type" style="width: 180px;">
+                        <option value="">Not required</option>
+                        <option value="{{type}}" ng-repeat="type in shell_type ">{{type}}</option>
+                    </select>
+                </div>
+            </div>
+        </li>
+        <!--RELOAD COMMAND ITEM-->
+        <li class="vp-machdetails__connectionfielditem vp-machdetails__connectionusername mt--xl">
+            <div class="vp-machdetails__fieldlabelwrap inblock">
+                <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Reload command:</label>
+            </div>
+            <!--USER NAME FIELD CONTENT-->
+            <div class="vp-machdetails__fieldcontent inblock">
+                <div class="vp-machdetails__tunnelinglabelinputwrap vp-machdetails__tunnelingcolumn pr--md left">
+                    <select id="reload_command_{{$index}}" name="vp-reload_command" class="vp-userform__dropdownlist dropdown_auth_type vp-uielement__select" ng-model="Machine.data.reload_command" style="width: 180px;">
+                        <option value="">Not required</option>
+                        <option value="{{command}}" ng-repeat="command in reload_commands ">{{command}}</option>
+                    </select>
+                </div>
+            </div>
+        </li>
+        <!--CONNECTION FIELD ROW-->
+        <li class="vp-machdetails__fielditem vp-machdetails__connectionitem mt--xl max--width">
+            <!--CONNECTION FIELD LABEL-->
+            <div class="vp-machdetails__fieldlabelwrap vertical--bottom inblock">
+                <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Connection:</label>
+            </div>
+            <!--TYPE FIELD CONTENT-->
+            <div class="vp-machdetails__fieldcontent inblock">
+                <div class="vp-machdetails__fieldconnectionwrap inblock">
+                    <div class="vp-uielement__checkbox vp-machdetails__tunnelingcheckbox inblock">
+                        <input type="checkbox" id="vp-machdetails__tunnelingcheckbox" ng-model="Machine.data.tunneling_flag" name=" vp-machdetails__tunnelingcheckbox" />
+                        <label for="vp-machdetails__tunnelingcheckbox"></label>
+                    </div>
+                    <label for="vp-machdetails__tunnelingcheckbox" class="vp-machdetails__fieldconnection text--regular text--lg ml--sm vertical--bottom">enable tunneling</label>
+                </div>
+            </div>
+            <!--CONNECTION SUB LIST-->
+            <ul class="vp-machdetails__connectionfieldlist pl--xl max--width" ng-if="Machine.data.tunneling_flag === true">
+                <li class="vp-machdetails__connectionfielditem vp-machdetails__connectiontunneling mt--xl max--width">
+                    <div class="vp-machdetails__fieldlabelwrap inblock">
+                        <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Tunneling:</label>
+                    </div>
+                    <!--TUNNELING FIELD CONTENT-->
+                    <div class="vp-machdetails__tunnelingcontent max--width mt--xl">
+                        <!--COLUMN LABELS-->
+                        <div class="vp-machdetails__tunnelinglabelwrap text--light text--md clearfix">
+                            <span class="vp-machdetails__tunnelingcolumn pl--md left">Auth Type</span>
+                            <span class="vp-machdetails__tunnelingcolumn pl--md left">Host</span>
+                            <span class="vp-machdetails__tunnelingcolumn pl--md left">Port</span>
+                            <span class="vp-machdetails__tunnelingcolumn pl--md left">User</span>
+                            <span class="vp-machdetails__tunnelingcolumn pl--md left">Password</span>
+                        </div>
+                        <hr class="vp-machdetails__tunnelingseparator ba--clear bg--cs09 mt--sm">
+                        <!--TUNNELING INPUTS-->
+                        <div class="vp-machdetails__tunnelinginputswrap mt--sm">
+                            <ul class="vp-machdetails__tunnelinginputslist">
+                                <!--TUNNELING INPUTS ROW EXAMPLE-->
+                                <li class="vp-machdetails__tunnelingitem mt--lg clearfix" ng-repeat="step in steps_in_push track by $index">
+                                    <form action="#" name="vp-machdetails__tunnelingrow">
+                                        <!--TUNNELING LABEL INPUT-->
+                                        <div class="vp-machdetails__tunnelinglabelinputwrap vp-machdetails__tunnelingcolumn pr--md left">
+                                            <select id="auth_type_{{$index}}" name="vp-userform__dropdownlist" class="vp-userform__dropdownlist dropdown_auth_type vp-uielement__select" ng-model="step.type" style="width: 120px;">
+                                                <option value="">--Select Auth Type--</option>
+                                                <option  name="vp-userform__account_dropdownlistoption_{{$index}}"  ng-repeat="type in auth_types_push ">{{type}}</option>
+                                          </select>
+                                        </div>
+                                        <!--TUNNELING HOST INPUT-->
+                                        <div class="vp-machdetails__tunnelinghostinputwrap vp-machdetails__tunnelingcolumn pr--md left">
+                                            <input id="auth_host_{{$index}}" type="text" class="vp-machdetails__tunnelinghost input--clear max--width" name="vp-machdetails__tunnelinghost" name="auth_host" ng-model="step.host" required>
+                                        </div>
+                                        <!--TUNNELING PORT INPUT-->
+                                        <div class="vp-machdetails__tunnelinghostinputwrap vp-machdetails__tunnelingcolumn pr--md left">
+                                            <input id="auth_port_{{$index}}" type="number" class="vp-machdetails__tunnelinghost input--clear max--width" name="vp-machdetails__tunnelinghost" name="auth_port" ng-model="step.port" ng-disabled="step.type==='Telnet'" required>
+                                        </div>
+                                        <!--TUNNELING USER INPUT-->
+                                        <div class="vp-machdetails__tunnelinguserinputwrap vp-machdetails__tunnelingcolumn pr--md left">
+                                            <input id="auth_user_{{$index}}" type="text" class="vp-machdetails__tunnelinguser input--clear max--width" name="vp-machdetails__tunnelinguser" name="auth_user" ng-model="step.username" required>
+                                        </div>
+                                        <!--TUNNELING PASSWORD INPUT-->
+                                        <div class="vp-machdetails__tunnelingpassinputwrap vp-machdetails__tunnelingcolumn pr--md left">
+                                            <input id="auth_password_{{$index}}" type="password" class="vp-machdetails__tunnelingpass input--clear max--width" name="vp-machdetails__tunnelingpass" name="auth_password" ng-model="step.password" required>
+                                        </div>
+                                        <!--REMOVE BUTTON-->
+                                        <button type="button" class="vp-machdetails__removebtn vp-uielement__button vp-uielement__button--removeenabled right" ng-click="removeStep($index)"></button>
+                                        <!--SAVE AND CHECK BUTTON-->
+                                        <button type="button" class="vp-machdetails__savecheckbtn vp-uielement__button vp-uielement__button--cleanenabled vertical--top right"></button>
+                                    </form>
+                                </li>
+                            </ul>
+                            <div>
+                                <button type="button" class="vp-machdetails__addhostbtn vp-uielement__button vp-uielement__button--cleanenabled mt--sm pa--none" ng-click="addNewStep()">+ Add a host</button>
+                                <!--CONNECTION TEST NOTIFICATION (MODIFIERS: # vp-machdetails__teststatusnotification--success # vp-machdetails__teststatusnotification--fail )-->
+                                <!--<span class="vp-machdetails__teststatusnotification vp-machdetails__teststatusnotification&#45;&#45;success right mt&#45;&#45;md  text&#45;&#45;regular text&#45;&#45;lg" ng-if="machineConnectionMessage">{{machineConnectionMessage}}</span>-->
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <div class="vp-createnewmachform__connectioncheckblock mt--md">
+                <button type="button" class="vp-createnewmachform__connectbtn vp-uielement__button vp-uielement__button--connect text--regular text--md mt--sm text--cs07"><span class="ml--lg" ng-click="testConnection(editMachineForm)">Check connection</span></button>
+                <!--CONNECTION TEST NOTIFICATION (MODIFIERS: # vp-createnewmachform__teststatusnotification--success # vp-createnewmachform__teststatusnotification--fail )-->
+                <span ng-if="machineConnectionMessage.result==='success'" class="vp-createnewmachform__teststatusnotification vp-createnewmachform__teststatusnotification--success mt--md ml--xxl text--regular text--lg">{{machineConnectionMessage.message}}</span>
+                <span ng-if="machineConnectionMessage.result==='failed'" class="vp-createnewmachform__teststatusnotification vp-createnewmachform__teststatusnotification--fail mt--md ml--xxl text--regular text--lg">{{machineConnectionMessage.message}}</span>
+            </div>
+        </li>
+        <li class="vp-machdetails__fielditem vp-machdetails__connectionitem mt--xl max--width">
+            <!--CONNECTION FIELD LABEL-->
+            <div class="vp-machdetails__fieldlabelwrap vertical--bottom inblock">
+                <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Tags:</label>
+            </div>
+            <div class="vp-machdetails__fieldcontent inblock">
+                <div class="vp-machdetails__fieldtypewrap vp-machdetails__editablewrap inblock set_margin_rad">
+                    <div class="vp-createnewmachform__fieldcontent vp-createnewmachform__userscontent inblock">
+                        <ul class="vp-createnewmachform__userslist clearfix">
+                            <!--USER ROW EXAMPLE-->
+                            <li class="vp-createnewmachform__useritem mt--sm mr--md left" ng-repeat="tag in Machine.data.tag track by $index">
+                                <div class="vp-createnewmachform__useriteminner text--regular text--lg text--cs03 nowrap">
+                                    <div class="vp-createnewmachform__userinfowrap inblock">
+                                        <span class="vp-createnewmachform__userinfo text--ellipsis text--ellipsis--single">{{tag}}</span>
+                                    </div>
+                                    <div class="vp-createnewmachform__userremovebtnwrap vertical--top inblock">
+                                        <button type="button" class="vp-createnewmachform__userremovebtn vp-uielement__button vp-uielement__button--smallclose vertical--middle pa--none ml--sm" ng-click="removeTag(tag)"></button>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="vp-createnewmachform__addusersbuttonitem mt--sm mr--md pa--none left">
+                                <div class="vp-createnewmachform__addusersbuttoniteminner inblock">
+                                    <button type="button" class="vp-uielement__button vp-uielement__button--cleanenabled"><span class="vertical--middle" ng-click="showAddTag()">+Add tags</span></button>
+                                </div>
+                                <div id="add_tag" class="vp-versionform__addcertifieditembtnpopup hidden" ng-include="'static/components/machines/machine-details-content/addtagspopup.component.html'"></div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="vp-userform__fielditem vp-userform__roleitem pt--lg" style="margin-top: 40px;">
+            <div class="vp-versionform vp-component bg--white max--width">
+                <div class="vp-userform__fielditeminner">
+                    <div class="vertical--top inblock">
+                        <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Flexible Attributes:</label>
+                    </div>
+                    <flexible-attributes entity="Machine" fa-name-value-map="faNameValueMap" on-fa-load="faDefLoaded(faDef)"/>
+                </div>
+            </div>
+        </li>
+        <li class="vp-userform__fielditem vp-userform__roleitem pt--lg" style="margin-top: 40px;">
+            <div class="vp-versionform vp-component bg--white max--width">
+                <div class="vp-userform__fielditeminner">
+                    <!--'EMPLOYEE ID' FIELD LABEL-->
+                    <div class="vertical--top inblock">
+                        <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Environment Variables:</label>
+                    </div>
+                    <environment-variables env-vars="envVars"/>
+                </div>
+            </div>
+        </li>
+    </ul>
+    <div class="vp-machdetails__btnssectionblock mt--xxl right">
+        <div class="vp-machinetoolbar__createbtnwrap right">
+            <!--CREATE MACHINE BUTTON (MODIFIERS: # vp-uielement__button--deploydisabled )-->
+            <button type="button" class="vp-machinetoolbar__createbtn vp-uielement__button vp-uielement__button--deployenabled pr--lg pl--lg" ng-click="editMachine(EditMachineForm)">Save changes</button>
+        </div>
+        <!--DISCARD CHANCHES BUTTON-->
+        <div class="vp-machinetoolbar__discardbtnwrap mr--xxxl left">
+            <button type="button" class="vp-machinetoolbar__discardbtn vp-uielement__button vp-uielement__button--cleanenabled" ng-click="discardMachineChanges()">Discard</button>
+            <button type="button" class="vp-machdetails__removemachinebtn vp-uielement__button vp-uielement__button--edittool pr--md pl--md ml--md" ng-if="isallowed['/machine/remove/:id']" ng-click="openDeleteMachineConfirmationPopup(Machine.data._id.$oid)">Remove this machine</button>
+        </div>
+    </div>
+    <div class="vp-userform__addsettingmodalwrap fixed max--position hidden" id="update_password">
+        <div class="vp-userform__addsettingmodal absolute" ng-include="'static/components/machines/popups/updatepassword-popup.component.html'"></div>
+    </div>
+    </form>
+</div>
+<!--MACHINE DETAILS VERTICAL TAB CONTENT COMPONENT END-->

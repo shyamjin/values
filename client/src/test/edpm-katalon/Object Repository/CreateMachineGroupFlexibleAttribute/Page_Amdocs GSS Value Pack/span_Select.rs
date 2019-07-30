@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+   <description></description>
+   <name>span_Select</name>
+   <tag></tag>
+   <elementGuidId>68f8c747-6cc0-4bf2-9920-c27a91221b60</elementGuidId>
+   <selectorMethod>BASIC</selectorMethod>
+   <useRalativeImagePath>false</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>tag</name>
+      <type>Main</type>
+      <value>span</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>class</name>
+      <type>Main</type>
+      <value>vp-search__itembtn bg--cs07 text--center text--cs06 text--regular text--md absolute</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>ng-click</name>
+      <type>Main</type>
+      <value>isFasSelected(fas)</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>text</name>
+      <type>Main</type>
+      <value>Select</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath</name>
+      <type>Main</type>
+      <value>/html[@class=&quot;ng-scope&quot;]/body[1]/div[@class=&quot;vp-app__deploytoolspage deployments-page max--height ng-scope&quot;]/div[@class=&quot;vp-distribution vp-deploytools max--height max--width ng-scope&quot;]/div[@class=&quot;vp-distribution__content max--height&quot;]/div[@class=&quot;vp-distribution__tabs left max--width ng-scope&quot;]/div[@class=&quot;vp-tabs vp-tabs--default vp-tabs--service vp-control relative max--width max--height clearfix ng-scope&quot;]/div[@class=&quot;vp-tabs__body overflow--auto left max--width&quot;]/div[@class=&quot;vp-tabs__servicetabcontent ng-scope&quot;]/div[@class=&quot;vp-userscont max relative ng-scope&quot;]/div[@class=&quot;vp-userscont__userssearch vertical--top inblock ng-scope&quot;]/div[@class=&quot;vp-userssearch vp-search bg--white max--width ng-scope&quot;]/div[@class=&quot;vp-search__listwrapper max--width&quot;]/ul[@class=&quot;vp-search__list max--width&quot;]/li[@class=&quot;vp-search__item ng-scope&quot;]/div[@class=&quot;vp-search__iteminner pl--xxxl text--regular text--md relative clearfix&quot;]/div[@class=&quot;vp-search__itembtnwrap pointer relative right relative hidden&quot;]/span[@class=&quot;vp-search__itembtn bg--cs07 text--center text--cs06 text--regular text--md absolute&quot;]</value>
+   </webElementProperties>
+</WebElementEntity>

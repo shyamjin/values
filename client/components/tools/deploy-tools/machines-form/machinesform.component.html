@@ -1,0 +1,143 @@
+<!--MACHINES-FORM COMPONENT START-->
+<!--MODIFIERS: # vp-machinesform--notification -->
+<div class="vp-machinesform vp-machinesform--notification vp-control bg--white max--width max--height" id="machine_form_{{tool.tool_name}}" ng-repeat="tool in toolsSelectedToDeploy">
+    <!--HEADER NOTIFICATION-->
+    <!--<div class="vp-machinesform__topmsgwrap hidden">-->
+        <!--<span class="vp-machinesform__topmsg ml&#45;&#45;md text&#45;&#45;cs05 text&#45;&#45;light text&#45;&#45;md">The machine cannot be found in the network</span>-->
+    <!--</div>-->
+    <div class="vp-machinesform__content max--width max--height" ng-repeat="machine in tool.requests" ng-if="tool.tool_name===selectedTool.tool_name && selectedMachine.machine_name===machine.machine_name">
+        <form id="deploy_tool_{{tool.tool_name}}_machine_{{machine.machine_name}}" name="deployReqForm" role="form">
+        <div class="vp-machinesform__toolbar">
+            <!--TOOLBAR LABEL-->
+            <label class="vp-machinesform__settingslabel text--cs03 text--light text--xxl">Tool settings:</label>
+            <!--RESTORE BUTTON-->
+            <button type="button" class="vp-machinesform__restorebtn vp-uielement__button vp-uielement__button--cleanenabled pa--none" ng-if="machine.isDefault===false" ng-click="restoreDefaultValues(selectedTool.tool_name, selectedMachine.machine_name)">Restore defaults</button>
+            <!--'COPY ALL' BUTTON WRAPPER (MODIFIERS: # vp-machinesform__copyallbtnwrap--wait # vp-machinesform__copyallbtnwrap--done)-->
+            <div class="vp-machinesform__copyallbtnwrap inblock" ng-class="checkIfCopied(machine.isCopiedToAllMachines)">
+                <!--'COPY TO ALL MACHINES' BUTTON-->
+                <button type="button" class="vp-machinesform__copyallbtn vp-uielement__button vp-uielement__button--cleanenabled pa--none text--regular text--md" ng-click="showCopySettingsAttention()" ng-disabled="request_type==='undeploy'">Copy to all machines</button>
+                <!--COPY ACTION STATE-->
+                <!--<div class="vp-attentionmodal hidden absolute" style="display:none;" ng-include="'static/components/tools/deploy-tools/attention-modal/attentionmodal.component.html'"></div>-->
+                <div class="vp-machinesform__copyallbtnstate vertical--middle ml--sm inblock" ng-if="machine.isCopiedToAllMachines && tool.requests.length>1"></div>
+            </div>
+        </div>
+        <!--FORM WRAPPER-->
+        <div class="vp-machinesform__formwrap max--width max--height">
+                <ul class="vp-machinesform__fieldslist mb--sm" ng-repeat="field in machine.tool_deployment_value" ng-disabled="request_type==='undeploy'"  ng-hide ="request_type==='undeploy'" >
+                    <!--FIELD WITH COPY OPTION EXAMPLE (MODIFIERS: # vp-machinesform__field--small # vp-machinesform__field--large # vp-machinesform__field--largecopy)-->
+                    <li class="vp-machinesform__field vp-machinesform__field--largecopy">
+                        <tooltip id="tooltip_{{$index}}"tooltips="" tooltip-template="{{field.tooltip}}" tooltip-side="top">
+                            <div class="vp-machinesform__fieldinner overflow--hidden">
+                            <div class="vp-machinesform__fieldlabelwrap text--right inblock">
+                                <label for="input_{{machine.machine_name}}_{{$index}}" class="vp-machinesform__fieldlabel text--ellipsis text--ellipsis--single text--cs03 text--light text--md" ng-class="setFieldTypeCSS('label', field.isFieldUploaded)">{{field.input_name.split('_').join(' ')}} <span class="mandatory" ng-if="field.is_mandatory===true || field.is_mandatory === 'true'">*</span>:</label>
+                            </div>
+                            <!--TEXT INPUT FIELD-->
+                            <div class="vp-machinesform__fieldinputwrap vertical--top pl--md inblock" ng-if="field.input_type==='text' || field.input_type==='email' || field.input_type==='password' ||  field.input_type==='number'">
+                                <input id="input_{{machine.machine_name}}_{{$index}}" class="vp-machinesform__fieldinput input--clear text--cs03 text--regular text--lg max--width" type="{{field.input_type}}" name="{{field.input_name}}_{{$index}}" ng-model="field.default_value" length="50" ng-required="{{field.is_mandatory}}" ng-disabled="request_type==='undeploy'" ng-class="setFieldTypeCSS('input', field.isFieldUploaded)">
+                            </div>
+                            <div class="vp-machinesform__fieldinputwrap vertical--top pl--md inblock" ng-if="field.input_type==='date'">
+                                <input id="input_date_{{machine.machine_name}}_{{$index}}" class="vp-machinesform__fieldinput input--clear text--cs03 text--regular text--lg max--width" type="date" name="{{field.input_name}}_{{$index}}" ng-model="field.default_value" ng-required="{{field.is_mandatory}}" ng-disabled="request_type==='undeploy'" ng-class="setFieldTypeCSS('input', field.isFieldUploaded)">
+                            </div>
+                            <div class="vp-machinesform__fieldinputwrap  vertical--top pl--md inblock" ng-if="field.input_type==='radio'">
+                                <!--RADIO BUTTON YES-->
+                                <div class="vp-machinesform__radiobtn vp-uielement__radiobtn"  data-ng-repeat="value in field.valid_values track by $index">
+                                    <input type="radio"  id="input_radio_{{machine.machine_name}}_{{$index}}_{{field.input_name}}_{{value}}"  ng-attr-name="{{value}}_{{$index}}_{{field.input_name}}" ng-required="{{field.is_mandatory}}" value="{{value}}" ng-model="field.default_value" ng-disabled="request_type==='undeploy'" ng-class="setFieldTypeCSS('input', field.isFieldUploaded)">
+                                    <label for="input_radio_{{machine.machine_name}}_{{$index}}_{{field.input_name}}_{{value}}" class="mr--xl"></label>
+                                    <label for="input_radio_{{machine.machine_name}}_{{$index}}_{{field.input_name}}_{{value}}" class="mr--xl"> {{value}}</label>
+                                </div>
+                            </div>
+                            <div class="vp-machinesform__fieldinputwrap  vertical--top pl--md inblock" ng-if="field.input_type==='checkbox'">
+                                <div class="vp-uielement__checkbox" data-ng-repeat="value in field.valid_values  track by $index">
+                                    <input id="input_check_{{machine.machine_name}}_{{$index}}_{{field.input_name}}_{{value}}" type="checkbox" name="{{valid_values[$index]}}_{{$index}}"  ng-required="{{field.is_mandatory}}" value="{{value}}" ng-model="field.selected_value[$index]" ng-disabled="request_type==='undeploy'" ng-class="setFieldTypeCSS('input', field.isFieldUploaded)" ng-checked="isFieldSelected(field.input_name, value)" ng-click="addToInputValue(field.input_name, value)"/>
+                                    <label for="input_check_{{machine.machine_name}}_{{$index}}_{{field.input_name}}_{{value}}" class="mr--xl"></label>
+                                    <label for="input_check_{{machine.machine_name}}_{{$index}}_{{field.input_name}}_{{value}}" class="mr--xl"><span>{{value}}</span></label>
+                                </div>
+                            </div>
+                            <div class="vp-machinesform__fieldinputwrap  vertical--top pl--md inblock" ng-if="field.input_type==='dropdown'">
+                                <select id="dropdown_{{$index}}" class="vp-versionform__dropdownlist vp-versionform__dropdownlist1 vp-uielement__select max--width" name="{{field.input_name}}" ng-model="field.default_value" ng-disabled="request_type==='undeploy'" ng-class="setFieldTypeCSS('input', field.isFieldUploaded)">
+                                    <option data-ng-repeat="value in field.valid_values track by $index" value="{{value}}">{{value}}</option>
+                                </select>
+                            </div>
+                            <div class="vp-machinesform__fieldbtnwrap vertical--top pr--xl pl--md hidden" ng-class="checkIfFieldCopied(field.isCopiedToAllMachines)" >
+                                <button type="button" class="vp-machinesform__fieldcopybtn vp-uielement__button vp-uielement__button--cleanenabled pa--none" ng-if="tool.requests.length>1" ng-click="copyfieldValueToAllMachines(selectedTool.tool_name, selectedMachine.machine_name, $index)" ng-disabled="request_type==='undeploy'">Copy to all machines</button>
+                                <div class="vp-machinesform__copytoallbtnstate vertical--middle ml--md inblock" ng-if="tool.requests.length>1"></div>
+                            </div>
+                        </div>
+                            <div class="error_msg" ng-if="field.input_type!=='checkbox'">
+                                <h5 class="validation_msg_deployment" ng-show="(field.is_mandatory===true || field.is_mandatory==='true') && (field.default_value==='' || field.default_value===undefined || field.default_value===null) && request_type!=='undeploy'">Please enter {{field.input_name}}</h5>
+                            </div>
+                            <div class="error_msg" ng-if="field.input_type==='checkbox'">
+                                <h5 class="validation_msg_deployment" ng-show="(field.is_mandatory===true || field.is_mandatory==='true') && (field.input_value.length === 0 || (!field.input_value))">Please select {{field.input_name}}</h5>
+                            </div>
+                        </tooltip>
+                    </li>
+                </ul>
+            </div>
+        </form>
+    </div>
+    <div class="vp-machinesform__content max--width max--height" ng-repeat="machine in tool.requests" ng-if="tool.tool_name===selectedTool.tool_name && selectedMachine.machine_name===machine.machine_name">
+        <div class="vp-machinesform__toolbar">
+            <label class="vp-machinesform__settingslabel text--cs03 text--light text--xxl">Warnings:</label>
+        </div>
+        <div class="vp-machinesform__formwrap max--width max--height" ng-if="request_type==='deploy'">
+            <label style="margin-right:10px;" ng-if="machine.is_build_already_deployed">This build is already installed on the machine, un-check the "Skip" checkbox if you want to force re-installation</label>
+            <!--<label style="margin-right:60px;" ng-if="!machine.is_build_already_deployed">This build not installed on the machine, please proceed.</label>-->
+        </div>
+        <div class="vp-machinesform__formwrap max--width max--height">
+            <ul class="vp-machinesform__fieldslist">
+                <li class="vp-machinesform__field vp-machinesform__field--largecopy">
+                    <div class="vp-machinesform__fieldinputwrap  vertical--top pl--md inblock">
+                    </div>
+                </li>
+            </ul>
+        </div>
+     </div>
+    <div class="vp-machinesform__content max--width max--height" ng-repeat="machine in tool.requests" ng-if="tool.tool_name===selectedTool.tool_name && selectedMachine.machine_name===machine.machine_name">
+        <div class="vp-machinesform__toolbar">
+            <label class="vp-machinesform__settingslabel text--cs03 text--light text--xxl">Additional settings:</label>
+        </div>
+        <div class="vp-machinesform__formwrap max--width max--height">
+            <ul class="vp-machinesform__fieldslist">
+                <li class="vp-machinesform__field vp-machinesform__field--largecopy">
+                    <div class="vp-machinesform__fieldinputwrap  vertical--top pl--md inblock">
+                        <div class="vp-uielement__checkbox">
+                            <input id="input_check_warning_flag_{{$index}}" type="checkbox" name="warning_flag" ng-model="machine.warning_flag"/>
+                            <label for="input_check_warning_flag_{{$index}}" style="margin-right:60px;"><span>Ignore Warnings: </span></label>
+                        </div>
+                    </div>
+                    <div class="vp-machinesform__fieldinputwrap  vertical--top pl--md inblock" ng-if="machine.is_build_already_deployed">
+                         <div class="vp-uielement__checkbox inblock">
+                            <input id="input_check_skip_already_flag_{{$index}}" type="checkbox" name="skip_already_flag" ng-model="machine.skip_deployment"/>
+                            <label for="input_check_skip_already_flag_{{$index}}" style="margin-right:60px;"><span>Skip If Already Deployed: </span></label>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="vp-machinesform__content max--width max--height" ng-repeat="machine in tool.requests" ng-if="tool.tool_name===selectedTool.tool_name && selectedMachine.machine_name===machine.machine_name">
+        <div class="vp-machinesform__toolbar">
+            <label class="vp-machinesform__settingslabel text--cs03 text--light text--xxl">Upload deployment fields from file:</label>
+        </div>
+         <div class="vp-machinesform__formwrap max--width max--height" ng-if="request_type==='deploy' || request_type==='redeploy' || request_type==='revert' || request_type==='upgrade'">
+            <ul class="vp-machinesform__fieldslist">
+                <li class="vp-machinesform__field">
+                     <div class="vp-machinesform__fieldinner overflow--hidden">
+                         <div class="vp-machinesform__fieldinputwrap vertical--top pl--md inblock">
+                             <form name="importForm" ng-controller="DeployToolController" enctype = "multipart/form-data" ng-submit="uploadDeploymentFields(selectedTool.tool_name, machine.machine_name)">
+                             <button class="file-upload">
+                                <input type="file" class="file-input" upload-model="fileToImport"/>File
+                            </button>
+                            <input type="text" class="vp-importfileload__browsebtn vp-uielement__button vp-uielement__button--edittool ml--md" style="min-width: 270px;text-align: center;"  ng-model="importFileSelected" name="importFile"  ng-disabled=true />
+                             <div class="vp-dttoolbar__submitefordeploymentwrap right">
+			                    <button type="submit" class="vp-dttoolbar__submitefordeploymentbtn vp-uielement__button vp-uielement__button--deployenabled pr--lg pl--lg vertical--middle ml--xl">Upload</button>
+			                    <a ng-href="static/files/templates/dep_fields_upload.json" target="_blank" href="static/files/templates/dep_fields_upload.json"><button type="button" class="vp-machdetails__removemachinebtn vp-uielement__button vp-uielement__button--edittool pr--md pl--md ml--md">Sample</button></a>
+                             </div>
+                             </form>
+                         </div>
+                     </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+<!--MACHINES-FORM COMPONENT END-->

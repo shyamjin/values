@@ -1,0 +1,66 @@
+<!--DEPLOY TOOLS TABS COMPONENT START-->
+<div class="vp-dttabs vp-control max--width">
+	<!--TABS WRAPPER (MODIFIERS: # vp-dttabs__list--empty # vp-dttabs__list--filled # vp-dttabs__list--many)-->
+	<div class="vp-dttabs__listwrapper vp-dttabs__list--many max--width relative">
+		<div class="vp-dttabs__buttonswrapper pb--md pl--md clearfix absolute" ng-if="tool.tool_name===selectedTool.tool_name && tool.requests.length>3">
+			<!--NEXT MACHINE BUTTON (MODIFIERS: # vp-uielement__button--nextmachineenabled # vp-uielement__button--nextmachinedisabled)-->
+			<button type="button" class="vp-uielement__button vp-uielement__button--nextmachineenabled right" id="next_machine" ng-click="nextMachine(selectedMachine.machine_name)"></button>
+			<!--PREVIOUS MACHINE BUTTON (MODIFIERS: # vp-uielement__button--previousmachineenabled # vp-uielement__button--previousmachinedisabled)-->
+			<button type="button" class="vp-uielement__button vp-uielement__button--previousmachineenabled mr--md left" id="previous_machine" ng-click="previousMachine(selectedMachine.machine_name)"></button>
+		</div>
+		<ul class="vp-dttabs__list" ng-repeat="tool in toolsSelectedToDeploy" ng-if="tool.tool_name===selectedTool.tool_name && tool.requests.length>3">
+			<!--SINGLE TAB (MODIFIERS: vp-dttabs__tab--active
+			# vp-dttabs__tabdefault )-->
+			<li class="vp-dttabs__tab vp-dttabs__tab--active vp-dttabs__tab1 vp-dttabs__tabdefault left">
+				<!--TAB INNER DATA (MODIFIERS: vp-uielement__toolitem--unknown # vp-uielement__toolitem--ready # vp-uielement__toolitem--error)-->
+				<div class="vp-dttabs__tabinner pr--md pl--md" ng-class="getFormValidated(tool.tool_name, selectedMachine.machine_name)">
+					<div class="vp-dttabs__itemstateiconwrap pr--sm left">
+						<div class="vp-uielement__itemstateicon inblock"></div>
+					</div>
+					<div class="vp-dttabs__tablabelwrapper word--break inblock">
+						<tooltip id="tooltip_{{$index}}"tooltips="" tooltip-template="{{selectedMachine.machine_name}}" tooltip-side="bottom">
+							<label class="vp-dttabs__tablabel text--cs03 text--regular text--xl">{{selectedMachine.machine_name}}</label>
+						</tooltip>
+					</div>
+					<!--SHOW MORE MACHINES BUTTON WRAPPER (MODIFIERS: # vp-dttabs__tabbtn--show)-->
+					<div class="vp-dttabs__tabbtnwrapper vp-dttabs__tabbtn--show relative right">
+						<!--TAB BUTTTON (MODIFIERS: # vp-uielement__button--dropdownarrow # vp-uielement__button--smallclose -->
+						<button class="vp-dttabs__tabbtn vp-uielement__button vp-uielement__button--smallclose pa--none " type="button" ng-click="showMoreMachines()"></button>
+						<div class="vp-dttabs__moremachinespopup hidden absolute" style="display:none;" id="more_machine_popup_include" ng-include="'static/components/tools/deploy-tools/morepopup/moremachinespopup.component.html'"></div>
+					</div>
+				</div>
+			</li>
+		</ul>
+		<ul class="vp-dttabs__list" ng-repeat="tool in toolsSelectedToDeploy" ng-if="tool.tool_name===selectedTool.tool_name && tool.requests.length<4">
+			<!--SINGLE TAB (MODIFIERS: vp-dttabs__tab--active
+			# vp-dttabs__tabdefault )-->
+			<li class="vp-dttabs__tab vp-dttabs__tab1 vp-dttabs__tabdefault left" ng-repeat="machine in tool.requests" ng-class="setActiveMachineTab(machine.machine_name)">
+				<!--TAB INNER DATA (MODIFIERS: vp-uielement__toolitem--unknown # vp-uielement__toolitem--ready # vp-uielement__toolitem--error)-->
+				<div class="vp-dttabs__tabinner pr--md pl--md" ng-class="getFormValidated(tool.tool_name, machine.machine_name)">
+					<div class="vp-dttabs__itemstateiconwrap pr--sm left">
+						<div class="vp-uielement__itemstateicon inblock"></div>
+					</div>
+					<div class="vp-dttabs__tablabelwrapper word--break inblock" ng-click="getSelectedMachine(machine.machine_name)" style="width:122px;">
+						<tooltip id="tooltip_not_selected_{{$index}}"tooltips="" tooltip-template="{{machine.machine_name}}" tooltip-side="bottom">
+							<label class="vp-dttabs__tablabel text--cs03 text--regular text--xl text--ellipsis text--ellipsis--single hidden">{{machine.machine_name}}</label>
+						</tooltip>
+					</div>
+					<!--SHOW MORE MACHINES BUTTON WRAPPER (MODIFIERS: # vp-dttabs__tabbtn--show)-->
+					<div class="vp-dttabs__tabbtnwrapper vp-dttabs__tabbtn--show relative right">
+						<!--TAB BUTTTON (MODIFIERS: # vp-uielement__button--dropdownarrow # vp-uielement__button--smallclose -->
+						<button type="button" class="vp-moremachinespopup__removebtn vp-uielement__button vp-uielement__button--smallclose  mr--lg vertical--middle" ng-click="removeMachine(tool.tool_name, machine.machine_name)"></button>
+						<div class="vp-dttabs__moremachinespopup hidden absolute" style="display:none;" id="more_machine_popup_include" ng-include="'static/components/tools/deploy-tools/morepopup/moremachinespopup.component.html'"></div>
+					</div>
+				</div>
+			</li>
+		</ul>
+		<!--BODY CONTAINER, LOAD TEMPLATE INSIDE-->
+		<div class="vp-dttabs__body max--width bg--white left">
+			<div class="vp-dttabs__emptybodymsgwrapper text--center max--width" ng-if="!selectedMachine.machine_name">
+				<span class="vp-dttabs__emptybodymsg text--cs08 text--light text--xxl">Select machines</span>
+			</div>
+			<div class="vp-dttabs__form max--width max--height" ng-include="'static/components/tools/deploy-tools/machines-form/machinesform.component.html'"></div>
+		</div>
+	</div>
+</div>
+<!--DEPLOY TOOLS TABS COMPONENT END-->

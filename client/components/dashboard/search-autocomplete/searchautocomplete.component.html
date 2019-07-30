@@ -1,0 +1,12 @@
+<!--SEARCH AUTO COMPLETE COMPONENT START-->
+<div class="vp-autocomplete vp-control max--width">
+    <ul class="vp-autocomplete__list">
+        <!--SEARCH ITEM EXAMPLE-->
+        <li class="vp-autocomplete__item pl--md" ng-repeat="machine in machines | filter : searchMachineKeyword">
+            <div class="vp-autocomplete__iteminner text--cs03 text--light text--lg" ng-click="selectSearchMachine(machine)">
+                <p>{{machine.machine_name}}</p>
+            </div>
+        </li>
+    </ul>
+</div>
+<!--SEARCH AUTO COMPLETE COMPONENT END-->

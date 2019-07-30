@@ -1,0 +1,34 @@
+<!--TAB COMPONENT START-->
+<div class="vp-tabs vp-tabs--default vp-tabs--service vp-control relative max--width max--height clearfix">
+    <!--TABS HEADER NAVIGATION BAR-->
+    <div class="vp-tabs__nav max--width left">
+        <nav>
+            <ul class="vp-tabs__navlist  max--width text--center text--md text--light text--cs06 table">
+                <!--ACTIVE TAB STATE (MODIFIERS: # vp-tabs__tab--active   )-->
+                <li ng-class="getCurrentTab('DistributionMcList')" ng-click="showCurrentTab('DistributionMcList')"  style="width:180px">
+                    <span class="vp-tabs__tablabel vertical--top no--decor">Distribution Machine List</span>
+                </li>
+
+                 <li ng-class="getCurrentTab('AddMachineToList')" ng-click="showCurrentTab('AddMachineToList')" style="width:180px">
+                    <span class="vp-tabs__tablabel vertical--top no--decor">Add Machine To List</span>
+                </li>
+
+                 <li ng-class="getCurrentTab('DistributionServiceSettings')" ng-click="showCurrentTab('DistributionServiceSettings')" style="width:180px">
+                    <span class="vp-tabs__tablabel vertical--top no--decor">Distribution Service Settings</span>
+                </li>
+
+
+            </ul>
+        </nav>
+    </div>
+
+    <!--TAB BODY WRAPPER, LOAD TEMPLATE INSIDE-->
+    <div class="vp-tabs__body overflow--auto left max--width">
+
+        <div  ng-if="currentTab==='DistributionMcList'"  class="vp-tabs__servicetabcontent" ng-include="'static/components/distribution/distribution-content/distributioncontent.component.html'"></div>
+        <div  ng-if="currentTab==='AddMachineToList'"  class="vp-tabs__servicetabcontent" ng-include="'static/components/distribution/add-new-machine-content/addnewmachinecontent.component.html'"></div>
+        <div  ng-if="currentTab==='DistributionServiceSettings'"  class="vp-tabs__servicetabcontent" ng-include="'static/components/distribution/distribution-service-settings-content/distributionsettingscontent.component.html'"></div>
+
+    </div>
+</div>
+<!--TAB COMPONENT END-->

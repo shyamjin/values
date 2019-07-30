@@ -1,0 +1,52 @@
+// VARIABLES: SECTION 10 //search field
+// ELEMENT CLASS
+// SEARCH FIELD WRAPPER
+.vp-uielement__searchbox {
+    .relative;
+    .max--width;
+    //height: @searchContainerHeight;
+    // SEARCH FIELD INPUT VIEW
+    .vp-uielement__searchinput {
+        .input--clear;
+        .ba--dark;
+        .bg--cs06;
+        .text--light;
+        .text--lg;
+        color: @cs03;
+        width: @searchFieldWidth;
+        height: @searchFieldHeight;
+        padding-right: @searchFieldPR;
+        padding-left: @searchFieldPL;
+        border-radius: @searchFieldRadius;
+    }
+    // SEARCH BUTTON VIEW
+    //SEARCH BUTTON STYLES
+    .vp-uielementt__searchbtn {
+        .btn--clear;
+        .absolute;
+        top: @searchBtnTop;
+        right: @searchBtnTop;
+        height: @searchBtnWidth;
+        width: @searchBtnWidth;
+        border-radius: (@searchBtnWidth/2);
+        background: url('../assets/images/icons/search_btn.png') no-repeat;
+        background-size: contain;
+        &:hover {
+            opacity: 0.6;
+        }
+    }
+    // HINT SEARCH ROLE VIEW
+    .vp-uielement__hint {
+        .text--cs06;
+        .text--light;
+        .text--sm;
+        padding-left: @searchFieldPL;
+    }
+    //DISABLED INPUT CHANGE COLOR
+    input[type=text]:disabled {
+        background-color: lightblue;
+        & + button {
+            opacity: 0.2;
+        }
+    }
+}

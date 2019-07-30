@@ -1,0 +1,66 @@
+<!--MACHINES-FORM COMPONENT START-->
+<!--MODIFIERS: # vp-machinesform--notification -->
+<div class="vp-machinesform vp-machinesform--notification vp-control bg--white max--width max--height" ng-repeat="tool in toolsSelectedToDeploy" ng-if="tool.tool_name===selectedTool.tool_name">
+    <!--HEADER NOTIFICATION-->
+    <!--<div class="vp-machinesform__topmsgwrap hidden">-->
+        <!--<span class="vp-machinesform__topmsg ml&#45;&#45;md text&#45;&#45;cs05 text&#45;&#45;light text&#45;&#45;md">The machine cannot be found in the network</span>-->
+    <!--</div>-->
+    <div class="vp-machinesform__content max--width max--height" ng-repeat="machine in tool.requests" ng-if="selectedMachine===machine.machine_name">
+        <div class="vp-machinesform__toolbar">
+            <!--TOOLBAR LABEL-->
+            <label class="vp-machinesform__settingslabel text--cs03 text--light text--xxl">Tool settings:</label>
+            <!--RESTORE BUTTON-->
+            <button type="button" class="vp-machinesform__restorebtn vp-uielement__button vp-uielement__button--cleanenabled pa--none">Restore defaults</button>
+            <!--'COPY ALL' BUTTON WRAPPER (MODIFIERS: # vp-machinesform__copyallbtnwrap--wait # vp-machinesform__copyallbtnwrap--done)-->
+            <div class="vp-machinesform__copyallbtnwrap vp-machinesform__copyallbtnwrap--done inblock">
+                <!--'COPY TO ALL MACHINES' BUTTON-->
+                <button type="button" class="vp-machinesform__copyallbtn vp-uielement__button vp-uielement__button--cleanenabled pa--none text--regular text--md">Copy to all machines</button>
+                <!--COPY ACTION STATE-->
+                <div class="vp-machinesform__copyallbtnstate vertical--middle ml--sm inblock"></div>
+            </div>
+        </div>
+        <!--FORM WRAPPER-->
+        <div class="vp-machinesform__formwrap max--width max--height">
+            <form id="deploy_tool_{{$index}}" name="deployReqForm_{{$index}}" role="form">
+                <ul class="vp-machinesform__fieldslist" ng-repeat="field in machine.tool_deployment_value">
+
+                    <!--FIELD WITH COPY OPTION EXAMPLE (MODIFIERS: # vp-machinesform__field--small # vp-machinesform__field--large # vp-machinesform__field--largecopy)-->
+                    <li class="vp-machinesform__field vp-machinesform__field--largecopy">
+                        <div class="vp-machinesform__fieldinner overflow--hidden">
+                            <div class="vp-machinesform__fieldlabelwrap text--right inblock">
+                                <label for="input_{{machine.machine_name}}_{{$index}}" class="vp-machinesform__fieldlabel text--ellipsis text--ellipsis--single text--cs03 text--light text--md">{{field.input_name.split('_').join(' ')}} :</label>
+                            </div>
+                            <!--TEXT INPUT FIELD-->
+                            <div class="vp-machinesform__fieldinputwrap vertical--top pl--md inblock" ng-if="field.input_type==='text' || field.input_type==='password' || field.input_type==='email' || field.input_type==='number' ">
+                                <input id="input_{{machine.machine_name}}_{{$index}}" class="vp-machinesform__fieldinput input--clear text--cs03 text--regular text--lg max--width" type="{{field.input_type}}" name="{{field.input_name}}_{{$index}}" ng-model="field.default_value" length="50" ng-required="{{field.is_mandatory}}">
+                            </div>
+                            <div class="vp-machinesform__fieldinputwrap  vertical--top pl--md inblock" ng-if="field.input_type==='radio'">
+                                <!--RADIO BUTTON YES-->
+                                <div class="vp-machinesform__radiobtn vp-uielement__radiobtn"  data-ng-repeat="value in field.valid_values">
+                                    <input type="radio" id="input_radio_{{machine.machine_name}}_{{$index}}" name="{{value}}_{{$index}}" ng-required="{{field.is_mandatory}}" value="{{value}}" ng-model="field.default_value">
+                                    <label for="input_radio_{{machine.machine_name}}_{{$index}}">{{value}}</label>
+                                </div>
+                            </div>
+                            <div class="vp-machinesform__fieldinputwrap  vertical--top pl--md inblock"  ng-if="field.input_type==='checkbox'">
+                                <div class="vp-uielement__checkbox" data-ng-repeat="value in field.valid_values">
+                                    <input id="input_check_{{machine.machine_name}}_{{$index}}" type="checkbox" name="{{valid_values[$index]}}_{{$index}}" ng-required="{{field.is_mandatory}}" ng-model="valid_values[$index]" checked="unchecked" />
+                                    <label for="input_check_{{machine.machine_name}}_{{$index}}"><span>{{value}}</span></label>
+                                </div>
+                            </div>
+                            <!--'COPY TO ALL MACHINES' BUTTON WRAPPER (MODIFIERS: # vp-machinesform__fieldbtnwrap--wait # vp-machinesform__fieldbtnwrap--done)-->
+                            <div class="vp-machinesform__fieldbtnwrap vp-machinesform__fieldbtnwrap--done vertical--top pr--xl pl--md hidden">
+                                <button type="button" class="vp-machinesform__fieldcopybtn vp-uielement__button vp-uielement__button--cleanenabled pa--none">Copy to all machines</button>
+                                <!--<div class="vp-machinesform__copytoallbtnstate vertical&#45;&#45;middle ml&#45;&#45;md inblock"></div>-->
+                            </div>
+                            <!--<div class="vp-machinesform__fieldbtnwrap vp-machinesform__fieldbtnwrap&#45;&#45;wait vertical&#45;&#45;top pr&#45;&#45;xl pl&#45;&#45;md hidden">-->
+                                <!--<button type="button" class="vp-machinesform__fieldcopybtn vp-uielement__button vp-uielement__button&#45;&#45;cleanenabled pa&#45;&#45;none">Copy to all machines</button>-->
+                                <!--<div class="vp-machinesform__copytoallbtnstate vertical&#45;&#45;middle ml&#45;&#45;md inblock"></div>-->
+                            <!--</div>-->
+                        </div>
+                    </li>
+                </ul>
+            </form>
+        </div>
+    </div>
+</div>
+<!--MACHINES-FORM COMPONENT END-->

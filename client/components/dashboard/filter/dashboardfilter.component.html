@@ -1,0 +1,148 @@
+<!--OPEN FILTER COMPONENT START-->
+<div class="vp-filter vp-filter--openfilterdialog vp-uielement__popup vp-control overflow--auto max--width max--height filter_header_fixed">
+	<!--TRIANGLE ARROW-->
+
+	<div class="vp-filter__topborder vp-uielement__popuptop"></div>
+	<div class="vp-filter__openfilterformwrapper bg--cs06">
+		<form name="vp-filter__dashboardfilter">
+			<div class="vp-filter__buttonsmenu max--width">
+				<!--'APPLY' BUTTON-->
+				<div class="vp-filter__applywrapper pl--md left">
+					<button type="button" class="vp-uielement__button vp-filter__apply vp-uielement__button--apply pl--md" ng-click="applyToolFilters()">Apply</button>
+				</div>
+				<!--'CLEAR ALL' BUTTON-->
+				<div class="vp-filter__clearallwrapper pl--md left">
+					<button type="reset" class="vp-uielement__button vp-filter__clearall vp-uielement__button--cleanenabled" ng-click="clearToolFilter()">Clear All</button>
+				</div>
+				<div class=" vp-filter__cancelwrapper pr--md right">
+					<button type="button" class="vp-uielement__button vp-uielement__button--cancle " ng-click="cancleFilter()">Cancel</button>
+				</div>
+			</div>
+			<!--FILTER ELEMENT START-->
+			<div class="vp-filterelement max--width max--height filter_scrolled_content">
+				<!--FILTER OPRIONS LIST-->
+				<ul class="vp-filterelement__filterlist text--cs03 text--regular text--md text--capitalize">
+					<!--FILTER LEVEL ONE VIEW
+		            ( MODIFIERS : vp-filterelement__filterrowlvlone--expanded )-->
+					<li class="vp-filterelement__filterrow vp-filterelement__filterrowlvlone" ng-class="setStatusCSS(statusFlag)">
+						<div class="vp-filterelement__filterrowdata" ng-click="showStatus()">
+							<span class="vp-filterelement__expandicon inblock"></span>
+							<span class="vp-filterelement__filtermainlable ml--sm">Status</span>
+						</div>
+						<!--LEVEL TWO FILTER CODE-->
+						<div class="vp-filterelement__contentlvlonewrapper hidden">
+							<ul>
+								<li class="vp-filterelement__filterrow vp-filterelement__filterrowlvltwo">
+									<div class="vp-header__filteroptionwrapper">
+										<!--CHECKBOX ELEMENT-->
+										<div class="vp-uielement__checkbox">
+											<input type="checkbox" id="vp-filterelement__popupanystatus" name="vp-filterelement__popupanystatus" ng-model="statusAny" value="any" ng-click="setStatusFilter('any')" />
+											<label for="vp-filterelement__popupanystatus"></label>
+										</div>
+										<!--LEVEL TWO FILTER LABEL-->
+										<label class="vp-filterelement__secondarylable" for="vp-filterelement__popupanystatus">Any</label>
+									</div>
+								</li>
+								<!--FILTER LEVEL TWO CODE-->
+								<li class="vp-filterelement__filterrow vp-filterelement__filterrowlvltwo">
+									<div class="vp-header__filteroptionwrapper">
+										<div class="vp-uielement__checkbox">
+											<input type="checkbox" id="vp-filterelement__popupactivestatus" name="vp-filterelement__popupactivestatus" ng-model="statusActive" value="active" ng-click="setStatusFilter('active')"/>
+											<label for="vp-filterelement__popupactivestatus"></label>
+										</div>
+										<label class="vp-filterelement__secondarylable" for="vp-filterelement__popupactivestatus">Active</label>
+									</div>
+								</li>
+								<li class="vp-filterelement__filterrow vp-filterelement__filterrowlvltwo" ng-if="filterType==='All'">
+									<div class="vp-header__filteroptionwrapper">
+										<div class="vp-uielement__checkbox">
+											<input type="checkbox" id="vp-filterelement__popupsuspendedstatus" name="vp-filterelement__popupsuspendedstatus" ng-model="statusDep" value="deprecated" ng-click="setStatusFilter('deprecated')" />
+											<label for="vp-filterelement__popupsuspendedstatus"></label>
+										</div>
+										<label class="vp-filterelement__secondarylable" for="vp-filterelement__popupsuspendedstatus">Deprecated</label>
+									</div>
+								</li>
+								<li class="vp-filterelement__filterrow vp-filterelement__filterrowlvltwo" ng-if="filterType==='All'">
+									<div class="vp-header__filteroptionwrapper">
+										<div class="vp-uielement__checkbox">
+											<input type="checkbox" id="vp-filterelement__popupindevstatus" name="vp-filterelement__popupsuspendedstatus" ng-model="statusInDev" value="indevelopment" ng-click="setStatusFilter('indevelopment')"/>
+											<label for="vp-filterelement__popupindevstatus"></label>
+										</div>
+										<label class="vp-filterelement__secondarylable" for="vp-filterelement__popupindevstatus">In Development</label>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</li>
+					<li class="vp-filterelement__filterrow vp-filterelement__filterrowlvlone" ng-class="setTagsCSS(tagsFlag)">
+						<div class="vp-filterelement__filterrowdata" ng-click="showTags()">
+							<span class="vp-filterelement__expandicon inblock"></span>
+							<span class="vp-filterelement__filtermainlable ml--sm">Tag</span>
+						</div>
+						<!--LEVEL TWO FILTER CODE-->
+						<div class="vp-filterelement__contentlvlonewrapper hidden">
+							<ul>
+								<li class="vp-filterelement__filterrow vp-filterelement__filterrowlvltwo">
+									<div class="vp-header__filteroptionwrapper">
+										<!--CHECKBOX ELEMENT-->
+										<div class="vp-uielement__checkbox">
+											<input type="checkbox" id="vp-filterelement__popupany" name="vp-filterelement__popupany" ng-model="tagAny" value="any" ng-click="setTagFilter('any')"/>
+											<label for="vp-filterelement__popupany"></label>
+										</div>
+										<!--LEVEL TWO FILTER LABEL-->
+										<label class="vp-filterelement__secondarylable" for="vp-filterelement__popupany">Any</label>
+									</div>
+								</li>
+								<!--FILTER LEVEL TWO CODE-->
+								<li class="vp-filterelement__filterrow vp-filterelement__filterrowlvltwo" ng-repeat="tag in tagsAll">
+									<div class="vp-header__filteroptionwrapper">
+										<div class="vp-uielement__checkbox">
+											<input id="idx_tags_{{$index}}" type="checkbox" name="vp-filterelement__popupmaintenanceapplication" ng-model="tags" value="{{tag.name}}" ng-click="setTagFilter(tag.name)" />
+											<label for="idx_tags_{{$index}}"></label>
+										</div>
+										<label class="vp-filterelement__secondarylable" for="idx_tags_{{$index}}">{{tag.name}}</label>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</li>
+					<li class="vp-filterelement__filterrow vp-filterelement__filterrowlvlone"  ng-class="setToolsetsCSS(toolsetsFlag)">
+						<div class="vp-filterelement__filterrowdata" ng-click="showToolsets()">
+							<span class="vp-filterelement__expandicon inblock"></span>
+							<span class="vp-filterelement__filtermainlable ml--sm">Tool sets</span>
+						</div>
+                        <!--LEVEL TWO FILTER CODE-->
+						<div class="vp-filterelement__contentlvlonewrapper hidden">
+							<ul>
+								<li class="vp-filterelement__filterrow vp-filterelement__filterrowlvltwo">
+									<div class="vp-header__filteroptionwrapper">
+										<!--CHECKBOX ELEMENT-->
+										<div class="vp-uielement__checkbox">
+											<input type="checkbox" id="vp-filterelement__popupany_ts_2_any" name="vp-filterelement__popupany" ng-model="toolsetAny" value="any" ng-click="setToolsetFilter('any')"/>
+											<label for="vp-filterelement__popupany_ts_2_any"></label>
+										</div>
+										<!--LEVEL TWO FILTER LABEL-->
+										<label class="vp-filterelement__secondarylable" for="vp-filterelement__popupany_ts_2_any">Any</label>
+									</div>
+								</li>
+								<!--FILTER LEVEL TWO CODE-->
+								<li class="vp-filterelement__filterrow vp-filterelement__filterrowlvltwo" ng-repeat="toolset in toolsetsAll">
+									<div class="vp-header__filteroptionwrapper">
+										<div class="vp-uielement__checkbox">
+											<input id="idx_ts_{{$index}}" type="checkbox" name="vp-filterelement__popupmaintenanceapplication" ng-model="toolsets" value="{{toolset.name}}" ng-click="setToolsetFilter(toolset.name)" />
+											<label for="idx_ts_{{$index}}"></label>
+										</div>
+										<label class="vp-filterelement__secondarylable" for="idx_ts_{{$index}}">{{toolset.name}}</label>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</li>
+				</ul>
+
+			</div>
+			<!--FILTER ELEMENT END-->
+		</form>
+	</div>
+</div>
+<!--OPEN FILTER COMPONENT END-->

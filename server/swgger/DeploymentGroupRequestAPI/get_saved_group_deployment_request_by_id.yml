@@ -1,0 +1,33 @@
+Fetch a particular saved Group Deployment Request, referring by Group Deployment Request Id
+---
+tags:
+ - Group Deployment Requests
+parameters:
+- name: token
+  in: header
+  description: API key
+  required: false
+  type: string
+  format: string
+- name: access-token
+  in: header
+  description: API key
+  required: false
+  type: string
+  format: string 
+- name: id
+  in: path
+  type: string
+  required: true
+  description: Group Deployment Request Id
+responses:
+  200:
+    description: Successfully fetched saved Group Deployment Request
+    examples:
+      result: "success"
+      message: null
+  404:
+    description: exception in fetching saved Group Deployment Request
+    examples:
+      result: "failed"
+      message: "Throws an exception"

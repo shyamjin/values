@@ -1,0 +1,284 @@
+<div class="vp-userform vp-userformnewuser vp-control max" style="padding-left:5%">
+   <form name="CreateNewDUStateForm">
+    <ul class="vp-userform__fieldslist text--cs03 pr--lg">
+        <!--'NAME' FIELD-->
+        <li class="vp-userform__fielditem vp-userform__nameitem pt--xxl">
+            <div class="vp-userform__fielditeminner">
+                <!--'NAME' FIELD LABEL-->
+                <div class="vp-userform__fieldlabelwrap inblock">
+                    <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">State Name<span class="mandatory">*</span> </label>
+                </div>
+                <!--'NAME' FIELD CONTENT-->
+                <div class="vp-userform__fieldcontent vp-userform__namecontent inblock">
+                    <input type="text" class="vp-userform__nameinput input--clear" name="statename" ng-model="application.data.statename" required />
+                </div>
+            </div>
+        </li>
+        <h5 class="validation_msg_tool_set" ng-show="CreateNewDUStateForm.name.$error.required">Please enter DU State name</h5>
+        <li class="vp-userform__fielditem vp-userform__nameitem pt--xxl">
+            <div class="vp-userform__fielditeminner">
+                <!--'NAME' FIELD LABEL-->
+                <div class="vp-userform__fieldlabelwrap inblock">
+                    <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">DU Name <span class="mandatory">*</span> </label>
+                </div>
+                <!--'NAME' FIELD CONTENT-->
+                <div class="vp-versionform__content inblock">
+                <div class="vp-versionform__statusselectwrap">
+                    <select name="du_name" id="du_name"  ng-model="application.data.du" class="vp-versionform__dropdownlist vp-versionform__dropdownlist2 vp-uielement__select max--width"  style="height:26px; width: 180px;" ng-change="getDUById(application.data.du)">
+                         <option ng-repeat="du in AllDU" value="{{du._id.$oid}}">{{du.name}}</option>
+                    </select>
+                </div>
+            </div>
+            </div>
+        </li>
+        <li class="vp-userform__fielditem vp-userform__nameitem pt--xxl" ng-if="deployment.data.build.length>0">
+            <div class="vp-userform__fielditeminner">
+                <!--'NAME' FIELD LABEL-->
+                <div class="vp-userform__fieldlabelwrap inblock">
+                    <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Build No:<span class="mandatory">*</span> </label>
+                </div>
+                <!--'NAME' FIELD CONTENT-->
+                <div class="vp-versionform__content inblock">
+                    <div class="vp-versionform__content inblock">
+                        <div class="vp-versionform__statusselectwrap">
+                            <select name="vp-versionform__dropdownlist2" id="build"  ng-model="selectedBuild" name="application.data.build_number" class="vp-versionform__dropdownlist vp-versionform__dropdownlist2 vp-uielement__select max--width"  style="height:26px; width: 180px;" ng-change="showBuildDetails(selectedBuild)">
+                                <option ng-repeat="build in deployment.data.build" value="{{build}}">{{build.build_number}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="vp-userform__fielditem vp-userform__nameitem pt--xxl" ng-if="buildDetails" ng-hide="hideBuildInfo === true;">
+                <div class="vp-userform__fielditeminner mb--xl">
+                    <!--'NAME' FIELD LABEL-->
+                    <div class="vp-userform__fieldlabelwrap inblock">
+                        <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Build No: </label>
+                    </div>
+                    <!--'NAME' FIELD CONTENT-->
+                    <div class="vp-versionform__content inblock">
+                        <div class="vp-userform__fieldlabelwrap inblock">
+                            <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">{{buildDetails.build_number}}</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="vp-userform__fielditeminner mb--xl">
+                    <!--'NAME' FIELD LABEL-->
+                    <div class="vp-userform__fieldlabelwrap inblock">
+                        <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Build Type: </label>
+                    </div>
+                    <!--'NAME' FIELD CONTENT-->
+                    <div class="vp-versionform__content inblock">
+                        <div class="vp-userform__fieldlabelwrap inblock">
+                            <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">{{buildDetails.type}}</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="vp-userform__fielditeminner mb--xl">
+                    <!--'NAME' FIELD LABEL-->
+                    <div class="vp-userform__fieldlabelwrap inblock">
+                        <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Build Size: </label>
+                    </div>
+                    <!--'NAME' FIELD CONTENT-->
+                    <div class="vp-versionform__content inblock">
+                        <div class="vp-userform__fieldlabelwrap inblock">
+                            <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">{{buildDetails.file_size}}</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="vp-userform__fielditeminner mb--xl">
+                    <!--'NAME' FIELD LABEL-->
+                    <div class="vp-userform__fieldlabelwrap inblock">
+                        <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Created: </label>
+                    </div>
+                    <!--'NAME' FIELD CONTENT-->
+                    <div class="vp-versionform__content inblock">
+                        <div class="vp-userform__fieldlabelwrap inblock">
+                            <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">{{buildDetails.build_date.$date | date : "MMM d, y h:mm a"}}</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="vp-userform__fielditeminner">
+                    <!--'NAME' FIELD LABEL-->
+                    <div class="vp-userform__fieldlabelwrap inblock">
+                        <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Release Notes: </label>
+                    </div>
+                    <!--'NAME' FIELD CONTENT-->
+                    <div class="vp-versionform__content inblock">
+                        <div class="vp-userform__fieldlabelwrap inblock">
+                            <p id="release_notes_build" class="vp-userform__fieldlabel text--light text--md text--ellipsis input--clear" style="width:700px; height: auto">{{buildDetails.additional_info.release_notes}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-left: 134px;">
+                    <button ng-if="buildDetails.additional_info.release_notes.length>120 && showLess === true" type="button" class="vp-versionform__notesshowallbtn vp-uielement__button vp-uielement__button--cleanenabled mt--sm pa--none" ng-click="showLessContent()">Show Less</button>
+                    <button ng-if="buildDetails.additional_info.release_notes.length>120 && showAll === true" type="button" class="vp-versionform__notesshowallbtn vp-uielement__button vp-uielement__button--cleanenabled mt--sm pa--none" ng-click="showMoreContent()">Show all</button>
+                </div>
+        </li>
+        <li class="vp-userform__fielditem vp-userform__nameitem pt--xxl">
+            <div class="vp-userform__fielditeminner">
+                <!--'NAME' FIELD LABEL-->
+                <div class="vp-userform__fieldlabelwrap inblock">
+                    <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Status <span class="mandatory">*</span> </label>
+                </div>
+                <!--'NAME' FIELD CONTENT-->
+                <div class="vp-versionform__content inblock">
+                <div class="vp-versionform__statusselectwrap">
+                    <select name="du_approval_status" id="du_approval_status"  ng-model="application.data.approval_status" class="vp-versionform__dropdownlist vp-versionform__dropdownlist2 vp-uielement__select max--width"  style="height:26px; width: 180px;">
+                         <option ng-repeat="approvals in ApprovalsStatus" value="{{approvals.name}}">{{approvals.name}}</option>
+                    </select>
+                </div>
+            </div>
+            </div>
+        </li>
+        <li class="vp-userform__fielditem vp-userform__roleitem vp-userform__nameitem pt--xxl" ng-if="deployment.data.deployment_field.fields" >
+                <div class="vp-versionform vp-component bg--white max--width">
+                    <div class="vp-versionform__deploymentdetails">
+                        <!--'EMPLOYEE ID' FIELD LABEL-->
+                        <div class="vp-versionform__labelsection vertical--top inblock" style="width:130px">
+                            <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Deployment Fields:</label>
+                        </div>
+                        <!--'EMPLOYEE ID' FIELD CONTENT-->
+                        <div class="vp-versionform__content inblock">
+                            <section class="vp-versionform__deploymentdetails">
+                                <div class="vp-versionform__content inblock">
+                                <!--DEPLOYMENT DETAILS LIST (MODIFIERS: # vp-versionform__deployitemlistwrap--filled )-->
+                                    <div class="vp-versionform__deployitemlistwrap--filled">
+                                    <ul>
+                                        <!--TEXT INPUT ITEM EXAMPLE-->
+                                        <li class="vp-versionform__deploydetailsitem" ng-repeat="choice in application.data.deployment_field.fields track by $index">
+                                            <div class="vp-versionform__deployiteminner bg--cs06 clearfix" ng-if="choice.input_type==='text' || choice.input_type==='email' || choice.input_type==='password' || choice.input_type==='date' || choice.input_type==='number'">
+                                                <!--LABEL-->
+                                                <div class="vp-versionform__deployitemlabelwrap pl--xl left">
+                                                    <label class="vp-versionform__deployitemlabel text--light text--md text--ellipsis text--ellipsis--single">{{choice.input_name}}<span class="mandatory" ng-if="choice.is_mandatory==true">*</span></label>
+                                                </div>
+                                                <!--TEXT INPUT WRAPPER-->
+                                                <div class="vp-versionform__deployiteminputwrap left">
+                                                    <input type="{{choice.input_type}}" class="vp-versionform__detailinput input--clear bg--white text--cs03 text--regular text--lg max--width" id="INPUT_TYPE_{{$index}}" ng-model="choice.default_value" name="input_type">
+                                                </div>
+                                                <div class="vp-versionform__optionspanelcontainer clearfix right">
+                                                    <!--REMOVE BUTTON-->
+                                                   <!-- <div class="vp-versionform__removescreenshotbtnwrap mr&#45;&#45;xxxl right">
+                                                        <button type="button" class="vp-versionform__removescreenshotbtn vp-uielement__button vp-uielement__button&#45;&#45;removeenabled pl&#45;&#45;xxl" ng-click="removeField($index)">Remove</button>
+                                                    </div>
+                                                    &lt;!&ndash;EDIT BUTTON&ndash;&gt;
+                                                    <div class="vp-versionform__editdeploydetailswrap mr&#45;&#45;xxxl right">
+                                                        <button type="button" class="vp-versionform__editdeploydetails vp-uielement__button vp-uielement__button&#45;&#45;edit" ng-click="showEditSettings($index)"></button>
+                                                    </div>-->
+                                                    <!--MANDATORY CHECKBOX-->
+                                                    <!--<div class="vp-versionform__mandatorywrap vp-uielement__checkbox mr&#45;&#45;xxxl right" >
+                                                        <input type="checkbox" id="vp-versionform__{{$index}}" ng-model="choice.is_mandatory" name="is_mandatory" ng-checked="choice.is_mandatory===true" ng-true-value="true" ng-false-value="false" ng-disabled="true"/>
+                                                        <label for="vp-versionform__{{$index}}"></label>
+                                                        <label for="vp-versionform__{{$index}}" class="ml&#45;&#45;sm">Mandatory</label>
+                                                    </div>-->
+                                                </div>
+                                            </div>
+                                            <!--RADIO BUTTONS YES/NO ITEM EXAMPLE-->
+                                            <div class="vp-versionform__deployiteminner bg--cs06 clearfix" ng-if="choice.input_type==='radio'" style="height: initial;">
+                                                <!--LABEL-->
+                                                <div class="vp-versionform__deployitemlabelwrap pl--xl left">
+                                                    <label class="vp-versionform__deployitemlabel text--light text--md text--ellipsis text--ellipsis--single">{{choice.input_name}}</label>
+                                                </div>
+                                                <!--RADIO BUTTONS INPUT WRAPPER-->
+                                                <div class="vp-versionform__deployiteminputwrap left">
+                                                    <!--'YES' RADIO BUTTON-->
+                                                    <div class="vp-machinesform__radiobtn vp-uielement__radiobtn" ng-repeat="field in choice.valid_values track by $index">
+                                                        <input type="radio" id="vp-versionform__deploymentsdetailsyes_{{$index}}_{{choice.input_name}}_{{field}}" ng-attr-name="{{field}}_{{$index}}_{{choice.input_name}}" ng-model="choice.default_value" value="{{field}}">
+                                                        <label for="vp-versionform__deploymentsdetailsyes_{{$index}}_{{choice.input_name}}_{{field}}"></label>
+                                                        <label for="vp-versionform__deploymentsdetailsyes_{{$index}}_{{choice.input_name}}_{{field}}">{{field}}</label>
+                                                    </div>
+                                                </div>
+                                                <div class="vp-versionform__optionspanelcontainer clearfix right">
+                                                    <!--REMOVE BUTTON-->
+                                                   <!-- <div class="vp-versionform__removescreenshotbtnwrap mr&#45;&#45;xxxl right">
+                                                        <button type="button" class="vp-versionform__removescreenshotbtn vp-uielement__button vp-uielement__button&#45;&#45;removeenabled pl&#45;&#45;xxl" ng-click="removeField($index)">Remove</button>
+                                                    </div>
+                                                    &lt;!&ndash;EDIT BUTTON&ndash;&gt;
+                                                    <div class="vp-versionform__editdeploydetailswrap mr&#45;&#45;xxxl right">
+                                                        <button type="button" class="vp-versionform__editdeploydetails vp-uielement__button vp-uielement__button&#45;&#45;edit" ng-click="showEditSettings($index, version.version_number)"></button>
+                                                    </div>-->
+                                                    <!--MANDATORY CHECKBOX-->
+                                                    <!--<div class="vp-versionform__mandatorywrap vp-uielement__checkbox mr&#45;&#45;xxxl right">
+                                                        <input type="checkbox" id="vp-versionform__mandatory2_{{$index}}" ng-model="choice.is_mandatory" name="is_mandatory_radio" ng-checked="choice.is_mandatory==true" ng-true-value="true" ng-false-value="false" ng-disabled="true"/>
+                                                        <label for="vp-versionform__mandatory2_{{$index}}"></label>
+                                                        <label for="vp-versionform__mandatory2_{{$index}}" class="ml&#45;&#45;sm">Mandatory</label>
+                                                    </div>-->
+                                                </div>
+                                            </div>
+                                            <!--DROP DOWN LIST ITEM EXAMPLE-->
+                                            <div class="vp-versionform__deployiteminner bg--cs06 clearfix" ng-if="choice.input_type==='dropdown'">
+                                                <!--LABEL-->
+                                                <div class="vp-versionform__deployitemlabelwrap pl--xl left">
+                                                    <label class="vp-versionform__deployitemlabel text--light text--md text--ellipsis text--ellipsis--single">{{choice.input_name}}</label>
+                                                </div>
+                                                <!--DROP DOWN LIST INPUT WRAPPER-->
+                                                <div class="vp-versionform__deployiteminputwrap left">
+                                                    <select name="vp-versionform__dropdownlist1" id="dropdown_{{$index}}" ng-model="choice.default_value" class="vp-versionform__dropdownlist vp-versionform__dropdownlist1 vp-uielement__select max--width" name="{{choice.input_name}}">
+                                                        <option data-ng-repeat="value in choice.valid_values track by $index" value="{{value}}">{{value}}</option>
+                                                        </select>
+                                                </div>
+                                                <div class="vp-versionform__optionspanelcontainer clearfix right">
+                                                    <!--REMOVE BUTTON-->
+                                                   <!-- <div class="vp-versionform__removescreenshotbtnwrap mr&#45;&#45;xxxl right">
+                                                        <button type="button" class="vp-versionform__removescreenshotbtn vp-uielement__button vp-uielement__button&#45;&#45;removeenabled pl&#45;&#45;xxl" ng-click="removeField($index)">Remove</button>
+                                                    </div>
+                                                    &lt;!&ndash;EDIT BUTTON&ndash;&gt;
+                                                    <div class="vp-versionform__editdeploydetailswrap mr&#45;&#45;xxxl right">
+                                                        <button type="button" class="vp-versionform__editdeploydetails vp-uielement__button vp-uielement__button&#45;&#45;edit" ng-click="showEditSettings($index, version.version_number)"></button>
+                                                    </div>-->
+                                                    <!--MANDATORY CHECKBOX-->
+                                                    <!--<div class="vp-versionform__mandatorywrap vp-uielement__checkbox mr&#45;&#45;xxxl right">
+                                                        <input type="checkbox" id="vp-versionform__mandatory3_{{$index}}" ng-model="choice.is_mandatory" name="is_mandatory_dropdown" ng-checked="choice.is_mandatory==true" ng-true-value="true" ng-false-value="false" ng-disabled="true" ng-disabled="true"/>
+                                                        <label for="vp-versionform__mandatory3_{{$index}}"></label>
+                                                        <label for="vp-versionform__mandatory3_{{$index}}" class="ml&#45;&#45;sm">Mandatory</label>
+                                                    </div>-->
+                                                </div>
+                                            </div>
+                                            <!--CHECK BOX ITEM EXAMPLE-->
+                                            <div class="vp-versionform__deployiteminner bg--cs06 clearfix" ng-if="choice.input_type==='checkbox'" style="height: initial;">
+                                                <!--LABEL-->
+                                                <div class="vp-versionform__deployitemlabelwrap pl--xl left">
+                                                    <label class="vp-versionform__deployitemlabel text--light text--md text--ellipsis text--ellipsis--single">{{choice.input_name}}</label>
+                                                </div>
+                                                <!--RADIO BUTTONS INPUT WRAPPER-->
+                                                <div class="vp-versionform__deployiteminputwrap left">
+                                                    <!--'YES' RADIO BUTTON-->
+                                                    <div class="vp-versionform__mandatorywrap vp-uielement__checkbox mr--xxxl right" ng-repeat="field in choice.valid_values track by $index">
+                                                        <input type="checkbox" id="vp-versionform__checkbox_field_{{$index}}_{{choice.input_name}}_{{field}}" name="{{valid_values[$index]}}_{{$index}}" ng-model="choice.selected_values[$index]"  value="{{field}}" ng-change="addDefaultValueToCheckbox(choice.input_name, field)"/>
+                                                        <label for="vp-versionform__checkbox_field_{{$index}}_{{choice.input_name}}_{{field}}"></label>
+                                                        <label for="vp-versionform__checkbox_field_{{$index}}_{{choice.input_name}}_{{field}}" class="ml--sm">{{field}}</label>
+                                                    </div>
+                                                </div>
+                                                <div class="vp-versionform__optionspanelcontainer clearfix right">
+                                                    <!--REMOVE BUTTON-->
+                                                    <!--<div class="vp-versionform__removescreenshotbtnwrap mr&#45;&#45;xxxl right">
+                                                        <button type="button" class="vp-versionform__removescreenshotbtn vp-uielement__button vp-uielement__button&#45;&#45;removeenabled pl&#45;&#45;xxl" ng-click="removeField($index)">Remove</button>
+                                                    </div>
+                                                    &lt;!&ndash;EDIT BUTTON&ndash;&gt;
+                                                    <div class="vp-versionform__editdeploydetailswrap mr&#45;&#45;xxxl right">
+                                                        <button type="button" class="vp-versionform__editdeploydetails vp-uielement__button vp-uielement__button&#45;&#45;edit" ng-click="showEditSettings($index)"></button>
+                                                    </div>-->
+                                                    <!--MANDATORY CHECKBOX-->
+                                                    <!--<div class="vp-versionform__mandatorywrap vp-uielement__checkbox mr&#45;&#45;xxxl right">
+                                                        <input type="checkbox" id="vp-versionform__mandatory4_{{$index}}_{{choice.input_name}}" ng-model="choice.is_mandatory" name="is_mandatory_checkbox" ng-checked="choice.is_mandatory==true" ng-true-value="true" ng-false-value="false" ng-disabled="true"/>
+                                                        <label for="vp-versionform__mandatory4_{{$index}}_{{choice.input_name}}"></label>
+                                                        <label for="vp-versionform__mandatory4_{{$index}}_{{choice.input_name}}" class="ml&#45;&#45;sm">Mandatory</label>
+                                                    </div>-->
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!--    <div class="vp-versionform__adddeployitem bg&#45;&#45;cs06">
+                                        &lt;!&ndash;ADD BUTTON&ndash;&gt;
+                                        <button type="button" class="vp-versionform__adddeploymentdetail vp-uielement__button vp-uielement__button&#45;&#45;cleanenabled text&#45;&#45;left" ng-click="showSettings()"><span class="ml&#45;&#45;lg">+Add</span></button>
+                                    </div>-->
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </li>
+    </ul>
+   </form>
+</div>

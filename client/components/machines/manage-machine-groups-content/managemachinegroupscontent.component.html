@@ -1,0 +1,36 @@
+<!--MANAGE MACHINES TAB CONTENT COMPONENT START-->
+<div class="vp-mmanagetab vp-control max inblock nowrap" ng-controller="EditMachineGroupController">
+    <!--MANAGE MACHINES TAB CONTENT FILTER (MODIFIERS: # vp-mmanagetab__filterwrap--close )-->
+    <div class="vp-tabs__bodyheader vp-tabs__bodyheader--scrolled relative">
+        <div class="vp-tabs__bodyheaderfiltericonwrapper mr--xxxl text--light text--md text--cs03 pointer right">
+            <div class="vp-tabs__bodyheaderselectedtoolspopup absolute hidden" id="open_filter" style="margin-left: -161px; margin-top: 52px;width:260px" ng-include="'static/components/machines/popups/openmachinegroupfilter.component.html'"></div>
+            <button type="button" class="vp-tabs__bodyheaderfilterbtn vp-uielement__button tag_popup vp-uielement__button--cleanenabled pl--xxl text--light text--md" ng-click="openFilter()" ng-if="isFilterApplied === false" style="margin: 14px;"><span>Filter</span></button>
+            <button type="button" class="vp-tabs__bodyheaderfilterbtn_active vp-uielement__button tag_popup vp-uielement__button--cleanenabled pl--xxl text--light text--md" ng-click="openFilter()" ng-if="isFilterApplied === true" style="margin: 14px;"><span>Filter</span></button>
+        </div>
+    </div>
+    <section class="vp-mmanagetab__filterwrap vp-mmanagetab__filterwrap--close max--height relative inblock">
+        <button type="button" class="vp-mmanagetab__filterclosebtn vp-uielement__button vp-uielement__button--dropdownarrowclosed  absolute"></button>
+        <!--<div class="vp-mmanagetab__filter max&#45;&#45;height" ng-include="'static/components/dashboard/filter/dashboardfilter.component.html'"></div>-->
+    </section>
+    <!--CONTENT (WITHOUT FILTER) SECTION-->
+    <section class="vp-mmanagetab__content vertical--top inblock">
+        <!--MACHINES SEARCH-->
+        <div class="vp-mmanagetab__findmachinewrap vertical--top mt--md ml--md left">
+            <div class="vp-mmanagetab__findmachine max--height" ng-include="'static/components/machines/machine-group-search-column/machinegroupsearchcolumn.component.html'"></div>
+        </div>
+
+        <!--VERTICAL TAB AREA-->
+        <div class="vp-mmanagetab__machinesectionwrap mt--xxl ml--md inblock" ng-if="machineGroupData && hideMachineGroupdData === true">
+            <div class="vp-mmanagetab__machinesectionheader text--cs03 pl--md">
+                <label class="vp-mmanagetab__machinesectionlabel text--light text--xxl"> {{machineGroupData.group_name}}</label>
+                <div class="vp-mmanagetab__machinetatewrap mr--md right" ng-if="machineGroupData.status==='0'">
+                    <!--MACHINE STATE ICON (MODIFIERS: # vp-uielement__versionstate--inactive # vp-uielement__versionstate--active)-->
+                    <span class="vp-mmanagetab__machinestateicon vp-uielement__versionstate--inactive inblock vertical--middle"></span>
+                    <span class="vp-mmanagetab__machinestatemsg vertical--middle ml--md text--cs03 text--light text--md">Machine is down</span>
+                </div>
+            </div>
+            <div class="vp-mmanagetab__verticaltabs mt--xl max--height" ng-include="'static/components/machines/tabs/verticaltabs/machinegrouptabs.component.html'"></div>
+        </div>
+    </section>
+</div>
+<!--MANAGE MACHINES TAB CONTENT COMPONENT END-->

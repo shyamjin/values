@@ -1,0 +1,28 @@
+Getting All Roles
+---
+tags:
+ - Role
+parameters:
+- name: token
+  in: header
+  description: API key
+  required: false
+  type: string
+  format: string
+- name: access-token
+  in: header
+  description: API key
+  required: false
+  type: string
+  format: string 
+responses:
+  200:
+    description: Getting All Roles Successfully
+    examples:
+      result: "success"
+      message: null
+  404:
+    description: exception in Getting All Roles
+    examples:
+      result: "failed"
+      message: "Throws an exception"

@@ -1,0 +1,28 @@
+<div class="vp-versionform__content inblock" style="padding-left: 1%">
+    <section class="vp-versionform__deploymentdetails">
+        <div class="vp-versionform__deployitemlistwrap--filled">
+            <table>
+                <tr>
+                    <th class="pa--md bg--cs01 text--white text--light text--md table-header">Name</th>
+                    <th class="pa--md bg--cs01 text--white text--light text--md table-header">Value</th>
+                    <th class="pa--md bg--cs01 text--white text--light text--md table-header"></th>
+                </tr>
+                <tr ng-repeat="envVar in envVars track by $index">
+                    <td>
+                        <input name="env-name-{{envVar.name}}" type="text" ng-model="envVar.name" ng-disabled="disabled">
+                    </td>
+                    <td>
+                        <input name="env-value-{{envVar.name}}" type="text" ng-model="envVar.value" ng-disabled="disabled">
+                    </td>
+                    <td>
+                        <button type="button" class="vp-versionform__removescreenshotbtn vp-uielement__button vp-uielement__button--removeenabled pl--xxl" ng-click="removeEntry($index)">
+                        </button>
+                    </td>
+                </tr>
+            </table>
+            <div>
+                <button type="button" class="vp-versionform__adddeploymentdetail vp-uielement__button vp-uielement__button--cleanenabled text--left" ng-click="addEntry()"><span class="ml--lg">+Add</span></button>
+            </div>
+        </div>
+    </section>
+</div>

@@ -1,0 +1,214 @@
+<!-- FILE FORM COMPONENT START-->
+<div class="vp-exportfileload vp-control bg--white max">
+    <div class="vp-exportfileload__fieldinner">
+        <!--'FILE' FIELD LABEL-->
+      <!--  <div class="vp-exportfileload__fieldlabelwrap vertical&#45;&#45;top inblock">
+            <label class="vp-exportfileload__fieldlabel text&#45;&#45;light text&#45;&#45;md text&#45;&#45;ellipsis text&#45;&#45;ellipsis&#45;&#45;single">File:</label>
+        </div>-->
+        <!--'FILE' FIELD CONTENT-->
+        <div class="vp-exportfileload__fieldcontent vp-exportfileload__ipcontent inblock">
+            <!--TOP INPUT SECTION-->
+            <section class="vp-exportfileload__fileinputsection">
+                <form name="exportForm" ng-controller="ImportExportController"  ng-submit="exportData('exportForm')">
+                    <!--<input type="text" class="vp-importfileload__filenameinput input&#45;&#45;clear" name="vp-importfileload__aliasinput">-->
+                    <span >Target Machine<span class="vp-createnewmachform__fieldrequire">*</span>:</span>
+                    <input type="text" style="border: 1px solid #969898;color: #292e4c;font-weight: 500;font-size: 16px;padding-left: 25px;padding-top: 1px;margin-left: 20px;padding-bottom: 1px;width: 200px;" ng-model="TARGET_MACHINE_NAME" name="target_machine_name"  id="TARGET_MACHINE_NAME"  required />
+                    <ul class="vp-createnewmachform__fielditem vp-createnewmachform__aliaseitem mt--lg">
+                        <li class="vp-createnewmachform__fielditem vp-createnewmachform__aliasitem pt--lg">
+                            <div class="vp-createnewmachform__fielditeminner">
+                                <!--IP FIELD LABEL-->
+                                <div class="vp-machdetails__fieldlabelwrap inblock">
+                                    <label class="vp-createnewmachform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Additional Artifacts:</label>
+                                </div>
+                                <!--IP FIELD CONTENT-->
+                                <div class="vp-machdetails__fieldcontent inblock">
+                                    <div class="vp-machinesform__fieldinputwrap  vertical--top pl--md inblock">
+                                        <div class="vp-uielement__checkbox">
+                                            <input id="input_check_external_artifacts" type="checkbox" name="full_sync" ng-model="external_artifacts" />
+                                            <label for="input_check_external_artifacts"></label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul class="vp-createnewmachform__fielditem vp-createnewmachform__aliaseitem mt--lg">
+                        <div class="vp-createnewmachform__fielditeminner">
+                            <div class="vp-createnewmachform__fieldlabelwrap vertical--bottom inblock">
+                                <label class="vp-createnewmachform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Filters to apply:</label>
+                            </div>
+                            <ul class="vp-createnewmachform__connectionsublist pl--xxl">
+                                <li class="vp-createnewmachform__connectionsubitem vp-createnewmachform__hostitem mt--lg">
+                                    <div class="vp-createnewmachform__fielditeminner">
+                                        <div class="vp-createnewmachform__fieldlabelwrap inblock">
+                                            <label for="dpm_host_pull_1" class="vp-createnewmachform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Entity Type:</label>
+                                        </div>
+                                        <div class="vp-createnewmachform__fieldcontent vp-createnewmachform__hostcontent inblock">
+                                            <div class="vp-machdetails__tunnelinglabelinputwrap vp-machdetails__tunnelingcolumn pr--md left">
+                                                <select id="entity_type" name="vp-userform__dropdownlist_entity_type" class="vp-userform__dropdownlist dropdown_auth_type vp-uielement__select" ng-model="filtersToApply.type" style="margin-left:60px; width: 140px;">
+                                                    <option value="">----  Select entity type  ----</option>
+                                                    <option value="all">All</option>
+                                                    <option value="tool">Tool</option>
+                                                    <option value="du">DU</option>
+                                              </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="vp-userform__fielditem vp-userform__nameitem pt--xxl">
+                                    <div class="vp-userform__fielditeminner">
+                                        <!--'NAME' FIELD LABEL-->
+                                        <div class="vp-userform__fieldlabelwrap inblock">
+                                            <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">States To Sync:</label>
+                                        </div>
+                                        <!--'NAME' FIELD CONTENT-->
+                                        <div class="vp-createnewmachform__fieldcontent vp-createnewmachform__hostcontent inblock">
+                                        <div class="vp-machdetails__tunnelinglabelinputwrap vp-machdetails__tunnelingcolumn pr--md left">
+                                            <select name="du_approval_status" id="du_approval_status"  ng-model="filtersToApply.approval_status" class="vp-userform__dropdownlist dropdown_auth_type vp-uielement__select" style="width: 140px">
+                                                <option value="Any">Any</option>
+                                                <option ng-repeat="approvals in approvalStatus" value="{{approvals.name}}">{{approvals.name}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </li>
+                                <li class="vp-createnewmachform__connectionsubitem vp-createnewmachform__hostitem mt--lg" id="add_export_list">
+                                    <div class="vp-userform__fielditeminner">
+                                        <div class="vp-userform__fieldlabelwrap inblock">
+                                            <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Time After:</label>
+                                        </div>
+                                        <!--'ADD USERS TO GROUP' FIELD CONTENT-->
+                                        <div class="vp-userform__fieldcontent vp-userform__memberofcontent inblock">
+                                            <div class="vp-machdetails__fieldcontent inblock">
+                                                <div class="vp-machdetails__fieldtypewrap vp-machdetails__editablewrap inblock set_margin_rad">
+                                                    <div class="vp-createnewmachform__fieldcontent vp-createnewmachform__userscontent inblock">
+                                                        <ul class="vp-createnewmachform__userslist clearfix">
+                                                            <!--USER ROW EXAMPLE-->
+                                                            <li class="vp-createnewmachform__useritem mt--sm mr--md left">
+                                                                <div class="text--regular text--lg text--cs03 nowrap">
+                                                                     <div class="vp-versionform__content inblock" >
+                                                                        <input name="time_after_date"class="ba--primary" style="width:300px" id="VERSION_DATE"  step="60" type="datetime-local" ng-model="filtersToApply.time_after"/>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="vp-createnewmachform__connectionsubitem vp-createnewmachform__hostitem mt--lg" id="add_tag_list">
+                                    <div class="vp-userform__fielditeminner">
+                                        <div class="vp-userform__fieldlabelwrap inblock">
+                                            <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Tags:</label>
+                                        </div>
+                                        <!--'ADD USERS TO GROUP' FIELD CONTENT-->
+                                        <div class="vp-userform__fieldcontent vp-userform__memberofcontent inblock">
+                                            <div class="vp-machdetails__fieldcontent inblock">
+                                                <div class="vp-machdetails__fieldtypewrap vp-machdetails__editablewrap inblock set_margin_rad">
+                                                    <div class="vp-createnewmachform__fieldcontent vp-createnewmachform__userscontent inblock">
+                                                        <ul class="vp-createnewmachform__userslist clearfix">
+                                                            <!--USER ROW EXAMPLE-->
+                                                            <li class="vp-createnewmachform__useritem mt--sm mr--md left" ng-repeat="tag in filtersToApply.tags track by $index">
+                                                                <div class="vp-createnewmachform__useriteminner text--regular text--lg text--cs03 nowrap">
+                                                                    <div class="vp-createnewmachform__userinfowrap inblock">
+                                                                        <span class="vp-createnewmachform__userinfo text--ellipsis text--ellipsis--single">{{tag}}</span>
+                                                                    </div>
+                                                                    <div class="vp-createnewmachform__userremovebtnwrap vertical--top inblock">
+                                                                        <button type="button" class="vp-createnewmachform__userremovebtn vp-uielement__button vp-uielement__button--smallclose vertical--middle pa--none ml--sm" ng-click="selectTag(tag)"></button>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                            <li class="vp-createnewmachform__addusersbuttonitem mt--sm mr--md pa--none left" style="width: max-content;">
+                                                                <div class="vp-createnewmachform__addusersbuttoniteminner inblock">
+                                                                    <button type="button" class="vp-uielement__button vp-uielement__button--cleanenabled" id="add_status_tag_btn"><span class="vertical--middle" ng-click="showAddTag()">+Add tags</span></button>
+                                                                </div>
+                                                                <div id="add_tag" class="vp-versionform__addcertifieditembtnpopup tag_popup absolute hidden" ng-include="'static/components/synchronization-services/filters/addtagspopup.component.html'"></div>
+                                                            </li>
+
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <!--<li class="vp-createnewmachform__connectionsubitem vp-createnewmachform__hostitem mt&#45;&#45;lg" id="add_status_list" ng-if="filtersToApply.type==='du' || filtersToApply.type==='all'">
+                                    <div class="vp-userform__fielditeminner">
+                                        <div class="vp-userform__fieldlabelwrap inblock">
+                                            <label class="vp-userform__fieldlabel text&#45;&#45;light text&#45;&#45;md text&#45;&#45;ellipsis text&#45;&#45;ellipsis&#45;&#45;single">Approval status:</label>
+                                        </div>
+                                        &lt;!&ndash;'ADD USERS TO GROUP' FIELD CONTENT&ndash;&gt;
+                                        <div class="vp-userform__fieldcontent vp-userform__memberofcontent inblock">
+                                            <div class="vp-machdetails__fieldcontent inblock">
+                                                <div class="vp-machdetails__fieldtypewrap vp-machdetails__editablewrap inblock set_margin_rad">
+                                                    <div class="vp-createnewmachform__fieldcontent vp-createnewmachform__userscontent inblock">
+                                                        <ul class="vp-createnewmachform__userslist clearfix">
+                                                            &lt;!&ndash;USER ROW EXAMPLE&ndash;&gt;
+                                                            <li class="vp-createnewmachform__useritem mt&#45;&#45;sm mr&#45;&#45;md left" ng-repeat="status in filtersToApply.approval_status track by $index">
+                                                                <div class="vp-createnewmachform__useriteminner text&#45;&#45;regular text&#45;&#45;lg text&#45;&#45;cs03 nowrap">
+                                                                    <div class="vp-createnewmachform__userinfowrap inblock">
+                                                                        <span class="vp-createnewmachform__userinfo text&#45;&#45;ellipsis text&#45;&#45;ellipsis&#45;&#45;single">{{status}}</span>
+                                                                    </div>
+                                                                    <div class="vp-createnewmachform__userremovebtnwrap vertical&#45;&#45;top inblock">
+                                                                        <button type="button" class="vp-createnewmachform__userremovebtn vp-uielement__button vp-uielement__button&#45;&#45;smallclose vertical&#45;&#45;middle pa&#45;&#45;none ml&#45;&#45;sm" ng-click="selectApprovalStatus(status)"></button>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+
+                                                            <li class="vp-createnewmachform__addusersbuttonitem mt&#45;&#45;sm mr&#45;&#45;md pa&#45;&#45;none left" style="width: max-content;">
+                                                                <div class="vp-createnewmachform__addusersbuttoniteminner inblock">
+                                                                    <button type="button" class="vp-uielement__button vp-uielement__button&#45;&#45;cleanenabled" id="add_status_list_btn"><span class="vertical&#45;&#45;middle" ng-click="showAddStatus()">+Add approval status</span></button>
+                                                                </div>
+                                                                <div id="add_status" class="vp-versionform__addcertifieditembtnpopup tag_popup absolute hidden" ng-include="'static/components/synchronization-services/filters/addapprovalstatuspopup.component.html'"></div>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>-->
+                            </ul>
+                        </div>
+                    </ul>
+                    <input type="submit" value="Export" class="vp-importfileload__loadbtn vp-uielement__button vp-uielement__button--apply pr--md pl--md mt--xxl block" style="border-style: solid;border-width: 1px;border-color: #254b75;background-color: #254b75;color: #f5f5f5;margin-top: 85px;margin-left: 290px;"  />
+                </form>
+            </section>
+            <!--DRAG AND DROP SECTION-->
+            <!--<section class="vp-exportfileload__dragdropsection mt&#45;&#45;md">
+                <div class="vp-exportfileload__dragdrop bg&#45;&#45;cs06 text&#45;&#45;center">
+                    <span class="text&#45;&#45;cs08 text&#45;&#45;light text&#45;&#45;lg">...or drag the file here...</span>
+                </div>
+            </section>-->
+            <!--PROCESSING SECTION-->
+            <section class="vp-exportfileload__processingsection" style="margin-left:33%;" ng-if="preLoader">
+                <div class="loader mb--sm" style="margin-left: 60px;"></div>
+                <span class="vp-exportfileload__processingmsg text--cs03 text--light text--xxl">Loading & processing...</span>
+            </section>
+            <!--BULK FILE REPORT SECTION (MODIFIERS: # vp-exportfileload__bulkreportsection--show )-->
+            <section class="vp-exportfileload__bulkreportsection vp-exportfileload__bulkreportsection--show text--cs03" ng-if="resultPane">
+                <div class="vp-exportfileload__createdmachineslistwrap mt--xl">
+                    <h13 style="text-align:center;font-weight: bold;"> Result</h13><br><br><br><br>
+                    <ul class="vp-exportfileload__createdmachineslist">
+                        <li class="vp-exportfileload__createdmachineitem mt--sm">Message : {{result.message}}</li>
+                        <li class="vp-exportfileload__createdmachineitem mt--sm" ng-if="result.result==='success'">Tool/Du/Du Package exported :</li>
+                        <div class="vp-exportfileload__createdmachineitem mt--sm" ng-if="result.data.file_path" ng-repeat="tool in result.data.tool_names track by $index">
+                            {{$index+1}} - {{tool}}
+                        </div>
+                        <div class="vp-exportfileload__createdmachineitem mt--sm"  ng-if="!result.data.file_path" ng-repeat="tool in result.data track by $index">
+                            {{$index+1}} - {{tool}}
+                        </div>
+                        <li class="vp-exportfileload__createdmachineitem mt--sm" ng-if="result.data.tool_names_not_exported.length>0">Tool/Du/Du Package not exported :</li>
+                        <div>
+                            <li class="vp-exportfileload__createdmachineitem mt--sm" ng-if="result.data.tool_names_not_exported.length>0" ng-repeat="tool in result.data.tool_names_not_exported track by $index">{{$index+1}} - {{tool}}</li>
+                            <li class="vp-exportfileload__createdmachineitem mt--sm" ng-if="result.data.tool_names_not_exported.length>0">Result : {{result.result}}</li>
+                        </div>
+                    </ul>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+<!-- FILE FORM COMPONENT END-->

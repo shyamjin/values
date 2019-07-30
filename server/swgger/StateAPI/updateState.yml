@@ -1,0 +1,75 @@
+Update state
+---
+tags:
+   - States
+parameters:
+- name: token
+  in: header
+  description: API key
+  required: false
+  type: string
+  format: string
+- name: access-token
+  in: header
+  description: API key
+  required: false
+  type: string
+  format: string 
+- name: input
+  in: body
+  description: State data
+  required: true
+  type: string
+  format: string
+  schema:
+    $ref: "#/definitions/UpdateStateData"     # <---------
+
+
+responses:
+  200:
+    description: State has been updated successfully
+    schema:
+        $ref: "#/definitions/Data"     # <---------
+    examples:
+      result: "success"
+      message: "State has been updated successfully"
+  404:
+    description: exception in updating State
+    examples:
+      result: "failed"
+      message: "Throws an exception"
+
+
+definitions:
+  UpdateStateData:           # <----------
+    type: object
+    required:
+      - _id
+      - approval_status                 
+    optional:      
+      - deployment_field
+    properties:
+      _id:
+        type: object
+        properties:
+          oid: 
+            type: string                   
+      approval_status:
+        type: string
+      deployment_field:
+        type: object
+        properties:
+          fields:
+            type: array
+            items:
+              type: object              
+                  
+  Data:
+    type: object
+    properties:
+        data:
+          type: string
+        result:
+          type: string
+        message:
+           type: string      

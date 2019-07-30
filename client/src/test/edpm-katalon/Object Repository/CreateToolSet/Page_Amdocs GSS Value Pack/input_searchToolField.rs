@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+   <description></description>
+   <name>input_searchToolField</name>
+   <tag></tag>
+   <elementGuidId>b6892cde-0957-45d0-9ca9-598981cd6cfc</elementGuidId>
+   <selectorCollection>
+      <entry>
+         <key>BASIC</key>
+         <value>//input[@name = 'searchToolField' and @ng-model = 'searchToolToAdd']</value>
+      </entry>
+   </selectorCollection>
+   <selectorMethod>BASIC</selectorMethod>
+   <useRalativeImagePath>false</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>tag</name>
+      <type>Main</type>
+      <value>input</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>class</name>
+      <type>Main</type>
+      <value>vp-toolssearch__searchinput vp-uielement__searchinput ng-untouched ng-valid ng-not-empty ng-dirty ng-valid-parse</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>name</name>
+      <type>Main</type>
+      <value>searchToolField</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>ng-model</name>
+      <type>Main</type>
+      <value>searchToolToAdd</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>type</name>
+      <type>Main</type>
+      <value>text</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>placeholder</name>
+      <type>Main</type>
+      <value>Find a tool</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath</name>
+      <type>Main</type>
+      <value>id(&quot;show_tools&quot;)/div[@class=&quot;vp-addToolmodal absolute ng-scope&quot;]/div[@class=&quot;vp-addtoolmodal vp-control bg--white relative ng-scope&quot;]/div[@class=&quot;vp-addtoolmodal__body&quot;]/section[@class=&quot;vp-addtoolmodal__title&quot;]/div[@class=&quot;vp-addtoolmodal__findmachinewrap vertical--top mt--md ml--md left&quot;]/div[@class=&quot;vp-mmanagetab__findmachine max--height ng-scope&quot;]/div[@class=&quot;vp-toolssearch bg--white max--width ng-scope&quot;]/div[@class=&quot;vp-toolssearch__searchboxwrap pt--md pr--md pl--md&quot;]/div[@class=&quot;vp-toolssearch__searchbox vp-uielement__searchbox relative&quot;]/input[@class=&quot;vp-toolssearch__searchinput vp-uielement__searchinput ng-untouched ng-valid ng-not-empty ng-dirty ng-valid-parse&quot;]</value>
+   </webElementProperties>
+</WebElementEntity>

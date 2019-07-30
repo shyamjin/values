@@ -1,0 +1,24 @@
+<!--SHOW TOOL PARTIALS ASSEMBLY START-->
+<div class="vp-showtool max" ng-controller="ShowToolSetPartialController">
+    <!--SIDE NAVBAR SECTION-->
+    <div class="vp-showtool__navaside fixed pos--top pos--bottom" ng-include="'static/components/dashboard/navaside/navaside.component.html'"></div>
+    <!--HEAD MESSAGE (MODIFIERS: # vp-toolspage__headnotificationwrap--show )-->
+	<div class="vp-toolspage__headnotificationwrap" id="header_message">
+		<div class="vp-toolspage__headnotification" ng-include="'static/components/dashboard/header-message/headermessage.component.html'"></div>
+	</div>
+    <div class="vp-showtool__content bg--white max--height relative">
+        <!--HEADER SECTION-->
+        <div class="vp-edittools__header  pos--top pos--right pos--left"  ng-include="'static/components/tools/show-tool-set/header/header.component.html'" style="z-index: 10;"></div>
+        <div class="content_height">
+            <div class="vp-edittools__content bg--white max--height tool_scroll relative">
+                <div class="vp-showtool__contentbounded" style="width:100%">
+                    <!--TOOL INFORMATION SECTION-->
+                    <div class="vp-showtool__toolinfo" ng-include="'static/components/tools/show-tool-set/tool-set-info/toolsetinfo.component.html'"></div>
+                    <!--TABS SECTION-->
+                    <div class="vp-showtool__tabs pa--xxxl"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--SHOW TOOL PARTIALS ASSEMBLY END-->

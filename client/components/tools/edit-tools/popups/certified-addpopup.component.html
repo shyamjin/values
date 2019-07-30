@@ -1,0 +1,40 @@
+<!--CERTIFIED ADD POPUP COMPONENT START-->
+<div id="vp-certifiedaddpopupc1_{{$index}}_version_{{vIndex}}" class="vp-certifiedaddpopup vp-control max">
+    <div class="vp-certifiedaddpopup__popuptop vp-uielement__popuptop"></div>
+    <div class="vp-certifiedaddpopup__container vp-uielement__popup pt--md pr--xl pb--xl pl--xl bg--white max--height relative skip_slideup">
+        <!--INPUT WRAPPER-->
+        <div class="vp-certifiedaddpopup__inputwrapper">
+            <input type="text" class="vp-certifiedaddpopup__input max--width text--cs03 text--sm text--regular pr--md pl--md input--clear skip_slideup"
+                placeholder="type the software name">
+        </div>
+
+        <div class="vp-certifiedaddpopup__optionswrap pt--lg pb--xxxxl">
+            <!--SOFTWARE OPTIONS LIST-->
+            <ul class="vp-certifiedaddpopup__optionslist text--cs03 text--regular text--md skip_slideup">
+
+                <!--SOFTWARE ITEM EXAMPLE-->
+                <li class="vp-certifiedaddpopup__optionsitem mt--md skip_slideup"  ng-repeat="certificate in mps_certification">
+                    <div class="vp-certifiedaddpopup__iteminner text--ellipsis">
+                        <div class="vp-certifiedaddpopup__checkbox vp-uielement__checkbox">
+                            <!--ITEM CHECKBOX-->
+                            <input type="checkbox" id="vp-certifiedaddpopup__c1_{{$index}}_version_{{vIndex}}" class="skip_slideup" name="vp-mps_certified" ng-model="certified[$index]" value="{{certificate}}" ng-click="selectMPSCertification(certificate, vIndex)" ng-checked="isCertifiedSelected(certificate, vIndex)"/>
+                            <label for="vp-certifiedaddpopup__c1_{{$index}}_version_{{vIndex}}" class="skip_slideup"></label>
+                            <!--ITEM NAME WRAPPER-->
+                            <div class="vp-certifiedaddpopup__itemnamewrap ml--sm inblock vertical--bottom">
+                                <label for="vp-certifiedaddpopup__c1_{{$index}}_version_{{vIndex}}" class="vp-certifiedaddpopup__itemname text--ellipsis text--ellipsis--single skip_slideup" title="">{{certificate}}</label>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+
+        <!--BUTTONS WRAPPER-->
+        <div class="vp-certifiedaddpopup__buttonswrap absolute">
+            <!--APPLY BUTTON-->
+            <button type="button" class="vp-certifiedaddpopup__applybtn vp-uielement__button vp-uielement__button--apply" ng-click="closeCertified()">Apply</button>
+        </div>
+    </div>
+</div>
+<!--CERTIFIED ADD POPUP COMPONENT END-->

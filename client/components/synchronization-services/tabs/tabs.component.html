@@ -1,0 +1,29 @@
+<!--TAB COMPONENT START-->
+<div class="vp-tabs vp-tabs--default vp-tabs--machines vp-control relative max--width max--height clearfix">
+	<!--TABS HEADER NAVIGATION BAR-->
+	<div class="vp-tabs__nav max--width left">
+		<nav>
+			<ul class="vp-tabs__navlist  max--width text--center text--md text--light text--cs06 table">
+				<!--ACTIVE TAB STATE (MODIFIERS: # vp-tabs__tab--active )-->
+				<li class="vp-tabs__tab pointer pr--sm pl--sm left" ng-class="getActiveSyncTab('/manage/synchronization/services')" id="manage_sync_1" ng-click="showActiveSyncTab('/manage/synchronization/services')">
+					<a href="#/manage/synchronization/services" class="vp-tabs__tablabel vertical--top no--decor">Synchronization Requests</a>
+				</li>
+				<!--DEAFULT TAB STATE-->
+				<li class="vp-tabs__tab pointer pr--sm pl--sm left" ng-class="getActiveSyncTab('/synchronization')" id="create_sync_1" ng-click="showActiveSyncTab('/synchronization')">
+					<a href="#/synchronization" class="vp-tabs__tablabel vertical--top no--decor">New Sync Request</a>
+				</li>
+				<!--DEAFULT TAB STATE-->
+				<li class="vp-tabs__tab pointer pr--sm pl--sm left" ng-class="getActiveSyncTab('/view/sync/requests')" id="create_sync_3" ng-click="showActiveSyncTab('/view/sync/requests')">
+					<a href="#/view/sync/requests" class="vp-tabs__tablabel vertical--top no--decor">Sync Request Records</a>
+				</li>
+			</ul>
+		</nav>
+	</div>
+	<!--TAB BODY WRAPPER, LOAD TEMPLATE INSIDE-->
+	<div class="vp-tabs__body overflow--auto left max--width">
+		<div ng-if="displayTab==='/manage/synchronization/services'" class="vp-tabs__mmanagecontent text--none max" ng-include="'static/components/synchronization-services/manage-synchronization-service-content/managesynchronizationservicecontent.component.html'"></div>
+		<div ng-if="displayTab==='/synchronization'" class="vp-tabs__createanewmachine max" ng-include="'static/components/synchronization-services/create-new-sync-content/createnewsynccontent.component.html'"></div>
+		<div ng-if="displayTab==='/view/sync/requests'" class="vp-tabs__createanewmachine max" ng-include="'static/components/synchronization-services/sync-request-reports/syncrequestreports.component.html'"></div>
+	</div>
+</div>
+<!--TAB COMPONENT END-->

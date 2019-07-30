@@ -1,0 +1,33 @@
+Deleting Sync Request, by Referring id
+---
+tags:
+ - Sync
+parameters:
+- name: token
+  in: header
+  description: API key
+  required: false
+  type: string
+  format: string
+- name: access-token
+  in: header
+  description: API key
+  required: false
+  type: string
+  format: string 
+- name: id
+  in: path
+  type: string
+  required: true
+  description: Delete Sync Request
+responses:
+  200:
+    description: Deleted Sync Request Successfully
+    examples:
+      result: "success"
+      message: null
+  404:
+    description: exception in Deleting Sync Request
+    examples:
+      result: "failed"
+      message: "Throws an exception"

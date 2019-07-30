@@ -1,0 +1,95 @@
+// VARIABLES: SECTION 18
+// COPONENT CLASS
+div.vp-rdmodal {
+    width: @rdModalWidth;
+    height: @rdModalHeight;
+    // HEADER STYLE
+    div.vp-rdmodal__header {
+        height: @rdModalHeaderHeight;
+        background-image: -webkit-linear-gradient(91.5deg, transparent 0%, transparent 22%, @cs01 24%, @cs01 100%);
+        background-image: linear-gradient(-1.5deg, transparent 0%, transparent 22%, @cs01 24%, @cs01 100%);
+    }
+    // TOOLS DESCRIPTION LIMIT
+    .vp-rdmodal__tools {
+        .vp-rdmodal__fielddescription {
+            max-width: @toolDescriptionMaxWidth;
+        }
+    }
+    // ON MACHINES DESCRIPTION LIMIT
+    .vp-rdmodal__onmachines {
+        .vp-rdmodal__fielddescription {
+            max-width: @onMachinesDescriptionMaxWidth;
+        }
+    }
+    .vp-rdmodal__scheduledate {
+        max-width: @scheduleDateMaxWidth;
+    }
+    // CLOSE BUTTON
+    button.vp-rdmodal__closebtn {
+        width: @rdModalBtnSize;
+        height: @rdModalBtnSize;
+        background: url('../assets/images/icons/big_x_btn.png') no-repeat;
+        background-size: contain;
+    }
+    div.vp-rdmodal__body {
+        height:  100%;
+        //padding-top: @rdModalBodyPT;
+        padding-left: @rdModalBodyPL;
+    }
+    span.vp-rdmodal__fieldname {
+        min-width: @rdModalLAbelMinWidth;
+    }
+    // FOOTER VIEW STYLES
+    div.vp-rdmodal__footer {
+        padding-left: @rdModalBodyPL;
+        padding-right: @rdModalBodyPL;
+        height: @rdModalFooterHeight;
+        line-height: @rdModalFooterHeight;
+        width: @rdModalWidth;
+        border-top: 1px solid @cs09;
+    }
+    // STATUS SCHEDULE ICON
+    div.vp-rdmodal__statusscheduleicon {
+        width: @rdModalScheduleIcomSize;
+        height: @rdModalScheduleIcomSize;
+        background: url('../assets/images/icons/schedualed_details_icn.png') no-repeat;
+        background-size: contain;
+    }
+
+    div.vp-rdmodal__statusfailedicon {
+        width: @rdModalScheduleIcomSize;
+        height: @rdModalScheduleIcomSize;
+        background: url('../assets/images/icons/failed_icn.png') no-repeat;
+        background-size: contain;
+    }
+
+    div.vp-rdmodal__statusinprogessicon {
+        width: @rdModalScheduleIcomSize;
+        height: @rdModalScheduleIcomSize;
+        background: url('../assets/images/icons/in_progress_details_icn.png') no-repeat;
+        background-size: contain;
+    }
+
+    // STATUS - CALENDAR BUTTON
+    button.vp-rdmodal__statuscalendarbtn {
+        width: @rdModalBtnSize;
+        height: @rdModalBtnSize + 2;
+        background: url('../assets/images/icons/schedualed_btn.png') no-repeat;
+        background-size: contain;
+        top: @statusCalendarBtnTop;
+    }
+    // DISCARD BUTTON STYLES
+    .vp-rdmodal__discardbtn {
+        padding-right: 0;
+        padding-top: @discardBtnPT;
+    }
+    // ELLIPSIS
+    .vp-rdmodal__fielddescription, .vp-rdmodal__scheduledate {
+        .text--ellipsis;
+        .text--ellipsis--single;
+        .inblock;
+    }
+}
+.action_button {
+    margin-left: 15%;
+}

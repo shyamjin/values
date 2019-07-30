@@ -1,0 +1,305 @@
+<!--MACHINE DETAILS VERTICAL TAB CONTENT COMPONENT START-->
+<div class="vp-machdetails vp-control pt--xxxl pr--xl pb--xxxl pl--xxxl bg--white clearfix max">
+    <ul class="vp-machdetails__fieldslist text--cs03">
+        <!--IP FIELD ROW-->
+        <li class="vp-machdetails__fielditem vp-machdetails__ipitem">
+            <div class="vp-machdetails__fielditeminner">
+                
+                <!--IP FIELD CONTENT-->
+                <div class="vp-machdetails__fieldcontent inblock">
+                    <div class="vp-machdetails__fieldipwrap inblock">
+                        <span class="vp-machdetails__fieldip text--regular text--lg text--ellipsis text--ellipsis--single">{{GroupData.start_time.$date | date}}</span>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <div class="split-wrapper">
+            <div class="left-data split">
+
+                <li class="vp-machdetails__fielditem vp-machdetails__ipitem">
+                    <div class="vp-machdetails__fielditeminner">
+                        <!--IP FIELD LABEL-->
+                        <div class="vp-machdetails__fieldlabelwrap inblock">
+                            <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Status:</label>
+                        </div>
+                        <!--IP FIELD CONTENT-->
+                        <div class="vp-machdetails__fieldcontent inblock">
+                            <div class="vp-machdetails__fieldipwrap inblock">
+                                <span class="vp-machdetails__fieldip text--regular text--lg text--ellipsis text--ellipsis--single">{{GroupData.status}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="vp-machdetails__fielditem vp-machdetails__ipitem">
+                    <div class="vp-machdetails__fielditeminner">
+                        <!--IP FIELD LABEL-->
+                        <div class="vp-machdetails__fieldlabelwrap inblock">
+                            <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Created Date:</label>
+                        </div>
+                        <!--IP FIELD CONTENT-->
+                        <div class="vp-machdetails__fieldcontent inblock">
+                            <div class="vp-machdetails__fieldipwrap inblock">
+                                <span class="vp-machdetails__fieldip text--regular text--lg text--ellipsis text--ellipsis--single">{{GroupData.create_date.$date | date : "M/d/y h:mma" }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="vp-machdetails__fielditem vp-machdetails__ipitem">
+                    <div class="vp-machdetails__fielditeminner">
+                        <!--IP FIELD LABEL-->
+                        <div class="vp-machdetails__fieldlabelwrap inblock">
+                            <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Start Time:</label>
+                        </div>
+                        <!--IP FIELD CONTENT-->
+                        <div class="vp-machdetails__fieldcontent inblock">
+                            <div class="vp-machdetails__fieldipwrap inblock">
+                                <span class="vp-machdetails__fieldip text--regular text--lg text--ellipsis text--ellipsis--single">{{GroupData.start_date.$date | date : "M/d/y h:mma" }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="vp-machdetails__fielditem vp-machdetails__ipitem">
+                    <div class="vp-machdetails__fielditeminner">
+                        <!--IP FIELD LABEL-->
+                        <div class="vp-machdetails__fieldlabelwrap inblock">
+                            <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">End Time:</label>
+                        </div>
+                        <!--IP FIELD CONTENT-->
+                        <div class="vp-machdetails__fieldcontent inblock">
+                            <div class="vp-machdetails__fieldipwrap inblock">
+                                <span class="vp-machdetails__fieldip text--regular text--lg text--ellipsis text--ellipsis--single">{{GroupData.end_date.$date | date : "M/d/y h:mma" }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                     <li class="vp-machdetails__fielditem vp-machdetails__ipitem">
+                    <div class="vp-machdetails__fielditeminner">
+                        <!--IP FIELD LABEL-->
+                        <div class="vp-machdetails__fieldlabelwrap inblock">
+                            <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Tool List:</label>
+                        </div>
+                        <!--IP FIELD CONTENT-->
+                        <div class="vp-machdetails__fieldcontent inblock">
+                            <div class="vp-machdetails__fieldipwrap inblock">
+                                <span class="vp-machdetails__fieldip text--regular text--lg text--ellipsis text--ellipsis--single">{{GroupData.tool_list.tool_name}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </div><!-- end left-data -->
+            <div class="right-data split">
+                <li class="vp-machdetails__fielditem vp-machdetails__ipitem">
+                    <div class="vp-machdetails__fielditeminner">
+                        <!--IP FIELD LABEL-->
+                        <div class="vp-machdetails__fieldlabelwrap inblock">
+                            <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Account Name:</label>
+                        </div>
+                        <!--IP FIELD CONTENT-->
+                        <div class="vp-machdetails__fieldcontent inblock">
+                            <div class="vp-machdetails__fieldipwrap inblock">
+                                <span class="vp-machdetails__fieldip text--regular text--lg text--ellipsis text--ellipsis--single">{{GroupData.account_name}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="vp-machdetails__fielditem vp-machdetails__ipitem">
+                    <div class="vp-machdetails__fielditeminner">
+                        <!--IP FIELD LABEL-->
+                        <div class="vp-machdetails__fieldlabelwrap inblock">
+                            <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Requested By:</label>
+                        </div>
+                        <!--IP FIELD CONTENT-->
+                        <div class="vp-machdetails__fieldcontent inblock">
+                            <div class="vp-machdetails__fieldipwrap inblock">
+                                <span class="vp-machdetails__fieldip text--regular text--lg text--ellipsis text--ellipsis--single">{{GroupData.requested_by}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="vp-machdetails__fielditem vp-machdetails__ipitem">
+                    <div class="vp-machdetails__fielditeminner">
+                        <!--IP FIELD LABEL-->
+                        <div class="vp-machdetails__fieldlabelwrap inblock">
+                            <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Retry Count:</label>
+                        </div>
+                        <!--IP FIELD CONTENT-->
+                        <div class="vp-machdetails__fieldcontent inblock">
+                            <div class="vp-machdetails__fieldipwrap inblock">
+                                <span class="vp-machdetails__fieldip text--regular text--lg text--ellipsis text--ellipsis--single">{{GroupData.retry_count}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="vp-machdetails__fielditem vp-machdetails__ipitem">
+                    <div class="vp-machdetails__fielditeminner">
+                        <!--IP FIELD LABEL-->
+                        <div class="vp-machdetails__fieldlabelwrap inblock">
+                            <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Request Type:</label>
+                        </div>
+                        <!--IP FIELD CONTENT-->
+                        <div class="vp-machdetails__fieldcontent inblock">
+                            <div class="vp-machdetails__fieldipwrap inblock">
+                                <span class="vp-machdetails__fieldip text--regular text--lg text--ellipsis text--ellipsis--single">{{GroupData.type}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="vp-machdetails__fielditem vp-machdetails__ipitem">
+                    <div class="vp-machdetails__fielditeminner">
+                        <!--IP FIELD LABEL-->
+                        <div class="vp-machdetails__fieldlabelwrap inblock">
+                            <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Machine Name:</label>
+                        </div>
+                        <!--IP FIELD CONTENT-->
+                        <div class="vp-machdetails__fieldcontent inblock">
+                            <div class="vp-machdetails__fieldipwrap inblock">
+                                <span class="vp-machdetails__fieldip text--regular text--lg text--ellipsis text--ellipsis--single">{{GroupData.machine_name}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </div><!-- end right-data -->
+        </div><!-- end split-wrapper -->
+        
+
+        <li class="vp-machdetails__fielditem vp-machdetails__ipitem">
+            <div class="vp-machdetails__fielditeminner">
+                <!--IP FIELD LABEL-->
+                <div class="vp-machdetails__fieldlabelwrap inblock">
+                    <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Status:</label>
+                </div>
+                <!--IP FIELD CONTENT-->
+                <div class="vp-machdetails__fieldcontent inblock">
+                    <div class="vp-machdetails__fieldipwrap inblock">
+                        <span class="vp-machdetails__fieldip text--regular text--lg text--ellipsis text--ellipsis--single">{{GroupData.status_message}}</span>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="vp-machdetails__fielditem vp-machdetails__ipitem">
+            <div class="vp-machdetails__fielditeminner">
+                <!--IP FIELD LABEL-->
+                <div class="vp-machdetails__fieldlabelwrap inblock">
+                    <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Details:</label>
+                </div>
+                <!--IP FIELD CONTENT-->
+                <div class="vp-machdetails__fieldcontent inblock">
+                    <div class="vp-machdetails__fieldipwrap inblock">
+                        <span class="vp-machdetails__fieldip text--regular text--lg text--ellipsis text--ellipsis--single"><b>{{GroupData.account_name}}</b>&nbsp;on&nbsp;<b>{{GroupData.machine_name}}</b></span>
+                    </div>
+                </div>
+            </div>
+        </li>
+         <br><br>
+        <li class="vp-machdetails__fielditem vp-machdetails__ipitem" ng-hide="toolSteps===true">
+            <div class="vp-machdetails__fielditeminner">
+                <!--IP FIELD CONTENT-->
+                <div class="">
+                    <table>
+                        <tr>
+                            <th>Step</th>
+                            <th>Step Name</th>
+                            <th>Step Message</th>
+                            <th>Step Status</th>
+                            <th>Step Duration</th>
+                            <th>Step Start Time</th>
+                            <th>Step End Time</th>
+                            <th>Clone Step Details</th>
+                        </tr>
+                        <tr ng-repeat="singleStep in GroupData.step_details">
+                            <td>{{singleStep.step_id}}</td>
+                            <td>{{singleStep.step_name}}</td>
+                            <td style ="max-width:450px;word-wrap: break-word">{{singleStep.step_message}}</td>
+                            <td>{{singleStep.step_status}}</td>
+                            <td>{{singleStep.step_duration}}</td>
+                            <td>{{singleStep.step_start_time}}</td>
+                            <td>{{singleStep.step_end_time}}</td>
+                            <td>
+                                <button  ng-if="singleStep.tool_step_details!=null" type="button" class="vp-machdetails__removemachinebtn vp-uielement__button vp-uielement__button--edittool pr--md pl--md ml--md" ng-click="showToolStepsDetails(GroupData._id.$oid)">View</button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </li>
+        <li class="vp-machdetails__fielditem vp-machdetails__ipitem" ng-if="toolSteps===true">
+            <div class="vp-machdetails__fielditeminner">
+                <!--IP FIELD CONTENT-->
+                <div class="">
+                    <table>
+                        <tr>
+                            <th>Step</th>
+                            <th>Tool Step Name</th>
+                            <th>Tool Step Status</th>
+                            <th>Tool Step Message</th>
+                            <th>Tool Step Start Time</th>
+                            <th>Tool Step End Time</th>
+                            <th>Tool Step Duration</th>
+                        </tr>
+                        <tr ng-repeat="toolData in toolStepDetails">
+                            <td>{{toolData.tool_step_id}}</td>
+                            <td>{{toolData.tool_step_name}}</td>
+                            <td>{{toolData.tool_step_status}}</td>
+                            <td>{{toolData.tool_step_message}}</td>
+                            <td>{{toolData.tool_step_start_time}}</td>
+                            <td>{{toolData.tool_step_end_time}}</td>
+                            <td>{{toolData.tool_step_duration}}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </li>
+        <li class="vp-machdetails__fielditem vp-machdetails__ipitem button-wrapper" ng-hide="GroupData.status=='Done'">
+            <div class="vp-machdetails__fielditeminner">
+                <!--IP FIELD CONTENT-->
+                <button type="button" class="vp-machdetails__removemachinebtn vp-uielement__button vp-uielement__button--edittool pr--md pl--md ml--md" ng-click="retry(GroupData._id.$oid)">Retry</button>
+            </div>
+        </li>
+        <li class="vp-machdetails__fielditem vp-machdetails__ipitem button-wrapper">
+            <div class="vp-machdetails__fielditeminner">
+                <!--IP FIELD CONTENT-->
+                <button type="button" class="vp-machdetails__removemachinebtn vp-uielement__button vp-uielement__button--edittool pr--md pl--md ml--md" ng-click="showLog()">View Log</button>
+            </div>
+        </li>
+        <li class="vp-machdetails__fielditem vp-machdetails__ipitem button-wrapper" ng-if="toolSteps===true">
+            <div class="vp-machdetails__fielditeminner">
+                <!--IP FIELD CONTENT-->
+                <button type="button" class="vp-machdetails__removemachinebtn vp-uielement__button vp-uielement__button--edittool pr--md pl--md ml--md" ng-click="showSteps()">Back</button>
+            </div>
+        </li>
+          <!--log-->
+      <li class="vp-machdetails__fielditem vp-machdetails__ipitem">
+           <!--IP FIELD LABEL-->
+           <div class="log-overlay"></div>
+           <div class="log-modal">
+                <div class="vp-addtoolmodal__header fixed" style="width: 89vw; margin-left: -50px; margin-top: -50px;">
+                   <!--TITLE-->
+                   <h1 class="vp-addtoolmodal__title text--cs06 text--xl text--light mt--xl ml--xl inblock">Logs</h1>
+                   <!--CLOSE BUTTON-->
+                   <button type="button" class="vp-addtoolmodal__closebtn btn--clear mt--md mr--xxxl right" ng-click="hideLog()"></button>
+               </div>
+               <div class="vp-machdetails__fieldlabelwrap inblock" style="margin-top: 20px;">
+                    <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Logs:</label>
+                </div>
+                <div class="vp-machdetails__fielditeminner">
+                    <!--IP FIELD CONTENT-->
+                    <table>
+                        <tr ng-repeat="singleDateLog in allCloneLogs track by $index">
+                            <td class="mr--md mb--md text--sm">{{singleDateLog.dateofdeployment}}</td>
+                            <td>
+                                <table>
+									<tr class="mr--md mb--md text--sm" style="background-color:inherit" ng-repeat="log in singleDateLog.logdata track by $index">
+                                        <td>
+                                            {{log}}
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+      </li>
+    </ul>
+</div>
+<!--MACHINE DETAILS VERTICAL TAB CONTENT COMPONENT END-->

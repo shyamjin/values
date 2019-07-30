@@ -1,0 +1,19 @@
+// VARIABLES: SECTION 51
+.vp-addnewusercont {
+    input[type=text] {
+        border: 1px solid @cs08;
+        &:focus {
+            border: 1px solid @cs04;
+        }
+    }
+    &__form {
+        width: @newUserFormWidth;
+        padding-top: @permissionsSelectFormPT;
+        padding-bottom: @toolbarHeight;
+        padding-left: @permissionsSelectFormPL;
+    }
+    .vp-addnewusercont__toolbar:extend(.vp-ettoolbar) {
+        .vp-addnewusercont__innerbounded:extend(.vp-ettoolbar .vp-ettoolbar__innerbounded) {}
+        
+    }
+}

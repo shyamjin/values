@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+   <description></description>
+   <name>button_Edit</name>
+   <tag></tag>
+   <elementGuidId>fd6fa811-a593-4eec-a5a1-3d1eb2d3e557</elementGuidId>
+   <selectorCollection>
+      <entry>
+         <key>BASIC</key>
+         <value>//button[@type = 'button' and (text() = 'Edit' or . = 'Edit')]</value>
+      </entry>
+   </selectorCollection>
+   <selectorMethod>BASIC</selectorMethod>
+   <useRalativeImagePath>false</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>tag</name>
+      <type>Main</type>
+      <value>button</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>ui-sref</name>
+      <type>Main</type>
+      <value>editToolSet({id:toolset._id.$oid})</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>type</name>
+      <type>Main</type>
+      <value>button</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>class</name>
+      <type>Main</type>
+      <value>vp-uielement__button vp-uielement__button--edittool vp-tooltile__edittoolbtn mr--md right</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>href</name>
+      <type>Main</type>
+      <value>#/edit/toolset/5b050700c2efe60eb48450b4</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>text</name>
+      <type>Main</type>
+      <value>Edit</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath</name>
+      <type>Main</type>
+      <value>/html[@class=&quot;ng-scope&quot;]/body[1]/div[@class=&quot;vp-app__toolspage max--height ng-scope&quot;]/div[@class=&quot;vp-toolspage vp-toolspage--rightactive max--height max--width relative ng-scope&quot;]/div[@class=&quot;vp-toolspage__content max--height clearfix&quot;]/div[@class=&quot;vp-toolspage__centercolumn max--height max--width left clearfix&quot;]/div[@class=&quot;vp-toolspage__tabs left ng-scope&quot;]/div[@class=&quot;vp-tabs vp-tabs--default vp-control relative max--width max--height clearfix ng-scope&quot;]/div[@class=&quot;vp-tabs__body left max--width&quot;]/div[@class=&quot;vp-tabs__tilegrid ng-scope&quot;]/div[@class=&quot;vp-tilegrid vp-component max--height clearfix ng-scope&quot;]/div[@class=&quot;vp-tilegrid__listwrapper overflow-y--auto max--height clearfix&quot;]/ul[1]/li[@class=&quot;vp-tilegrid__tile pa--sm left ng-scope&quot;]/div[@class=&quot;vp-tooltile vp-component text--cs03 pt--md pr--md pl--md vp-tooltile__containingtoolmsg--active vp-tooltile__deprecatedwarning--active vp-tooltile__favorite--active  relative&quot;]/div[@class=&quot;vp-tooltile__footer absolute clearfix&quot;]/button[@class=&quot;vp-uielement__button vp-uielement__button--edittool vp-tooltile__edittoolbtn mr--md right&quot;]</value>
+   </webElementProperties>
+</WebElementEntity>

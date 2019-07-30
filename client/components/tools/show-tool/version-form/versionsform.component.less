@@ -1,0 +1,50 @@
+// VARIABLES: SECTION 40
+.vp-versionform {
+    &--showtool {
+        margin-top: @versionFormMT;
+        //INCLUDED IN TOOL SETS ITEMS
+        .vp-versionform__includedinitem {
+            &:not(: last-of-type):after {
+                content: ',';
+                .mr--sm;
+            }
+        }
+        //STATUS FIELD STYLES
+        div.vp-versionform__statuscontent {
+            max-width: @showToolContentWidth - @smallBtnWidth;
+        }
+        .vp-versionform__prerequisitescontent {
+            .vp-versionform__prerequisitesitem {
+                margin: 0;
+            }
+        }
+        .vp-versionform__documentation {
+            .vp-versionform__documentlinkwrap {
+                .max--width;
+            }
+        }
+        // BROWSE RIGHT/LEFT ARROW STYLE
+        .vp-versionform__screenshotsbrowslefwrapt, .vp-versionform__screenshotsbrowsrightwrap {
+            height: @smallScreenshotHeight;
+            line-height: @smallScreenshotHeight;
+        }
+        // MANY SCREENSHOTS MODIFIER (ACTIVATES BROWSE ARROWS)
+        .vp-versionform__content--many {
+            .vp-versionform__screenshotsbrowsrightwrap, .vp-versionform__screenshotsbrowslefwrapt {
+                .inblock;
+            }
+        }
+        .vp-versionform__content {
+            max-width: @showToolContentWidth;
+        }
+    }
+}
+
+    .container {
+         height: 66px;
+         overflow: hidden;
+    }
+    .show {
+         overflow: visible;
+         height: auto;
+    }

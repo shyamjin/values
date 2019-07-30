@@ -1,0 +1,40 @@
+// VARIABLES: SECTION 41 aasembly
+.vp-showtool {
+    .vp-showtool__toolinfo {
+        padding-top: @toolinfoPT;
+        padding-left: @toolinfoPL;
+        .pr--xxxl;
+    }
+    // ALL LINKS HOVER STATE
+    a:hover {
+        opacity: 0.7;
+    }
+    //NAV SIDE BAR
+    .vp-showtool__navaside {
+        z-index: 200;
+    }
+    // SCREENSHOTS CAROUSEL STYLES
+    .vp-showtool__screenshotbrowserwrap {
+        z-index: 9999;
+        content: '';
+        .absolute;
+        .max--position;
+        z-index: 999;
+        background-color: @cslightgrey;
+        &--show {
+            .block;
+            &~.vp-showtool__content {
+                &:before{
+                    content: '';
+                    .absolute;
+                    .max--position;
+                    z-index: 999;
+                    background-color: @cslightgrey;
+                }
+            }
+        }
+    }
+    .vp-showtool__screenshotbrowser {
+        margin: @screenshotsCarouselMT @screenshotsCarouselML;
+    }
+}

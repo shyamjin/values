@@ -1,0 +1,432 @@
+// GLOBAL IMPORTS
+@import "vp.reset.less";
+@import "vp.vars.less";
+@import "vp.framework.less";
+
+// -----ELEMENTS IMPORTS---------------
+@import "../components/uielements/searchfield.element.less";
+@import "../components/uielements/button.element.less";
+@import "../components/uielements/checkbox.element.less";
+@import "../components/uielements/radiobtn.element.less";
+@import "../components/uielements/popup.element.less";
+@import "../components/uielements/toolstateicon.element.less";
+@import "../components/uielements/versionstatus.element.less";
+@import "../components/uielements/select.element.less";
+// -----TOOLS---------------
+@import "../components/dashboard/navaside/navaside.component.less";
+@import "../components/dashboard/header/header.component.less";
+@import "../components/dashboard/filter/filter.component.less";
+@import "../components/dashboard/tabs/tabs.component.less";
+@import "../components/dashboard/rightsidebar/rightsidebar.component.less";
+@import "../components/dashboard/tilegrid/tilegrid.component.less";
+@import "../components/dashboard/treeview/treeview.component.less";
+@import "../components/dashboard/selected-tools-popup/selectedtoolspopup.component.less";
+@import "../components/tools/deploy-tools/scheduled-popup/scheduledpopup.component.less";
+@import "../components/dashboard/header-message/headermessage.component.less";
+@import "../components/dashboard/request-details-modal/requestdetailsmodal.less";
+// -----DEPLOY TOOLS---------------
+@import "../components/tools/deploy-tools/header/header.component.less";
+@import "../components/tools/deploy-tools/toolbar/toolbar.component.less";
+@import "../components/tools/deploy-tools/tools-section/tools-section.component.less";
+@import "../components/tools/deploy-tools/machines-search-column/machinesearchcolumn.component.less";
+@import "../components/tools/deploy-tools/machines-section/machines-section.component.less";
+@import "../components/tools/deploy-tools/addtoolspopup/addtoolspopup.component.less";
+@import "../components/tools/deploy-tools/morepopup/morepopup.component.less";
+@import "../components/tools/deploy-tools/tabs/tabs.component.less";
+@import "../components/tools/deploy-tools/machines-search-column/searchcolumn.component.less";
+@import "../components/tools/deploy-tools/machines-form/machinesform.component.less";
+@import "../components/tools/deploy-tools/attention-modal/attentionmodal.component.less";
+@import "../components/tools/deploy-tools/search-autocomplete/searchautocomplete.component.less";
+// -----EDIT TOOLS---------------
+@import "../components/tools/edit-tools/tool-info/toolinfo.component.less";
+@import "../components/tools/edit-tools/tabs/verticaltabs.component.less";
+@import "../components/tools/edit-tools/toolbar/toolbar.component.less";
+@import "../components/tools/edit-tools/version-form/versionsform.component.less";
+@import "../components/tools/edit-tools/popups/prerequisities-editpopup.component.less";
+@import "../components/tools/edit-tools/popups/editlogo-popup.component.less";
+@import "../components/tools/edit-tools/popups/editscreenshot-popup.component.less";
+@import "../components/tools/edit-tools/popups/certified-addpopup.component.less";
+@import "../components/tools/edit-tools/addsetting-popup/addsetting-popup.component.less";
+@import "../components/tools/edit-tools/popups/dependenttools-editpopup.component.less";
+// -----SHOW TOOLS---------------
+@import "../components/tools/show-tool/header/header.component.less";
+@import "../components/tools/show-tool/tool-info/toolinfo.component.less";
+@import "../components/tools/show-tool/version-form/versionsform.component.less";
+@import "../components/tools/show-tool/tabs/verticaltabs.component.less";
+@import "../components/tools/show-tool/screenshots-browser/screenshots-browser.component.less";
+// -----MACHINES---------------
+@import "../components/machines/tabs/tabs.component.less";
+@import "../components/machines/tabs/verticaltabs/verticaltabs.component.less";
+@import "../components/machines/manage-machines-content/managemachinescontent.component.less";
+@import "../components/machines/machine-details-content/machinedetailscontent.component.less";
+@import "../components/machines/create-anew-machine-form/createanewmachineform.component.less";
+@import "../components/machines/create-anew-machine-content/createanewmachinecontent.component.less";
+@import "../components/machines/load-file-form/loadfileform.component.less";
+@import "../components/machines/create-machines-bulk-content/createbulkcontent.component.less";
+// -----MANAGE USERS & PERMISSIONS---------------
+@import "../components/manage-users/tabs/tabs.component.less";
+@import "../components/manage-users/permissions-content/permissionscontent.component.less";
+@import "../components/manage-users/permissions-select/permissionsselect.component.less";
+@import "../components/manage-users/add-new-user-content/addnewusercontent.component.less";
+@import "../components/manage-users/add-new-user-form/addnewuserform.component.less";
+@import "../components/manage-users/teams-content/teamscontent.component.less";
+@import "../components/manage-users/teams-form/teamsform.component.less";
+@import "../components/manage-users/users-content/userscontent.component.less";
+@import "../components/manage-users/user-info/userinfo.component.less";
+// -----MANAGE TOOL SETS---------------
+@import "../components/tools/create-tool-set/tool-set-info/toolsetinfo.component.less";
+@import "../components/tools/create-tool-set/popups/addtool-popup.component.less";
+@import "../components/tools/create-tool-set/tools-search-column/toolssearchcolumn.component.less";
+
+// -----DISTRIBUTION---------------
+@import "../components/distribution/header/header.component.less";
+@import "../components/distribution/tabs/tabs.component.less";
+@import "../components/distribution/add-new-machine-content/addnewmachinecontent.component.less";
+@import "../components/distribution/add-new-machine-form/addnewmachineform.component.less";
+@import "../components/distribution/distribution-machine-list-search/distributionmachinelistsearch.component.less";
+@import "../components/distribution/distribution-content/distributioncontent.component.less";
+@import "../components/distribution/distribution-info/distributioninfo.component.less";
+@import "../components/distribution/distribution-service-settings-content/distributionsettingscontent.component.less";
+@import "../components/distribution/distribution-service-settings-form/distributionsettingsform.component.less";
+
+// -----SETTINGS---------------
+@import "../components/settings/tabs/tabs.component.less";
+@import "../components/settings/settings-list-search/settingslistsearch.component.less";
+@import "../components/settings/settings-content/settingscontent.component.less";
+@import "../components/settings/settings-info/settingsinfo.component.less";
+
+// -----IMPORT/EXPORT---------------
+@import "../components/import-export/tabs/tabs.component.less";
+@import "../components/import-export/import-file-content/importfilecontent.component.less";
+@import "../components/import-export/load-import-file-form/loadimportfileform.component.less";
+@import "../components/import-export/export-file-content/exportfilecontent.component.less";
+@import "../components/import-export/load-export-file-form/loadexportfileform.component.less";
+
+
+// -----CREATE CLONE REQUEST---------------
+@import "../components/clonerequests/create-clone-request/create-clone-request-info/createclonerequestinfo.component.less";
+@import "../components/clonerequests/create-clone-request/popups/addtool-popup.component.less";
+@import "../components/clonerequests/create-clone-request/toolbar/toolbar.component.less";
+@import "../components/clonerequests/create-clone-request/tools-search-column/toolssearchcolumn.component.less";
+
+// ---- LOGIN ---------------
+@import "../components/login/login.less";
+
+// ---- DU DASHBOARD -------------
+@import "../components/deployment-unit/dashboardDU/tilegrid/dutilegrid.component.less";
+
+
+// PARTIALS IMPORTS
+@import "../partials/dashboard/dashboard.partial.less";
+@import "../partials/tools/deploy-tools/deploy-tools.partial.less";
+@import "../partials/tools/edit-tools/edit-tools.partial.less";
+@import "../partials/tools/show-tool/show-tool.partial.less";
+@import "../partials/machines/machines.partial.less";
+@import "../partials/manage-users/manageusers.partial.less";
+@import "../partials/distribution/distribution.partial.less";
+@import "../partials/settings/settings.partial.less";
+@import "../partials/import-export/importexport.partial.less";
+@import "../partials/clonerequests/create-clone-request/createclonerequest.partial.less";
+
+// -----DUINFO IMPORTS -----
+@import "../components/deployment-unit/edit-du/du-info/duinfo.component.less";
+ // ------ FA INFO ---------
+@import "../components/manage-fas/fas-info/fasinfo.component.less";
+
+//--------- Audit css --------
+@import "../components/audits/audits-info/audits.component.less";
+// --------- Repository -----------
+@import "../components/repository/repository-info/repoinfo.component.less";
+
+// -------------- Directive ---------
+@import "../components/directives/retain-build/retain-build.directive.less";
+
+// LOADING FONTS, CHANGE FONT BY SPECIFYING FONT WEIGHT
+/* source-sans-pro-300 - cyrillic-ext_greek-ext_greek_vietnamese_cyrillic_latin-ext_latin */
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 300;
+  src: url('../assets/fonts/source-sans-pro-v11-cyrillic-ext_greek-ext_greek_vietnamese_cyrillic_latin-ext_latin-300.eot'); /* IE9 Compat Modes */
+  src: local('Source Sans Pro Light'), local('SourceSansPro-Light'),
+       url('../assets/fonts/source-sans-pro-v11-cyrillic-ext_greek-ext_greek_vietnamese_cyrillic_latin-ext_latin-300.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../assets/fonts/source-sans-pro-v11-cyrillic-ext_greek-ext_greek_vietnamese_cyrillic_latin-ext_latin-300.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../assets/fonts/source-sans-pro-v11-cyrillic-ext_greek-ext_greek_vietnamese_cyrillic_latin-ext_latin-300.woff') format('woff'), /* Modern Browsers */
+       url('../assets/fonts/source-sans-pro-v11-cyrillic-ext_greek-ext_greek_vietnamese_cyrillic_latin-ext_latin-300.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../assets/fonts/source-sans-pro-v11-cyrillic-ext_greek-ext_greek_vietnamese_cyrillic_latin-ext_latin-300.svg#SourceSansPro') format('svg'); /* Legacy iOS */
+}
+/* source-sans-pro-regular - cyrillic-ext_greek-ext_greek_vietnamese_cyrillic_latin-ext_latin */
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../assets/fonts/source-sans-pro-v11-cyrillic-ext_greek-ext_greek_vietnamese_cyrillic_latin-ext_latin-regular.eot'); /* IE9 Compat Modes */
+  src: local('Source Sans Pro Regular'), local('SourceSansPro-Regular'),
+       url('../assets/fonts/source-sans-pro-v11-cyrillic-ext_greek-ext_greek_vietnamese_cyrillic_latin-ext_latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../assets/fonts/source-sans-pro-v11-cyrillic-ext_greek-ext_greek_vietnamese_cyrillic_latin-ext_latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../assets/fonts/source-sans-pro-v11-cyrillic-ext_greek-ext_greek_vietnamese_cyrillic_latin-ext_latin-regular.woff') format('woff'), /* Modern Browsers */
+       url('../assets/fonts/source-sans-pro-v11-cyrillic-ext_greek-ext_greek_vietnamese_cyrillic_latin-ext_latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../assets/fonts/source-sans-pro-v11-cyrillic-ext_greek-ext_greek_vietnamese_cyrillic_latin-ext_latin-regular.svg#SourceSansPro') format('svg'); /* Legacy iOS */
+}
+
+// APP STYLES
+html, body {
+    width: @Width;
+    height: @Height;
+    font-family: 'Source Sans Pro', sans-serif;
+    background-color: grey;
+}
+
+
+// DEPLOYMENT PAGE SPECIFIC STYLES
+.status-ind {
+    display: inline-block;
+    width: 10px;
+    border-radius: 100%;
+    height: 10px;
+    margin-right: 10px;
+
+    &.Done {
+        background-color: limegreen; 
+    }
+
+    &.Failed {
+        background-color: orangered;
+    }
+    &.active {
+        background-color: limegreen;
+    }
+
+    &.inactive {
+        background-color: orangered;
+    }
+    &.New {
+        background-color: darkkhaki;
+    }
+
+    &.Processing {
+        background-color: darkkhaki;
+    }
+    &.Retry {
+        background-color: darkkhaki;
+    }
+    &.skipped_ind {
+        background-color: cornflowerblue;
+    }
+}
+.deployments-page {
+    .vp-machinessearch__item.outer {
+        display: table;
+        width: 100%;
+
+        .vp-machinessearch__iteminner {
+            display: table-cell;
+            vertical-align: middle;
+            position: relative;
+
+            .vp-machinessearch__itembtnwrap {
+                position: absolute;
+                top: 0;
+                right: 0;
+            }
+        }
+    }
+
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+        font-size: 11px;
+        white-space: normal; 
+    }
+
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+
+    .vp-machdetails__ipitem {
+        padding-bottom: 20px;
+    }
+
+    .vp-machdetails__fieldlabel {
+        font-weight: bold;
+    }
+}
+
+.log-overlay {
+    position: fixed;
+    z-index: 9;
+    width: 100vw;
+    height: 100vh;
+    display: block;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.28);
+    pointer-events: none;
+    display: none;
+    &.active {
+        pointer-events: all;
+        display: block;
+    }
+}
+
+.log-modal {
+    position: fixed;
+    overflow: scroll;
+    overflow-x: hidden;
+    width: 90vw;
+    height: 75vh;
+    padding: 50px;
+    z-index: 10;
+    top: 100px;
+    left: 80px;
+    background-color: white;
+    border: 1px solid grey;
+    pointer-events: none;
+    display: none;
+    &.active {
+        pointer-events: all;
+        display: block;
+    }
+}
+
+.dep-log-button {
+    font-size: 16px;
+    border: 1px solid lightgrey;
+    background: white;
+    text-align: center;
+    padding: 10px 15px;
+    text-decoration: none;
+    outline: none;
+    &:hover {
+        text-decoration: none;
+        outline: none;
+    }
+
+    &.close {
+        position: fixed;
+        right: 33px;
+        top: 50px;
+    }
+}
+
+.split-wrapper {
+    padding: 10px;
+    border: 1px solid lightgray;
+    margin-bottom: 20px;
+
+    .split {
+        display: inline-block;
+        width: 50%;
+    }
+}
+
+
+.button-wrapper {
+    display: inline-block !important;
+    margin-right: 10px;
+}
+
+.dropdown-toggle{
+    -webkit-appearance:button;
+    min-width:180px;
+    z-index:-1;
+}
+.dropdown-menu{
+    position:relative;
+    width:30%;
+    left:20%;
+    z-index: 1;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    background-color:#ffffff;
+}
+.dropdown-menu a {
+    color: black;
+    text-decoration: none;
+    display: block;
+}
+.dropdown-menu a:hover {background-color: #ddd}
+
+.word-break {
+    display: block;
+    text-overflow: ellipsis;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+.spinner div {
+  width: 10px;
+  height: 10px;
+  margin-left:40%;
+  position: absolute;
+  margin-top: 20px;
+  background-color: white;
+  border-radius: 50%;
+  animation: move 2s infinite cubic-bezier(.2,.64,.81,.23);
+}
+.spinner div:nth-child(2) {
+  animation-delay: 150ms;
+}
+.spinner div:nth-child(3) {
+  animation-delay: 300ms;
+}
+.spinner div:nth-child(4) {
+  animation-delay: 450ms;
+}
+@keyframes move {
+  0% {left: 0%;}
+  75% {left:300px;}
+  100% {left:300px;}
+}
+ .vp-running_deplopment_request{
+    top: 25%;
+    left: 25%;
+    width: 40%;
+    height: 55%;
+ }
+ .image {
+  opacity: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+.del_logo {
+    position: relative;
+    width: 50%;
+}
+
+.middle {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  bottom: 1%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.del_logo:hover .image {
+  opacity: 0.3;
+}
+
+.del_logo:hover .middle {
+  opacity: 1;
+}
+.request_detail_load_position{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+.sync_services_request_report{
+    max-width: calc(100% - 300px)
+}

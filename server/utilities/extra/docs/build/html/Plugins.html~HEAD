@@ -1,0 +1,176 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Plugins package &#8212; eDPM plugins 2.0.4 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.0.4',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="top" title="eDPM plugins 2.0.4 documentation" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="plugins-package">
+<h1>Plugins package<a class="headerlink" href="#plugins-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Plugins.testPlugin.html">Plugins.TestPlugin package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Plugins.testPlugin.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Plugins.testPlugin.html#plugins-testplugin-testplugin-module">Plugins.TestPlugin.testPlugin module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Plugins.testPlugin.html#module-contents">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-Plugins.IBasePlugin">
+<span id="plugins-ibaseplugin-module"></span><h2>Plugins.IBasePlugin module<a class="headerlink" href="#module-Plugins.IBasePlugin" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="Plugins.IBasePlugin.IBasePlugin">
+<em class="property">class </em><code class="descclassname">Plugins.IBasePlugin.</code><code class="descname">IBasePlugin</code><a class="headerlink" href="#Plugins.IBasePlugin.IBasePlugin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">yapsy.IPlugin.IPlugin</span></code></p>
+<dl class="method">
+<dt id="Plugins.IBasePlugin.IBasePlugin.install">
+<code class="descname">install</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Plugins.IBasePlugin.IBasePlugin.install" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Plugins.IBasePlugin.IBasePlugin.uninstall">
+<code class="descname">uninstall</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Plugins.IBasePlugin.IBasePlugin.uninstall" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-Plugins.IPostDeploymentPlugin">
+<span id="plugins-ipostdeploymentplugin-module"></span><h2>Plugins.IPostDeploymentPlugin module<a class="headerlink" href="#module-Plugins.IPostDeploymentPlugin" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="Plugins.IPostDeploymentPlugin.IPostDeploymentPlugin">
+<em class="property">class </em><code class="descclassname">Plugins.IPostDeploymentPlugin.</code><code class="descname">IPostDeploymentPlugin</code><a class="headerlink" href="#Plugins.IPostDeploymentPlugin.IPostDeploymentPlugin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#Plugins.IBasePlugin.IBasePlugin" title="Plugins.IBasePlugin.IBasePlugin"><code class="xref py py-class docutils literal"><span class="pre">Plugins.IBasePlugin.IBasePlugin</span></code></a></p>
+<dl class="method">
+<dt id="Plugins.IPostDeploymentPlugin.IPostDeploymentPlugin.print_name">
+<code class="descname">print_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Plugins.IPostDeploymentPlugin.IPostDeploymentPlugin.print_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-Plugins.IPreDeploymentPlugin">
+<span id="plugins-ipredeploymentplugin-module"></span><h2>Plugins.IPreDeploymentPlugin module<a class="headerlink" href="#module-Plugins.IPreDeploymentPlugin" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="Plugins.IPreDeploymentPlugin.IPreDeploymentPlugin">
+<em class="property">class </em><code class="descclassname">Plugins.IPreDeploymentPlugin.</code><code class="descname">IPreDeploymentPlugin</code><a class="headerlink" href="#Plugins.IPreDeploymentPlugin.IPreDeploymentPlugin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#Plugins.IBasePlugin.IBasePlugin" title="Plugins.IBasePlugin.IBasePlugin"><code class="xref py py-class docutils literal"><span class="pre">Plugins.IBasePlugin.IBasePlugin</span></code></a></p>
+<dl class="method">
+<dt id="Plugins.IPreDeploymentPlugin.IPreDeploymentPlugin.print_name">
+<code class="descname">print_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Plugins.IPreDeploymentPlugin.IPreDeploymentPlugin.print_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-Plugins">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-Plugins" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Plugins package</a><ul>
+<li><a class="reference internal" href="#subpackages">Subpackages</a></li>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-Plugins.IBasePlugin">Plugins.IBasePlugin module</a></li>
+<li><a class="reference internal" href="#module-Plugins.IPostDeploymentPlugin">Plugins.IPostDeploymentPlugin module</a></li>
+<li><a class="reference internal" href="#module-Plugins.IPreDeploymentPlugin">Plugins.IPreDeploymentPlugin module</a></li>
+<li><a class="reference internal" href="#module-Plugins">Module contents</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/Plugins.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, ilan pinto.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.9</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="_sources/Plugins.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

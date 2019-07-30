@@ -1,0 +1,341 @@
+<!--VERSION FORM COMPONENT START-->
+<div class="vp-versionform vp-versionform--showtool vp-component bg--white max--width" ng-controller="ShowNewToolVersionController" ng-repeat="version in versionData" id="version_tab_{{version.version_number}}" ng-if="displayTab===$index">
+    <!--ACTIVE/INACTIVE STATUS SECTION-->
+    <section class="vp-versionform__status">
+        <div class="vp-versionform__labelsection pl--lg inblock" ng-if="version.status==='1'">
+            <!--VERSION STATUS STATE ICON (MODIFIERS: # vp-uielement__versionstate--inactive # vp-uielement__versionstate--active)-->
+            <span class="vp-versionform__tabstatus vp-uielement__versionstate vp-uielement__versionstate--active inblock"></span>
+            <h3 class="vp-versionform__label pl--sm text--cs03 text--light text--md inblock">Active:</h3>
+        </div>
+        <div class="vp-versionform__labelsection pl--lg inblock" ng-if="version.status==='0'">
+            <!--VERSION STATUS STATE ICON (MODIFIERS: # vp-uielement__versionstate--inactive # vp-uielement__versionstate--active)-->
+            <span class="vp-versionform__tabstatus vp-uielement__versionstate vp-uielement__versionstate--inactive inblock"></span>
+            <h3 class="vp-versionform__label pl--sm text--cs03 text--light text--md inblock">Deprecated:</h3>
+        </div>
+        <div class="vp-versionform__content vp-versionform__statuscontent inblock">
+            <span class="vp-versionform__statuscontentinner text--light text--md text--ellipsis text--ellipsis--single">Created: 
+                <span class="vp-versionform__statuscreation text--regular text--lg ml--md">{{version.version_date.$date| date : "M/d/y"}}</span>
+            </span>
+        </div>
+    </section>
+    <!--VERSION ID-->
+    <section class="vp-versionform__backwards mt--xxl">
+        <div class="vp-versionform__labelsection pl--lg inblock">
+            <h3 class="vp-versionform__label pl--sm text--cs03 text--light text--md inblock">Version ID:</h3>
+        </div>
+        <div class="vp-versionform__content inblock">
+            <span class="vp-versionform__backwardscontentinner text--ellipsis text--ellipsis--single">{{version._id.$oid}}</span>
+        </div>
+    </section>
+    <!--BACKWARDS COMPADIBLE SECTION-->
+    <section class="vp-versionform__backwards mt--xxl">
+        <div class="vp-versionform__labelsection pl--lg inblock">
+            <h3 class="vp-versionform__label pl--sm text--cs03 text--light text--md inblock">Backwards compadible:</h3>
+        </div>
+        <div class="vp-versionform__content inblock">
+            <span class="vp-versionform__backwardscontentinner text--ellipsis text--ellipsis--single">{{version.backward_compatible}}</span>
+        </div>
+    </section>
+
+    <!--CERTIFIED SECTION-->
+    <section class="vp-versionform__certified mt--xxl">
+        <div class="vp-versionform__labelsection vertical--top pl--lg inblock">
+            <!--SECTION LABEL-->
+            <h3 class="vp-versionform__label pl--sm text--cs03 text--light text--md inblock">Certified:</h3>
+        </div>
+        <div class="vp-versionform__content inblock">
+            <!--CERTIFIED FIELD CONTENT (MODIFIERS: # vp-versionform__certifiedcontent--filled)-->
+            <div class="vp-versionform__certifiedcontent vp-versionform__certifiedcontent--filled">
+                <ul class="vp-versionform__certifiedlist">
+                    <!--ITEM EXAMPLE-->
+                    <li class="vp-versionform__certifieditem mb--sm left" ng-repeat="certificate in version.mps_certified">
+                        <span>{{certificate}}</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!--RELEASE NOTES SECTION-->
+    <section class="vp-versionform__notes mt--xxl">
+        <!--SECTION LABEL-->
+        <div class="vp-versionform__labelsection vertical--top pl--lg inblock">
+            <h3 class="vp-versionform__label pl--sm text--cs03 text--light text--md inblock">Release notes:</h3>
+        </div>
+        <div class="vp-versionform__content inblock">
+            <p id="release_notes_content" class="vp-versionform__notescontent inblock container" ng-class="{show: show}">{{version.release_notes}}</p>
+            <!--SHOW MORE BUTTON-->
+            <button ng-if="show===false" type="button" class="vp-versionform__notesshowallbtn vp-uielement__button vp-uielement__button--cleanenabled mt--sm pa--none" ng-click="showMore()">Show all</button>
+            <button ng-if="show===true" type="button" class="vp-versionform__notesshowallbtn vp-uielement__button vp-uielement__button--cleanenabled mt--sm pa--none" ng-click="showLess()">Show Less</button>
+        </div>
+    </section>
+    <!--PRE-REQUISITES SECTION-->
+    <section class="vp-versionform__prerequisites mt--xxl">
+        <div class="vp-versionform__labelsection vertical--top pl--lg inblock">
+            <h3 class="vp-versionform__label pl--sm text--cs03 text--light text--md inblock">Pre-requisites:</h3>
+        </div>
+        <div class="vp-versionform__content inblock">
+
+            <!--PRE-REQUISITES FIELD CONTENT (MODIFIERS: # vp-versionform__prerequisitescontent--filled )-->
+            <div class="vp-versionform__prerequisitescontent vp-versionform__prerequisitescontent--filled">
+                <ul class="vp-versionform__prerequisiteslist">
+                    <!--ITEM EXAMPLE-->
+                    <li class="vp-versionform__prerequisitesitem mb--sm">
+                        <div class="vp-versionform__prerequisitesiteminner" ng-repeat="field in version.pre_requiests">
+                            <span class="text--ellipsis text--ellipsis--single">{{field.name}} {{field.version}}</span>
+                        </div>
+                    </li>
+                    <li class="vp-versionform__prerequisitesitem mb--sm">
+                        <div class="vp-versionform__prerequisitesiteminner">
+                            <span class="text--ellipsis text--ellipsis--single" title="Must Have Lorem Ipsum installed Must Have Lorem Ipsum installedMust Have Lorem Ipsum installed">
+                                Must Have installed
+                            </span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!--DEPENDENT TOOLS SECTION-->
+    <section class="vp-versionform__prerequisites mt--xxl">
+        <div class="vp-versionform__labelsection vertical--top pl--lg inblock">
+            <h3 class="vp-versionform__label pl--sm text--cs03 text--light text--md inblock">Dependent Tools:</h3>
+        </div>
+        <div class="vp-versionform__content inblock">
+
+            <!--PRE-REQUISITES FIELD CONTENT (MODIFIERS: # vp-versionform__prerequisitescontent--filled )-->
+            <div class="vp-versionform__prerequisitescontent vp-versionform__prerequisitescontent--filled">
+                <ul class="vp-versionform__prerequisiteslist">
+                    <!--ITEM EXAMPLE-->
+                    <li class="vp-versionform__prerequisitesitem mb--sm">
+                        <div class="vp-versionform__prerequisitesiteminner" ng-repeat="field in version.dependent_tools">
+                            <span class="text--ellipsis text--ellipsis--single">{{field.tool_name}} {{field.version_name}} {{field.version_number}}</span>
+                        </div>
+                    </li>
+                    <!--<li class="vp-versionform__prerequisitesitem mb&#45;&#45;sm">-->
+                        <!--<div class="vp-versionform__prerequisitesiteminner">-->
+                            <!--<span class="text&#45;&#45;ellipsis text&#45;&#45;ellipsis&#45;&#45;single" title="Must Have Lorem Ipsum installed Must Have Lorem Ipsum installedMust Have Lorem Ipsum installed">-->
+                                <!--Must Have installed</span>-->
+                        <!--</div>-->
+                    <!--</li>-->
+                </ul>
+            </div>
+        </div>
+    </section>
+        <!--BUILD SECTION-->
+    <section class="vp-versionform__prerequisites mt--xxl">
+        <div class="vp-versionform__labelsection vertical--top pl--lg inblock">
+            <h3 class="vp-versionform__label pl--sm text--cs03 text--light text--md inblock">Build Number:</h3>
+        </div>
+        <div class="vp-versionform__content inblock">
+
+            <!--PRE-REQUISITES FIELD CONTENT (MODIFIERS: # vp-versionform__prerequisitescontent--filled )-->
+            <div class="vp-versionform__prerequisitescontent vp-versionform__prerequisitescontent--filled">
+                <ul class="vp-versionform__prerequisiteslist">
+                    <!--ITEM EXAMPLE-->
+                    <li class="vp-versionform__prerequisitesitem mb--sm">
+                        <div class="vp-versionform__prerequisitesiteminner">
+                            <span class="text--ellipsis text--ellipsis--single">
+                                <div class="vp-versionform__statusselectwrap">
+                                    <!--<ui-select id="select" ng-model="buildToDeploy" name="build_selected" theme="selectize" style="width:300px; position: absolute; margin-top: -20px;" on-select="getBuild($item)">-->
+                                        <!--<ui-select-match placeholder="Select build number" style="width: 300px;">-->
+                                            <!--{{$select.selected.build_number}}-->
+                                        <!--</ui-select-match>-->
+                                        <!--<ui-select-choices repeat="data in version.build">-->
+                                            <!--{{data.build_number}}-->
+                                            <!--<div ng-bind-html="data.build_number | highlight: $select.search"></div>-->
+                                            <!--<small style="font-size:100%;">-->
+                                                <!--File Size: {{data.file_size}}-->
+                                            <!--</small>-->
+                                            <!--<small style="font-size:100%; margin-left:20px;">-->
+                                                <!--Build Date: {{data.build_date.$date | date : "M/d/y h:mma"}}-->
+                                            <!--</small>-->
+                                        <!--</ui-select-choices>-->
+                                    <!--</ui-select>-->
+                                    <select name="vp-versionform__dropdownlist2" id="tool_status"  ng-model="buildToDeploy" name="build" class="vp-versionform__dropdownlist vp-versionform__dropdownlist2 vp-uielement__select max--width"  style="height:30px; width:80px;" ng-change="getBuild(buildToDeploy)">
+                                        <option ng-repeat="data in version.build" value="{{data}}">{{data.build_number}}</option>
+                                    </select>
+                                </div>
+                            </span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <section class="vp-versionform__prerequisites mt--xxl" ng-if="buildDetails">
+        <div class="vp-versionform__labelsection vertical--top pl--lg inblock">
+            <h3 class="vp-versionform__label pl--sm text--cs03 text--light text--md inblock">Build ID:</h3>
+        </div>
+        <div class="vp-versionform__content inblock">
+
+            <!--PRE-REQUISITES FIELD CONTENT (MODIFIERS: # vp-versionform__prerequisitescontent--filled )-->
+            <div class="vp-versionform__prerequisitescontent vp-versionform__prerequisitescontent--filled">
+                <ul class="vp-versionform__prerequisiteslist">
+                    <!--ITEM EXAMPLE-->
+                    <li class="vp-versionform__prerequisitesitem mb--sm">
+                        <div class="vp-versionform__prerequisitesiteminner">
+                            <span class="text--ellipsis text--ellipsis--single">{{buildDetails._id.$oid}}</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <section class="vp-versionform__prerequisites mt--xxl" ng-if="buildDetails">
+        <div class="vp-versionform__labelsection vertical--top pl--lg inblock">
+            <h3 class="vp-versionform__label pl--sm text--cs03 text--light text--md inblock">Build date:</h3>
+        </div>
+        <div class="vp-versionform__content inblock">
+
+            <!--PRE-REQUISITES FIELD CONTENT (MODIFIERS: # vp-versionform__prerequisitescontent--filled )-->
+            <div class="vp-versionform__prerequisitescontent vp-versionform__prerequisitescontent--filled">
+                <ul class="vp-versionform__prerequisiteslist">
+                    <!--ITEM EXAMPLE-->
+                    <li class="vp-versionform__prerequisitesitem mb--sm">
+                        <div class="vp-versionform__prerequisitesiteminner">
+                            <span class="text--ellipsis text--ellipsis--single">{{buildDetails.build_date.$date | date : "M/d/y h:mma"}}</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <section class="vp-versionform__prerequisites mt--xxl" ng-if="buildDetails">
+        <div class="vp-versionform__labelsection vertical--top pl--lg inblock">
+            <h3 class="vp-versionform__label pl--sm text--cs03 text--light text--md inblock">Build Size:</h3>
+        </div>
+        <div class="vp-versionform__content inblock">
+
+            <!--PRE-REQUISITES FIELD CONTENT (MODIFIERS: # vp-versionform__prerequisitescontent--filled )-->
+            <div class="vp-versionform__prerequisitescontent vp-versionform__prerequisitescontent--filled">
+                <ul class="vp-versionform__prerequisiteslist">
+                    <!--ITEM EXAMPLE-->
+                    <li class="vp-versionform__prerequisitesitem mb--sm">
+                        <div class="vp-versionform__prerequisitesiteminner">
+                            <span class="text--ellipsis text--ellipsis--single">{{buildDetails.file_size}}</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <section class="vp-versionform__prerequisites mt--xxl" ng-if="buildDetails">
+        <div class="vp-versionform__labelsection vertical--top pl--lg inblock">
+            <h3 class="vp-versionform__label pl--sm text--cs03 text--light text--md inblock">Release Notes:</h3>
+        </div>
+        <div class="vp-versionform__content inblock">
+
+            <!--PRE-REQUISITES FIELD CONTENT (MODIFIERS: # vp-versionform__prerequisitescontent--filled )-->
+            <div class="vp-versionform__prerequisitescontent vp-versionform__prerequisitescontent--filled">
+                <ul class="vp-versionform__prerequisiteslist">
+                    <!--ITEM EXAMPLE-->
+                    <li class="vp-versionform__prerequisitesitem mb--sm">
+                        <div class="vp-versionform__prerequisitesiteminner">
+                            <textarea class="vp-userform__fieldlabel text--light text--md text--ellipsis input--clear" readonly style="width:900px; height: 40px;">{{buildDetails.additional_info.release_notes}}</textarea>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!--DOCUMENTATION SECTION-->
+    <section class="vp-versionform__documentation mt--xl">
+        <div class="vp-versionform__labelsection vertical--top pl--lg inblock">
+            <h3 class="vp-versionform__label pl--sm text--cs03 text--light text--md inblock">Documentation:</h3>
+        </div>
+        <!--DOCUMENTS CONTENT (MODIFIERS: # vp-versionform__content--filled )-->
+        <div class="vp-versionform__content vp-versionform__content--filled inblock">
+            <!--DOCUMENTATION LIST WRAPPER-->
+            <div class="vp-versionform__documentationlistwrap hidden" ng-repeat="doc in version.document.documents">
+                <ul class="vp-versionform__documentationlist">
+                    <!--DOCUMENT ITEM EXAMPLE-->
+                    <li class="vp-versionform__documentationitem">
+                        <div class="vp-versionform__documentationiteminner">
+                            <div class="vp-versionform__documentlinkwrap max--width vertical--top inblock">
+                                <!--DOCUMENT NAME LINK-->
+                                <a  ng-href="{{doc.url}}" target="_blank" class="vp-versionform__documentlink no--decor text--cs07 text--regular text--lg pt--sm text--ellipsis text--ellipsis--single"
+                                title="{{doc.name}}">
+                                    {{doc.name}} {{doc.description}}</a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!--INCLUDED IN TOOL SETS-->
+    <section class="vp-versionform__includedin mt--xxl">
+        <!--SECTION LABEL-->
+        <div class="vp-versionform__labelsection vertical--top pl--lg inblock">
+            <h3 class="vp-versionform__label pl--sm text--cs03 text--light text--md inblock">Included in tool sets:</h3>
+        </div>
+        <div class="vp-versionform__content inblock">
+            <ul class="vp-versionform__includedinlist">
+                <!--TOOL SET ITEM EXAMPLE-->
+                <li class="vp-versionform__includedinitem left" ng-repeat="toolset in version.included_in">
+                    <div class="vp-versionform__includediniteminner inblock">
+                        <a ui-sref="viewToolSet({id:toolset.toolset_id})" class="vp-versionform__includedinlink no--decor text--cs07 text--regular text--lg pt--sm inblock">{{toolset.toolset_name}}, </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+
+    <!--DEPLOYED ON SECTION-->
+    <section class="vp-versionform__deployedon mt--xxl">
+        <div class="vp-versionform__labelsection vertical--top pl--lg inblock">
+            <!--SECTION LABEL-->
+            <h3 class="vp-versionform__label pl--sm text--cs03 text--light text--md inblock">Deployed on:</h3>
+        </div>
+        <div class="vp-versionform__content inblock">
+            <!--CERTIFIED FIELD CONTENT (MODIFIERS: # vp-versionform__certifiedcontent--filled)-->
+            <div class="vp-versionform__deployedoncontent">
+                <ul class="vp-versionform__deployedonlist">
+                    <!--ITEM EXAMPLE-->
+                    <li class="vp-versionform__deployedonitem pb--sm" ng-repeat="machine in version.deployed_on">
+                        <span class="text--ellipsis text--ellipsis--single">{{machine.machine_name}}</span>
+                    </li>
+                </ul>
+                <!--SHOW ALL MACHINES BUTTON-->
+                <button type="button" class="vp-versionform__deployedonshowbtn vp-uielement__button vp-uielement__button--cleanenabled pa--none">Show all 
+                    <span class="vp-versionform__deployedonbtncount">{{version.deployed_on.length}}</span> machines</button>
+            </div>
+        </div>
+    </section>
+
+    <!--SCREENSHOTS SECTION-->
+    <section class="vp-versionform__screenshots mt--xxl">
+        <div class="vp-versionform__labelsection vertical--top pl--lg inblock">
+            <h3 class="vp-versionform__label pl--sm text--cs03 text--light text--md inblock">Screenshots:</h3>
+        </div>
+        <!--SCREENSHOTS CONTENT WRAPPER (MODIFIERS: # vp-versionform__content--many )-->
+        <div class="vp-versionform__content vp-versionform__content--many vp-versionform__screenshotcontent inblock">
+            <!--BROWSE LEFT ARROW WRAPPER-->
+            <div class="vp-versionform__screenshotsbrowslefwrapt vertical--top mr--xl inblock hidden">
+                <button type="button" class="vp-versionform__screenshotsbrowsleftbtn vp-uielement__button vp-uielement__button--browseleft vertical--middle" ng-click="showPrevious((versionData).indexOf(version))"></button>
+            </div>
+            <!--SCREENSHOTS REGION WRAPPER (MODIFIERS: # vp-versionform__screenshotslistwrap--filled )-->
+            <div class="vp-versionform__screenshotslistwrap vp-versionform__screenshotslistwrap--filled inblock" ng-repeat="path in version.media_file.media_files | limitTo: viewMediaLimit : viewMediaLength">
+                <ul class="media_slider">
+                    <!--SCREENSHOT ITEM-->
+                    <li class="small_screen vp-versionform__screenshotitem vp-versionform__screenshotitem1 mr--xl mb--xl left" ng-click="showScreenshot((versionData).indexOf(version), $index)">
+                        <div class="vp-versionform__screenshot vp-versionform__screenshot1">
+                            <img alt="" src="{{path.thumbnail_url}}" style="width:100%;">
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <!--BROWSE RIGHT ARROW WRAPPER-->
+            <div class="vp-versionform__screenshotsbrowsrightwrap vertical--top inblock hidden">
+                <button type="button" class="vp-versionform__screenshotsbrowsrightbtn vp-uielement__button vp-uielement__button--browseright vertical--middle" ng-click="showNext((versionData).indexOf(version))"></button>
+            </div>
+        </div>
+    </section>
+    <section class="vp-versionform__screenshotaddbtn mr--xl mb--xl left">
+        <div class="vp-versionform__editscreenshotbtnpopup absolute mt--xl hidden" id="view_screenshot" ng-include="'static/components/tools/show-tool/screenshots-browser/screenshots-browser.component.html'"></div>
+    </section>
+</div>
+<!--VERSION FORM COMPONENT END-->

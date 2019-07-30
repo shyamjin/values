@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Project>
+   <description></description>
+   <name>edpm-katalon</name>
+   <tag></tag>
+   <UUID>1cf1ee93-8b79-4088-be98-f38508eae9f2</UUID>
+   <migratedVersion>5.4.0</migratedVersion>
+   <pageLoadTimeout>0</pageLoadTimeout>
+</Project>

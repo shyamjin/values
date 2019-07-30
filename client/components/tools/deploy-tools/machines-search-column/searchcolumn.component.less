@@ -1,0 +1,240 @@
+// VARIABLES: SECTION 27
+.vp-search {
+    // SOLID BORDER
+    .ba--solid(@cs09);
+    // SEARCHBOX HINT STYLES
+    .vp-search__hint {
+        .text--cs03;
+    }
+    // SEARCHBOX WRAPPER
+    .vp-search__searchboxwrap {
+        border: 1px solid @cs09;
+    }
+    // ACTIVE SEARCH AUTOCOMPLETE STYLE
+    .vp-search__searchbox {
+        &.vp-search__searchbox--drop {
+            .vp-search__searchautocomplete {
+                .block;
+            }
+        }
+    }
+    // AUTO COMPLETE WRAPPER STYLE
+    .vp-search__searchautocomplete {
+        width: @autoCompleteWidth;
+        top: @searchFieldHeight;
+        left: @searchFieldPL;
+        z-index: 3;
+    }
+    // TOP DECORATIVE BORDER
+    .vp-search__topborder {
+        border-top: 10px solid @cs02;
+    }
+    .vp-search__itemdescriptionwrap {
+        max-width: calc(~"100% - " @rowSelectBtnUpLength);
+    }
+    // ITEM STYLES
+    .vp-search__item {
+        min-height: @rowMinHeight;
+        border: 1px solid @cs09;
+        box-sizing: border-box;
+        // SELECTED STATE STYLES
+        &--selected {
+            border: 0.2px solid @cs07;
+        }
+        // ITEM HOVER STYLES
+        &:hover:not([class*="--selected"]) {
+            background-color: @cs06;
+            .ba--solid(@cs07);
+            .vp-search__itembtnwrap {
+                .block;
+            }
+        }
+    }
+    // ROW SELECT BUTTON
+    .vp-search__itembtn, .vp-search__itembtnwrap {
+        height: @rowMinHeight - 2px;
+        line-height: @rowMinHeight;
+        width: @rowSelectBtnDownLength;
+        z-index: 2;
+    }
+    .vp-search__itembtn_multi {
+        height: @rowMinHeight - 2px;
+        line-height: 20px;
+        width: @rowSelectBtnDownLength;
+        z-index: 2;
+    }
+    .vp-search__itembtnwrap {
+        height: @rowMinHeight - 2px;
+        line-height: @rowMinHeight;
+        width: @rowSelectBtnDownLength;
+        z-index: 2;
+    }
+    // BUTTON EGGE DECORATION
+    .vp-search__itembtnwrap {
+        &:before {
+            content: '';
+            .block;
+            .absolute;
+            z-index: 1;
+            height: @rowMinHeight;
+            width: @rowSelectBtnDownLength;
+            background-color: @cs07;
+            -webkit-transform-origin: left bottom;
+            transform-origin: left bottom;
+            -webkit-transform: skewx(33.7deg);
+            transform: skewx(33.7deg);
+        }
+    }
+    // ITEM STATUS ICON (optional)
+    .vp-search__statusiconwrap {
+        .hidden;
+    }
+}
+
+// ONLY MACHINES PAGE SEARCH COLUMN STYLES
+.vp-machinessearch {
+    .vp-search__searchboxwrap {
+        padding-bottom: @searchBoxPB;
+    }
+    .vp-search__item {
+        // ITEM 'TEST' STATE
+        &.vp-search__item--test {
+            .vp-search__itemdescription:after {
+                content: 'Test';
+                .block;
+                .mt--sm;
+                .text--cs08;
+            }
+        }
+        // ITEM 'PRODACTION' STATE
+        &.vp-search__item--prod {
+            .vp-search__itemdescription:after {
+                content: 'Production';
+                .block;
+                .mt--sm;
+                .text--cs05;
+            }
+        }
+
+        &.vp-search__item--vpm {
+            .vp-search__itemdescription:after {
+                content: 'Value Pack Master';
+                .block;
+                .mt--sm;
+                .text--cs05;
+            }
+        }
+        &.vp-search__item--iut {
+            .vp-search__itemdescription:after {
+                content: 'IUT';
+                .block;
+                .mt--sm;
+                .text--cs05;
+            }
+        }
+        &.vp-search__item--ut {
+            .vp-search__itemdescription:after {
+                content: 'UT';
+                .block;
+                .mt--sm;
+                .text--cs05;
+            }
+        }
+        &.vp-search__item--other {
+            .vp-search__itemdescription:after {
+                content: 'Other';
+                .block;
+                .mt--sm;
+                .text--cs05;
+            }
+        }
+        &.vp-search__item--pull {
+            .vp-search__itemdescription:after {
+                content: 'Pull';
+                .block;
+                .mt--sm;
+                .text--cs05;
+            }
+        }
+        &.vp-search__item--push {
+            .vp-search__itemdescription:after {
+                content: 'Push';
+                .block;
+                .mt--sm;
+                .text--cs05;
+            }
+        }
+        &.vp-search__item--admin{
+        .vp-search__itemdescription:after{
+            content: 'Admin';
+            .text--sm;
+            .text--light;
+            .text--cs08;
+            .absolute;
+            right: 10px;
+            top: 12px;
+            width: @adminLogoSectionWidth;
+            line-height: @smallAdminLogoHeight;
+             background: url('../assets/images/icons/admin_small_icn.png') no-repeat right;
+
+        }
+    }
+    &.vp-search____item--enabled{
+        .vp-search____itemdescription:after{
+            content: 'Enabled';
+            .text--sm;
+            .text--light;
+            .text--cs08;
+            .absolute;
+            right: 10px;
+            top: 12px;
+            width: @adminLogoSectionWidth;
+            line-height: @smallAdminLogoHeight;
+             background: url('../assets/images/icons/active_icn.png') no-repeat right;
+
+        }
+    }
+
+
+                      &.vp-search____item--disabled{
+        .vp-search__itemdescription:after{
+            content: 'Disabled';
+            .text--sm;
+            .text--light;
+            .text--cs08;
+            .absolute;
+            right: 10px;
+            top: 12px;
+            width: @adminLogoSectionWidth;
+            line-height: @smallAdminLogoHeight;
+             background: url('../assets/images/icons/inactive_icn.png') no-repeat right;
+
+        }
+    }
+
+
+    }
+}
+
+.vp-userssearch{
+    .vp-search__itemdescriptionwrap{
+        line-height: @rowMinHeight;
+    }
+    // USER ADMIN STATE
+    .vp-search__item--admin{
+        .vp-search__iteminner:after{
+            content: 'Admin';
+            .text--sm;
+            .text--light;
+            .text--cs08;
+            .absolute;
+            right: 10px;
+            top: 12px;
+            width: @adminLogoSectionWidth;
+            line-height: @smallAdminLogoHeight;
+             background: url('../assets/images/icons/admin_small_icn.png') no-repeat right; 
+
+        }
+    }
+
+}

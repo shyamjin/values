@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+   <description></description>
+   <name>input_pwd</name>
+   <tag></tag>
+   <elementGuidId>f4e7bf82-1f59-428a-940d-eb4dbf725cfa</elementGuidId>
+   <selectorMethod>BASIC</selectorMethod>
+   <useRalativeImagePath>false</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>tag</name>
+      <type>Main</type>
+      <value>input</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>name</name>
+      <type>Main</type>
+      <value>pwd</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>type</name>
+      <type>Main</type>
+      <value>password</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>class</name>
+      <type>Main</type>
+      <value>login-input ng-untouched ng-valid ng-not-empty ng-dirty ng-valid-parse</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>ng-model</name>
+      <type>Main</type>
+      <value>password</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath</name>
+      <type>Main</type>
+      <value>/html[@class=&quot;ng-scope&quot;]/body[1]/div[@class=&quot;ng-scope&quot;]/div[@class=&quot;login-box ng-scope&quot;]/div[2]/table[1]/tbody[1]/tr[1]/td[1]/div[@class=&quot;ng-scope&quot;]/form[@class=&quot;ng-valid ng-dirty ng-valid-parse&quot;]/div[@class=&quot;row&quot;]/div[@class=&quot;&quot;]/input[@class=&quot;login-input ng-untouched ng-valid ng-not-empty ng-dirty ng-valid-parse&quot;]</value>
+   </webElementProperties>
+</WebElementEntity>

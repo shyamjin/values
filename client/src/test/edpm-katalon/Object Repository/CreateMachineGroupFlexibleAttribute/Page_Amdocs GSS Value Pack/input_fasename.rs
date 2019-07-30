@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+   <description></description>
+   <name>input_fasename</name>
+   <tag></tag>
+   <elementGuidId>8dd57ab7-b3c4-4e0c-9099-a7037aa727e6</elementGuidId>
+   <selectorMethod>BASIC</selectorMethod>
+   <useRalativeImagePath>false</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>tag</name>
+      <type>Main</type>
+      <value>input</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>type</name>
+      <type>Main</type>
+      <value>text</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>class</name>
+      <type>Main</type>
+      <value>vp-userform__nameinput input--clear ng-untouched ng-not-empty ng-dirty ng-valid-parse ng-valid ng-valid-required</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>name</name>
+      <type>Main</type>
+      <value>fasename</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>ng-model</name>
+      <type>Main</type>
+      <value>application.data.name</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath</name>
+      <type>Main</type>
+      <value>/html[@class=&quot;ng-scope&quot;]/body[1]/div[@class=&quot;vp-app__deploytoolspage deployments-page max--height ng-scope&quot;]/div[@class=&quot;vp-distribution vp-deploytools max--height max--width ng-scope&quot;]/div[@class=&quot;vp-distribution__content max--height&quot;]/div[@class=&quot;vp-distribution__tabs left max--width ng-scope&quot;]/div[@class=&quot;vp-tabs vp-tabs--default vp-tabs--service vp-control relative max--width max--height clearfix ng-scope&quot;]/div[@class=&quot;vp-tabs__body overflow--auto left max--width&quot;]/div[@class=&quot;vp-tabs__servicetabcontent ng-scope&quot;]/div[@class=&quot;vp-createanewmach max ng-scope&quot;]/div[@class=&quot;vp-createanewmach__newmachineinfo pr--xl ng-scope&quot;]/div[@class=&quot;vp-userform vp-userformnewuser vp-control max ng-scope&quot;]/form[@class=&quot;ng-invalid ng-invalid-required ng-dirty ng-valid-parse&quot;]/ul[@class=&quot;vp-userform__fieldslist text--cs03 pr--lg&quot;]/li[@class=&quot;vp-userform__fielditem vp-userform__nameitem pt--xxl&quot;]/div[@class=&quot;vp-userform__fielditeminner&quot;]/div[@class=&quot;vp-userform__fieldcontent vp-userform__namecontent inblock&quot;]/input[@class=&quot;vp-userform__nameinput input--clear ng-untouched ng-not-empty ng-dirty ng-valid-parse ng-valid ng-valid-required&quot;]</value>
+   </webElementProperties>
+</WebElementEntity>

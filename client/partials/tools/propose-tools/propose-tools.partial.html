@@ -1,0 +1,24 @@
+<!--SHOW TOOL PARTIALS ASSEMBLY START-->
+<div class="vp-showtool vp-control mx--width relative" ng-controller="ProposeToolPartialController">
+    <form name="ProposeNewToolForm">
+        <!--SIDE NAVBAR SECTION-->
+        <div class="vp-showtool__navaside fixed pos--top pos--bottom" ng-if="isUserLoggedIn()" ng-include="'static/components/dashboard/navaside/navaside.component.html'"></div>
+        <div class="vp-showtool__content bg--white full--height relative">
+            <!-- HEADER MESSAGE SECTION-->
+            <div class="vp-toolspage__headnotificationwrap">
+                <div class="vp-toolspage__headnotification" ng-include="'static/components/dashboard/header-message/headermessage.component.html'"></div>
+            </div>
+            <!--HEADER SECTION-->
+            <div class="vp-showtool__header " ng-include="'static/components/tools/propose-tools/header/header.component.html'"></div>
+            <div class="vp-showtool__contentbounded pt--xxxl">
+                <!--TOOL INFORMATION SECTION-->
+                <div class="vp-showtool__toolinfo" ng-include="'static/components/tools/propose-tools/tool-info/toolinfo.component.html'"></div>
+                <!--TABS SECTION-->
+                <!--<div class="vp-showtool__tabs pa&#45;&#45;xxxl" ng-include="'static/components/tools/propose-tools/tabs/verticaltabs.component.html'"></div>-->
+                <!--BOTTOM TOOLBAR SECTION-->
+                <div class="vp-edittools__toolbar fixed pos--right pos--bottom pos--left" ng-include="'static/components/tools/propose-tools/toolbar/toolbar.component.html'"></div>
+            </div>
+        </div>
+    </form>
+</div>
+<!--SHOW TOOL PARTIALS ASSEMBLY END-->

@@ -1,0 +1,53 @@
+
+<div class="container" style="height:auto" ng-controller="auditInfoController">
+	<div ng-show="loading"><h3>Loading...</h3></div>
+	<!--<button type="button" class="vp-tabs__bodyheaderdeploybtn vp-uielement__button vp-uielement__button&#45;&#45;deployselectedtoolsenabled ml&#45;&#45;xl " ng-click="exportAudits()" style="margin-top: 10px;min-width: 0px;">Export</button>-->
+	<table st-table="display_records"  st-safe-src="auditsDataAll" class="table table-striped" id="auditexport">
+		<thead>
+			<tr>
+				<th class="btn" st-sort="URL">URL</th>
+				<th class="btn" st-sort="request_type">Request Type</th>
+				<th class="btn" st-sort="remote_addr">Remote Address</th>
+				<th class="btn" st-sort="User">User</th>
+				<th class="btn" st-sort="api_type">Api Type</th>
+				<th class="btn" st-sort="response_status_code">Response Status Code</th>
+				<th class="btn" st-sort="response_time">Response Time</th>
+				<th class="btn" st-sort="requested_at">Requested At</th>
+				<th>View</th>
+			</tr>
+			<tr>
+				<th colspan="8">
+					<input st-search placeholder="global search" class="input-sm form-control" type="search"/>
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr st-select-row="row" st-select-mode="multiple" ng-repeat="row in display_records">
+				<td>{{row.url}}</td>
+				<td>{{row.request_type}}</td>
+				<td>{{row.remote_addr}}</td>
+				<td>{{row.user}}</td>
+				<td>{{row.api_type}}</td>
+				<td>{{row.response_status_code}}</td>
+				<td>{{row.response_time}}</td>
+				<td>{{row.requested_at}}</td>
+				<td>
+					<a type="button" class="btn btn-sm btn-info">
+						<i class="glyphicon vp-uielement__button--view" ng-click="viewAuditDetailsById(row._id)">
+						</i>
+					</a>
+				</td>
+			</tr>
+		</tbody>
+		<tfoot>
+			<tr>
+				<td colspan="5" class="text-center">
+					<div st-pagination="" st-items-by-page="itemsByPage"></div>
+				</td>
+			</tr>
+		</tfoot>
+	</table>
+	<div class="vp-deploymentrequestmodalwrap fixed max--position hidden" id="view_audits_details">
+		<div class="absolute" ng-include="'static/components/audits/popup/audits.popup.component.html'"></div>
+	</div>
+</div>

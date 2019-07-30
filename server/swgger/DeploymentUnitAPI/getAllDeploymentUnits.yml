@@ -1,0 +1,27 @@
+Gets all Deployment Units
+---
+tags:
+ - Deployment Unit
+parameters:
+- name: token
+  in: header
+  description: API key
+  required: false
+  type: string
+  format: string
+- name: access-token
+  in: header
+  description: API key
+  required: false
+  type: string
+  format: string 
+responses:
+  200:
+    description: Successfully Gets All Deployment Units
+    examples:
+      message: null
+  404:
+    description: exception in getting all Deployment Units
+    examples:
+      result: "failed"
+      message: "Throws an exception"

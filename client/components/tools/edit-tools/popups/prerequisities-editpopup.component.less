@@ -1,0 +1,23 @@
+// VARIABLES: SECTION 35
+.vp-prereqeditpopup {
+    width: @preRequisitiesPopupWidth;
+    .vp-prereqeditpopup__input {
+        border: 1px solid @cs09;
+    }
+    .vp-prereqeditpopup__iteminner {
+        width: @listItemInnerWidth;
+    }
+    .vp-prereqeditpopup__itemnamewrap {
+        width: 132px;
+    }
+    //CHEKED CHECKBOX ITEM STYLE
+    input[type=checkbox]:checked ~ .vp-prereqeditpopup__itemnamewrap {
+        .vp-prereqeditpopup__itemname {
+            .text--cs04;
+        }
+    }
+    //POPUP TOP ARROW
+    .vp-prereqeditpopup__popuptop:before {
+        left: @preReqTopArrowLeft;
+    }
+}

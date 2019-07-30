@@ -1,0 +1,31 @@
+<!--MACHINES-SECTION COMPONENT START-->
+<div class="vp-machinessection vp-control pl--xxxl pt--lg max--width">
+	<div class="vp-machinessection__labelwrap pt--md left" ng-repeat="du in duSelectedToDeploy" ng-if="du.du_name===selectedDU.du_name">
+		<label class="vp-machinessection__label text--ellipsis text--ellipsis--single text--cs01 text--light text--lg">Machines (<span class="vp-toolssection__toolscount">{{du.requests.length}}</span>):</label>
+	</div>
+	<div class="vp-machinessection__tabs inblock" ng-include="'static/components/deployment-unit/deploy-du/tabs/tabs.component.html'"></div>
+	<div class="vp-machinesform__fieldinputwrap  vertical--top pl--md inblock" ng-if="request_type==='deploy'" ng-init="deploy_on='machine'">
+        <label for="input_radio_select-deploy_on" class="ml--md">Deploy On:</label>
+        <div class="vp-uielement__radiobtn ml--md">
+            <input type="radio" id="vp-versionform__input_radio_machine_select" ng-model="deploy_on" value="machine" name="deploy_on_machine" ng-click="setDeployOnValue('machine')" checked>
+            <label for="vp-versionform__input_radio_machine_select"></label>
+            <label for="vp-versionform__input_radio_machine_select">Machine</label>
+        </div>
+		<div class="vp-uielement__radiobtn">
+            <input type="radio" id="vp-versionform__input_radio_machine_group_select" ng-model="deploy_on" value="machine_group" name="deploy_on_group" ng-click="setDeployOnValue('machine_group')">
+            <label for="vp-versionform__input_radio_machine_group_select"></label>
+            <label for="vp-versionform__input_radio_machine_group_select">Machine Group</label>
+        </div>
+    <div class="vp-machinessection__machinessearch vertical--top inblock" style="margin-left: -250px;">
+        <section class="vp-exportfileload__processingsection" style="margin-left: 10%" ng-if="dataDuCountInd === 'true' || dataDuCountInd === true">
+            <div class="loader mb--sm" style="margin-left: 75px;margin-top: 20%"></div>
+            <span class="vp-exportfileload__processingmsg text--cs03 text--light text--xxl">Loading & processing...</span>
+        </section>
+         <div ng-if="dataDuCountInd === 'false' || dataDuCountInd === false">
+             <div  ng-if="deploy_on==='machine' && request_type==='deploy'"  ng-include="'static/components/tools/deploy-tools/machines-search-column/machinesearchcolumn.component.html'"></div>
+            <div  ng-if="deploy_on==='machine_group' && request_type==='deploy'"  ng-include="'static/components/tools/deploy-tools/machine-group-search-column/machinegroupsearchcolumn.component.html'"></div>
+         </div>
+    </div>
+	</div>
+</div>
+<!--MACHINES-SECTION COMPONENT END-->

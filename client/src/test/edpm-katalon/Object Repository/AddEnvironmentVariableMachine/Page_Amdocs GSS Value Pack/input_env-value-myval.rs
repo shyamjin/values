@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+   <description></description>
+   <name>input_env-value-myval</name>
+   <tag></tag>
+   <elementGuidId>f235b894-cae8-47a5-9d04-c82738023c04</elementGuidId>
+   <selectorCollection>
+      <entry>
+         <key>BASIC</key>
+         <value>//input[@type = 'text' and @ng-model = 'envVar.value']</value>
+      </entry>
+   </selectorCollection>
+   <selectorMethod>BASIC</selectorMethod>
+   <useRalativeImagePath>false</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>tag</name>
+      <type>Main</type>
+      <value>input</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>name</name>
+      <type>Main</type>
+      <value>env-value-myvar</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>type</name>
+      <type>Main</type>
+      <value>text</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>ng-model</name>
+      <type>Main</type>
+      <value>envVar.value</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>ng-disabled</name>
+      <type>Main</type>
+      <value>disabled</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>class</name>
+      <type>Main</type>
+      <value>ng-untouched ng-valid ng-not-empty ng-dirty ng-valid-parse</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath</name>
+      <type>Main</type>
+      <value>/html[@class=&quot;ng-scope&quot;]/body[1]/div[@class=&quot;vp-app__deploytoolspage deployments-page max--height ng-scope&quot;]/div[@class=&quot;vp-machines max ng-scope&quot;]/div[@class=&quot;vp-machines__component bg--white max--height relative&quot;]/div[@class=&quot;vp-machine__contentbounded max--height&quot;]/div[@class=&quot;vp-machines__tabs left max--width ng-scope&quot;]/div[@class=&quot;vp-tabs vp-tabs--default vp-tabs--machines vp-control relative max--width max--height clearfix ng-scope&quot;]/div[@class=&quot;vp-tabs__body overflow--auto left max--width&quot;]/div[@class=&quot;vp-tabs__mmanagecontent max ng-scope&quot;]/div[@class=&quot;vp-mmanagetab vp-control max inblock nowrap ng-scope&quot;]/section[@class=&quot;vp-mmanagetab__content vertical--top inblock&quot;]/div[@class=&quot;vp-mmanagetab__machinesectionwrap mt--xxl ml--md inblock ng-scope&quot;]/div[@class=&quot;vp-mmanagetab__verticaltabs mt--xl max--height ng-scope&quot;]/div[@class=&quot;vp-tabsvertical vp-control max--width max--height clearfix ng-scope&quot;]/div[@class=&quot;vp-tabsvertical__body bg--white left max--height relative&quot;]/div[@class=&quot;vp-tabsvertical__bodycontent max ng-scope&quot;]/div[@class=&quot;vp-machdetails vp-control pt--xxxl pr--xl pb--xxxl pl--xxxl bg--white clearfix max ng-scope&quot;]/form[@class=&quot;ng-valid ng-valid-required ng-dirty ng-valid-parse&quot;]/ul[@class=&quot;vp-machdetails__fieldslist text--cs03&quot;]/li[@class=&quot;vp-userform__fielditem vp-userform__roleitem pt--lg&quot;]/div[@class=&quot;vp-versionform vp-component bg--white max--width&quot;]/div[@class=&quot;vp-userform__fielditeminner&quot;]/environment-variables[@class=&quot;ng-isolate-scope&quot;]/div[@class=&quot;vp-versionform__content inblock&quot;]/section[@class=&quot;vp-versionform__deploymentdetails&quot;]/div[@class=&quot;vp-versionform__deployitemlistwrap--filled&quot;]/table[1]/tbody[1]/tr[@class=&quot;ng-scope&quot;]/td[2]/input[@class=&quot;ng-untouched ng-valid ng-not-empty ng-dirty ng-valid-parse&quot;]</value>
+   </webElementProperties>
+</WebElementEntity>

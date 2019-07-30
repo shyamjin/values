@@ -1,0 +1,26 @@
+<!--TAB COMPONENT START-->
+<div class="vp-tabs vp-tabs--default vp-tabs--service vp-control relative max--width max--height clearfix">
+    <!--TABS HEADER NAVIGATION BAR-->
+    <div class="vp-tabs__nav max--width left">
+        <nav>
+            <ul class="vp-tabs__navlist  max--width text--center text--md text--light text--cs06 table">
+                <!--ACTIVE TAB STATE (MODIFIERS: # vp-tabs__tab--active   Use ng-click="showCurrentTab('DistributionMcList')" when this Screen will have multiple tabs)-->
+                <li ng-class="getCurrentTab('SettingsTab')" ng-click="showCurrentTab('SettingsTab')" style="width:180px">
+                    <span class="vp-tabs__tablabel vertical--top no--decor">Value Pack Settings</span>
+                </li>
+                <li ng-class="getCurrentTab('PersonalizeTab')" ng-click="showCurrentTab('PersonalizeTab')" style="width:180px">
+                    <span class="vp-tabs__tablabel vertical--top no--decor">Personalize</span>
+                </li>
+
+            </ul>
+        </nav>
+    </div>
+
+    <!--TAB BODY WRAPPER, LOAD TEMPLATE INSIDE-->
+    <div class="vp-tabs__body overflow--auto left max--width">
+
+        <div  ng-if="currentTab==='SettingsTab'"  class="vp-tabs__settingtabcontent" ng-include="'static/components/settings/settings-content/settingscontent.component.html'"></div>
+        <div  ng-if="currentTab==='PersonalizeTab'"  class="vp-tabs__settingtabcontent" ng-include="'static/components/settings/personalize-content/personalizecontent.component.html'"></div>
+    </div>
+</div>
+<!--TAB COMPONENT END-->

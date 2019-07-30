@@ -1,0 +1,573 @@
+// APPENDIX:
+// -----DASHBOARD-----
+// 1. SCALING
+// 2. COLOR SCHEME (SYSTEM)
+// 3. COLOR SCHEME (APP)
+// 4. COLOR SCHEME (STATUS CODES)
+// 5. SCROLLBARS
+// 6. TABS CONTROL
+// 7. ASIDE CONTROL
+// 8. HEADER CONTROL
+// 9. DASHBOARD FILTER
+// 10.UI COMPONENTS
+// 11.FILTER
+// 12.DASHBOARD RIGHT SIDEBAR
+// 13.DEPLOY TOOL TILE GRID
+// 14.TREE VIEW
+// 15.SELECTED TOOLS POPUP
+// 16.SCHEDULED POPUP
+// 17.HEADER NOTIFICATION MESSAGE
+// 18.REQUEST DETAILS MODAL
+// 19.DASHBOARD ASSEMBLY
+// -----DEPLOY TOOLS-----
+// 20.TOOLBAR
+// 21.TOOLS-SECTION
+// 22.ADD TOOLS POPUP
+// 23.MORE TOOLS DROPDOWN POPUP
+// 24.DEPLOY TOOLS HEADER
+// 25.DEPLOY TOOLS TABS
+// 26.DEPLOY TOOLS MACHINES SECTION
+// 27.SEARCH COLUMN
+// 28.MACHINES FORM
+// 29.ATTENTION DIALOG MODAL
+// 30.SEARCH AUTO COMPLETE
+// 31. DEPLOY TOOLS ASSEMBLY
+// -----EDIT TOOLS-----
+// 32.TOOL INFO
+// 33.EDIT TOOLS, TOOLBAR
+// 34.VERSION FORM
+// 35.EDIT TOOLS POPUPS
+// 36.ADD A SETTING MODAL
+// 37.EDIT TOOLS ASSEMBLY
+// -----SHOW TOOLS-----
+// 38. HEADER
+// 39. TOOL INFO
+// 40. VERSION FORM
+// 41. SHOW TOOL ASSEMBLY
+// -----MACHINES-----
+// 42.'MANAGE MACHINES' TAB CONTENT
+// 43.'MACHINE DETAILS' VERTICAL TAB CONTENT
+// 44.'CREATE A NEW MACHINE' INNER FORM
+// 45. 'CREATE A NEW MACHINE' TAB CONTENT
+// 46. MACHINE FILE LOAD FORM
+// 47. MANAGE MACHINES TAB CONTENT
+// 48. MACHINES ASSEMBLY
+// -----MANAGE USERS AND PERMISSIONS-----
+// 49. PERMISSIONS SELECT FORM
+// 50. PERMISSIONS TAB CONTENT
+// 51. ADD NEW USER TAB CONTENT
+// 52. TEAMS TAB CONTENT
+// 53. TEAMS TAB FORM
+// 54. SELECTED USER FORM
+// LAST  MANAGE USERS AND PERMISSIONS ASSEMBLY
+// ------------------------------------------------------------------
+// 1. SCALING
+@Width: 100%;
+@minWidth: 1366px;
+@Height: 100%;
+// ------------------------------------------------------------------
+// 2. COLOR SCHEME (SYSTEM)
+@csdark: #212121;
+@cswhite: #ffffff;
+@cslightgrey: rgba(255, 255, 255, 0.8);
+@csfaded: rgba(255, 255, 255, 0.14);
+@csmutted: rgba(255, 255, 255, 0.5);
+@csdarkmutted: rgba(0, 0, 0, 0.54);
+@csdisabled: rgba(0, 0, 0, 0.25);
+// ------------------------------------------------------------------
+// 3. COLOR SCHEME (APP)
+@cs01: #39608b;
+@cs02: #254b75;
+@cs03: #292e4c;
+@cs04: #7dafe7;
+@cs05: #f07f7f;
+@cs06: #f5f5f5;
+@cs07: #46b9a0;
+@cs08: #969898;
+@cs09: #e1e9eb;
+@cs10: #fbf1ba;
+@cs11: #252739;
+@cs12: #cc99cc;
+@cs13: #f6af7e;
+@cs14: #fcc6f7;
+@cs16: #8ed4d7;
+@cs17: #8aca8a;
+@cs18: #ff6699;
+// ------------------------------------------------------------------
+// 4. COLOR SCHEME (STATUS CODES)
+@cserror: #f44336;
+@csnotifocation: @cs09;
+@cssuccess: #30cd72;
+@cswarning: @cs10;
+// ------------------------------------------------------------------
+// 5. SCROLLBARS
+@scrollBarWidth: 17px;
+@scrollBarHeight: 8px;
+// ------------------------------------------------------------------
+// 6. TABS
+// default theme
+@bodyHeaderHeight: 50px;
+@defaultTabHeight: 40px;
+@defaultTabWidth: 190px; //170px;
+@tabCounterML: -2px;
+@tabCountNotificationRadius: 18px;
+@tabBorderWidth: 1px;
+@defaultTabsBodyHeight: calc(~"100% - " @defaultTabHeight);
+@defaultTabsBodyHeaderHeight: 50px;
+@tabsBodyHeaderPL: 55px;
+@favoriteIconWidth: 14px;
+@favoriteIconHeight: 19px;
+@newtoolsIconSize: 23px;
+@toolupdatesIconSize: 21px;
+@recentlyIconWidth: 29px;
+@recentlyIconHeight: 18px;
+@filterBtnWidth: 22px;
+@filterBtnHeight: 20px;
+@allToolsBtnWidth: 95px;
+// transparent theme
+@transparentHeaderHeight: 40px;
+@transparentTabHeight: 30px;
+@transparentTabWidth: 220px;
+@transparentActiveTabBorderSize: 2px;
+@recentRequestsTabFooterHeight: 40px;
+// vertical theme
+@verticalTabHeight: 50px;
+@verticalTabWidth: 120px;
+@statusIconWrapperWidth: 30px;
+// machines tabs
+@machinesTabWidth: 258px;
+@machinesNavlistPR: 100px;
+// manage users and permission tabs
+@manageUsersTabWidth: 120px;
+// ------------------------------------------------------------------
+// 7. ASIDE
+@navasideToolbarWidth: 60px;
+@navasideNavWidth: 300px;
+@navasimeMenuBtnWidth: 27px;
+@navasideMenuBtnHeight: 22px;
+@navasideNavLinkMenuMT: 86px;
+@navasideNavLinkMenuML: 44px;
+@navasideNavSeparatorHeight: 4px;
+@navasideNavSeparatorWidth: 120px;
+// ------------------------------------------------------------------
+// 8. HEADER
+@headerHeight: 130px;
+// ------------------------------------------------------------------
+// 9. DASHBOARD FILTER
+@dashFilterWidth: 250px;
+// ------------------------------------------------------------------
+// 10.UI COMPONENTS
+@shadow: 0px 0px 79px -10px rgba(0, 0, 0, 0.14);
+// search field
+@searchFieldWidth: 350px;
+@searchFieldHeight: 30px;
+@searchContainerHeight: (@searchFieldHeight + 15px);
+@searchFieldRadius: (@searchFieldHeight / 2);
+@searchFieldPR: @searchBtnWidth + 5;
+@searchFieldPL: 15px;
+@searchBtnWidth: 27px;
+@searchBtnTop: ((@searchFieldHeight - @searchBtnWidth) /2);
+@searchFieldWidth: calc(~"100% - " (@searchFieldPR + @searchFieldPL));
+// button
+@btnHeight: 24px;
+@smallBtnWidth: 76px;
+@largeBtnWidth: 200px;
+@smallCloseBtnSize: 10px;
+@dropDownBtnWidth: 13px;
+@dropDownHeight: 7px;
+@machinesBtnWidth: 23px;
+@machinesBtnHeight: 20px;
+@editBtnWidth: 16px;
+@editBtnHeight: 14px;
+@removeBtnHeight: 22px;
+@removeWhiteWidth: 12px;
+@removeWhiteHeight: 14px;
+@browseBtnHeight: 41px;
+@browseBtnWidth: 22px;
+@revertBtnWidth: 19px;
+@revertBtnHeight: 14px;
+@connectBtnWidth: 100px;
+@connectBtnHeight: 22px;
+// checkbox
+@checkBoxWidth: 14px;
+// popup element
+@popupOpenBorderRadius: 12px;
+@popupOpenTopArrowHeight: 8px;
+@popupOpenTopArrowLeft: 55px;
+@popupOpenTopBorderHeight: 4px;
+// tool state icon
+@toolsStateIconSize: 14px;
+// version status
+@activeIconSize: 13px;
+@inactiveIconSize: 12px;
+// ------------------------------------------------------------------
+// 11. FILTER
+// filter element
+@filterLvlOneHeight: 45px;
+@expandIconWidth: 7px;
+@expandIconHeight: 13px;
+// dashboard filter
+@dashboardFilterHeaderHeight: 55px;
+@dashboardButtonsMenuHeight: 50px;
+// open filter dialog
+@openfilterdialogWidth: 250px;
+@filterOpenButtonsMenuHeight: 45px;
+@filterOpenRight: -103px;
+@filterOpenTop: 48px;
+// ------------------------------------------------------------------
+// 12.DASHBOARD RIGHT SIDEBAR
+@searchFieldWrapperMR: 40px;
+@rightSidebarSearchFieldWrapperHeight: 140px;
+@requestabsLabelTotalHeight: 55px; // textxxl+mb
+// ------------------------------------------------------------------
+// 13.TILE GRID
+@toolTileSmallIconWidth: 80px;
+@toolTileLargeIconWidth: 88px;
+@toolTileSmallWidth: 330px;
+@toolTileLargeWidth: 385px;
+@toolTileSmallHeight: 160px;
+@toolTileLargeHeight: 185px;
+@favoriteWidth: 20px;
+@favoriteHeight: 26px;
+@toolTileSmallGridMetadataWidth: 210px;
+@toolTileLargeGridMetadataWidth: 180px;
+@toolTileSmallPA: 10px;
+@toolTileLargePA: 15px;
+@toolTileFooterSmallWidth: (@toolTileSmallWidth - @toolTileSmallPA*2);
+@toolTileFooterLargeWidth: (@toolTileLargeWidth - @toolTileLargePA*2);
+@listWrapperNegativeScrollMR: -17px;
+// ------------------------------------------------------------------
+// 14.TREE VIEW
+@treeviewExpandIconWidth: 20px;
+@treeviewRowHeight: 45px;
+@treeviewDateFailedIcon: 18px;
+@treeviewMainBorderSize: 1px;
+@treeviewRequesRowPL: 10px;
+@treeviewML: 25px;
+@treeviewRequestItemPL: (@treeviewExpandIconWidth + @treeviewRequesRowPL + @treeviewML);
+@treeviewDateMaxWidth: 150px;
+// saved requests
+@srBtnSize: 22px;
+@srDiscardBtnMR: 30px;
+@srResumeBtnMR: 60px;
+// recent requests
+@rrBtnsSize: 22px;
+@rrBtnsSectionWidth: 110px;
+@rrIconsSize: 18px;
+@rrItemBtnMR: 26px;
+@rrItemStateIconML: 10px;
+@rrScheduleDateML: -25px;
+@rrInprogressTimeML: -15px;
+@rrItemStateIconMR: 40px;
+@rrScheduledPopupBottom: 33px;
+// ------------------------------------------------------------------
+// 15.SELECTED TOOLS POPUP
+@selectedToolsPopupWidth: 300px;
+@selectedToolItemHeight: 40px;
+@selectedToolsRemoveBtnSize: 10px;
+@selectedToolsPopupLeft: 10px;
+@selectedToolsPopupTop: @filterOpenTop;
+@selectedToolsPopupTopArrowLeft: 75px;
+// ------------------------------------------------------------------
+// 16.SCHEDULED POPUP
+@scheduledPopupWidth: 280px;
+@scheduledPopupHeight: 150px;
+@inputPR: 2px;
+@inputPL: 4px;
+@schedulePopupCloseBtnSize: 10px;
+@scheduledPopupDeployContainerMT: 12px;
+@scheduleDateWidth: 50px;
+@scheduleTimeWidth: 140px;
+@scheduleBottomArrowLeft: 180px;
+@scheduleBorderRadiuse: 4px;
+@scheduleInputHeight: 15px;
+// ------------------------------------------------------------------
+// 17.HEADER MESSAGE
+@headerMsgHeight: 50px;
+@headerMsgCloseBtnSize: 10px;
+// ------------------------------------------------------------------
+// 18.REQUEST DETAILS MODAL
+@rdModalWidth: 100%;
+@rdModalHeight: 100%;
+@rdModalHeaderHeight: 55px;
+@rdModalFooterHeight: 50px;
+@rdModalBodyPL: 50px;
+@rdModalBodyPT: 40px;
+@rdModalLAbelMinWidth: 88px;
+@rdModalBtnSize: 22px;
+@rdModalScheduleIcomSize: 18px;
+@discardBtnPT: 4px;
+@statusCalendarBtnTop: -3px;
+@toolDescriptionMaxWidth: 249px;
+@onMachinesDescriptionMaxWidth: 218px;
+@scheduleDateMaxWidth: 500px;
+// ------------------------------------------------------------------
+// 19.DASHBOARD ASSEMBLY
+// defaul theme
+@dashFilterWidth: 250px;
+@dashDefaultTabsWidth: calc(~"100% - " @dashFilterWidth);
+@dashTabsLabelMT: -@defaultTabHeight;
+// right side open theme
+@dashRightSideOpenCenterColumnWidth: calc(~"100% - " @dashRightSideOpenRightColumnWidth);
+@dashRightSideOpenRightColumnWidth: 478px;
+// ------------------------------------------------------------------
+// 20.DEPLOY TOOLS, TOOLBAR
+@toolbarHeight: 50px;
+@toolbarPA: 40px;
+@toolbarScheduleIconSize: 18px;
+@toolbarCalendarIconSize: 22px;
+@scheduledPopupBottom: 46px;
+@scheduledPopupRight: -18px;
+@innerBoundedWidth: @minWidth - @navasideToolbarWidth - @scrollBarWidth;
+// ------------------------------------------------------------------
+// 21.TOOLS-SECTION
+@toolsSectionHeight: 65px;
+@toolLabelInnerHeight: calc(@toolsSectionHeight - 20px);
+@toolsSectionContentPL: 30px;
+@toolsSectionNotifIconSize: 15px;
+@toolsSectionLabelMaxWidth: 120px;
+@toolsSectionLabelPT: 4px;
+@toolSectionAddToolBtnBottom: 5px;
+@toolsSectionMoreToolsBtnWidth: 13px;
+@toolsSectionMoreToolsBtnHeight: 7px;
+// ------------------------------------------------------------------
+// 22.ADD TOOLS POPUP
+@addToolsPopupWidth: 200px;
+@addToolsPopupLeft: -63px;
+@addToolsPopupTop: 22px;
+@addToolsPopArrowLeft: @addToolsPopupWidth /2;
+// ------------------------------------------------------------------
+// 23.MORE TOOLS DROPDOWN POPUP
+@moreToolsWidth: 400px;
+@moreToolsPopupTop: 20px;
+// ------------------------------------------------------------------
+// 24.DEPLOY TOOLS HEADER
+@dtHeaderHeight: 71px;
+// ------------------------------------------------------------------
+// 25.DEPLOY TOOLS TABS
+@dtTabWidth: 190px;
+@dtTabHeight: 30px;
+@dtTabsBodyMinHeight: 600px;
+@emptyBodyMsgMT: 140px;
+@tabLabelMaxWidth: @dtTabWidth - @toolsStateIconSize - @dropDownBtnWidth - 30;
+@machineTabLabelMaxWidth: 122px;
+// ------------------------------------------------------------------
+// 26. MACHINES SECTION
+@tabsComponentWidth: 660px;
+@popupArrowLeft: @moreToolsWidth/3;
+@machinesSearchWidth: 360px;
+@machinesSearchML: 40px;
+@toolsContentPB: @toolbarHeight + 20px;
+// ------------------------------------------------------------------
+// 27 SEARCH COLUMN
+@searchBoxPB: 40px;
+@rowMinHeight: 45px;
+@rowSelectBtnUpLength: 115px;
+@rowSelectBtnDownLength: 90px;
+@smallAdminLogoHeight: 22px;
+@adminLogoSectionWidth: 60px;
+// ------------------------------------------------------------------
+// 28.MACHINES FORM
+@topMsgWrapHeight: 50px;
+@contentPL: 40px;
+@toolbarBtnsML: 40px;
+@waitIconSize: 30px;
+@copiedIconWidth: 10px;
+@copiedIconHeight: 8px;
+@fieldLabelWidth: 110px;
+@fieldBtnWrapperWidth: 226px;
+@formRowHeight: 44px;
+@fieldLargeInputWrapWidth: calc(~"100% - " (@fieldBtnWrapperWidth + @fieldLabelWidth + 7px));
+@fieldSmallInputWrapWidth: calc(@fieldLargeInputWrapWidth ~"/1.5");
+// ------------------------------------------------------------------
+// 29.ATTENTION DIALOG MODAL
+@attentionModalWidth: 360px;
+@attentionModalHeight: 330px;
+@modaBorderRadiuse: 5px;
+@continueBtnWidth: 100px;
+// 30.SEARCH AUTO COMPLETE
+@autoCompleteWidth: @searchFieldWidth;
+// ------------------------------------------------------------------
+// 31. DEPLOY TOOLS ASSEMBLY
+// ------------------------------------------------------------------
+// 32.EDIT TOOLS, TOOL INFO
+@toolIconWrapSize: 70px;
+@removeBtnMT: 25px;
+@toolIconSize: @toolIconWrapSize - 20;
+@toolNameML: 30px;
+@nameInputWidth: 500px;
+@inputFieldHeight: 24px;
+@longFieldsWidth: 800px;
+@labelWidth: 72px;
+// ------------------------------------------------------------------
+// 33. EDIT TOOLS, TOOLBAR
+@mediumBtnWidth: 120px;
+// ------------------------------------------------------------------
+// 34. VERSION FORM
+@labelSectionWidth: 205px;
+@versionInputWidth: 70px;
+@versionLabelML: 90px;
+@versionInputWrapWidth: 230px;
+@versionInputWrapHeight: 35px;
+@statusSelectWidth: 180px;
+@releaseNotesInputWidth: 500px;
+@releaseNotesInputHeight: 140px;
+@documentLinkWrapWidth: 400px;
+@sourceControlLabelWidth: 100px;
+@sourseControlInputWidth: 200px;
+@showBtnWidth: 24px;
+@smallScreenshotWidth: 150px;
+@smallScreenshotHeight: 100px;
+@screenshotsContainerMaxWidth: @deploymentItemWidth + 15px;
+@buttonsPanelHeight: 24px;
+@deploymentItemWidth: 665px;
+@deploymentItemHeight: 45px;
+@deployDetailsLabelWidth: 140px;
+@optionsPanelWidth: 300px;
+// ------------------------------------------------------------------
+// 35. EDIT TOOLS POPUPS
+// pre requisities edit popup
+@preRequisitiesPopupWidth: 215px;
+@preRequisitiesPopupHeight: 200px;
+@preItemWrapperWidth: 132px;
+@listItemInnerWidth: @preRequisitiesPopupWidth - 40px; // max width minus horizontal paddings
+@preReqTopArrowLeft: @preRequisitiesPopupWidth/3;
+@preReqPopupTopArrowTop: @editBtnHeight + @popupOpenTopArrowHeight + 5px;
+//Dependent Tools Popup
+@dependentToolsPopupWidth: 280px;
+@dependentToolsPopupHeight: 500px;
+@preItemWrapperWidth: 240px;
+@listItemInnerWidth: @dependentToolsPopupWidth - 20px; // max width minus horizontal paddings
+@preReqTopArrowLeft: @dependentToolsPopupWidth/3;
+@preReqPopupTopArrowTop: @editBtnHeight + @popupOpenTopArrowHeight + 5px;
+// edit logo popup
+@editLogoPopupWidth: 400px;
+@editLogoTopArrowLeft: @editLogoPopupWidth/4;
+@editLogoPopupTopArrowLeft: -70px;
+@editScreenshotPopupLeft: -45px;
+// add certified
+@certifiedAddPopuoWidth: 220px;
+@certifiedAddPopupHeight: 180px;
+@addCertifiedTopArrowLeft: 50px;
+@addCertifiedPopupTopArrowLeft: -40px;
+@addCertifiedPopupTop: 30px;
+// ------------------------------------------------------------------
+// 36. ADD A SETTING MODAL
+@addSettingHeight: 380px;
+@inputFieldHeight: 26px;
+@titleFieldWidth: 300px;
+// ------------------------------------------------------------------
+// 37. EDIT TOOLS ASSEMBLY
+@toolinfoPL: 115px;
+@toolinfoPT: 35px;
+@verticalTabsPL: 70px;
+@stickyHeaderHeight: 50px;
+@stickyHeaderLabelPL: 100px;
+@verticalTabsWidth: 1197px;
+// ------------------------------------------------------------------ 
+// 38. SHOW TOOL HEADER
+@stHeaderHeight: 78px;
+@favBtnWidth: 140px;
+@titleMaxWidth: 1000px;
+// ------------------------------------------------------------------
+// 39. SHOW TOOL TOOL INFO
+@descriptionMaxHeight: 49px;
+// ------------------------------------------------------------------
+// 40. VERSION FORM
+@versionFormMT: 17px;
+@versionFormMTD: 27px;
+@screenshotsCarouselMT: 60px;
+@screenshotsCarouselML : 20px;
+// ------------------------------------------------------------------
+// 41. SHOW TOOL ASSEMBLY
+@innerShowToolPageWidth: 1034px;
+@showToolContentWidth: 582px;
+@screenshotBrowserWidth: 910px;
+@screenshotBrowserHeight: 606px;
+// ------------------------------------------------------------------ 
+// 42. MANAGE MACHINES TAB CONTENT
+@machinesCloseFilterWidth: 50px;
+@machinesFilterCloseBtnTop: 25px;
+@machinesFilterCloseBtnRight: 10px;
+@machinesManageContentWidth: calc(~"100% - " @dashFilterWidth);
+@machinesVerticalTabWidth: 1100px;
+// ------------------------------------------------------------------ 
+// 43. 'MACHINE DETAILS' VERTICAL TAB CONTENT
+@detailLabelWidth: 130px;
+@detailsIpBtnsBlockWidth: 80px;
+@saveCheckBtnWidth: 60px;
+// ------------------------------------------------------------------
+// 44.'CREATE A NEW MACHINE' INNER FORM
+@checkConnectionBtnWidth: 170px;
+@newFieldcontentInputWidth: 200px;
+// ------------------------------------------------------------------
+// 45. 'CREATE A NEW MACHINE' TAB CONTENT
+@newMachineFormPL: 50px;
+// ------------------------------------------------------------------
+// 46. MACHINE FILE LOAD FORM
+@fileNameInputWidth: 350px;
+@dragdropWidth: 200px;
+@dragdropHeight: 100px;
+@fileProcessingSectionHeight: 80px;
+// ------------------------------------------------------------------
+// 47. MANAGE MACHINES TAB CONTENT
+@machinesLoadFilePT: 50px;
+@machinesLoadFilePL: 60px;
+// ------------------------------------------------------------------
+// 48. MACHINES ASSEMBLY
+// ------------------------------------------------------------------ 
+// 49. PERMISSIONS SELECT FORM
+@checkboxFieldWidth: 70px;
+// ------------------------------------------------------------------
+// 50. PERMISSIONS TAB CONTENT
+@permissionsSelectWidth: 550px;
+@permissionsSelectFormPT: 40px;
+@permissionsSelectFormPL: 70px;
+// ------------------------------------------------------------------
+// 51. ADD NEW USER TAB CONTENT
+@newUserFormWidth: 600px;
+// ------------------------------------------------------------------
+// 52. TEAMS TAB CONTENT
+@teamsFormWidth: 750px;
+// ------------------------------------------------------------------
+// 53. TEAMS TAB FORM 
+@namesButtonWrapperWidth: 90px;
+@teamTextareaHeight: 80px;
+@firstSeparatorMB: 40px;
+// ------------------------------------------------------------------
+// 54. SELECTED USER FORM
+@maxNameLenth: 340px;
+@suspendCheckboxMT: 100px;
+@noFormCoverWidth: 800px;
+@noFormCoverHeight: 400px;
+// ------------------------------------------------------------------
+// 54.  MANAGE TOOL SET
+@addToolHeight: 800px;
+@rdToolModalWidth: 1040px;
+@toolTileMiniIconWidth: 40px;
+@toolTileMiniIconHeight: 40px;
+@toolTileSmallToolIconWidth: 40px;
+// 54.  DU DASHBOARD
+// 13.TILE GRID
+@duTileSmallIconWidth: 28px;
+@duTileLargeIconWidth: 30px;
+@duTileSmallWidth: 200px;
+@duTileLargeWidth: 200px;
+@duTileSmallHeight: 160px;
+@duTileLargeHeight: 160px;
+@favoriteWidth: 20px;
+@favoriteHeight: 26px;
+@duTileSmallGridMetadataWidth: 128px;
+@duTileLargeGridMetadataWidth: 140px;
+@duTileSmallPA: 10px;
+@duTileLargePA: 15px;
+@duTileFooterSmallWidth: (@duTileSmallWidth - @duTileSmallPA*2);
+@duTileFooterLargeWidth: (@duTileLargeWidth - @duTileLargePA*2);
+@listWrapperNegativeScrollMR: -17px;
+
+// ------------------------------------------------------------------
+@syncVerticalTabWidth: 1400px;
+@duTypeTileSmallIconHeight: 40px;
+@duTypeTileSmallIconWidth: 44px;
+
+

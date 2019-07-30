@@ -1,0 +1,33 @@
+Distribute Clone Request Status
+---
+tags:
+ - Distribution Center
+parameters:
+- name: token
+  in: header
+  description: API key
+  required: false
+  type: string
+  format: string
+- name: access-token
+  in: header
+  description: API key
+  required: false
+  type: string
+  format: string 
+- name: id
+  in: path
+  type: string
+  required: true
+  description: Distribute Clone Request Status
+responses:
+  200:
+    description: Successfully Distribute Clone Request Status
+    examples:
+      result: "success"
+      message: null
+  404:
+    description: exception in Distribute Clone Request Status
+    examples:
+      result: "failed"
+      message: "Throws an exception"

@@ -1,0 +1,75 @@
+Update Machine Group
+---
+tags:
+   - Machine Groups
+parameters:
+- name: token
+  in: header
+  description: API key
+  required: false
+  type: string
+  format: string
+- name: access-token
+  in: header
+  description: API key
+  required: false
+  type: string
+  format: string 
+- name: input
+  in: body
+  description: Machine Group data
+  required: true
+  type: string
+  format: string
+  schema:
+    $ref: "#/definitions/MachineGroup"     # <---------
+
+
+responses:
+  200:
+    description: Machine Groups updated successfully
+    schema:
+        $ref: "#/definitions/Data"     # <---------
+    examples:
+      result: "success"
+      message: "Machine Groups updated successfully"
+  404:
+    description: exception in updating Machine Groups
+    examples:
+      result: "failed"
+      message: "Throws an exception"
+
+
+definitions:
+  MachineGroup:           # <----------
+    type: object
+    required:
+      - _id
+      - group_name
+      - machine_id_list
+    optional:      
+      - description      
+
+    properties:
+      _id:
+        type: object
+        properties:
+          oid: 
+            type: string    
+      group_name:
+        type: string
+      description:
+        type: string   
+      machine_id_list:        
+        type: array
+        items:
+          type: string           
+  Data:
+    type: object
+    properties:
+        data:
+          type: string
+        result:
+          type: string
+        message:
+           type: string      

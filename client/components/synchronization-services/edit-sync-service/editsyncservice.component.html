@@ -1,0 +1,972 @@
+<!--'CREATE A NEW MACHINE' TAB CONTENT COMPONENT START-->
+<div class="vp-machdetails vp-createnewmachform vp-control bg--white max">
+    <div class="split-wrapper">
+        <div class="left-data split">
+            <li class="vp-machdetails__fielditem  list_spacing">
+                <div class="vp-machdetails__fielditeminner">
+                    <!--IP FIELD LABEL-->
+                    <div class="vp-machdetails__fieldlabelwrap inblock field_label_spacing">
+                        <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">ID:</label>
+                    </div>
+                    <!--IP FIELD CONTENT-->
+                    <div class="vp-machdetails__fieldcontent inblock">
+                        <div class="vp-machdetails__fieldipwrap inblock">
+                            <span class="vp-machdetails__fieldip text--regular text--lg text--ellipsis text--ellipsis--single">{{syncRequestDetails.data._id.$oid}}</span>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="vp-machdetails__fielditem list_spacing">
+                <div class="vp-machdetails__fielditeminner">
+                    <!--IP FIELD LABEL-->
+                    <div class="vp-machdetails__fieldlabelwrap inblock field_label_spacing">
+                        <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Status : </label>
+                    </div>
+                    <!--IP FIELD CONTENT-->
+                    <div class="vp-machdetails__fieldcontent inblock">
+                        <div class="vp-machdetails__fieldipwrap inblock">
+                            <div class="vp-mmanagetab__machinetatewrap mr--md right" ng-if="syncRequestDetails.data.status==='suspended'">
+                                <!--MACHINE STATE ICON (MODIFIERS: # vp-uielement__versionstate--inactive # vp-uielement__versionstate--active)-->
+                                <span class="vp-mmanagetab__machinestateicon vp-uielement__versionstate--inactive inblock vertical--middle"></span>
+                                <span class="vp-mmanagetab__machinestatemsg vertical--middle ml--md text--cs03 text--light text--md">Suspended</span>
+                            </div>
+                            <div class="vp-mmanagetab__machinetatewrap mr--md right" ng-if="syncRequestDetails.data.status==='active'">
+                                <!--MACHINE STATE ICON (MODIFIERS: # vp-uielement__versionstate--inactive # vp-uielement__versionstate--active)-->
+                                <span class="vp-mmanagetab__machinestateicon vp-uielement__versionstate--active inblock vertical--middle"></span>
+                                <span class="vp-mmanagetab__machinestatemsg vertical--middle ml--md text--cs03 text--light text--md">Active</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="vp-machdetails__fielditem  list_spacing">
+                <div class="vp-machdetails__fielditeminner">
+                    <!--IP FIELD LABEL-->
+                    <div class="vp-machdetails__fieldlabelwrap inblock field_label_spacing" ng-if="syncRequestDetails.data.status === 'suspended'">
+                        <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single"> Activate : </label>
+                    </div>
+                    <div class="vp-machdetails__fieldlabelwrap inblock field_label_spacing" ng-if="syncRequestDetails.data.status === 'active'">
+                        <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single"> Suspend : </label>
+                    </div>
+                    <!--IP FIELD CONTENT-->
+                    <div class="vp-machdetails__fieldcontent inblock">
+                        <div class="vp-machdetails__fieldipwrap inblock">
+                            <span class="vp-machdetails__fieldip text--regular text--lg text--ellipsis text--ellipsis--single">
+                                <button type="button" ng-if="syncRequestDetails.data.status === 'active'" class="pauseButtonClass" ng-click="suspendSync(syncRequestDetails.data._id.$oid)"></button>
+                                <button type="button" ng-if="syncRequestDetails.data.status === 'suspended'" class="resumeButton" ng-click="activateSync(syncRequestDetails.data._id.$oid)"></button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="vp-machdetails__fielditem  list_spacing">
+                <div class="vp-machdetails__fielditeminner">
+                    <!--IP FIELD LABEL-->
+                    <div class="vp-machdetails__fieldlabelwrap inblock field_label_spacing">
+                        <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single"> Run now : </label>
+                    </div>
+                    <div class="vp-machdetails__fieldcontent inblock">
+                        <div class="vp-machdetails__fieldipwrap inblock">
+                            <span class="vp-machdetails__fieldip text--regular text--lg text--ellipsis text--ellipsis--single">
+                                <button type="button" class="resumeButton" ng-click="runSyncNow(syncRequestDetails.data._id.$oid)"></button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="vp-machdetails__fielditem vp-machdetails__ipitem list_spacing">
+                <div class="vp-machdetails__fielditeminner">
+                    <!--IP FIELD LABEL-->
+                    <div class="vp-machdetails__fieldlabelwrap inblock field_label_spacing">
+                        <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single"> Delete sync : </label>
+                    </div>
+                    <div class="vp-machdetails__fieldcontent inblock">
+                        <div class="vp-machdetails__fieldipwrap inblock">
+                            <span class="vp-machdetails__fieldip text--regular text--lg text--ellipsis text--ellipsis--single">
+                                <button type="button" class="deleteButton ml--sm" ng-click="deleteSyncRequest(syncRequestDetails.data._id.$oid)"></button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="vp-machdetails__fielditem " ng-if="syncRequestDetails.data.sync_type==='Push' && syncRequestDetails.data.toolNames">
+                <div class="vp-machdetails__fielditeminner">
+                    <!--IP FIELD LABEL-->
+                    <div class="vp-machdetails__fielditeminner">
+                       <button type="button" class="vp-machdetails__removemachinebtn vp-uielement__button vp-uielement__button--edittool pr--md pl--md ml--md" ng-click="showToolExported()">Show Exported</button>                       
+                    </div>
+                    <div class="vp-deploymentrequestmodalwrap fixed max--position hidden" id="show_tools_exported_modal">
+						<div class="vp-running_deplopment_request absolute" ng-include="'static/components/synchronization-services/popups/exportedtool.html'"></div>
+					</div>
+                </div>
+            </li>
+        </div><!-- end left-data -->
+        <div class="right-data split">
+            <li class="vp-machdetails__fielditem  list_spacing">
+                <div class="vp-machdetails__fielditeminner">
+                    <!--IP FIELD LABEL-->
+                    <div class="vp-machdetails__fieldlabelwrap inblock field_label_spacing">
+                        <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Sync Type : </label>
+                    </div>
+                    <!--IP FIELD CONTENT-->
+                    <div class="vp-machdetails__fieldcontent inblock">
+                        <div class="vp-machdetails__fieldipwrap inblock">
+                            <span class="vp-machdetails__fieldip text--regular text--lg text--ellipsis text--ellipsis--single">{{syncRequestDetails.data.sync_type}}</span>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="vp-machdetails__fielditem  list_spacing">
+                <div class="vp-machdetails__fielditeminner">
+                    <!--IP FIELD LABEL-->
+                    <div class="vp-machdetails__fieldlabelwrap inblock field_label_spacing">
+                        <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Last Sync Date:</label>
+                    </div>
+                    <!--IP FIELD CONTENT-->
+                    <div class="vp-machdetails__fieldcontent inblock">
+                        <div class="vp-machdetails__fieldipwrap inblock">
+                            <span class="vp-machdetails__fieldip text--regular text--lg text--ellipsis text--ellipsis--single">{{syncRequestDetails.data.last_sync_time.$date | date : "M/d/y h:mma" }}</span>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="vp-machdetails__fielditem  list_spacing">
+                <div class="vp-machdetails__fielditeminner">
+                    <!--IP FIELD LABEL-->
+                    <div class="vp-machdetails__fieldlabelwrap inblock field_label_spacing">
+                        <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Target Machine:</label>
+                    </div>
+                    <!--IP FIELD CONTENT-->
+                    <div class="vp-machdetails__fieldcontent inblock">
+                        <div class="vp-machdetails__fieldipwrap inblock">
+                            <span class="vp-machdetails__fieldip text--regular text--lg text--ellipsis text--ellipsis--single">{{syncRequestDetails.data.target_dpm_detail.dpm_host}}</span>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="vp-machdetails__fielditem  list_spacing">
+                <div class="vp-machdetails__fielditeminner">
+                    <!--IP FIELD LABEL-->
+                    <div class="vp-machdetails__fieldlabelwrap inblock field_label_spacing">
+                        <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Last Sync Status:</label>
+                    </div>
+                    <!--IP FIELD CONTENT-->
+                    <div class="vp-machdetails__fieldcontent inblock">
+                        <div class="vp-machdetails__fieldipwrap inblock">
+                            <span class="vp-machdetails__fieldip text--regular text--lg text--ellipsis text--ellipsis--single">{{syncRequestDetails.data.last_sync_status }}</span>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="vp-machdetails__fielditem  list_spacing">
+                <div class="vp-machdetails__fielditeminner">
+                    <!--IP FIELD LABEL-->
+                    <div class="vp-machdetails__fieldlabelwrap inblock field_label_spacing">
+                        <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Last Sync Message:</label>
+                    </div>
+                    <!--IP FIELD CONTENT-->
+                    <div class="vp-machdetails__fieldcontent inblock">
+                        <div class="vp-machdetails__fieldipwrap inblock" style="width: 350px;">
+                            <span class="vp-machdetails__fieldip text--regular text--lg text--ellipsis text--ellipsis--single ng-binding" style="white-space: pre-wrap; word-break: break-all;">{{syncRequestDetails.data.last_sync_message}}</span>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="vp-machdetails__fielditem vp-machdetails__ipitem" ng-if="syncRequestDetails.data.sync_type==='Push'&& syncRequestDetails.data.toolNamesNotExported" >
+                <div class="vp-machdetails__fielditeminner">
+                    <!--IP FIELD LABEL-->
+                    <div class="vp-machdetails__fielditeminner">
+                       <button type="button" class="vp-machdetails__removemachinebtn vp-uielement__button vp-uielement__button--edittool pr--md pl--md ml--md" ng-click="showToolNotExported()">Show Not Exported</button>                        
+                    </div>
+                    <div class="vp-deploymentrequestmodalwrap fixed max--position hidden" id="show_tools_not_exported_modal">
+						<div class="vp-running_deplopment_request absolute" ng-include="'static/components/synchronization-services/popups/toolnotexported.html'"></div>
+					</div>
+                </div>
+            </li>
+        </div><!-- end right-data -->
+    </div><!-- end split-wrapper -->
+    <ul class="vp-createnewmachform__fieldslist text--cs03 max--width">
+        <!--FIELD ROW 'ALIAS'-->
+        <li class="vp-createnewmachform__fielditem vp-createnewmachform__aliasitem pt--lg">
+            <div class="vp-createnewmachform__fielditeminner">
+                <!--ALIAS FIELD LABEL-->
+                <div class="vp-createnewmachform__fieldlabelwrap inblock">
+                    <label class="vp-createnewmachform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Sync Type:</label>
+                </div>
+                <!--TYPES FIELD CONTENT-->
+                <div class="vp-machdetails__fieldcontent inblock">
+                    <div class="vp-versionform__content inblock">
+                        <div class="vp-versionform__statusselectwrap">
+                            <select id="sync_type"  ng-model="syncRequestDetails.data.sync_type" name="sync_type" class="vp-versionform__dropdownlist vp-versionform__dropdownlist2 vp-uielement__select max--width"  style="height:28px; width:120px;" ng-change="onSyncSelected()" required disabled>
+                                 <option ng-repeat="input in sync_types" value="{{input}}">{{input}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <h5 class="validation_msg_machine" ng-show="EditDataSynchronizationForm.sync_type.$error.required">Please select sync type</h5>
+        <li class="vp-machdetails__fielditem vp-machdetails__typesitem mt--xl" ng-if="syncRequestDetails.data.sync_type==='Pull'">
+            <div class="vp-createnewmachform__fielditeminner">
+                <!--TYPES FIELD LABEL-->
+                <div class="vp-createnewmachform__fieldlabelwrap inblock">
+                    <label class="vp-createnewmachform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Pull Type:</label>
+                </div>
+                <!--TYPES FIELD CONTENT-->
+                <div class="vp-machdetails__fieldcontent inblock">
+                    <div class="vp-versionform__content inblock">
+                        <div class="vp-versionform__statusselectwrap">
+                            <select id="pull_type" ng-model="syncRequestDetails.data.pull_type" name="pull_type" class="vp-versionform__dropdownlist vp-versionform__dropdownlist2 vp-uielement__select max--width"  style="height:28px; width:120px;" ng-change="onPullTypeSelected()" required>
+                                 <option ng-repeat="type in pull_types" value="{{type}}">{{type}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <h5 class="validation_msg_machine" ng-show="EditDataSynchronizationForm.pull_type.$error.required">Please select pull type</h5>
+        <li class="vp-createnewmachform__fielditem vp-createnewmachform__aliasitem pt--lg" ng-if="syncRequestDetails.data.sync_type==='Push'">
+            <div class="vp-createnewmachform__fielditeminner">
+                <!--ALIAS FIELD LABEL-->
+                <div class="vp-createnewmachform__fieldlabelwrap inblock">
+                    <label class="vp-createnewmachform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Incremental push:</label>
+                </div>
+                <!--TYPES FIELD CONTENT-->
+                <div class="vp-machdetails__fieldcontent inblock">
+                    <div class="vp-versionform__content inblock">
+                        <div class="vp-versionform__statusselectwrap">
+                            <select id="incremental_push_ind"  ng-model="syncRequestDetails.data.incremental_push_ind" name="incremental_push_ind" class="vp-versionform__dropdownlist vp-versionform__dropdownlist2 vp-uielement__select max--width"  style="height:28px; width:120px;" required>
+                                <option value="true">true</option>
+                                <option value="false">false</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="vp-createnewmachform__fielditem vp-createnewmachform__aliasitem pt--lg" ng-if="syncRequestDetails.data.sync_type==='Pull' && syncRequestDetails.data.pull_type==='URL'">
+            <div class="vp-createnewmachform__fielditeminner">
+                <!--ALIAS FIELD LABEL-->
+                <div class="vp-createnewmachform__fieldlabelwrap inblock">
+                    <label class="vp-createnewmachform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Incremental pull:</label>
+                </div>
+                <!--TYPES FIELD CONTENT-->
+                <div class="vp-machdetails__fieldcontent inblock">
+                    <div class="vp-versionform__content inblock">
+                        <div class="vp-versionform__statusselectwrap">
+                            <select id="incremental_pull_ind"  ng-model="syncRequestDetails.data.incremental_pull_ind" name="incremental_pull_ind" class="vp-versionform__dropdownlist vp-versionform__dropdownlist2 vp-uielement__select max--width"  style="height:28px; width:120px;">
+                                <option value="true">true</option>
+                                <option value="false">false</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <!--<li class="vp-createnewmachform__fielditem vp-createnewmachform__aliasitem pt&#45;&#45;lg" ng-if="syncRequestDetails.data.sync_type==='Pull'">
+            <div class="vp-createnewmachform__fielditeminner">
+                &lt;!&ndash;IP FIELD LABEL&ndash;&gt;
+                <div class="vp-machdetails__fieldlabelwrap inblock">
+                    <label class="vp-createnewmachform__fieldlabel text&#45;&#45;light text&#45;&#45;md text&#45;&#45;ellipsis text&#45;&#45;ellipsis&#45;&#45;single" for="input_check_full_sync">Full Sync:</label>
+                </div>
+                &lt;!&ndash;IP FIELD CONTENT&ndash;&gt;
+                <div class="vp-machdetails__fieldcontent inblock">
+                    <div class="vp-machinesform__fieldinputwrap  vertical&#45;&#45;top pl&#45;&#45;md inblock" style="margin-left:60px;">
+                        <div class="vp-uielement__checkbox">
+                            <input id="input_check_full_sync_{{$index}}" type="checkbox" name="full_sync" ng-model="syncRequestDetails.data.full_sync_flag" ng-checked="syncRequestDetails.data.full_sync_flag===true || syncRequestDetails.data.full_sync_flag==='true'"/>
+                            <label for="input_check_full_sync_{{$index}}"></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>-->
+        <!--FIELD ROW 'ALIAS'-->
+        <li class="vp-createnewmachform__fielditem vp-createnewmachform__aliasitem pt--lg" ng-if="syncRequestDetails.data.sync_type==='Pull'">
+            <div class="vp-createnewmachform__fielditeminner">
+                <!--ALIAS FIELD LABEL-->
+                <div class="vp-createnewmachform__fieldlabelwrap inblock">
+                    <label class="vp-createnewmachform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Notification Type:</label>
+                </div>
+                <!--TYPES FIELD CONTENT-->
+                <div class="vp-machdetails__fieldcontent inblock">
+                    <div class="vp-versionform__content inblock">
+                        <div class="vp-versionform__statusselectwrap">
+                            <select id="notification_type" ng-model="syncRequestDetails.data.notification_type" name="notification_type" class="vp-versionform__dropdownlist vp-versionform__dropdownlist2 vp-uielement__select max--width"  style="height:28px; width:120px;"  ng-required="syncRequestDetails.data.full_sync_flag">
+                                 <option ng-repeat="input in notification_types" value="{{input}}">{{input}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <h5 class="validation_msg_machine" ng-show="EditDataSynchronizationForm.notification_type.$error.required">Please select notification type</h5>
+        <!--FIELD ROW 'CONNECTION'-->
+        <li class="vp-createnewmachform__fielditem vp-createnewmachform__aliaseitem mt--lg" ng-if="syncRequestDetails.data.sync_type==='Pull' && syncRequestDetails.data.pull_type==='File' || syncRequestDetails.data.sync_type==='Push'">
+            <div class="vp-createnewmachform__fielditeminner">
+                <!--CONNECTION FIELD LABEL-->
+                <div class="vp-createnewmachform__fieldlabelwrap vertical--bottom inblock">
+                    <label class="vp-createnewmachform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Target Machine<span class="vp-createnewmachform__fieldrequire">*</span>:</label>
+                </div>
+                <ul class="vp-createnewmachform__connectionsublist pl--xxl">
+                    <!--CONNECTION HOST ITEM-->
+                    <li class="vp-createnewmachform__connectionsubitem vp-createnewmachform__hostitem mt--lg">
+                        <div class="vp-createnewmachform__fielditeminner">
+                            <!--HOST FIELD LABEL-->
+                            <div class="vp-createnewmachform__fieldlabelwrap inblock">
+                                <label class="vp-createnewmachform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Host<span class="vp-createnewmachform__fieldrequire">*</span>:</label>
+                            </div>
+                            <!--HOST FIELD CONTENT-->
+                            <div class="vp-createnewmachform__fieldcontent vp-createnewmachform__hostcontent inblock">
+                                <input type="text" class="vp-createnewmachform__hostinput input--clear" name="machine_host" ng-model="syncRequestDetails.data.host" required>
+                            </div>
+                        </div>
+                    </li>
+                    <h5 class="validation_msg_machine" ng-show="EditDataSynchronizationForm.machine_host.$error.required">Please enter host name</h5>
+                    <!--CONNECTION PORT ITEM-->
+                    <li class="vp-createnewmachform__connectionsubitem vp-createnewmachform__usernameitem mt--lg">
+                        <div class="vp-createnewmachform__fielditeminner">
+                            <!--USER NAME FIELD LABEL-->
+                            <div class="vp-createnewmachform__fieldlabelwrap inblock">
+                                <label class="vp-createnewmachform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Port<span class="vp-createnewmachform__fieldrequire">*</span>:</label>
+                            </div>
+                            <!--USER NAME FIELD CONTENT-->
+                            <div class="vp-createnewmachform__fieldcontent vp-createnewmachform__usernamecontent inblock">
+                                <input type="number" class="vp-createnewmachform__usernameinput input--clear" name="machine_port" ng-model="syncRequestDetails.data.port" required>
+                            </div>
+                        </div>
+                    </li>
+                    <h5 class="validation_msg_machine" ng-show="EditDataSynchronizationForm.machine_port.$error.required">Please enter port</h5>
+                    <!--PORT FIELD -->
+                    <li class="vp-createnewmachform__connectionsubitem vp-createnewmachform__usernameitem mt--lg">
+                        <div class="vp-createnewmachform__fielditeminner">
+                            <!--USER NAME FIELD LABEL-->
+                            <div class="vp-createnewmachform__fieldlabelwrap inblock">
+                                <label class="vp-createnewmachform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">IP<span class="vp-createnewmachform__fieldrequire">*</span>:</label>
+                            </div>
+                            <!--USER NAME FIELD CONTENT-->
+                            <div class="vp-createnewmachform__fieldcontent vp-createnewmachform__usernamecontent inblock">
+                                <input type="text" class="vp-createnewmachform__usernameinput input--clear" name="machine_ip" ng-model="syncRequestDetails.data.ip" required>
+                            </div>
+                        </div>
+                    </li>
+                    <h5 class="validation_msg_machine" ng-show="EditDataSynchronizationForm.machine_ip.$error.required">Please enter ip</h5>
+                    <!--CONNECTION USER NAME ITEM-->
+                    <li class="vp-createnewmachform__connectionsubitem vp-createnewmachform__usernameitem mt--lg">
+                        <div class="vp-createnewmachform__fielditeminner">
+                            <!--USER NAME FIELD LABEL-->
+                            <div class="vp-createnewmachform__fieldlabelwrap inblock">
+                                <label class="vp-createnewmachform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">User name<span class="vp-createnewmachform__fieldrequire">*</span>:</label>
+                            </div>
+                            <!--USER NAME FIELD CONTENT-->
+                            <div class="vp-createnewmachform__fieldcontent vp-createnewmachform__usernamecontent inblock">
+                                <input type="text" class="vp-createnewmachform__usernameinput input--clear" name="machine_username" ng-model="syncRequestDetails.data.username" required>
+                            </div>
+                        </div>
+                    </li>
+                    <h5 class="validation_msg_machine" ng-show="EditDataSynchronizationForm.machine_username.$error.required">Please enter username</h5>
+                    <!--CONNECTION AUTH TYPE ITEM-->
+                    <li class="vp-createnewmachform__connectionsubitem vp-createnewmachform__pwditem mt--lg">
+                        <div class="vp-createnewmachform__fielditeminner">
+                            <!--PWD FIELD LABEL-->
+                            <div class="vp-createnewmachform__fieldlabelwrap inblock">
+                                <label class="vp-createnewmachform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Authenticate using:</label>
+                            </div>
+                            <!--PWD FIELD CONTENT-->
+                            <div class="vp-createnewmachform__fieldcontent vp-createnewmachform__pwdcontent inblock">
+                                <select id="authenticate_using_{{$index}}" name="authenticate_using" class="vp-userform__dropdownlist dropdown_auth_type vp-uielement__select" ng-model="syncRequestDetails.data.auth_type" style="width: 180px;" required>
+                                    <option value="password">password</option>
+                                    <option value="ssh">ssh keys</option>
+                                </select>
+                            </div>
+                        </div>
+                    </li>
+                    <h5 class="validation_msg_machine" ng-show="EditDataSynchronizationForm.authenticate_using.$error.required">Please select auth type</h5>
+                    <!--CONNECTION PWD ITEM-->
+                    <li class="vp-createnewmachform__connectionsubitem vp-createnewmachform__pwditem mt--lg" ng-if="EditDataSynchronizationForm.authenticate_using.$viewValue==='password'">
+                        <div class="vp-createnewmachform__fielditeminner">
+                            <!--PWD FIELD LABEL-->
+                            <div class="vp-createnewmachform__fieldlabelwrap inblock">
+                                <label class="vp-createnewmachform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Password<span class="vp-createnewmachform__fieldrequire">*</span>:</label>
+                            </div>
+                            <!--PWD FIELD CONTENT-->
+                            <div class="vp-createnewmachform__fieldcontent vp-createnewmachform__pwdcontent inblock">
+                                <input type="password" class="vp-createnewmachform__pwdinput input--clear" name="machine_password" ng-model="syncRequestDetails.data.password" required>
+                            </div>
+                        </div>
+                    </li>
+                    <h5 class="validation_msg_machine" ng-show="EditDataSynchronizationForm.authenticate_using.$viewValue==='password' && EditDataSynchronizationForm.machine_password.$error.required">Please enter password</h5>
+                    <li class="vp-createnewmachform__connectionsubitem vp-createnewmachform__hostitem mt--lg">
+                        <div class="vp-createnewmachform__fielditeminner">
+                            <!--HOST FIELD LABEL-->
+                            <div class="vp-createnewmachform__fieldlabelwrap inblock">
+                                <label class="vp-createnewmachform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Shell Type:</label>
+                            </div>
+                            <!--HOST FIELD CONTENT-->
+                            <div class="vp-createnewmachform__fieldcontent vp-createnewmachform__hostcontent inblock">
+                                <select id="shell_type_{{$index}}" name="vp-shell_type" class="vp-userform__dropdownlist dropdown_auth_type vp-uielement__select" ng-model="syncRequestDetails.data.shell_type" style="width: 180px;">
+                                    <option value="">Not required</option>
+                                    <option value="{{type}}" ng-repeat="type in shell_types ">{{type}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="vp-createnewmachform__connectionsubitem vp-createnewmachform__hostitem mt--lg">
+                        <div class="vp-createnewmachform__fielditeminner">
+                            <!--HOST FIELD LABEL-->
+                            <div class="vp-createnewmachform__fieldlabelwrap inblock">
+                                <label class="vp-createnewmachform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Reload Command:</label>
+                            </div>
+                            <!--HOST FIELD CONTENT-->
+                            <div class="vp-createnewmachform__fieldcontent vp-createnewmachform__hostcontent inblock">
+                                <select id="reload_command_{{$index}}" name="vp-reload_command" class="vp-userform__dropdownlist dropdown_auth_type vp-uielement__select" ng-model="syncRequestDetails.data.reload_command" style="width: 180px;">
+                                    <option value="">Not required</option>
+                                    <option value="{{command}}" ng-repeat="command in reload_commands ">{{command}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </li>
+                    <h5 class="validation_msg_machine" ng-show="EditDataSynchronizationForm.reload_command.$error.required">Please select reload command</h5>
+                </ul>
+            </div>
+        </li>
+        <ul class="vp-machdetails__connectionfieldlist  max--width"  ng-if="syncRequestDetails.data.sync_type==='Pull'">
+            <li class="vp-machdetails__connectionfielditem vp-machdetails__connectiontunneling mt--xl max--width">
+                <div class="vp-machdetails__fieldlabelwrap inblock">
+                    <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Tunneling:</label>
+                </div>
+                <!--TUNNELING FIELD CONTENT-->
+                <div class="vp-machdetails__tunnelingcontent max--width mt--xl">
+                    <!--COLUMN LABELS-->
+                    <div class="vp-machdetails__tunnelinglabelwrap text--light text--md clearfix">
+                        <span class="vp-machdetails__tunnelingcolumn pl--md left" >Auth Type</span>
+                        <span class="vp-machdetails__tunnelingcolumn pl--md left" ng-if="syncRequestDetails.data.pull_type==='URL'">Host</span>
+                        <span class="vp-machdetails__tunnelingcolumn pl--md left" ng-if="syncRequestDetails.data.pull_type==='File'">Host</span>
+                        <span class="vp-machdetails__tunnelingcolumn pl--md left">Port</span>
+                        <span class="vp-machdetails__tunnelingcolumn pl--md left">User</span>
+                        <span class="vp-machdetails__tunnelingcolumn pl--md left">Password</span>
+                    </div>
+                    <hr class="vp-machdetails__tunnelingseparator ba--clear bg--cs09 mt--sm">
+                    <!--TUNNELING INPUTS-->
+                    <div class="vp-machdetails__tunnelinginputswrap mt--sm">
+                        <ul class="vp-machdetails__tunnelinginputslist">
+                            <!--TUNNELING INPUTS ROW EXAMPLE-->
+                            <li class="vp-machdetails__tunnelingitem mt--lg clearfix" ng-repeat="step in syncRequestDetails.data.steps_to_auth track by $index">
+                                <form action="#" name="vp-machdetails__tunnelingrow">
+                                    <!--TUNNELING LABEL INPUT-->
+                                    <input ng-model="step.order" value="{{$index+1}}" id="order_{{$index}}" name="type" type="hidden">
+                                    <div class="vp-machdetails__tunnelinghostinputwrap vp-machdetails__tunnelingcolumn pr--md left" ng-if="syncRequestDetails.data.pull_type==='URL'">
+                                        <input class="vp-machdetails__tunnelinghost input--clear max--width bl--primary br--primary bt--primary bb--primary" ng-model="step.type" id="TYPE_{{$index}}" name="type" type="text" disabled="disabled" style="width: 80px; height: 23px;" required>
+                                    </div>
+                                    <div class="vp-machdetails__tunnelinglabelinputwrap vp-machdetails__tunnelingcolumn pr--md left"  ng-if="syncRequestDetails.data.pull_type==='File'">
+                                        <select id="auth_type_{{$index}}" name="vp-userform__dropdownlist" class="vp-userform__dropdownlist dropdown_auth_type vp-uielement__select" ng-model="step.type" ng-change="setDefaultPortInPull(step.type, $index)">
+                                            <option value="">----  Select Auth Type  ----</option>
+                                            <option  name="vp-userform__account_dropdownlistoption_{{$index}}"  ng-repeat="type in auth_types_push ">{{type}}</option>
+                                      </select>
+                                    </div>
+                                    <!--TUNNELING HOST INPUT-->
+                                    <div class="vp-machdetails__tunnelinghostinputwrap vp-machdetails__tunnelingcolumn pr--md left" ng-if="syncRequestDetails.data.pull_type==='URL'">
+                                        <input id="auth_host_{{$index}}_1" type="text" class="vp-machdetails__tunnelinghost input--clear max--width bl--primary br--primary bt--primary bb--primary" name="auth_host" ng-model="step.host" required style="width: 80px; height: 23px;" />
+                                    </div>
+                                    <div class="vp-machdetails__tunnelinghostinputwrap vp-machdetails__tunnelingcolumn pr--md left" ng-if="syncRequestDetails.data.pull_type==='File'">
+                                        <input id="auth_host_{{$index}}" type="text" class="vp-machdetails__tunnelinghost input--clear max--width bl--primary br--primary bt--primary bb--primary" name="auth_host" ng-model="step.host" required style="width: 80px; height: 23px;" />
+                                    </div>
+                                    <!--TUNNELING PORT INPUT-->
+                                    <div class="vp-machdetails__tunnelinghostinputwrap vp-machdetails__tunnelingcolumn pr--md left" ng-if="syncRequestDetails.data.pull_type==='URL'">
+                                        <input id="auth_port_1_{{$index}}" type="number" class="vp-machdetails__tunnelinghost input--clear max--width bl--primary br--primary bt--primary bb--primary" name="auth_port" ng-model="step.port" required ng-disabled="true" style="width: 80px; height: 23px;"/>
+                                    </div>
+                                    <div class="vp-machdetails__tunnelinghostinputwrap vp-machdetails__tunnelingcolumn pr--md left" ng-if="syncRequestDetails.data.pull_type==='File'">
+                                        <input id="auth_port_2_{{$index}}" type="number" class="vp-machdetails__tunnelinghost input--clear max--width bl--primary br--primary bt--primary bb--primary" name="auth_port" ng-model="step.port" ng-disabled="step.type==='Telnet'" required  style="width: 80px; height: 23px;"/>
+                                    </div>
+                                    <!--TUNNELING USER INPUT-->
+                                    <div class="vp-machdetails__tunnelinguserinputwrap vp-machdetails__tunnelingcolumn pr--md left">
+                                        <input id="auth_user_{{$index}}" type="text" class="vp-machdetails__tunnelinguser input--clear max--width bl--primary br--primary bt--primary bb--primary" name="auth_user" ng-model="step.username" required style=" width: 80px; height: 23px;"/>
+                                    </div>
+                                    <!--TUNNELING PASSWORD INPUT-->
+                                    <div class="vp-machdetails__tunnelinguserinputwrap vp-machdetails__tunnelingcolumn pr--md left">
+                                        <input id="auth_password_{{$index}}" type="password" class="vp-machdetails__tunnelingpass input--clear max--width bl--primary br--primary bt--primary bb--primary" name="auth_password" ng-model="step.password" required style=" width: 80px; height: 23px;"/>
+                                    </div>
+                                    <!--REMOVE BUTTON-->
+                                    <button type="button" class="vp-machdetails__removebtn remove_btn_mac vp-uielement__button vp-uielement__button--removeenabled right" style="margin-right: 13%;" ng-click="removeStep()"></button>
+                                </form>
+                            </li>
+                        </ul>
+                        <div>
+                            <button ng-if="addPullStep" type="button" class="vp-machdetails__addhostbtn vp-uielement__button vp-uielement__button--cleanenabled mt--sm pa--none" ng-click="addNewStep()">+ Add a host</button>
+                            <!--CONNECTION TEST NOTIFICATION (MODIFIERS: # vp-machdetails__teststatusnotification--success # vp-machdetails__teststatusnotification--fail )-->
+                            <!--<span class="vp-machdetails__teststatusnotification vp-machdetails__teststatusnotification&#45;&#45;success right mt&#45;&#45;md  text&#45;&#45;regular text&#45;&#45;lg" ng-if="machineConnectionMessage">{{machineConnectionMessage}}</span>-->
+                        </div>
+                        <div class="vp-createnewmachform__connectioncheckblock mt--md" ng-if="syncRequestDetails.data.sync_type==='Pull' && syncRequestDetails.data.pull_type==='File' || syncRequestDetails.data.sync_type==='Push'">
+                            <button type="button" class="vp-createnewmachform__connectbtn vp-uielement__button vp-uielement__button--connect text--regular text--md mt--sm text--cs07"><span class="ml--lg" ng-click="testConnection(EditDataSynchronizationForm)">Check connection</span></button>
+                            <!--CONNECTION TEST NOTIFICATION (MODIFIERS: # vp-createnewmachform__teststatusnotification--success # vp-createnewmachform__teststatusnotification--fail )-->
+                            <span ng-if="machineTestResult.result==='success'" class="vp-createnewmachform__teststatusnotification vp-createnewmachform__teststatusnotification--success mt--md ml--xxl text--regular text--lg">{{machineTestResult.message}}</span>
+                            <span ng-if="machineTestResult.result==='failed'" class="vp-createnewmachform__teststatusnotification vp-createnewmachform__teststatusnotification--fail mt--md ml--xxl text--regular text--lg">{{machineTestResult.message}}</span>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <li class="vp-createnewmachform__fielditem vp-createnewmachform__aliaseitem mt--lg" ng-if="(syncRequestDetails.data.sync_type==='Pull' && syncRequestDetails.data.pull_type==='URL') || syncRequestDetails.data.sync_type==='Push'">
+            <div class="vp-createnewmachform__fielditeminner">
+                <div class="vp-createnewmachform__fieldlabelwrap vertical--bottom inblock">
+                    <label class="vp-createnewmachform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Filters to apply:</label>
+                </div>
+                <ul class="vp-createnewmachform__connectionsublist pl--xxl">
+                    <li class="vp-createnewmachform__connectionsubitem vp-createnewmachform__hostitem mt--lg">
+                        <div class="vp-createnewmachform__fielditeminner">
+                            <div class="vp-createnewmachform__fieldlabelwrap inblock">
+                                <label for="dpm_host_pull_1" class="vp-createnewmachform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Entity Type:</label>
+                            </div>
+                            <div class="vp-createnewmachform__fieldcontent vp-createnewmachform__hostcontent inblock">
+                                <div class="vp-machdetails__tunnelinglabelinputwrap vp-machdetails__tunnelingcolumn pr--md left">
+                                    <select id="entity_type" name="vp-userform__dropdownlist_entity_type" class="vp-userform__dropdownlist dropdown_auth_type vp-uielement__select" ng-model="syncRequestDetails.data.filters_to_apply.type" style="width: 140px;">
+                                        <option value="">----  Select entity type  ----</option>
+                                        <option value="all">All</option>
+                                        <option value="tool">Tool</option>
+                                        <option value="du">DU</option>
+                                  </select>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="vp-userform__fielditem vp-userform__nameitem pt--xxl">
+                        <div class="vp-userform__fielditeminner">
+                            <!--'NAME' FIELD LABEL-->
+                            <div class="vp-userform__fieldlabelwrap inblock">
+                                <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">States To Sync:</label>
+                            </div>
+                            <!--'NAME' FIELD CONTENT-->
+                            <div class="vp-createnewmachform__fieldcontent vp-createnewmachform__hostcontent inblock">
+                            <div class="vp-machdetails__tunnelinglabelinputwrap vp-machdetails__tunnelingcolumn pr--md left">
+                                <select name="du_approval_status" id="du_approval_status"  ng-model="syncRequestDetails.data.filters_to_apply.approval_status" class="vp-userform__dropdownlist dropdown_auth_type vp-uielement__select"  style="width: 140px;">
+                                    <option value="Any">Any</option>
+                                    <option ng-repeat="approvals in approvalStatus" value="{{approvals.name}}">{{approvals.name}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        </div>
+                    </li>
+                    <!--FIELD ROW 'ALIAS'-->
+                    <li class="vp-createnewmachform__fielditem vp-createnewmachform__aliasitem pt--lg">
+                        <div class="vp-createnewmachform__fielditeminner">
+                            <!--ALIAS FIELD LABEL-->
+                            <div class="vp-createnewmachform__fieldlabelwrap inblock">
+                                <label class="vp-createnewmachform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Time After:</label>
+                            </div>
+                            <!--TYPES FIELD CONTENT-->
+                            <div class="vp-machdetails__fieldcontent inblock">
+                                <div class="vp-versionform__content inblock">
+                                    <div class="vp-createnewmachform__fieldcontent vp-createnewmachform__usernamecontent inblock">
+                                        <input name="time_after_date"class="ba--primary" class="vp-createnewmachform__hostinput input--clear" style="width:300px" id="VERSION_DATE"  step="60" type="datetime-local" ng-model="syncRequestDetails.data.filters_to_apply.time_after"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="vp-createnewmachform__connectionsubitem vp-createnewmachform__hostitem mt--lg" id="add_tag_list">
+                        <div class="vp-userform__fielditeminner">
+                            <div class="vp-userform__fieldlabelwrap inblock">
+                                <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Tags:</label>
+                            </div>
+                            <!--'ADD USERS TO GROUP' FIELD CONTENT-->
+                            <div class="vp-userform__fieldcontent vp-userform__memberofcontent inblock">
+                                <div class="vp-machdetails__fieldcontent inblock">
+                                    <div class="vp-machdetails__fieldtypewrap vp-machdetails__editablewrap inblock set_margin_rad">
+                                        <div class="vp-createnewmachform__fieldcontent vp-createnewmachform__userscontent inblock">
+                                            <ul class="vp-createnewmachform__userslist clearfix">
+                                                <!--USER ROW EXAMPLE-->
+                                                <li class="vp-createnewmachform__useritem mt--sm mr--md left" ng-repeat="tag in syncRequestDetails.data.filters_to_apply.tags track by $index">
+                                                    <div class="vp-createnewmachform__useriteminner text--regular text--lg text--cs03 nowrap" style="width:fit-content">
+                                                        <div class="vp-createnewmachform__userinfowrap inblock">
+                                                            <span class="vp-createnewmachform__userinfo text--ellipsis text--ellipsis--single">{{tag}}</span>
+                                                        </div>
+                                                        <div class="vp-createnewmachform__userremovebtnwrap vertical--top inblock">
+                                                            <button type="button" class="vp-createnewmachform__userremovebtn vp-uielement__button vp-uielement__button--smallclose vertical--middle pa--none ml--sm" ng-click="removeTag(tag)"></button>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li class="vp-createnewmachform__addusersbuttonitem mt--sm mr--md pa--none left" style="width: max-content;">
+                                                    <div class="vp-createnewmachform__addusersbuttoniteminner inblock">
+                                                        <button type="button" class="vp-uielement__button vp-uielement__button--cleanenabled" id="add_status_tag_btn"><span class="vertical--middle" ng-click="showAddTag()">+Add tags</span></button>
+                                                    </div>
+                                                    <div id="add_tag" class="vp-versionform__addcertifieditembtnpopup hidden" ng-include="'static/components/synchronization-services/filters/addtagspopup.component.html'"></div>
+                                                </li>
+
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <!--<li class="vp-createnewmachform__connectionsubitem vp-createnewmachform__hostitem mt&#45;&#45;lg" id="add_status_list" ng-if="syncRequestDetails.data.filters_to_apply.type==='du' || syncRequestDetails.data.filters_to_apply.type==='all'">
+                        <div class="vp-userform__fielditeminner">
+                            <div class="vp-userform__fieldlabelwrap inblock">
+                                <label class="vp-userform__fieldlabel text&#45;&#45;light text&#45;&#45;md text&#45;&#45;ellipsis text&#45;&#45;ellipsis&#45;&#45;single">Approval status:</label>
+                            </div>
+                            &lt;!&ndash;'ADD USERS TO GROUP' FIELD CONTENT&ndash;&gt;
+                            <div class="vp-userform__fieldcontent vp-userform__memberofcontent inblock">
+                                <div class="vp-machdetails__fieldcontent inblock">
+                                    <div class="vp-machdetails__fieldtypewrap vp-machdetails__editablewrap inblock set_margin_rad">
+                                        <div class="vp-createnewmachform__fieldcontent vp-createnewmachform__userscontent inblock">
+                                            <ul class="vp-createnewmachform__userslist clearfix">
+                                                &lt;!&ndash;USER ROW EXAMPLE&ndash;&gt;
+                                                <li class="vp-createnewmachform__useritem mt&#45;&#45;sm mr&#45;&#45;md left" ng-repeat="status in syncRequestDetails.data.filters_to_apply.approval_status track by $index">
+                                                    <div class="vp-createnewmachform__useriteminner text&#45;&#45;regular text&#45;&#45;lg text&#45;&#45;cs03 nowrap">
+                                                        <div class="vp-createnewmachform__userinfowrap inblock">
+                                                            <span class="vp-createnewmachform__userinfo text&#45;&#45;ellipsis text&#45;&#45;ellipsis&#45;&#45;single">{{status}}</span>
+                                                        </div>
+                                                        <div class="vp-createnewmachform__userremovebtnwrap vertical&#45;&#45;top inblock">
+                                                            <button type="button" class="vp-createnewmachform__userremovebtn vp-uielement__button vp-uielement__button&#45;&#45;smallclose vertical&#45;&#45;middle pa&#45;&#45;none ml&#45;&#45;sm" ng-click="selectApprovalStatus(status)"></button>
+                                                        </div>
+                                                    </div>
+                                                </li>
+
+                                                <li class="vp-createnewmachform__addusersbuttonitem mt&#45;&#45;sm mr&#45;&#45;md pa&#45;&#45;none left" style="width: max-content;">
+                                                    <div class="vp-createnewmachform__addusersbuttoniteminner inblock">
+                                                        <button type="button" class="vp-uielement__button vp-uielement__button&#45;&#45;cleanenabled" id="add_status_list_btn"><span class="vertical&#45;&#45;middle" ng-click="showAddStatus()">+Add approval status</span></button>
+                                                    </div>
+                                                    <div id="add_status" class="vp-versionform__addcertifieditembtnpopup hidden" ng-include="'static/components/synchronization-services/filters/addapprovalstatuspopup.component.html'"></div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>-->
+                </ul>
+            </div>
+        </li>
+        <ul class="vp-machdetails__connectionfieldlist  max--width"  ng-if="syncRequestDetails.data.sync_type==='Push'">
+            <li class="vp-machdetails__connectionfielditem vp-machdetails__connectiontunneling mt--xl max--width">
+                <div class="vp-machdetails__fieldlabelwrap inblock">
+                    <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Gateway Details:</label>
+                </div>
+                <!--TUNNELING FIELD CONTENT-->
+                <div class="vp-machdetails__tunnelingcontent max--width mt--xl">
+                    <!--COLUMN LABELS-->
+                    <div class="vp-machdetails__tunnelinglabelwrap text--light text--md clearfix ">
+                        <span class="vp-machdetails__tunnelingcolumn pl--md left">Auth Type</span>
+                        <span class="vp-machdetails__tunnelingcolumn pl--md left">Host</span>
+                        <span class="vp-machdetails__tunnelingcolumn pl--md left" >Port</span>
+                        <span class="vp-machdetails__tunnelingcolumn pl--md left">User</span>
+                        <span class="vp-machdetails__tunnelingcolumn pl--md left" >Password</span>
+                    </div>
+                    <hr class="vp-machdetails__tunnelingseparator ba--clear bg--cs09 mt--sm">
+                        <!--TUNNELING INPUTS-->
+                    <div class="vp-machdetails__tunnelinginputswrap mt--sm">
+                        <ul class="vp-machdetails__tunnelinginputslist">
+                            <!--TUNNELING INPUTS ROW EXAMPLE-->
+                            <li class="vp-machdetails__tunnelingitem mt--lg clearfix" ng-repeat="step in syncRequestDetails.data.steps_to_auth track by $index">
+                                <form action="#" name="vp-machdetails__tunnelingrow">
+                                    <!--TUNNELING LABEL INPUT-->
+                                    <div id="steps_to_auth_{{$index}}" class="vp-machdetails__tunnelinglabelinputwrap vp-machdetails__tunnelingcolumn pr--md left">
+                                        <select id="auth_type_push_{{$index}}" name="auth_type_push" class="vp-userform__dropdownlist dropdown_auth_type vp-uielement__select" ng-model="step.type" ng-change="setDefaultPortInPush(step.type, $index)">
+                                            <option value="">----  Select Auth Type  ----</option>
+                                            <option  name="vp-userform__account_dropdownlistoption_{{$index}}"  ng-repeat="type in auth_types_push ">{{type}}</option>
+                                        </select>
+                                    </div>
+                                    <h5 class="validation_msg_machine" ng-show="EditDataSynchronizationForm.auth_type_push.$error.required">Please select auth type</h5>
+                                    <!--TUNNELING HOST INPUT-->
+                                    <div class="vp-machdetails__tunnelinglabelinputwrap vp-machdetails__tunnelingcolumn pr--md left">
+                                        <input id="auth_type_push_host_{{$index}}" type="text" class="vp-machdetails__tunnelinghost input--clear max--width bl--primary br--primary bt--primary bb--primary" name="auth_host_push" ng-model="step.host" required style="width: 80px;height: 23px;" />
+                                    </div>
+                                    <h5 class="validation_msg_machine" ng-show="EditDataSynchronizationForm.auth_host_push.$error.required">Please enter host name</h5>
+                                    <!--TUNNELING PORT INPUT-->
+                                    <div class="vp-machdetails__tunnelinghostinputwrap vp-machdetails__tunnelingcolumn pr--md left">
+                                        <input id="auth_type_push_port_{{$index}}" type="number" class="vp-machdetails__tunnelinghost input--clear max--width bl--primary br--primary bt--primary bb--primary" name="auth_port_push" ng-model="step.port" ng-disabled="step.type==='Telnet'" required style="width: 80px; height: 23px;">
+                                    </div>
+                                    <h5 class="validation_msg_machine" ng-show="EditDataSynchronizationForm.auth_port_push.$error.required">Please enter port</h5>
+                                    <!--TUNNELING USER INPUT-->
+                                    <div class="vp-machdetails__tunnelinguserinputwrap vp-machdetails__tunnelingcolumn pr--md left">
+                                        <input id="auth_type_push_user_{{$index}}" type="text" class="vp-machdetails__tunnelinguser input--clear max--width bl--primary br--primary bt--primary bb--primary" name="vp-machdetails__tunnelinguser" name="auth_user_push" ng-model="step.username" required style="width: 80px; height: 23px;" />
+                                    </div>
+                                    <h5 class="validation_msg_machine" ng-show="EditDataSynchronizationForm.auth_user_push.$error.required">Please enter user name</h5>
+                                    <!--TUNNELING PASSWORD INPUT-->
+                                    <div class="vp-machdetails__tunnelinguserinputwrap vp-machdetails__tunnelingcolumn pr--md left">
+                                        <input id="auth_type_push_password_{{$index}}" type="password" class="vp-machdetails__tunnelingpass input--clear max--width bl--primary br--primary bt--primary bb--primary" name="vp-machdetails__tunnelingpass" name="auth_password_push" ng-model="step.password" required style=" width: 80px; height: 23px;" />
+                                    </div>
+                                    <h5 class="validation_msg_machine" ng-show="EditDataSynchronizationForm.auth_password_push.$error.required">Please enter user name</h5>
+                                    <!--REMOVE BUTTON-->
+                                    <button type="button" class="vp-machdetails__removebtn remove_btn_mac vp-uielement__button vp-uielement__button--removeenabled right" style="margin-right: 13%;" ng-click="removeStep()"></button>
+                                </form>
+                            </li>
+                        </ul>
+                        <div>
+                            <button type="button" class="vp-machdetails__addhostbtn vp-uielement__button vp-uielement__button--cleanenabled mt--sm pa--none" ng-click="addNewStep()">+ Add a host</button>
+                            <!--CONNECTION TEST NOTIFICATION (MODIFIERS: # vp-machdetails__teststatusnotification--success # vp-machdetails__teststatusnotification--fail )-->
+                            <!--<span class="vp-machdetails__teststatusnotification vp-machdetails__teststatusnotification&#45;&#45;success right mt&#45;&#45;md  text&#45;&#45;regular text&#45;&#45;lg" ng-if="machineConnectionMessage">{{machineConnectionMessage}}</span>-->
+                        </div>
+                        <div class="vp-createnewmachform__connectioncheckblock mt--md" ng-if="syncRequestDetails.data.sync_type==='Pull' && syncRequestDetails.data.pull_type==='File' || syncRequestDetails.data.sync_type==='Push'">
+                            <button type="button" class="vp-createnewmachform__connectbtn vp-uielement__button vp-uielement__button--connect text--regular text--md mt--sm text--cs07"><span class="ml--lg" ng-click="testConnection(createNewSyncForm)">Check connection</span></button>
+                            <!--CONNECTION TEST NOTIFICATION (MODIFIERS: # vp-createnewmachform__teststatusnotification--success # vp-createnewmachform__teststatusnotification--fail )-->
+                            <span ng-if="machineTestResult.result==='success'" class="vp-createnewmachform__teststatusnotification vp-createnewmachform__teststatusnotification--success mt--md ml--xxl text--regular text--lg">{{machineTestResult.message}}</span>
+                            <span ng-if="machineTestResult.result==='failed'" class="vp-createnewmachform__teststatusnotification vp-createnewmachform__teststatusnotification--fail mt--md ml--xxl text--regular text--lg">{{machineTestResult.message}}</span>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <li class="vp-createnewmachform__connectionsubitem vp-createnewmachform__usernameitem mt--lg" ng-if="syncRequestDetails.data.sync_type==='Push'">
+            <div class="vp-createnewmachform__fielditeminner">
+                <!--USER NAME FIELD LABEL-->
+                <div class="vp-createnewmachform__fieldlabelwrap inblock">
+                    <label class="vp-createnewmachform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Additional Artifacts:</label>
+                </div>
+                <!--USER NAME FIELD CONTENT-->
+                <div class="vp-machdetails__fieldcontent inblock absolute">
+                    <div class="vp-machinesform__fieldinputwrap inblock">
+                        <div class="vp-uielement__checkbox">
+                            <input id="input_check_external_artifacts" type="checkbox" name="external_artifacts" ng-model="syncRequestDetails.data.external_artifacts" />
+                            <label for="input_check_external_artifacts"></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="vp-createnewmachform__fielditem vp-createnewmachform__aliaseitem mt--lg" ng-if="syncRequestDetails.data.sync_type==='Pull'">
+            <div class="vp-createnewmachform__fielditeminner">
+                <!--CONNECTION FIELD LABEL-->
+                <div class="vp-createnewmachform__fieldlabelwrap vertical--bottom inblock">
+                    <label class="vp-createnewmachform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Target DPM Details<span class="vp-createnewmachform__fieldrequire">*</span>:</label>
+                </div>
+                <ul class="vp-createnewmachform__connectionsublist pl--xxl">
+                    <!--CONNECTION HOST ITEM-->
+                    <li class="vp-createnewmachform__connectionsubitem vp-createnewmachform__hostitem mt--lg" ng-hide="syncRequestDetails.data.sync_type==='Pull' && syncRequestDetails.data.pull_type==='File'">
+                        <div class="vp-createnewmachform__fielditeminner">
+                            <!--HOST FIELD LABEL-->
+                            <div class="vp-createnewmachform__fieldlabelwrap inblock">
+                                <label for="dpm_host_pull_1" class="vp-createnewmachform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">DPM Host<span class="vp-createnewmachform__fieldrequire">*</span>:</label>
+                            </div>
+                            <!--HOST FIELD CONTENT-->
+                            <div class="vp-createnewmachform__fieldcontent vp-createnewmachform__hostcontent inblock">
+                                <input id="dpm_host_pull_1" type="text" class="vp-createnewmachform__hostinput input--clear" name="dpm_host_pull" ng-model="syncRequestDetails.data.target_dpm_detail.dpm_host" required/>
+                            </div>
+                        </div>
+                    </li>
+                    <h5 class="validation_msg_machine" ng-show="EditDataSynchronizationForm.dpm_host_pull.$error.required" ng-hide="syncRequestDetails.data.sync_type==='Pull' && syncRequestDetails.data.pull_type==='File'">Please enter DPM host name</h5>
+                    <!--CONNECTION PORT ITEM-->
+                    <li class="vp-createnewmachform__connectionsubitem vp-createnewmachform__usernameitem mt--lg" ng-hide="syncRequestDetails.data.sync_type==='Pull' && syncRequestDetails.data.pull_type==='File'">
+                        <div class="vp-createnewmachform__fielditeminner">
+                            <!--USER NAME FIELD LABEL-->
+                            <div class="vp-createnewmachform__fieldlabelwrap inblock">
+                                <label for="dpm_port_pull_1" class="vp-createnewmachform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">DPM Port<span class="vp-createnewmachform__fieldrequire">*</span>:</label>
+                            </div>
+                            <!--USER NAME FIELD CONTENT-->
+                            <div class="vp-createnewmachform__fieldcontent vp-createnewmachform__usernamecontent inblock">
+                                <input id="dpm_port_pull_1" type="number" class="vp-createnewmachform__usernameinput input--clear" name="dpm_port_pull" ng-model="syncRequestDetails.data.target_dpm_detail.dpm_port" required/>
+                            </div>
+                        </div>
+                    </li>
+                    <h5 class="validation_msg_machine" ng-show="EditDataSynchronizationForm.dpm_port_pull.$error.required" ng-hide="syncRequestDetails.data.sync_type==='Pull' && syncRequestDetails.data.pull_type==='File'">Please enter DPM port</h5>
+                    <!--CONNECTION PWD ITEM-->
+                    <li class="vp-createnewmachform__connectionsubitem vp-createnewmachform__pwditem mt--lg" ng-hide="syncRequestDetails.data.sync_type==='Pull' && syncRequestDetails.data.pull_type==='File'">
+                        <div class="vp-createnewmachform__fielditeminner">
+                            <!--PWD FIELD LABEL-->
+                            <div class="vp-createnewmachform__fieldlabelwrap inblock">
+                                <label for="dpm_unique_token_pull_1" class="vp-createnewmachform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">DPM Unique Token<span class="vp-createnewmachform__fieldrequire">*</span>:</label>
+                            </div>
+                            <!--PWD FIELD CONTENT-->
+                            <div class="vp-createnewmachform__fieldcontent vp-createnewmachform__pwdcontent inblock">
+                                <input id="dpm_unique_token_pull_1" type="text" class="vp-createnewmachform__pwdinput input--clear" name="dpm_unique_token_pull" ng-model="syncRequestDetails.data.target_dpm_detail.dpm_token" required/>
+                            </div>
+                        </div>
+                    </li>
+                    <h5 class="validation_msg_machine" ng-show="EditDataSynchronizationForm.dpm_unique_token_pull.$error.required" ng-hide="syncRequestDetails.data.sync_type==='Pull' && syncRequestDetails.data.pull_type==='File'">Please enter DPM Unique token</h5>
+                    <!--PORT FIELD -->
+                    <li class="vp-createnewmachform__connectionsubitem vp-createnewmachform__usernameitem mt--lg" ng-hide="syncRequestDetails.data.sync_type==='Pull' && syncRequestDetails.data.pull_type==='File'">
+                        <div class="vp-createnewmachform__fielditeminner">
+                            <!--USER NAME FIELD LABEL-->
+                            <div class="vp-createnewmachform__fieldlabelwrap inblock">
+                                <label for="dpm_username_pull_1" class="vp-createnewmachform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">DPM Username<span class="vp-createnewmachform__fieldrequire">*</span>:</label>
+                            </div>
+                            <!--USER NAME FIELD CONTENT-->
+                            <div class="vp-createnewmachform__fieldcontent vp-createnewmachform__usernamecontent inblock">
+                                <input id="dpm_username_pull_1" type="text" class="vp-createnewmachform__usernameinput input--clear" name="dpm_username_pull" ng-model="syncRequestDetails.data.target_dpm_detail.dpm_username" required/>
+                            </div>
+                        </div>
+                    </li>
+                    <h5 class="validation_msg_machine" ng-show="EditDataSynchronizationForm.dpm_username_pull.$error.required" ng-hide="syncRequestDetails.data.sync_type==='Pull' && syncRequestDetails.data.pull_type==='File'">Please enter DPM Username</h5>
+                    <!--CONNECTION USER NAME ITEM-->
+                    <li class="vp-createnewmachform__connectionsubitem vp-createnewmachform__usernameitem mt--lg" ng-hide="syncRequestDetails.data.sync_type==='Pull' && syncRequestDetails.data.pull_type==='File'">
+                        <div class="vp-createnewmachform__fielditeminner">
+                            <!--USER NAME FIELD LABEL-->
+                            <div class="vp-createnewmachform__fieldlabelwrap inblock">
+                                <label for="dpm_password_pull_1" class="vp-createnewmachform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">DPM Password<span class="vp-createnewmachform__fieldrequire">*</span>:</label>
+                            </div>
+                            <!--USER NAME FIELD CONTENT-->
+                            <div class="vp-createnewmachform__fieldcontent vp-createnewmachform__usernamecontent inblock">
+                                <input id="dpm_password_pull_1" type="password" class="vp-createnewmachform__usernameinput input--clear" name="dpm_password_pull" ng-model="syncRequestDetails.data.target_dpm_detail.dpm_password" required/>
+                            </div>
+                        </div>
+                    </li>
+                    <h5 class="validation_msg_machine" ng-show="EditDataSynchronizationForm.dpm_password_pull.$error.required" ng-hide="syncRequestDetails.data.sync_type==='Pull' && syncRequestDetails.data.pull_type==='File'">Please enter DPM Password</h5>
+                    <!--CONNECTION USER NAME ITEM-->
+                    <li class="vp-createnewmachform__connectionsubitem vp-createnewmachform__usernameitem mt--lg">
+                        <div class="vp-createnewmachform__fielditeminner">
+                            <!--USER NAME FIELD LABEL-->
+                            <div class="vp-createnewmachform__fieldlabelwrap inblock">
+                                <label for="dpm_distribution_list_pull_1" class="vp-createnewmachform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Distribution List<span class="vp-createnewmachform__fieldrequire">*</span>:</label>
+                            </div>
+                            <!--USER NAME FIELD CONTENT-->
+                            <div class="vp-createnewmachform__fieldcontent vp-createnewmachform__usernamecontent inblock">
+                                <input for="dpm_distribution_list_pull_1" type="email" class="vp-createnewmachform__usernameinput input--clear" name="distribution_list_pull" ng-model="syncRequestDetails.data.distribution_list" required />
+                            </div>
+                        </div>
+                    </li>
+                    <h5 class="validation_msg_machine" ng-show="EditDataSynchronizationForm.distribution_list_pull.$error.required">Please enter distribution list</h5>
+                    <!--CONNECTION USER NAME ITEM-->
+                    <li class="vp-createnewmachform__connectionsubitem vp-createnewmachform__usernameitem mt--lg" ng-hide="syncRequestDetails.data.sync_type==='Pull' && syncRequestDetails.data.pull_type==='URL'">
+                        <div class="vp-createnewmachform__fielditeminner">
+                            <!--USER NAME FIELD LABEL-->
+                            <div class="vp-createnewmachform__fieldlabelwrap inblock">
+                                <label for="dpm_rms_pull_1" class="vp-createnewmachform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Remote Source Location name<span class="vp-createnewmachform__fieldrequire">*</span>:</label>
+                            </div>
+                            <!--USER NAME FIELD CONTENT-->
+                            <div class="vp-createnewmachform__fieldcontent vp-createnewmachform__usernamecontent inblock">
+                                <input id="dpm_rms_pull_1" type="text" class="vp-createnewmachform__usernameinput input--clear" name="remote_source_location_pull" ng-model="syncRequestDetails.data.remote_source_location"/>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </li>
+        <li class="vp-createnewmachform__fielditem vp-createnewmachform__aliaseitem mt--lg" ng-if="syncRequestDetails.data.sync_type==='Push'">
+                <div class="vp-createnewmachform__fielditeminner">
+                    <!--CONNECTION FIELD LABEL-->
+                    <div class="vp-createnewmachform__fieldlabelwrap vertical--bottom inblock">
+                        <label class="vp-createnewmachform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Target Details<span class="vp-createnewmachform__fieldrequire">*</span>:</label>
+                    </div>
+                    <ul class="vp-createnewmachform__connectionsublist pl--xxl">
+                        <!--CONNECTION HOST ITEM-->
+                        <!--CONNECTION USER NAME ITEM-->
+                        <li class="vp-createnewmachform__connectionsubitem vp-createnewmachform__usernameitem mt--lg" ng-if="syncRequestDetails.data.sync_type==='Push'">
+                            <div class="vp-createnewmachform__fielditeminner">
+                                <!--USER NAME FIELD LABEL-->
+                                <div class="vp-createnewmachform__fieldlabelwrap inblock">
+                                    <label class="vp-createnewmachform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Folder Location<span class="vp-createnewmachform__fieldrequire">*</span>:</label>
+                                </div>
+                                <!--USER NAME FIELD CONTENT-->
+                                <div class="vp-createnewmachform__fieldcontent vp-createnewmachform__usernamecontent inblock">
+                                    <input type="text" class="vp-createnewmachform__usernameinput input--clear" name="dpm_push_folder_location" ng-model="syncRequestDetails.data.folder_location">
+                                </div>
+                            </div>
+                        </li>
+                        <li class="vp-createnewmachform__connectionsubitem vp-createnewmachform__usernameitem mt--lg">
+                            <div class="vp-createnewmachform__fielditeminner">
+                                <!--USER NAME FIELD LABEL-->
+                                <div class="vp-createnewmachform__fieldlabelwrap inblock">
+                                    <label class="vp-createnewmachform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Distribution List<span class="vp-createnewmachform__fieldrequire">*</span>:</label>
+                                </div>
+                                <!--USER NAME FIELD CONTENT-->
+                                <div class="vp-createnewmachform__fieldcontent vp-createnewmachform__usernamecontent inblock">
+                                    <input type="email" class="vp-createnewmachform__usernameinput input--clear" name="distribution_list_push" ng-model="syncRequestDetails.data.distribution_list" ng-required="synctypes.selected==='Push'">
+                                </div>
+                            </div>
+                        </li>
+                        <h5 class="validation_msg_machine" ng-show="EditDataSynchronizationForm.distribution_list_push.$error.required">Please enter distribution list</h5>
+                        <li class="vp-createnewmachform__connectionsubitem vp-createnewmachform__usernameitem mt--lg">
+                            <div class="vp-createnewmachform__fielditeminner">
+                                <!--USER NAME FIELD LABEL-->
+                                <div class="vp-createnewmachform__fieldlabelwrap inblock">
+                                    <label class="vp-createnewmachform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Trigger Indicator:</label>
+                                </div>
+                                <!--USER NAME FIELD CONTENT-->
+                                <div class="vp-machdetails__fieldcontent inblock">
+                                    <div class="vp-machinesform__fieldinputwrap  vertical--top pl--md inblock">
+                                        <div class="vp-uielement__checkbox">
+                                            <input id="input_check_trigger_ind" type="checkbox" name="trigger_ind" ng-model="syncRequestDetails.data.trigger_ind" ng-change="setTrigger()" ng-checked="syncRequestDetails.data.trigger_ind===true || syncRequestDetails.data.trigger_ind==='true'"/>
+                                            <label for="input_check_trigger_ind"></label>
+                                        </div>
+                                    </div>
+                                    <div class="vp-createnewmachform__fieldlabelwrap inblock">
+                                        <label class="vp-createnewmachform__fieldlabel text--light text--md ">Start Process after push</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+        <li class="vp-createnewmachform__fielditem vp-createnewmachform__aliaseitem mt--lg"  ng-if="syncRequestDetails.data.sync_type==='Push' && syncRequestDetails.data.trigger_ind===true">
+                <div class="vp-createnewmachform__fielditeminner">
+                    <!--CONNECTION FIELD LABEL-->
+                    <div class="vp-createnewmachform__fieldlabelwrap vertical--bottom inblock">
+                        <label class="vp-createnewmachform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Target DPM Details<span class="vp-createnewmachform__fieldrequire">*</span>:</label>
+                    </div>
+                    <ul class="vp-createnewmachform__connectionsublist pl--xxl">
+                        <!--CONNECTION HOST ITEM-->
+                        <li class="vp-createnewmachform__connectionsubitem vp-createnewmachform__hostitem mt--lg">
+                            <div class="vp-createnewmachform__fielditeminner">
+                                <!--HOST FIELD LABEL-->
+                                <div class="vp-createnewmachform__fieldlabelwrap inblock">
+                                    <label class="vp-createnewmachform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">DPM Host<span class="vp-createnewmachform__fieldrequire">*</span>:</label>
+                                </div>
+                                <!--HOST FIELD CONTENT-->
+                                <div class="vp-createnewmachform__fieldcontent vp-createnewmachform__hostcontent inblock">
+                                    <input type="text" class="vp-createnewmachform__hostinput input--clear" name="dpm_host_push" ng-model="syncRequestDetails.data.target_dpm_detail.dpm_host" required>
+                                </div>
+                            </div>
+                        </li>
+                        <h5 class="validation_msg_machine" ng-show="EditDataSynchronizationForm.dpm_host_push.$error.required">Please enter DPM host name</h5>
+                        <!--CONNECTION PORT ITEM-->
+                        <li class="vp-createnewmachform__connectionsubitem vp-createnewmachform__usernameitem mt--lg">
+                            <div class="vp-createnewmachform__fielditeminner">
+                                <!--USER NAME FIELD LABEL-->
+                                <div class="vp-createnewmachform__fieldlabelwrap inblock">
+                                    <label class="vp-createnewmachform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">DPM Port<span class="vp-createnewmachform__fieldrequire">*</span>:</label>
+                                </div>
+                                <!--USER NAME FIELD CONTENT-->
+                                <div class="vp-createnewmachform__fieldcontent vp-createnewmachform__usernamecontent inblock">
+                                    <input type="number" class="vp-createnewmachform__usernameinput input--clear" name="dpm_port_push" ng-model="syncRequestDetails.data.target_dpm_detail.dpm_port" required>
+                                </div>
+                            </div>
+                        </li>
+                        <h5 class="validation_msg_machine" ng-show="EditDataSynchronizationForm.dpm_port_push.$error.required">Please enter DPM port</h5>
+                        <!--CONNECTION PWD ITEM-->
+                        <li class="vp-createnewmachform__connectionsubitem vp-createnewmachform__pwditem mt--lg">
+                            <div class="vp-createnewmachform__fielditeminner">
+                                <!--PWD FIELD LABEL-->
+                                <div class="vp-createnewmachform__fieldlabelwrap inblock">
+                                    <label class="vp-createnewmachform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">DPM Unique Token<span class="vp-createnewmachform__fieldrequire">*</span>:</label>
+                                </div>
+                                <!--PWD FIELD CONTENT-->
+                                <div class="vp-createnewmachform__fieldcontent vp-createnewmachform__pwdcontent inblock">
+                                    <input type="text" class="vp-createnewmachform__pwdinput input--clear" name="dpm_unique_token_push" ng-model="syncRequestDetails.data.target_dpm_detail.dpm_token" required>
+                                </div>
+                            </div>
+                        </li>
+                        <h5 class="validation_msg_machine" ng-show="EditDataSynchronizationForm.dpm_unique_token_push.$error.required">Please enter DPM Unique token</h5>
+                        <!--PORT FIELD -->
+                        <li class="vp-createnewmachform__connectionsubitem vp-createnewmachform__usernameitem mt--lg">
+                            <div class="vp-createnewmachform__fielditeminner">
+                                <!--USER NAME FIELD LABEL-->
+                                <div class="vp-createnewmachform__fieldlabelwrap inblock">
+                                    <label class="vp-createnewmachform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">DPM Username<span class="vp-createnewmachform__fieldrequire">*</span>:</label>
+                                </div>
+                                <!--USER NAME FIELD CONTENT-->
+                                <div class="vp-createnewmachform__fieldcontent vp-createnewmachform__usernamecontent inblock">
+                                    <input type="text" class="vp-createnewmachform__usernameinput input--clear" name="dpm_username_push" ng-model="syncRequestDetails.data.target_dpm_detail.dpm_username" required>
+                                </div>
+                            </div>
+                        </li>
+                        <h5 class="validation_msg_machine" ng-show="EditDataSynchronizationForm.dpm_username_push.$error.required">Please enter DPM Username</h5>
+                        <!--CONNECTION USER NAME ITEM-->
+                        <li class="vp-createnewmachform__connectionsubitem vp-createnewmachform__usernameitem mt--lg">
+                            <div class="vp-createnewmachform__fielditeminner">
+                                <!--USER NAME FIELD LABEL-->
+                                <div class="vp-createnewmachform__fieldlabelwrap inblock">
+                                    <label class="vp-createnewmachform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">DPM Password<span class="vp-createnewmachform__fieldrequire">*</span>:</label>
+                                </div>
+                                <!--USER NAME FIELD CONTENT-->
+                                <div class="vp-createnewmachform__fieldcontent vp-createnewmachform__usernamecontent inblock">
+                                    <input type="password" class="vp-createnewmachform__usernameinput input--clear" name="dpm_password_push" ng-model="syncRequestDetails.data.target_dpm_detail.dpm_password" required>
+                                </div>
+                            </div>
+                        </li>
+                        <h5 class="validation_msg_machine" ng-show="EditDataSynchronizationForm.dpm_password_push.$error.required">Please enter DPM Password</h5>
+                    </ul>
+                </div>
+            </li>
+    </ul>
+</div>

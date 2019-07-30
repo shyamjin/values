@@ -1,0 +1,26 @@
+<!--USERS TAB COMPONENT START-->
+<div class="vp-distributioncont max relative" ng-controller="EditPrerequisiteController">
+    <form name="EditPrerequisiteForm">
+        <!--ATTENTION DIALOG WRAPPER (MODIFIERS: # vp-deploytools__atttentionmodalwrap--show )-->
+        <div class="vp-edittools__atttentionmodalwrap fixed max&#45;&#45;position hidden" id="show_delete_prerequisite_confirmation_popup">
+            <div class="vp-edittools__atttentionmodal absolute" ng-include="'static/components/manage-prerequisites/attention-modal/attentionmodal.component.html'"></div>
+        </div>
+        <!--distribution SEARCH COLUMN-->
+        <div class="vp-distributioncont__distributionsearch vertical--top inblock" style="width:40%" ng-include="'static/components/manage-prerequisites/prerequisite-list-search/prerequisitelistsearch.component.html'"></div>
+        <!--USER INFO COLUMN-->
+        <div class="vp-distributioncont__userinfo ml--xxxl vertical--to inblock"  ng-if="prerequisiteData"  ng-include="'static/components/manage-prerequisites/prerequisite-info/prerequisiteinfo.component.html'"></div>
+        <!--TOOLBAR-->
+        <div class="vp-distributioncont__toolbar bg--cs06 max--width fixed pos--bottom pos--left" ng-if="prerequisiteData">
+            <div class="vp-distributioncont__innerbounded clearfix">
+                <div class="vp-distributioncont__updatebtnwrap right">
+                    <!--UPDATE BUTTON (MODIFIERS: # vp-uielement__button--deploydisabled )-->
+                    <button type="button" class="vp-distributioncont__updatebtn vp-uielement__button vp-uielement__button--deployenabled pr--lg pl--lg" ng-click="editPrerequisite(EditPrerequisiteForm)">Save changes</button>
+                </div>
+                <div class="vp-createanewmach__discardbtnwrap mr--xxxl right">
+                    <button type="button" class="vp-createanewmach__discardbtn vp-uielement__button vp-uielement__button--cleanenabled" ng-click="discardPrerequisiteChanges()">Discard</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<!--distribution TAB COMPONENT END-->

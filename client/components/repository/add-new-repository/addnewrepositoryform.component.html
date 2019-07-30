@@ -1,0 +1,103 @@
+<div class="vp-userform vp-userformnewuser vp-control max" style="padding-left:5%">
+   <form name="CreateNewRepoForm">
+    <ul class="vp-userform__fieldslist text--cs03 pr--lg">
+        <!--'NAME' FIELD-->
+        <li class="vp-userform__fielditem vp-userform__nameitem pt--xxl">
+            <div class="vp-userform__fielditeminner">
+                <!--'NAME' FIELD LABEL-->
+                <div class="repos_key_width inblock">
+                    <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Name:<span class="mandatory">*</span> </label>
+                </div>
+                <!--'NAME' FIELD CONTENT-->
+                <div class="vp-userform__fieldcontent vp-userform__namecontent inblock" style="width:0px">
+                    <input type="text" class="vp-userform__nameinput input--clear" name="repoename" ng-model="repository.data.name" required />
+                </div>
+            </div>
+        </li>
+        <h5 class="validation_msg_tool_set" ng-show="CreateNewFasForm.name.$error.required">Please Enter Repository Name</h5>
+        <li class="vp-userform__fielditem vp-userform__nameitem pt--xxl">
+            <div class="vp-userform__fielditeminner">
+                <!--'NAME' FIELD LABEL-->
+                <div class="repos_key_width inblock">
+                    <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Handle Additional Artifacts:<span class="mandatory">*</span> </label>
+                </div>
+                <!--'NAME' FIELD CONTENT-->
+                <div class="vp-userform__fieldcontent vp-userform__rolecontent inblock" style="width:0px">
+                    <div class="vp-versionform__statusselectwrap">
+                        <select name="fas_entity" id="repo_entity"  ng-model="repository.data.additional_artifacts_upload" class="vp-versionform__dropdownlist vp-versionform__dropdownlist2 vp-uielement__select max--width"  style="height:26px; width: 216px;">
+                             <option name="vp-userform__artifact_dropdownlistoption_{{$index}}" ng-repeat="handler in additional_artifacts_upload" value="{{handler}}">{{handler}}</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="vp-userform__fielditem vp-userform__nameitem pt--xxl">
+            <div class="vp-userform__fielditeminner">
+                <!--'ROLE' FIELD LABEL-->
+                <div class="inblock repos_key_width">
+                    <label class="vp-userform__selectedusername vp-userform__fieldlabel text--lg text--light text--ellipsis text--ellipsis--single">Handler<span class="mandatory">*</span></label>
+                </div>
+                <!--'ROLE' FIELD CONTENT-->
+                <div class="vp-userform__fieldcontent vp-userform__rolecontent inblock" style="width:0px">
+                    <select name="vp-userform__role_dropdownlist" class="vp-userform__dropdownlist vp-uielement__select" ng-model="repository.data.handler" style="width: 300px;">
+                        <option  name="vp-userform__handler_{{$index}}"  ng-repeat="plugin in allRepositoryPlugins" value="{{plugin.plugin_name}}">{{plugin.plugin_name}}</option>
+                  </select>
+                </div>
+                 <button ng-if="isallowed['/plugin']" type="button" class="vp-tabs__duCreate_active vp-uielement__button tag_popup vp-uielement__button--cleanenabled pl--xxl text--light text--md"  ng-click="createNewHandler()" style="float:right;margin-right: 65%;">
+                </button>
+            </div>
+        </li>
+        <li class="vp-createnewmachform__fielditem vp-createnewmachform__aliaseitem mt--lg">
+                <div class="vp-createnewmachform__fielditeminner">
+                    <ul class="vp-createnewmachform__connectionsublist">
+                        <li class="vp-machdetails__connectionfielditem vp-machdetails__connectiontunneling mt--xl max--width">
+                            <div class="inblock repos_key_width">
+                                <label class="vp-userform__selectedusername vp-userform__fieldlabel text--lg text--light text--ellipsis text--ellipsis--single">Additional parameters:</label>
+                            </div>
+                            <!--TUNNELING FIELD CONTENT-->
+                            <div class="vp-machdetails__tunnelingcontent max--width mt--xl">
+                                <!--COLUMN LABELS-->
+                                <div class="vp-machdetails__tunnelinglabelwrap text--light text--md clearfix">
+                                    <span class="vp-machdetails__tunnelingcolumn pl--md left repos_key_width" style="font-weight: bold;">Key</span>
+                                    <span class="vp-machdetails__tunnelingcolumn pl--md left" style="font-weight: bold;">Value</span>
+                                </div>
+                                <hr class="vp-machdetails__tunnelingseparator ba--clear bg--cs09 mt--sm">
+                                <!--TUNNELING INPUTS-->
+                                <div class="vp-machdetails__tunnelinginputswrap mt--sm">
+                                    <ul class="vp-machdetails__tunnelinginputslist">
+                                        <!--TUNNELING INPUTS ROW EXAMPLE-->
+                                         <li class="vp-userform__fielditem vp-userform__nameitem pt--xxl" ng-repeat="data in additional_parameters track by $index">
+                                            <div class="vp-userform__fielditeminner">
+                                                <!--'NAME' FIELD LABEL-->
+                                                <div class="inblock repos_key_width">
+                                                    <tooltip id="tooltip_{{$index}}"  tooltip-side="top">
+                                                        <input id="key_{{data.key}}_{{$index}}" type="text" class="vp-userform__selectedusername vp-userform__fieldlabel text--lg text--light text--ellipsis text--ellipsis--single" tooltips=""  tooltip-template="{{data.key}}" ng-model="data.key"/>
+                                                    </tooltip>
+                                                </div>
+                                                <!--'NAME' FIELD CONTENT-->
+                                                <div class="vp-versionform__content inblock">
+                                                    <div class="vp-versionform__statusselectwrap">
+                                                        <tooltip id="tooltip_{{$index}}_new"  tooltip-side="top">
+                                                            <input id="auth_host_{{$index}}"  class="vp-userform__selectedusername vp-userform__fieldlabel text--lg text--light text--ellipsis text--ellipsis--single" tooltips=""  tooltip-template="{{data.value}}" style="width: 300px;" ng-model="data.value"/>
+                                                        </tooltip>
+                                                    </div>
+                                                </div>
+                                                <!--REMOVE BUTTON-->
+                                                <button type="button" class="vp-machdetails__removebtn vp-uielement__button vp-uielement__button--removeenabled left" style="float: right;margin-right: 60%;" ng-click="removeRepoParameter($index)"></button>
+                                                <!--SAVE AND CHECK BUTTON-->
+                                                <button type="button" class="vp-machdetails__savecheckbtn vp-uielement__button vp-uielement__button--cleanenabled vertical--top right"></button>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    <div>
+                                        <button type="button" class="vp-machdetails__addhostbtn vp-uielement__button vp-uielement__button--cleanenabled mt--sm pa--none" ng-click="addRepoParameter()">+ Add a parameter</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+     </ul>
+   </form>
+</div>

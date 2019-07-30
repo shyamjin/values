@@ -1,0 +1,12 @@
+.vp-userscont {
+    padding-top: @permissionsSelectFormPT;
+    padding-bottom: @toolbarHeight;
+    padding-left: @permissionsSelectFormPL;
+    .vp-userscont__userssearch {
+        width: @machinesSearchWidth;
+    }
+    // TOOLBAR STYLES
+    .vp-userscont__toolbar:extend(.vp-ettoolbar) {
+        .vp-userscont__innerbounded:extend(.vp-ettoolbar .vp-ettoolbar__innerbounded) {}
+    }
+}

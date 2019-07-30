@@ -1,0 +1,102 @@
+<!--MANAGE MACHINES TAB CONTENT COMPONENT START-->
+<div class="vp-mmanagetab vp-control  max inblock nowrap max--height clearfix" ng-controller="DeploymentRequestsGridController">
+    <div class="vp-tabs__bodyheader vp-tabs__bodyheader--scrolled relative">
+        <div class="vp-tabs__bodyheaderfiltericonwrapper mr--xxxl text--light text--md text--cs03 pointer right">
+            <!--BODY HEADER FILTER BUTTON -->
+            <div class="vp-tabs__bodyheaderselectedtoolspopup absolute hidden" id="open_filter" style="margin-left: -161px; margin-top: 52px; width:260px" ng-include="'static/components/deployments/popups/openfilter.component.html'"></div>
+            <button type="button" class="vp-tabs__bodyheaderfilterbtn vp-uielement__button tag_popup vp-uielement__button--cleanenabled pl--xxl text--light text--md" ng-click="openFilter()" ng-if="isFilterApplied === false" style="margin: 14px;"><span>Filter</span></button>
+            <button type="button" class="vp-tabs__bodyheaderfilterbtn_active vp-uielement__button tag_popup vp-uielement__button--cleanenabled pl--xxl text--light text--md" ng-click="openFilter()" ng-if="isFilterApplied === true" style="margin: 14px;"><span>Filter</span></button>
+
+        </div>
+    </div>
+    <!--CONTENT (WITHOUT FILTER) SECTION-->
+    <section class="vp-mmanagetab__content vertical--top inblock">
+        <!--MACHINES SEARCH--->
+        <div class="vp-mmanagetab__findmachinewrap vertical--top mt--md ml--md left" style="height: 90%; overflow-y: auto;">
+            <div class="vp-mmanagetab__findmachine max--height">
+                <!--MACHINES-SEARCH COLUMN COMPONENT START-->
+                <div class="vp-machinessearch bg--white max--width"> 
+                    <span class="vp-search__topborder block"></span>
+                    <div class="vp-search__searchboxwrap_dep pt--md pr--md pl--md pb--lg">
+                        <!--SEARCH FIELD (MODIFIERS: # vp-search__searchbox--drop)-->
+                        <div class="vp-search__searchbox vp-uielement__searchbox relative">
+                            <div class="vp-search__searchautocomplete bg--cs06 absolute hidden" ng-include="'static/components/tools/deploy-tools/search-autocomplete/searchautocomplete.component.html'"></div>
+                            <form id="vp-search__searchform vp-uielement__searchform">
+                                <!--SEARCH INPUT TEXT-->
+                                <input class="vp-search__searchinput vp-uielement__searchinput" name="searchDeploymentKeyword" ng-model="searchDeploymentKeyword" type="text" placeholder="Find a deployment" />
+                                <!--SEARCH INPUT SUBMIT BUTON-->
+                                <!--<button class="vp-search__searchbtn vp-uielementt__searchbtn" type="button"></button>-->
+                            </form>
+                            <!--SEARCH HINT-->
+                            <span class="vp-search__hint vp-uielement__hint">Use the deployment number,machine or deployed tools or du's</span>
+                        </div>
+                    </div>
+                    <div class="vp-machinessearch__listwrapper max--width">
+                        <ul class="vp-machinessearch__list  machine_scroll max--width" >
+                            <li class="vp-machinessearch__item vp-machinessearch__item--prod outer" ng-repeat="dep in deployments.data.list | filter : searchDeploymentKeyword">
+                                <div class="vp-machinessearch__iteminner vp-machinessearch__item--test pl--xxxl text--regular text--md clearfix">
+                                    <div class="vp-machinessearch__itemdescriptionwrap pt--sm pb--sm word--break left">
+                                        <span class="status-ind {{dep.status}}"></span>
+                                        <span class="{{dep.status}}">{{dep.name}} - {{dep.create_date.$date | date }} </span>
+                                    </div>
+                                    <div class="vp-machinessearch__itembtnwrap pointer relative right hidden">
+                                        <span class="vp-machinessearch__itembtn bg--cs07 text--center text--cs06 text--regular text--md absolute" ng-click="selectDeploymentGroup(dep._id.$oid)">Select</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="vp-machinessearch__item vp-machinessearch__item--prod outer" ng-if="isPageAvailable()" ng-hide="hideDeploymentRequest === true">
+                                <div class="vp-machinessearch__iteminner vp-machinessearch__item--test pl--xxxl text--regular text--md clearfix">
+                                    <div class="vp-machinessearch__itemdescriptionwrap pt--sm pb--sm word--break left">
+                                        <span class="status-ind {{dep.status}}"></span>
+                                        <span class="{{dep.status}}">Show more deployments</span>
+                                    </div>
+                                    <div class="vp-machinessearch__itembtnwrap pointer relative right hidden">
+                                        <span class="vp-machinessearch__itembtn bg--cs07 text--center text--cs06 text--regular text--md absolute" ng-click="showMoreDeployments()">Show more</span>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!--MACHINES-SEARCH COLUMN COMPONENT END-->
+        </div>
+
+        <!--VERTICAL TAB AREA-->
+        <div class="vp-mmanagetab__machinesectionwrap mt--xxl ml--md inblock"  ng-if="GroupData" ng-hide="showRevertScreen === true">
+            <div class="vp-mmanagetab__machinesectionheader text--cs03 pl--md">
+                <label class="vp-mmanagetab__machinesectionlabel text--light text--xxl"> {{GroupData.name}} </label>
+                    <button ng-if="GroupData.allow_retry === true" type="button" class="vp-machdetails__removemachinebtn vp-uielement__button vp-uielement__button--edittool pr--md pl--md ml--md" ng-click="retryGroup(GroupData._id.$oid)">Retry Failed</button>
+                    <button  ng-if="GroupData.allow_undeploy === true" type="button" class="vp-machdetails__removemachinebtn vp-uielement__button vp-uielement__button--edittool pr--md pl--md ml--md" ng-click="unDeployGroup(GroupData._id.$oid)">Undeploy Group</button>
+                    <button  ng-if="GroupData.allow_revert === true" type="button" class="vp-machdetails__removemachinebtn vp-uielement__button vp-uielement__button--edittool pr--md pl--md ml--md" ng-click="revertGroup(GroupData._id.$oid)">Revert Group</button>
+                <div class="vp-machdetails__fieldip text--regular text--lg text--ellipsis text--ellipsis--single ng-binding pt--lg">
+                    {{GroupData._id.$oid}}
+                </div>
+                <div class="vp-machdetails__fieldcontent inblock pt--lg" ng-if="GroupData.details.length > 1 && GroupData.requests_count.skipped > 0 ">
+                    <div class="vp-machdetails__fieldconnectionwrap inblock">
+                        <div class="vp-uielement__checkbox vp-machdetails__tunnelingcheckbox inblock">
+                            <input type="checkbox" id="vp-machdetails__tunnelingcheckbox" ng-model="showSkippedRequests" name="show_skipped_requests" ng-click="changeSkippedRequests()"/>
+                            <label for="vp-machdetails__tunnelingcheckbox"></label>
+                        </div>
+                        <label for="vp-machdetails__tunnelingcheckbox" class="vp-machdetails__fieldconnection text--regular text--lg ml--sm vertical--bottom">Show skipped requests</label>
+                    </div>
+                </div>
+                <!--<button type="button" class="vp-mmanagetab__machineeditbtn vp-uielement__button vp-uielement__button&#45;&#45;edit ml&#45;&#45;md"></button>-->
+                <div class="vp-edittools__atttentionmodalwrap fixed max--position hidden" id="delete_attenation_popup">
+                    <div class="vp-edittools__atttentionmodal absolute" ng-include="'static/components/deployments/attention-modal/attentionmodal.component.html'"></div>
+                </div>
+                <div class="vp-mmanagetab__machinetatewrap mr--md right">
+                    <!--MACHINE STATE ICON (MODIFIERS: # vp-uielement__versionstate--inactive # vp-uielement__versionstate--active)-->
+                    <span class="status-ind {{GroupData.status}}"></span>
+                    
+                    <span class="vp-mmanagetab__machinestatemsg vertical--middle ml--md text--cs03 text--light text--md"></span>
+                </div>
+            </div>
+            <div class="vp-mmanagetab__verticaltabs mt--xl max--height" ng-include="'static/components/deployments/tabs/verticaltabs/verticaltabs.component.html'"></div>
+        </div>
+        <div class="vp-mmanagetab__machinesectionwrap mt--xxl ml--md inblock"  ng-if="deploymentsGroupData" ng-hide="showRevertScreen === false">
+            <div class="vp-mmanagetab__verticaltabs mt--xl max--height" ng-if="isallowed['/deploymentrequest/group/revert/:id']" ng-include="'static/components/deployments/revert-deployment-group/revertdeploymentgroup.html'"></div>
+        </div>
+    </section>
+</div>
+<!--MANAGE MACHINES TAB CONTENT COMPONENT END-->

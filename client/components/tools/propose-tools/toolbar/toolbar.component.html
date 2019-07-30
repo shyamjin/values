@@ -1,0 +1,14 @@
+<!--EDIT TOOLS, TOOLBAR COMPONENT START-->
+<div class="vp-ettoolbar vp-control bg--cs06 max--width" ng-controller="ProposeToolBarController">
+    <div class="vp-ettoolbar__innerbounded clearfix">
+        <!--SAVE CHANGES BUTTON-->
+        <div class="vp-dttoolbar__discardbtnwrap right">
+            <input id="createNewTool" type="submit" value="Save changes" class="vp-dttoolbar__savebtn vp-uielement__button vp-uielement__button--deployenabled" ng-click="proposeNewTool()"/>
+        </div>
+        <!--DISCARD CHANCHES BUTTON-->
+        <div class="vp-ettoolbar__savebtnwrap mr--xxxl right">
+            <button id="discardChanges" type="button" class="vp-ettoolbar__savebtn vp-uielement__button vp-uielement__button--cleanenabled" ng-click="discardProposedToolChanges()">Discard changes</button>
+        </div>
+    </div>
+</div>
+<!--EDIT TOOLS,TOOLBAR COMPONENT END-->

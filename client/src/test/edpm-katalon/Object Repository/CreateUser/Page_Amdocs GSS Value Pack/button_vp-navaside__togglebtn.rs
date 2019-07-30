@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+   <description></description>
+   <name>button_vp-navaside__togglebtn</name>
+   <tag></tag>
+   <elementGuidId>be6d26ee-d5a0-4887-ba19-b93ac27c3416</elementGuidId>
+   <selectorMethod>BASIC</selectorMethod>
+   <useRalativeImagePath>false</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>tag</name>
+      <type>Main</type>
+      <value>button</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>class</name>
+      <type>Main</type>
+      <value>vp-navaside__togglebtn btn--clear mt--lg button_toggle</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>ng-click</name>
+      <type>Main</type>
+      <value>toggleSideNav()</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath</name>
+      <type>Main</type>
+      <value>/html[@class=&quot;ng-scope&quot;]/body[1]/div[@class=&quot;vp-app__toolspage max--height ng-scope&quot;]/div[@class=&quot;vp-toolspage vp-toolspage--rightactive max--height max--width relative ng-scope&quot;]/div[@class=&quot;vp-toolspage__navaside fixed pos--top pos--bottom ng-scope&quot;]/div[@class=&quot;vp-navaside vp-control max--height ng-scope&quot;]/div[@class=&quot;vp-navaside__toolbar text--center bg--cs03 max--height button_toggle&quot;]/div[@class=&quot;vp-navaside__togglewrapper&quot;]/button[@class=&quot;vp-navaside__togglebtn btn--clear mt--lg button_toggle&quot;]</value>
+   </webElementProperties>
+</WebElementEntity>

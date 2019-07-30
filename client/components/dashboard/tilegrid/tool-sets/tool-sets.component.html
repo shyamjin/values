@@ -1,0 +1,73 @@
+<!--TILE GRID COMPONENT START-->
+<!--(MODIFIERS: vp-tilegrid--large # vp-tilegrid--small)-->
+<div class="vp-tilegrid vp-component max--height clearfix" ng-controller="ToolSetListController">
+	<div class="vp-tabs__bodyheader vp-tabs__bodyheader--scrolled relative">
+		<div class="vp-tabs__bodyheaderfiltericonwrapper mr--xxxl text--light text--md text--cs03 pointer right">
+			<!--BODY HEADER FILTER BUTTON -->
+			<button ng-if="isallowed['/toolset/new']" type="button"  class="vp-tabs__duCreate_active vp-uielement__button tag_popup vp-uielement__button--cleanenabled pl--xxl text--light text--md"  ng-click="AddToolSet()">
+			</button>
+			<div id="show_dashboard_toolset_filter" class="vp-tabs__bodyheaderselectedtoolspopup absolute filter_popup hidden" style="margin-left: -120px;" ng-include="'static/components/dashboard/filter/dashboardtoolsetfilter.component.html'"></div>
+			<button type="button" class="vp-tabs__bodyheaderfilterbtn vp-uielement__button tag_popup vp-uielement__button--cleanenabled pl--xxl text--light text--md" ng-click="showToolSetFilter()" ng-if="isFilterApplied === false"><span>Filter</span></button>
+			<button type="button" class="vp-tabs__bodyheaderfilterbtn_active vp-uielement__button tag_popup vp-uielement__button--cleanenabled pl--xxl text--light text--md" ng-click="showToolSetFilter()" ng-if="isFilterApplied === true"><span>Filter</span></button>
+		</div>
+	</div>
+	<div class="vp-tilegrid__listwrapper overflow-y--auto max--height clearfix">
+		<ul>
+			<li class="vp-tilegrid__tile pa--sm left" ng-repeat="toolset in ToolSets | filter:searchToolKeyword">
+				<!--DEPLOY TOOL "TILE" ELEMENT START-->
+				<!--( MODIFIERS: vp-tooltile__containingtoolmsg--active # vp-tooltile__deprecatedwarning--active # vp-tooltile--selected # vp-tooltile__favorite--active )-->
+				<div class="vp-tooltile vp-component text--cs03 pt--md pr--md pl--md vp-tooltile__containingtoolmsg--active vp-tooltile__deprecatedwarning--active vp-tooltile__favorite--active  relative">
+					<div class="vp-tooltile__iconswrapprer left">
+						<!--TILE ICON-->
+						<div class="vp-tooltile__icon text--light text--xxxxl text--white vertical--top text--center bg--cs01">
+							<span class="vp-tooltile_iconinner">
+								<img alt="" class="vp-tooltile_iconinner" src="{{toolset.thumbnail_logo}}" style="width:100%; height: 100%; margin-bottom: 12px;">
+							</span>
+						</div>
+						<!--DEPRECATE WARNING MESSAGE SECTION-->
+						<div ng-if="tool.status=='3'" class="vp-tooltile__deprecatedwarning text--light text--sm mt--md hidden">
+							<img alt="" class="vp-tooltile__depreceteicon" src="static/assets/images/icons/Deprecated_icn.png">
+							<span class="vp-tooltile__deprecetemsg ml--sm">Deprecated</span>
+						</div>
+					</div>
+					<!--TOOL TILE METADATA (title, description, containig tool)-->
+					<div class="vp-tooltile__tilemetadata left inContent">
+						<tooltip id="tooltip_{{$index}}_{{toolset.name}}">
+							<div class="vp-tooltile__label text--regular text--ellipsis text--ellipsis--two text--xl mb--md verticall--top" tooltip-side="bottom" tooltips="" tooltip-template="{{toolset.name}}" title="{{toolset.name}}">
+								<a style="text-decoration : none !important;" href="#/toolset/view/{{toolset._id.$oid}}">{{toolset.name}}</a>
+							</div>
+						</tooltip>
+						<tooltip id="tooltip_{{$index}}_description">
+							<div class="vp-tooltile__containingtoolmsg text--light text--md mt--md text--ellipsis text--ellipsis--single hidden" tooltip-side="bottom" tooltips="" tooltip-template="{{toolset.description}}" style="padding-left: 4%;">{{toolset.description}}</div>
+						</tooltip>
+						<!--<div class="vp-tooltile__description text&#45;&#45;light text&#45;&#45;md" title="Environment configuration check Environment configuration check Environment configuration check bbbeeeeee">Environment configuration check Environment configuration check Environment configuration check bbbeeeeee</div>-->
+						<!--<div class="vp-tooltile__containingtoolmsg text&#45;&#45;light text&#45;&#45;md mt&#45;&#45;md text&#45;&#45;ellipsis text&#45;&#45;ellipsis&#45;&#45;single hidden">Included in tool set:-->
+							<!--<span class="vp-tooltile__containingtoolname" title="INIT">INIT</span>-->
+						<!--</div>-->
+					</div>
+					<!--'FAVORITE' ICON VIEW-->
+					<!--<div class="vp-tooltile__favoriticon pointer right"></div>-->
+					<!--TOOL TILE FOOTER SECRION-->
+					<div class="vp-tooltile__footer absolute clearfix">
+						<!--SELECT CHECKBOX SECTION-->
+						<!--<div class="vp-tooltile__checkbox vp-uielement__checkbox mt&#45;&#45;md vertical&#45;&#45;bottom">-->
+							<!--<input type="checkbox" name="selectedTools" ng-model="selectedTools" id ="{{toolset.name}}" value="{{toolset._id.$oid}}" ng-change="selectToolSet(toolset)"/>-->
+							<!--&lt;!&ndash;FIRST LABEL FOR CUSTOM CHECKBOX&ndash;&gt;-->
+							<!--<label for="{{tool.name}}"></label>-->
+							<!--<label class="vp-tooltile__checkboxlabel text&#45;&#45;cs08 text&#45;&#45;light text&#45;&#45;md" for="{{toolset.name}}">Select</label>-->
+						<!--</div>-->
+						<!--DEPLOY BUTTON VIEW (MODIFIER: vp-uielement__button--deployenabled )-->
+						<button ng-click="selectToolSet(toolset._id.$oid)" type="button" class="vp-uielement__button vp-uielement__button--deployenabled vp-tooltile__deploybtn right">Deploy</button>
+						<!--EDIT TOOL BUTTON -->
+						<button ui-sref="editToolSet({id:toolset._id.$oid})" type="button" class="vp-uielement__button vp-uielement__button--edittool vp-tooltile__edittoolbtn mr--md right">Edit</button>
+					</div>
+				</div>
+			</li>
+		</ul>
+		<!--GRID OPTIONAL FOOTER (MODIFIERS: # vp-tilegrid__gridfooter--active)-->
+		<div class="vp-tilegrid__gridfooter mt--xl pt--xl pb--xxl max--width text--center hidden vp-tilegrid__gridfooter--active" style="display:inline-block" ng-if="ToolSets.length<totalCount" ng-hide="hideShowMoreToolset === true">
+			<button type="button" class="vp-tilegrid__gridfootershowbtn vp-uielement__button vp-uielement__button--showmoretools" ng-click="showMoreToolSets()">Show more tool sets</button>
+		</div>
+	</div>
+</div>
+<!--TILE GRID COMPONENT END-->

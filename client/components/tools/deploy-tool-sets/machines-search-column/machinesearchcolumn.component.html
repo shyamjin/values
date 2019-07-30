@@ -1,0 +1,35 @@
+<!--MACHINES-SEARCH COLUMN COMPONENT START-->
+<div class="vp-machinessearch bg--white max--width">
+    <span class="vp-machinessearch__topborder block"></span>
+    <div class="vp-machinessearch__searchboxwrap pt--md pr--md pl--md">
+         <!--SEARCH FIELD (MODIFIERS: # vp-machinessearch__searchbox--drop)-->
+        <div class="vp-machinessearch__searchbox vp-uielement__searchbox relative">
+            <div class="vp-machinessearch__searchautocomplete bg--cs06 absolute hidden" ng-include="'static/components/tools/deploy-tools/search-autocomplete/searchautocomplete.component.html'"></div>
+            <form id="vp-machinessearch__searchform vp-uielement__searchform">
+                <!--SEARCH INPUT TEXT-->
+                <input class="vp-machinessearch__searchinput vp-uielement__searchinput" name="searchMachine" ng-model="searchMachine" type="text" placeholder="Find a machine" />
+                <!--SEARCH INPUT SUBMIT BUTON-->
+                <button class="vp-machinessearch__searchbtn vp-uielementt__searchbtn" type="button"></button>
+            </form>
+            <!--SEARCH HINT-->
+            <span class="vp-machinessearch__hint vp-uielement__hint">Use the alias,IP,host or deployed tools</span>
+        </div>
+    </div>
+    <div class="vp-machinessearch__listwrapper max--width">
+        <ul class="vp-machinessearch__list max--width">
+
+            <!--ITEM EXAMPLE (MODIFIERS: # vp-machinessearch__item--test # vp-machinessearch__item--prod)-->
+            <li class="vp-machinessearch__item vp-machinessearch__item--prod" ng-repeat="machine in machines.data | filter:searchMachine" ng-if="machine.isSelected===false">
+                <div class="vp-machinessearch__iteminner vp-machinessearch__item--test pl--xxxl text--regular text--md clearfix">
+                    <div class="vp-machinessearch__itemdescriptionwrap pt--sm pb--sm word--break left">
+                        <span class="vp-machinessearch__itemdescription text--cs03">{{machine.machine_name}}</span>
+                    </div>
+                    <div class="vp-machinessearch__itembtnwrap pointer relative right hidden">
+                        <span class="vp-machinessearch__itembtn bg--cs07 text--center text--cs06 text--regular text--md absolute" ng-click="addMachine(machine, selectedTool.tool_name)">Select</span>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<!--MACHINES-SEARCH COLUMN COMPONENT END-->

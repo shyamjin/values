@@ -1,0 +1,62 @@
+<!--TEAMS FORM COMPONENT START-->
+<div class="vp-teamsform vp-control bg--white max">
+    <section class="vp-teamsform__headersection max--width text--none">
+        <div>
+            <button type="button" class="vp-teamsform__addteambtn vp-uielement__button vp-uielement__button--cleanenabled pa--none" ng-click="gotoAddTeams()">+Add teams</button>
+        </div>
+        <div class="pt--xxxl">
+            <div class="vp-teamsform__teamsnamecol text--cs03 text--md inblock">
+                <span>Teams</span>
+            </div>
+            <div class="vp-teamsform__descriptioncol text--cs03 text--md pl--lg inblock">
+                <span>Description</span>
+            </div>
+        </div>
+    </section>
+    <!--BODY SECTION-->
+    <section class="vp-teamsform__bodysection max--width">
+        <form action="#" class="vp-teamsform__form">
+            <!--TEAMS LIST-->
+            <ul class="vp-teamsform__teamslist max--width">
+                <!--TEAM ITEM EXAMPLE-->
+                <li class="vp-teamsform__teamitem max--width text--none" ng-repeat="usergroup in UserGroups.data">
+                    <hr class="vp-teamsform__separator ba--clear bg--cs09 mt--md mb--md">
+                    <!--NAME SECTION-->
+                    <div class="vp-teamsform__teamsnamecol vertical--top pt--md inblock" >
+                        <div class="vp-teamsform__namewrap inblock" >
+                            <!--TEAM NAME-->
+                            <span class="vp-teamsform__teamname text--regular text--lg texr--cs03 text--ellipsis text--ellipsis--single">
+                                <a style="text-decoration : none !important;" ng-click="viewTeamDetails(usergroup._id.$oid)">
+                                    {{usergroup.team_name}}
+                                </a>
+                            </span>
+                        </div>
+                        <!--&lt;!&ndash;RENAME BUTTOB&ndash;&gt;
+                        <div class="vp-teamsform__namebtnswrap vertical&#45;&#45;top inblock">
+                            <button type="button" class="vp-teamsform__renamebtn vp-uielement__button vp-uielement__button&#45;&#45;cleanenabled pa&#45;&#45;none"><span class="">Rename</span></button>
+                        </div>-->
+                    </div>
+                    <!--TEAM DETAILS POPUP-->
+                    <div class="vp-deploymentrequestmodalwrap fixed max--position hidden" id="view_team_details">
+                        <div class="vp-deploymentrequestmodal absolute" ng-include="'static/components/manage-users/popups/team-details-popup.component.html'"></div>
+                    </div>
+                    <!--DESCRIPTION TEXTAREA-->
+                    <div class="vp-teamsform__descriptioncol pr--xl inblock">
+                        <textarea form="#" name="vp-teamsform___teamdescription" class="vp-teamsform___teamdescriptiontextarea text--cs03 text--regular text--lg pa--md max--width" wrap="soft" readonly>{{usergroup.description}}</textarea>
+                    </div>
+                    <div class="vp-teamsform__editcol vertical--top pt--md inblock">
+                        <button type="button" class="vp-versionform__editdeploydetails vp-uielement__button vp-uielement__button--view" style="width:20px;" ng-click="viewTeamDetails(usergroup._id.$oid)"></button>
+                    </div>
+                    <div class="vp-teamsform__editcol vertical--top pt--md inblock">
+                        <button type="button" class="vp-versionform__editdeploydetails vp-uielement__button vp-uielement__button--edit" ng-click="gotoEditTeams(usergroup)"></button>
+                    </div>
+                    <div class="vp-teamsform__deletecol vertical--top pt--md inblock">
+                        <button type="button" class="vp-versionform__removescreenshotbtn vp-uielement__button vp-uielement__button--removeenabled pl--xxl" ng-hide="usergroup.team_name ==='Guest_Team' " ng-click="deleteUserGroup(usergroup)">Remove</button>
+                    </div>
+                </li>
+                <!--TEAM ITEM EXAMPLE-->
+            </ul>
+        </form>
+    </section>
+</div>
+<!--TEAMS FORM COMPONENT END-->

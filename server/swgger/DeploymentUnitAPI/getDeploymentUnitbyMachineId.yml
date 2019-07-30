@@ -1,0 +1,38 @@
+Getting Deployment Unit by Machine Id
+---
+tags:
+ - Deployment Unit
+parameters:
+- name: token
+  in: header
+  description: API key
+  required: false
+  type: string
+  format: string
+- name: access-token
+  in: header
+  description: API key
+  required: false
+  type: string
+  format: string 
+- name: machine_id
+  in: path
+  type: string
+  required: true
+  description: Deployment Unit Machine Id
+- name: parent_entity_id
+  in: path
+  type: string
+  required: true
+  description: Deployment Unit Parent Entity Id
+responses:
+  200:
+    description: Successfully gets Deployment Unit
+    examples:
+      result: "success"
+      message: null
+  404:
+    description: exception in deleting Deployment Unit
+    examples:
+      result: "failed"
+      message: "Throws an exception"

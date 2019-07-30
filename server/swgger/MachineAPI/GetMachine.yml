@@ -1,0 +1,33 @@
+Getting Machine, Referring By env Id
+---
+tags:
+ - Machine
+parameters:
+- name: token
+  in: header
+  description: API key
+  required: false
+  type: string
+  format: string
+- name: access-token
+  in: header
+  description: API key
+  required: false
+  type: string
+  format: string 
+- name: env_id
+  in: path
+  type: string
+  required: true
+  description: Get Machine
+responses:
+  200:
+    description: Getting Machine Successfully
+    examples:
+      result: "success"
+      message: null
+  404:
+    description: exception in Getting Machine
+    examples:
+      result: "failed"
+      message: "Throws an exception"

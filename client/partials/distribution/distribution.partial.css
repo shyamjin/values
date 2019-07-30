@@ -1,0 +1,6 @@
+.vp-distribution .vp-distribution__navaside {
+  z-index: 200;
+}
+.vp-distribution .vp-distribution__content {
+  z-index: 100;
+}

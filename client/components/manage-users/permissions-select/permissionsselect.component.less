@@ -1,0 +1,36 @@
+// VARIABLES: SECTION 49
+.vp-permissionsselect {
+    // CHECKBOX CONTAIN COLUMNS STYLE
+    &__admincol, &__operatorcol, &__guestcol, &__rolenamecol {
+        width: @checkboxFieldWidth;
+        color: #0033ff;
+        font-weight: bold;
+        font-size: 14px;
+    }
+    &__rolecol {
+        // ROLE COLUMN WIDTH
+        width: calc(~"100% - " (@checkboxFieldWidth*4 + 75px));
+        line-height: 1.1;
+    }
+    &__separator {
+        height: 1px;
+    }
+}
+
+
+   // TOOLBAR STYLES (EXTEND FROM EDIT TOOLS TOOLBAR)
+    .vp-permissionsselectcont__toolbar:extend(.vp-ettoolbar) {
+        .vp-permissionsselectcont__innerbounded:extend(.vp-ettoolbar .vp-ettoolbar__innerbounded) {}
+    }
+
+
+.rolecolor{
+    color: #0033ff;
+    font-weight: bold;
+    }
+
+
+.permissionweight{
+    font-weight: bold;
+    font-size: 14px;
+    }

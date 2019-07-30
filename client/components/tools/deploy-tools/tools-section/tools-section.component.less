@@ -1,0 +1,75 @@
+// VARIABLES: SECTION 21
+// COPONENT CLASS
+div.vp-toolssection {
+    height: @toolsSectionHeight;
+    div.vp-toolssection__notificationicon {
+        width: @toolsSectionNotifIconSize;
+        height: @toolsSectionNotifIconSize;
+        background: url('../assets/images/icons/error_icn.png') no-repeat;
+        background-size: contain;
+    }
+    div.vp-toolssection__labelwrap {
+        width: @toolsSectionLabelMaxWidth;
+        height: @toolLabelInnerHeight;
+        //LABEL NOTIFICATION ACTIVE STATE
+        &.vp-toolssection__notification--active {
+            .vp-toolssection__labelnotification {
+                .block;
+            }
+        }
+    }
+    //ACTIVE 'MANY TOOLS' BUTTON DROPDOWN
+    div.vp-toolssection__toolswrap {
+        &.vp-toolssection__toolswrap--manytools {
+            button.vp-toolssection__moretoolsbtn {
+                .inblock;
+            }
+        }
+    }
+    //TOOL SECTION NOTIFICATION ACTIVE
+    div.vp-toolssection__tool {
+        height: @toolLabelInnerHeight;
+        &.vp-toolssection__toolnotification--active {
+            .vp-toolssection__toolnotificationmsg {
+                .inblock;
+                white-space: nowrap;
+            }
+        }
+    }
+    //'ADD TOOLS' BUTTON POPUP ACTIVE STATE
+    div.vp-toolssection__addtoolsbtnwrapper {
+        &.vp-toolssection__addtoolsbtn--show {
+            div.vp-toolssection__addtoolspopup {
+                .block;
+            }
+        }
+    }
+    //MORE TOOLS DROPDOWN ACTIVE
+    div.vp-toolssection__moretoolsbtnwrapper {
+        &.vp-toolssection__moretoolsbtn--show {
+            div.vp-toolssection__moretoolspopup {
+                .block;
+            }
+        }
+    }
+    //ADD TOOLS BUTTON
+    button.vp-toolssection__addtoolsbtn {
+        bottom: @toolSectionAddToolBtnBottom;
+    }
+    //ADD TOOLS BUTTON POPUP
+    div.vp-toolssection__addtoolspopup {
+        top: @addToolsPopupTop;
+        left: @addToolsPopupLeft;
+        z-index: 1;
+    }
+    //MORE TOOLS BUTTON POPUP
+    div.vp-toolssection__moretoolspopup {
+        top: @moreToolsPopupTop;
+        left: -(@popupArrowLeft + 1px);
+        z-index: 1;
+    }
+    //TOOL NOTIFICATION LINE
+    div.vp-toolssection__toolnotification {
+        line-height: @toolsSectionNotifIconSize;
+    }
+}

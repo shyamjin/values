@@ -1,0 +1,61 @@
+<!--TREE VIEW COMPONENT START-->
+<div class="vp-treeview vp-treeview--savedrequests vp-control max--width" ng-controller="SavedDeploymentRequestsController">
+	<!--DATES LIST-->
+	<ul class="vp-treeview__datelist text--cs06 text--light text--md relative" ng-repeat="(key, value) in requestsAll.data.list.toolgroup track by key" ng-if="pageTitle==='Dashboard'">
+		<!--EXPANDED 'DATE' ROW STATE (MODIFIER: # vp-treeview__dateitem--expanded # vp-treeview__dateitem--failed) -->
+		<li class="vp-treeview__dateitem" ng-class="isExpanded(collapsed)">
+			<!--EXPAND ICON-->
+			<div class="vp-treeview__expandicon pointer vertical--middle inblock" ng-click="collapsed=!collapsed"></div>
+			<span class="vp-treeview__date ml--md vertical--middle">{{key}}</span>
+			<img alt="" class="vp-treeview__datefailedicon ml--md vertical--middle" src="static/assets/images/icons/failed_icn.png" alt="failed">
+
+			<!--REQUESTS LIST VIEW-->
+			<ul class="vp-treeview__requestlist text--cs06 text--light text--md" ng-repeat="data in value" ng-show="collapsed">
+				<!--REQUEST ITEM EXAMPLE-->
+				<li class="vp-treeview__requestitem mt--md">
+					<!--REQUEST METADATA-->
+					<div class="vp-treeview__requestiteminner pl--md vertical--middle inblock">
+						<div class="vp-treeview__requesttitle" ng-click="showDeploymentRequestDetails(data._id.$oid)">Deploy {{data.name}}</div>
+						<!--<div class="vp-treeview__requestmachine">on machine-->
+							<!--<span class="vp-treeview__requestmachineid word&#45;&#45;break">ABCDE</span>-->
+						<!--</div>-->
+					</div>
+					<!--REQUEST ITEM BUTTONS SECTION-->
+					<div class="vp-treeview__savedrequestsbtnswrapper right">
+						<button type="button" class="vp-treeview__srresumebtn btn--clear vertical--middle" ng-click="editSavedDeploymentRequest(data._id.$oid, data.deployment_type)"></button>
+						<button type="button" class="vp-treeview__srdiscardbtn btn--clear vertical--middle" ng-click="deleteSavedDeploymentRequest(data._id.$oid)"></button>
+					</div>
+				</li>
+			</ul>
+		</li>
+	</ul>
+    <ul class="vp-treeview__datelist text--cs06 text--light text--md relative" ng-repeat="(key, value) in requestsAll.data.list.dugroup track by key" ng-if="pageTitle==='DU'">
+		<!--EXPANDED 'DATE' ROW STATE (MODIFIER: # vp-treeview__dateitem--expanded # vp-treeview__dateitem--failed) -->
+		<li class="vp-treeview__dateitem" ng-class="isExpanded(collapsed)">
+			<!--EXPAND ICON-->
+			<div class="vp-treeview__expandicon pointer vertical--middle inblock" ng-click="collapsed=!collapsed"></div>
+			<span class="vp-treeview__date ml--md vertical--middle">{{key}}</span>
+			<img alt="" class="vp-treeview__datefailedicon ml--md vertical--middle" src="static/assets/images/icons/failed_icn.png" alt="failed">
+
+			<!--REQUESTS LIST VIEW-->
+			<ul class="vp-treeview__requestlist text--cs06 text--light text--md" ng-repeat="data in value" ng-show="collapsed">
+				<!--REQUEST ITEM EXAMPLE-->
+				<li class="vp-treeview__requestitem mt--md">
+					<!--REQUEST METADATA-->
+					<div class="vp-treeview__requestiteminner pl--md vertical--middle inblock">
+						<div class="vp-treeview__requesttitle" ng-click="showDeploymentRequestDetails(data._id.$oid)">Deploy {{data.name}}</div>
+						<!--<div class="vp-treeview__requestmachine">on machine-->
+							<!--<span class="vp-treeview__requestmachineid word&#45;&#45;break">ABCDE</span>-->
+						<!--</div>-->
+					</div>
+					<!--REQUEST ITEM BUTTONS SECTION-->
+					<div class="vp-treeview__savedrequestsbtnswrapper right">
+						<button type="button" class="vp-treeview__srresumebtn btn--clear vertical--middle" ng-click="editSavedDeploymentRequest(data._id.$oid, data.deployment_type)"></button>
+						<button type="button" class="vp-treeview__srdiscardbtn btn--clear vertical--middle" ng-click="deleteSavedDeploymentRequest(data._id.$oid)"></button>
+					</div>
+				</li>
+			</ul>
+		</li>
+	</ul>
+</div>
+<!--TREE VIEW COMPONENT END-->

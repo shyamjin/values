@@ -1,0 +1,87 @@
+Create new state
+---
+tags:
+   - States
+parameters:
+- name: token
+  in: header
+  description: API key
+  required: false
+  type: string
+  format: string
+- name: access-token
+  in: header
+  description: API key
+  required: false
+  type: string
+  format: string 
+- name: input
+  in: body
+  description: State data
+  required: true
+  type: string
+  format: string
+  schema:
+    $ref: "#/definitions/State"     # <---------
+
+
+responses:
+  200:
+    description: New State has been created successfully
+    schema:
+        $ref: "#/definitions/Data"     # <---------
+    examples:
+      result: "success"
+      message: "New State has been created successfully"
+  404:
+    description: exception in creating State
+    examples:
+      result: "failed"
+      message: "Throws an exception"
+
+
+definitions:
+  State:           # <----------
+    type: object
+    required:
+      - name
+      - parent_entity_id      
+      - approval_status      
+    optional:      
+      - states
+      - build_id      
+      - deployment_field
+    properties:
+      name:
+        type: string
+      parent_entity_id:
+        type: string      
+      approval_status:
+        type: string   
+      states:        
+        type: array
+        items:
+          Or: [                                
+            $ref: "#/definitions/ObjectData",
+            $ref: "#/definitions/StringData"                                        
+            ]                        
+      deployment_field:
+        type: object
+        properties:
+          fields:
+            type: array
+            items:
+              type: object              
+ 
+  StringData:
+    type: string
+   
+  Data:
+    type: object
+    properties:
+        data:
+          type: string
+        result:
+          type: string
+        message:
+           type: string      

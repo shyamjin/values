@@ -1,0 +1,29 @@
+//POP UP COMMON STYLES(openfilter and selectedtools)
+//TOP POP UP ARROW
+.vp-uielement__popuptop {
+    //TOP ARROW TRIANGLE
+    &:before {
+        border-bottom: @popupOpenTopArrowHeight solid @cs07;
+        border-left: @popupOpenTopArrowHeight solid transparent;
+        border-right: @popupOpenTopArrowHeight solid transparent;
+        width: 0;
+        height: 0;
+        content: "";
+        left: @popupOpenTopArrowLeft;
+        display: block;
+        position: absolute;
+        top: -10px;
+    }
+    //TOP BORDER STYLE
+    .relative;
+    border-top: @popupOpenTopBorderHeight solid @cs07;
+    border-top-right-radius: @popupOpenBorderRadius;
+    border-top-left-radius: @popupOpenBorderRadius;
+}
+
+//DIALOG SHADOW AND CORNER RADIUSE
+.vp-uielement__popup {
+    box-shadow: @shadow;
+    border-bottom-right-radius: @popupOpenBorderRadius/3;
+    border-bottom-left-radius: @popupOpenBorderRadius/3;
+}

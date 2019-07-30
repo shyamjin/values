@@ -1,0 +1,28 @@
+<!--TOOLBAR COMPONENT START-->
+<div class="vp-dttoolbar vp-control bg--cs06 max--width">
+	<div class="vp-dttoolbar__inner">
+		<!--CANCEL REQUEST BUTTON-->
+		<button type="button" class="vp-dttoolbar__cancelbtn vp-uielement__button vp-uielement__button--cleanenabled" ng-click="cancelDeploymentRequest()">Cancel this request</button>
+		<!--RIGHT SIDE BUTTONS-->
+		<div class="vp-dttoolbar__deployatwrapper right">
+			<!--ICON-->
+			<div class="vp-dttoolbar__scheduleicon vertical--middle inblock"></div>
+			<span class="vp-dttoolbar__deploytitle vertical--middle">Deploy at:</span>
+			<span class="vp-dttoolbar__scheduletime vertical--middle" ng-if="deploy_at==='now'">NOW</span>
+			<span class="vp-dttoolbar__scheduletime vertical--middle" ng-if="deploy_at==='later'">{{scheduled_timestamp | date : "MM/d/y h:mma"}}</span>
+			<!--SCHEDULE BUTTON WRAPPER (MODIFIERS: # vp-dttoolbar__calendarbtnwrap--show )-->
+			<div class="vp-dttoolbar__calendarbtnwrap ml--md inblock relative vp-dttoolbar__calendarbtnwrap--show">
+				<button type="button" class="vp-dttoolbar__calendarbtn vp-uielement__button vp-uielement__button--cleanenabled pa--none vertical--middle" ng-click="showScheduleDeployment()"></button>
+				<div class="vp-dttoolbar__scheduledpopup hidden absolute" id="deployment_scheduler" style="display: none;" ng-include="'static/components/tools/deploy-tools/scheduled-popup/scheduledpopup.component.html'"></div>
+			</div>
+		</div>
+		<!--SUBMITE FOR DEPLOYMENT BUTTON-->
+		<div class="vp-dttoolbar__submitefordeploymentwrap right">
+			<button type="button" class="vp-dttoolbar__submitefordeploymentbtn vp-uielement__button vp-uielement__button--deployenabled pr--lg pl--lg vertical--middle" ng-click="sendDeploymentRequest(deployReqForm)">Submit for deployment</button>
+		</div>
+		<div class="vp-dttoolbar__savebtnwrap right">
+			<button type="button" class="vp-dttoolbar__savebtn vp-uielement__button vp-uielement__button--cleanenabled vertical--middle">Save for later</button>
+		</div>
+	</div>
+</div>
+<!--TOOLBAR COMPONENT END-->

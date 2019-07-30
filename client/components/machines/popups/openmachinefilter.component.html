@@ -1,0 +1,133 @@
+<!--OPEN FILTER COMPONENT START-->
+<div class="vp-filter vp-filter--openfilterdialog vp-uielement__popup vp-control overflow--auto max--width max--height filter_header_fixed">
+	<div class="vp-filter__topborder vp-uielement__popuptop"></div>
+	<div class="vp-filter__openfilterformwrapper bg--cs06">
+		<form name="vp-filter__dashboardfilter">
+			<div class="vp-filter__buttonsmenu max--width">
+				<!--'APPLY' BUTTON-->
+				<div class="vp-filter__applywrapper pl--md left">
+					<button type="button" class="vp-uielement__button vp-filter__apply vp-uielement__button--apply pl--md" ng-click="applyMachineFilters()">Apply</button>
+				</div>
+				<!--'CLEAR ALL' BUTTON-->
+				<div class="vp-filter__clearallwrapper pl--md left">
+					<button type="reset" class="vp-uielement__button vp-filter__clearall vp-uielement__button--cleanenabled" ng-click="closeFilter()">Clear All</button>
+				</div>
+				<div class=" vp-filter__cancelwrapper pr--md right">
+					<button type="button" class="vp-uielement__button vp-filter__openfiltercancel vp-uielement__button--cancle" ng-click="cancleFilter()">Cancel</button>
+				</div>
+			</div>
+			<!--FILTER ELEMENT START-->
+			<div class="vp-filterelement max--width max--height filter_scrolled_content">
+				<!--FILTER OPRIONS LIST-->
+				<ul class="vp-filterelement__filterlist text--cs03 text--regular text--md">
+					<li class="vp-filterelement__filterrow vp-filterelement__filterrowlvlone" ng-class="setNameFilterCSS(machineNameFilterFlag)">
+						<div class="vp-filterelement__filterrowdata" ng-click="showNameFilter()">
+							<span class="vp-filterelement__expandicon inblock"></span>
+							<span class="vp-filterelement__filtermainlable ml--sm">Machine Name</span>
+						</div>
+						<!--LEVEL TWO FILTER CODE-->
+						<div class="vp-filterelement__contentlvlonewrapper hidden">
+							<ul>
+								<li class="vp-filterelement__filterrow vp-filterelement__filterrowlvltwo">
+									<div class="vp-header__filteroptionwrapper">
+										<!--CHECKBOX ELEMENT-->
+										<div class="vp-uielement__checkbox">
+											<input type="text" id="vp-filterelement__popupanystatus" name="vp-filterelement__popup_nameSelected" ng-model="nameSelected"  ng-change="setNameFilter(nameSelected)" />
+											<label for="vp-filterelement__popupanystatus"></label>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</li>
+					<li class="vp-filterelement__filterrow vp-filterelement__filterrowlvlone" ng-class="setHostFilterCSS(hostFilterFlag)">
+						<div class="vp-filterelement__filterrowdata" ng-click="showHostFilter()">
+							<span class="vp-filterelement__expandicon inblock"></span>
+							<span class="vp-filterelement__filtermainlable ml--sm">Host</span>
+						</div>
+						<!--LEVEL TWO FILTER CODE-->
+						<div class="vp-filterelement__contentlvlonewrapper hidden">
+							<ul>
+								<li class="vp-filterelement__filterrow vp-filterelement__filterrowlvltwo">
+									<div class="vp-header__filteroptionwrapper">
+										<!--CHECKBOX ELEMENT-->
+										<div class="vp-uielement__checkbox">
+											<input type="text" id="vp-filterelement__popupcreationdate" name="vp-filterelement__popup_scheduled_date" ng-model="hostSelected"  ng-change="setHostFilter(hostSelected)" />
+											<label for="vp-filterelement__popupcreationdate"></label>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</li>
+					<li class="vp-filterelement__filterrow vp-filterelement__filterrowlvlone" ng-class="setMachineTypeFilterCSS(machineTypeFilterFlag)">
+						<div class="vp-filterelement__filterrowdata" ng-click="showMachineTypeFilter()">
+							<span class="vp-filterelement__expandicon inblock"></span>
+							<span class="vp-filterelement__filtermainlable ml--sm">Machine Type</span>
+						</div>
+						<!--LEVEL TWO FILTER CODE-->
+						<div class="vp-filterelement__contentlvlonewrapper hidden">
+							<ul>
+								<li class="vp-filterelement__filterrow vp-filterelement__filterrowlvltwo">
+									<div class="vp-header__filteroptionwrapper">
+										<!--CHECKBOX ELEMENT-->
+										<div class="vp-uielement__checkbox">
+											<input type="checkbox" id="vp-filterelement__popupany" name="vp-filterelement__popupany" ng-model="tagAny" value="any" ng-click="setMachineTypeFilter('any')"/>
+											<label for="vp-filterelement__popupany"></label>
+										</div>
+										<!--LEVEL TWO FILTER LABEL-->
+										<label class="vp-filterelement__secondarylable" for="vp-filterelement__popupany">Any</label>
+									</div>
+								</li>
+								<!--FILTER LEVEL TWO CODE-->
+								<li class="vp-filterelement__filterrow vp-filterelement__filterrowlvltwo" ng-repeat="type in types">
+									<div class="vp-header__filteroptionwrapper">
+										<div class="vp-uielement__checkbox">
+											<input id="idx_machine_{{$index}}" type="checkbox" name="vp-filterelement__popupmaintenanceapplication" ng-model="machinesTypeSelected" value="{{type.type}}" ng-click="setMachineTypeFilter(type.type)" />
+											<label for="idx_machine_{{$index}}"></label>
+										</div>
+										<label class="vp-filterelement__secondarylable" for="idx_machine_{{$index}}">{{type.type}}</label>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</li>
+					<li class="vp-filterelement__filterrow vp-filterelement__filterrowlvlone"  ng-class="setTagsFilterCSS(tagsFilterFlag)">
+						<div class="vp-filterelement__filterrowdata" ng-click="showTagsFilter()">
+							<span class="vp-filterelement__expandicon inblock"></span>
+							<span class="vp-filterelement__filtermainlable ml--sm">Tags</span>
+						</div>
+                        <!--LEVEL TWO FILTER CODE-->
+						<div class="vp-filterelement__contentlvlonewrapper hidden">
+							<ul>
+								<li class="vp-filterelement__filterrow vp-filterelement__filterrowlvltwo">
+									<div class="vp-header__filteroptionwrapper">
+										<!--CHECKBOX ELEMENT-->
+										<div class="vp-uielement__checkbox">
+											<input type="checkbox" id="vp-filterelement__popupany_ts_2_any" name="vp-filterelement__popupany" ng-model="tagAny" value="any" ng-click="setTagsFilter('any')"/>
+											<label for="vp-filterelement__popupany_ts_2_any"></label>
+										</div>
+										<!--LEVEL TWO FILTER LABEL-->
+										<label class="vp-filterelement__secondarylable" for="vp-filterelement__popupany_ts_2_any">Any</label>
+									</div>
+								</li>
+								<!--FILTER LEVEL TWO CODE-->
+								<li class="vp-filterelement__filterrow vp-filterelement__filterrowlvltwo" ng-repeat="tag in allTags">
+									<div class="vp-header__filteroptionwrapper">
+										<div class="vp-uielement__checkbox">
+											<input id="idx_ts_{{$index}}" type="checkbox" name="vp-filterelement__popupmaintenanceapplication" ng-model="tagsSelected" value="{{tag.name}}" ng-click="setTagsFilter(tag.name)" />
+											<label for="idx_ts_{{$index}}"></label>
+										</div>
+										<label class="vp-filterelement__secondarylable" for="idx_ts_{{$index}}">{{tag.name}}</label>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<!--FILTER ELEMENT END-->
+		</form>
+	</div>
+</div>
+<!--OPEN FILTER COMPONENT END-->

@@ -1,0 +1,90 @@
+<!--TREE VIEW COMPONENT START-->
+<div ng-controller="DeploymentRequestDetailsController">
+	<div class="vp-treeview vp-treeview--recentrequests vp-control max--width pb--xl">
+		<!--DATES LIST-->
+		<ul class="vp-treeview__datelist text--cs06 text--light text--md relative" ng-repeat="(key, value) in requestsAll.data.list track by key  | filter : searchRequestKeyword" >
+			<!--EXPANDED 'DATE' ROW STATE (MODIFIER: # vp-treeview__dateitem--expanded # vp-treeview__dateitem--failed) -->
+			<li class="vp-treeview__dateitem" ng-class="isExpanded(collapsed)">
+				<!--EXPAND ICON-->
+				<div class="vp-treeview__expandicon pointer vertical--middle inblock" ng-click="collapsed=!collapsed"></div>
+				<span class="vp-treeview__date ml--md vertical--middle">{{key}}</span>
+				<img alt="" class="vp-treeview__datefailedicon ml--md vertical--middle" src="static/assets/images/icons/failed_icn.png" alt="failed">
+
+				<!--REQUESTS LIST VIEW-->
+				<ul class="vp-treeview__requestlist text--cs06 text--light text--md" ng-repeat="data in value | filter : searchRequestKeyword" ng-show="collapsed">
+					<!--REQUEST ITEM EXAMPLE-->
+					<li class="vp-treeview__requestitem mt--md" ng-click="showDeploymentRequestDetails(data._id.$oid)">
+						<div class="vp-treeview__requestiteminner pl--md text--light text--md vertical--middle inblock">
+							<span class="vp-treeview__requesttitle block">{{data.request_type.charAt(0).toUpperCase() + data.request_type.slice(1)}}  <span class="vp-treeview__requesttitle_toolname"> {{data.parent_entity.parent_entity_name}}</span></span>
+							<span class="vp-treeview__requestmachine block">on machine <span class="vp-treeview__requestmachineid">  <span class="vp-treeview__requesttitle_toolname">{{data.machine.machine_name}} &nbsp at-{{data.start_time_iso_format.$date | date : "hh:mm a"}} </span></span></span>
+						</div>
+						<!--RECENT REQUEST ITEM ACTION BUTTONS ('IN PROGRESS' EXAMPLE)-->
+						<div class="vp-treeview__recentrequestsactionwrapper vp-treeview__iteminprogress pt--sm right" title="In Progress" ng-if="data.status==='Processing'">
+							<div class="vp-treeview__rrinprogressicon"></div>
+							<span class="vp-treeview__rrinprogresstime mt--sm text--cs05 text--light text--sm"> {{data.deployment_run_time.hh}}:{{data.deployment_run_time.mm}}:{{data.deployment_run_time.ss}}</span> <!--  start-time="requestStart" -->
+						</div>
+						<div class="vp-treeview__recentrequestsactionwrapper vp-treeview__itemfailed right" ng-if="data.status==='Failed'">
+							<div class="vp-treeview__rrfailedicon vertical--middle inblock" title="Failed"></div>
+							<button class="vp-treeview__rrsubmitagainbtn vertical--middle btn--clear" title="Retry"  ng-click="retry(data._id.$oid)" ></button>
+						</div>
+						<div class="vp-treeview__recentrequestsactionwrapper vp-treeview__itemcompleted right" ng-if="data.status==='Done'&& !data.skipped_ind">
+							<div class="vp-treeview__rrcompletedicon vertical--middle inblock" title="Completed"></div>
+							<!--<button class="vp-treeview__rrduplicatbtn vertical&#45;&#45;middle btn&#45;&#45;clear" title="Duplicate"></button>-->
+						</div>
+							<div class="vp-treeview__recentrequestsactionwrapper vp-treeview__itemcompleted right" ng-if="data.status==='Done' && data.skipped_ind=== true">
+							<div class="vp-treeview__rrskippedicon vertical--middle inblock" title="Skipped"></div>
+							<!--<button class="vp-treeview__rrduplicatbtn vertical&#45;&#45;middle btn&#45;&#45;clear" title="Duplicate"></button>-->
+						</div>
+					</li>
+					<!--REQUEST ITEM EXAMPLE-->
+					<!--<li class="vp-treeview__requestitem mt&#45;&#45;md">-->
+						<!--<div class="vp-treeview__requestiteminner pl&#45;&#45;md vertical&#45;&#45;middle inblock">-->
+							<!--<span class="vp-treeview__requesttitle block">Deploy ABCD Manager</span>-->
+							<!--<span class="vp-treeview__requestmachine block">on machine <span class="vp-treeview__requestmachineid">local</span></span>					-->
+						<!--</div>-->
+						<!--&lt;!&ndash;RECENT REQUEST ITEM ACTION BUTTONS ('FAILED' EXAMPLE)&ndash;&gt;-->
+					<!--</li>-->
+					<!--&lt;!&ndash;REQUEST ITEM EXAMPLE&ndash;&gt;-->
+					<!--<li class="vp-treeview__requestitem mt&#45;&#45;md">-->
+						<!--<div class="vp-treeview__requestiteminner pl&#45;&#45;md vertical&#45;&#45;middle inblock">-->
+							<!--<span class="vp-treeview__requesttitle block">Deploy ZZZZZZ Manager</span>-->
+							<!--<span class="vp-treeview__requestmachine block">on machine <span class="vp-treeview__requestmachineid">1234.abcd-er.ma.123</span></span>-->
+								<!---->
+						<!--</div>-->
+						<!--&lt;!&ndash;RECENT REQUEST ITEM ACTION BUTTONS ('COMPLETED' EXAMPLE)&ndash;&gt;-->
+						<!--<div class="vp-treeview__recentrequestsactionwrapper vp-treeview__itemcompleted right">-->
+							<!--<div class="vp-treeview__rrcompletedicon vertical&#45;&#45;middle inblock" title="Completed"></div>-->
+							<!--<button class="vp-treeview__rrduplicatbtn vertical&#45;&#45;middle btn&#45;&#45;clear" title="Duplicate"></button>-->
+						<!--</div>-->
+					<!--</li>-->
+					<!--&lt;!&ndash;REQUEST ITEM EXAMPLE&ndash;&gt;-->
+					<!--<li class="vp-treeview__requestitem mt&#45;&#45;md">-->
+						<!--<div class="vp-treeview__requestiteminner pl&#45;&#45;md vertical&#45;&#45;middle inblock">-->
+							<!--<span class="vp-treeview__requesttitle block">Deploy XYZ Manager</span>-->
+							<!--<span class="vp-treeview__requestmachine block">on machine <span class="vp-treeview__requestmachineid">ABCDE</span></span>		-->
+						<!--</div>-->
+						<!--&lt;!&ndash;RECENT REQUEST ITEM ACTION BUTTONS ('SCHEDULED' EXAMPLE)&ndash;&gt;-->
+						<!--<div class="vp-treeview__recentrequestsactionwrapper vp-treeview__itemscheduled right">-->
+							<!--<div class="vp-treeview__rrschedulediconwrapper pt&#45;&#45;sm vertical&#45;&#45;middle inblock">-->
+								<!--<div class="vp-treeview__rrscheduledicon vertical&#45;&#45;middle"></div>-->
+								<!--<span class="vp-treeview__rrscheduledate mt&#45;&#45;sm text&#45;&#45;cs04 text&#45;&#45;light text&#45;&#45;sm">Jul 25 20:15</span>-->
+							<!--</div>-->
+							<!--<button class="vp-treeview__rrschedulebtn vertical&#45;&#45;middle btn&#45;&#45;clear" title="Schedule"></button>-->
+						<!--</div>-->
+					<!--</li>-->
+					<!--&lt;!&ndash;REQUEST ITEM EXAMPLE&ndash;&gt;-->
+					<!--<li class="vp-treeview__requestitem mt&#45;&#45;md">-->
+						<!--<div class="vp-treeview__requestiteminner pl&#45;&#45;md vertical&#45;&#45;middle inblock">-->
+							<!--<span class="vp-treeview__requesttitle block">Deploy XYZ Manager</span>-->
+							<!--<span class="vp-treeview__requestmachine block">on machine <span class="vp-treeview__requestmachineid">ABCDE</span></span>				-->
+						<!--</div>-->
+					<!--</li>-->
+				</ul>
+			</li>
+		</ul>
+	</div>
+	<div class="vp-deploymentrequestmodalwrap fixed max--position hidden" id="show_deployment_request">
+		<div class="vp-deploymentrequestmodal absolute" ng-include="'static/components/dashboard/request-details-modal/requestdetailsmodal.html'"></div>
+	</div>
+</div>
+<!--TREE VIEW COMPONENT END-->

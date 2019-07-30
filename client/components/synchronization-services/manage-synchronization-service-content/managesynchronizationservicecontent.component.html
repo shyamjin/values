@@ -1,0 +1,35 @@
+<!--MANAGE MACHINES TAB CONTENT COMPONENT START-->
+<div class="vp-mmanagetab vp-control text--none max inblock nowrap" ng-controller="EditSynchronizationServiceController">
+    <!--MANAGE MACHINES TAB CONTENT FILTER (MODIFIERS: # vp-mmanagetab__filterwrap--close )-->
+    <section class="vp-mmanagetab__filterwrap vp-mmanagetab__filterwrap--close max--height relative inblock">
+        <button type="button" class="vp-mmanagetab__filterclosebtn vp-uielement__button vp-uielement__button--dropdownarrowclosed  absolute"></button>
+        <!--<div class="vp-mmanagetab__filter max&#45;&#45;height" ng-include="'static/components/dashboard/filter/dashboardfilter.component.html'"></div>-->
+    </section>
+    <!--CONTENT (WITHOUT FILTER) SECTION-->
+    <section class="vp-mmanagetab__content vertical--top inblock">
+        <!--MACHINES SEARCH-->
+        <div class="vp-mmanagetab__findmachinewrap vertical--top mt--md ml--md left">
+            <div class="vp-mmanagetab__findmachine max--height" ng-include="'static/components/synchronization-services/sync-requests-search-column/syncrequestssearchcolumn.component.html'"></div>
+        </div>
+
+        <!--VERTICAL TAB AREA-->
+        <div class="vp-mmanagetab__syncsectionwrap mt--xxl ml--md inblock" ng-if="syncRequestDetails">
+            <div class="vp-mmanagetab__machinesectionheader text--cs03 pl--md">
+                <label class="vp-mmanagetab__machinesectionlabel text--light text--xxl"> {{syncRequestDetails.data.sync_type}}</label>
+             <!--   <button type="button" class="vp-mmanagetab__machineeditbtn vp-uielement__button vp-uielement__button&#45;&#45;edit ml&#45;&#45;md"></button>-->
+                <div class="vp-mmanagetab__machinetatewrap mr--md right" ng-if="syncRequestDetails.data.status==='suspended'">
+                    <!--MACHINE STATE ICON (MODIFIERS: # vp-uielement__versionstate--inactive # vp-uielement__versionstate--active)-->
+                    <span class="vp-mmanagetab__machinestateicon vp-uielement__versionstate--inactive inblock vertical--middle"></span>
+                    <span class="vp-mmanagetab__machinestatemsg vertical--middle ml--md text--cs03 text--light text--md">Suspended</span>
+                </div>
+                <div class="vp-mmanagetab__machinetatewrap mr--md right" ng-if="syncRequestDetails.data.status==='active'">
+                    <!--MACHINE STATE ICON (MODIFIERS: # vp-uielement__versionstate--inactive # vp-uielement__versionstate--active)-->
+                    <span class="vp-mmanagetab__machinestateicon vp-uielement__versionstate--active inblock vertical--middle"></span>
+                    <span class="vp-mmanagetab__machinestatemsg vertical--middle ml--md text--cs03 text--light text--md">Active</span>
+                </div>
+            </div>
+            <div class="vp-mmanagetab__verticaltabs mt--xl max--height" ng-include="'static/components/synchronization-services/tabs/verticaltabs/verticaltabs.component.html'"></div>
+        </div>
+    </section>
+</div>
+<!--MANAGE MACHINES TAB CONTENT COMPONENT END-->

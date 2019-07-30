@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+   <description></description>
+   <name>button_Add</name>
+   <tag></tag>
+   <elementGuidId>8c609f5a-0061-485c-a8cd-929655f4f061</elementGuidId>
+   <selectorCollection>
+      <entry>
+         <key>BASIC</key>
+         <value>//button[@type = 'button' and @ng-click = 'showAddTag()']</value>
+      </entry>
+   </selectorCollection>
+   <selectorMethod>BASIC</selectorMethod>
+   <useRalativeImagePath>false</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>tag</name>
+      <type>Main</type>
+      <value>button</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>type</name>
+      <type>Main</type>
+      <value>button</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>class</name>
+      <type>Main</type>
+      <value>vp-versionform__addprerequisitesbtn vp-uielement__button pa--none vp-uielement__button--cleanenabled skip_slideup</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>ng-click</name>
+      <type>Main</type>
+      <value>showAddTag()</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>text</name>
+      <type>Main</type>
+      <value>+Add</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath</name>
+      <type>Main</type>
+      <value>/html[@class=&quot;ng-scope&quot;]/body[1]/div[@class=&quot;vp-app__edittoolspage max--height ng-scope&quot;]/div[@class=&quot;vp-edittools vp-control max--width ng-scope&quot;]/form[@class=&quot;ng-pristine ng-valid ng-valid-required ng-valid-email&quot;]/div[@class=&quot;vp-edittools__content bg--white max--height relative ng-scope&quot;]/div[@class=&quot;vp-edittools__contentbounded pr--xxxl&quot;]/div[@class=&quot;vp-edittools__toolinfo ng-scope&quot;]/div[@class=&quot;vp-toolinfo vp-toolinfo--edit vp-control bg--white max--width ng-scope&quot;]/div[@class=&quot;vp-toolinfo__body max--width&quot;]/div[@class=&quot;vp-toolinfo__tagswrap mt--md&quot;]/div[@class=&quot;vp-toolinfo__tagsinputwrap ml--xxl inblock&quot;]/div[@class=&quot;vp-versionform__content inblock&quot;]/div[@class=&quot;vp-versionform__prerequisitescontent--filled&quot;]/ul[@class=&quot;vp-versionform__prerequisiteslist clearfix&quot;]/li[@class=&quot;vp-versionform__prerequisitesaddbtn mb--sm left&quot;]/button[@class=&quot;vp-versionform__addprerequisitesbtn vp-uielement__button pa--none vp-uielement__button--cleanenabled skip_slideup&quot;]</value>
+   </webElementProperties>
+</WebElementEntity>

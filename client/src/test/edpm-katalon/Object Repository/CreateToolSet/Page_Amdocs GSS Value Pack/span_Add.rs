@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+   <description></description>
+   <name>span_Add</name>
+   <tag></tag>
+   <elementGuidId>2cd4c91e-2098-4076-b7a6-9777da55624e</elementGuidId>
+   <selectorMethod>BASIC</selectorMethod>
+   <useRalativeImagePath>false</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>tag</name>
+      <type>Main</type>
+      <value>span</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>text</name>
+      <type>Main</type>
+      <value>+Add</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath</name>
+      <type>Main</type>
+      <value>/html[@class=&quot;ng-scope&quot;]/body[1]/div[@class=&quot;vp-app__deploytoolspage max--height ng-scope&quot;]/div[@class=&quot;vp-edittools vp-control max--width ng-scope&quot;]/form[@class=&quot;ng-dirty ng-valid-parse ng-valid ng-valid-required&quot;]/div[@class=&quot;vp-edittools__content bg--white max--height relative&quot;]/div[@class=&quot;vp-edittools__contentbounded pr--xxxl&quot;]/div[@class=&quot;vp-edittools__toolinfo ng-scope&quot;]/div[@class=&quot;vp-toolinfo vp-toolinfo--new vp-control bg--white max--width ng-scope&quot;]/ul[@class=&quot;vp-userform__fieldslist text--cs03 pr--lg&quot;]/li[@class=&quot;vp-userform__fielditem vp-userform__roleitem pt--lg&quot;]/div[@class=&quot;vp-userform__fielditeminner&quot;]/div[@class=&quot;vp-userform__fieldcontent vp-userform__memberofcontent inblock&quot;]/ul[@class=&quot;vp-userform__teamslist&quot;]/li[@class=&quot;vp-userform__teamitem vp-userform__managementteam pt--md&quot;]/div[@class=&quot;vp-userform__fielditeminner&quot;]/button[@class=&quot;vp-versionform__adddocbtn vp-uielement__button vp-uielement__button--cleanenabled pa--none vertical--bottom&quot;]/span[1]</value>
+   </webElementProperties>
+</WebElementEntity>

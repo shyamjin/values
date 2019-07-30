@@ -1,0 +1,48 @@
+Getting Machine Groups
+---
+tags:
+ - Machine Groups
+parameters:
+- name: token
+  in: header
+  description: API key
+  required: false
+  type: string
+  format: string
+- name: access-token
+  in: header
+  description: API key
+  required: false
+  type: string
+  format: string 
+- name: perpage
+  in: query
+  type: string
+  required: false
+  description: provide records required perpage.Default is 30
+- name: page
+  in: query
+  type: string
+  required: false
+  description: provide the page required.Default is 0
+- name: machine_group_name
+  in: query
+  type: string
+  required: false
+  description: please provide machine_group_name as comma seperated 
+- name: machine_id_list
+  in: query
+  type: string
+  required: false
+  description: please provide machine_id_list as comma seperated 
+responses:
+  200:
+    description: Getting Machine Groups Successfully
+    examples:
+      result: "success"
+      message: null
+  404:
+    description: exception in Getting Machine Groups
+    examples:
+      result: "failed"
+      message: "Throws an exception"

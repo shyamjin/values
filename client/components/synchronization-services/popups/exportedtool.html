@@ -1,0 +1,25 @@
+<div class="vp-rdmodal vp-control bg--white relative">
+	<div class="vp-rdmodal__header">
+		<!--TITLE-->
+		<h1 class="vp-rdmodal__title text--cs06 text--xl text--light mt--xl ml--xl inblock">Tools exported</h1>
+		<!--CLOSE BUTTON-->
+		<button type="button" class="vp-rdmodal__closebtn btn--clear mt--md mr--lg right" ng-click="hideToolExported()"></button>
+	</div>
+	<!--MODAL BODY-->
+	<div class="vp-rdmodal__body">        
+        <div class="vp-rdmodal__status">
+            <div class="vp-machdetails__fielditeminner">
+                <table>
+                    <tr>
+                        <th class="mr--xl mb--md mt--xl left">Tools exported Details: </th>
+                    </tr>
+                    <tr class="mr--md mb--md" style="background-color:inherit" ng-repeat="exported in syncRequestDetails.data.toolNames track by $index">
+                        <td class="pb--sm" style="font-size:  initial;">{{exported}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+  
+

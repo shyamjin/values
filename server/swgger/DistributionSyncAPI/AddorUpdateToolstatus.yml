@@ -1,0 +1,33 @@
+Adding or Updating Tool Status
+---
+tags:
+ - Distribution Sync
+parameters:
+- name: token
+  in: header
+  description: API key
+  required: false
+  type: string
+  format: string
+- name: access-token
+  in: header
+  description: API key
+  required: false
+  type: string
+  format: string 
+- name: id
+  in: path
+  type: string
+  required: true
+  description: Adding or Updating Tool Status
+responses:
+  200:
+    description: Adding or Updating Tool Status Successfully
+    examples:
+      result: "success"
+      message: null
+  404:
+    description: exception in Adding or Updating Tool Status
+    examples:
+      result: "failed"
+      message: "Throws an exception"

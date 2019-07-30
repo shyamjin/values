@@ -1,0 +1,92 @@
+<!--USER INFO COMPONENT START (MODIFIERS: # vp-selecteduserform--active )-->
+<div ng-class="getUserFormClass()" >
+    <form action="#" name="vp-distributionform__selecteddistributionform" class="vp-distributionform__selecteddistributionform max pl--xl" >
+      <ul ng-class="getUserUlClass()">
+            <!--'Machine Name' FIELD-->
+            <li class="vp-distributionform__fielditem vp-distributionform__emailitem pt--xxl">
+                <div class="vp-distributionform__fielditeminner">
+                    <!--'NAME' FIELD LABEL-->
+                    <div class="vp-distributionform__fieldlabelwrap inblock">
+                        <label class="vp-distributionform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single"><span class="fontSizeClass">Machine Name :</span></label>
+                    </div>
+                    <!--'NAME' FIELD CONTENT-->
+                    <div class="vp-distributionform__fieldcontent vp-distributionform__emailcontent inblock">
+                        <label class="vp-distributionform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single"><span class="fontSizeClass">{{selectedData.host}}</span></label>
+                    </div>
+                </div>
+            </li>
+
+            <!--'Status' FIELD-->
+            <li class="vp-distributionform__fielditem vp-distributionform__emailitem pt--xxl">
+                <div class="vp-distributionform__fielditeminner">
+                    <!--'Status' FIELD LABEL-->
+                    <div class="vp-distributionform__fieldlabelwrap inblock">
+                        <label class="vp-distributionform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single"><span class="fontSizeClass">Status :</span></label>
+                    </div>
+                    <!--'Status' FIELD CONTENT-->
+                    <div class="vp-distributionform__fieldcontent vp-distributionform__emailcontent inblock">
+                        <label class="vp-distributionform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single"><span class="fontSizeClass">{{selectedData.status}}</span></label>
+                    </div>
+                </div>
+            </li>
+
+            <!--'Distribution Status' FIELD-->
+            <li class="vp-distributionform__fielditem vp-distributionform__emailitem pt--xxl">
+                <div class="vp-distributionform__fielditeminner">
+                    <!--'Distribution Status' FIELD LABEL-->
+                    <div class="vp-distributionform__fieldlabelwrap inblock">
+                        <label class="vp-distributionform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single"><span class="fontSizeClass">Distribution Status :</span></label>
+                    </div>
+                    <!--'Distribution Status' FIELD CONTENT-->
+                    <div class="vp-distributionform__fieldcontent vp-distributionform__emailcontent inblock">
+                        <label class="vp-distributionform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single"><span class="fontSizeClass">{{selectedData.distribution_status}}</span></label>
+                    </div>
+                </div>
+            </li>
+
+
+             <!--'Distribution Update Date' FIELD-->
+            <li class="vp-distributionform__fielditem vp-distributionform__emailitem pt--xxl">
+                <div class="vp-distributionform__fielditeminner">
+                    <!--'Distribution Update Date' FIELD LABEL-->
+                    <div class="vp-distributionform__fieldlabelwrap inblock">
+                        <label class="vp-distributionform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single"><span class="fontSizeClass">Distribution Update Date :</span></label>
+                    </div>
+                    <!--'Distribution Update Date' FIELD CONTENT-->
+                    <div class="vp-distributionform__fieldcontent vp-distributionform__emailcontent inblock">
+                        <label class="vp-distributionform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single"><span class="fontSizeClass">{{selectedData.update_date | date : "M/d/y h:mma"   }}</span></label>
+                    </div>
+                </div>
+            </li>
+
+              <!--'Operation' FIELD-->
+            <li class="vp-distributionform__fielditem vp-distributionform__emailitem pt--xxl">
+                <div class="vp-distributionform__fielditeminner">
+                    <!--'Operation' FIELD LABEL-->
+                    <div class="vp-distributionform__fieldlabelwrap inblock">
+                        <label class="vp-distributionform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single"><span class="fontSizeClass">Operation :</span></label>
+                    </div>
+                    <!--'Operation' FIELD CONTENT-->
+                    <div class="vp-distributionform__fieldcontent vp-distributionform__emailcontent inblock">
+                       <tooltip id="tooltip_{{$index}}"  tooltip-side="top">
+                        <table>
+                            <tr>
+                                <td style="padding-left: 1cm">
+                                    <button type="button" ng-if="selectedData.status==='off'" class="resumeButton"  tooltip-template="Resume" ng-click="updateCloneRequestDistribution(selectedData.id, selectedData.status, selectedData.machine_id,selectedData.host)"></button>
+                                    <button type="button" ng-if="selectedData.status==='on'" class="pauseButtonClass" tooltips="" tooltip-template="Pause" ng-click="updateCloneRequestDistribution(selectedData.id, selectedData.status, selectedData.machine_id,selectedData.host)"></button> </td>
+                                <td style="padding-left: 1cm;"> <button type="button" class="reSendButton" tooltips="" tooltip-template="Resend" ng-click="requestResendDistributionData(selectedData.id)"></button> </td>
+                                <td style="padding-left: 1cm;"> <button type="button" class="deleteButton" tooltips="" tooltip-template="Delete" ng-click="requestDeletionData(selectedData.id)"></button> </td>
+                            </tr>
+                        </table>
+                       </tooltip>
+                    </div>
+                </div>
+            </li>
+      </ul>
+    </form>
+    <section class="vp-exportfileload__processingsection" style="margin-left:33%;" ng-if="preLoader">
+        <div class="loader mb--sm" style="margin-left: 60px;"></div>
+        <span class="vp-exportfileload__processingmsg text--cs03 text--light text--xxl">Loading & processing...</span>
+    </section>
+</div>
+<!--distribution INFO COMPONENT END-->

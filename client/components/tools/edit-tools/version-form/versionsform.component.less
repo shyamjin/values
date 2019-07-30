@@ -1,0 +1,310 @@
+// VARIABLES: SECTION 34
+.vp-versionform {
+    // ATTENTION MODAL STYLES
+    .vp-versionform__addsettingmodalwrap {
+        z-index: 9999;
+        min-width: @minWidth;
+        background-color: @csdarkmutted;
+        &--show {
+            .block;
+        }
+    }
+    // 'ADD A SETTING' MODAL POSITION
+    .vp-versionform__addsettingmodal {
+        top: 25%;
+        left: 35%;
+    }
+    input[type=text]:not([class*=uielement]), .vp-versionform__releasenotesarea, .vp-versionform__deployiteminputwrap select, .vp-versionform__statusselectwrap select {
+        border: 1px solid @cs09;
+        box-sizing: border-box;
+        .pl--md;
+        .pr--md;
+        .text--lg;
+        .text--regular;
+        .text--cs03;
+    }
+    // READONLY INPUTS STYLES
+    input[type=text] {
+        &:-moz-read-only {
+            border: 0;
+            // CANCEL READONLY INPUTS FOCUS STYLES
+            &:focus {
+                border: 0;
+            }
+        }
+        &:read-only {
+            border: 0;
+            // CANCEL READONLY INPUTS FOCUS STYLES
+            &:focus {
+                border: 0;
+            }
+        }
+    }
+    // 'LABEL' REGION STYLES
+    .vp-versionform__labelsection {
+        width: @labelSectionWidth;
+    }
+    // 'CONTENT' REGION STYLES
+    .vp-versionform__content {
+        max-width: @screenshotsContainerMaxWidth;
+    }
+    // VERSION FIELD STYLES
+    .vp-versionform__version {
+        .vp-versionform__versioninput {
+            width: @versionInputWidth;
+        }
+        .vp-versionform__versioninputwrap {
+            width: @versionInputWrapWidth;
+            height: @versionInputWrapHeight;
+            // 'Done' BUTTON CLICKED STATE
+            &--done {
+                // HIDE HINT
+                .vp-versionform__versiondonebtn, .vp-versionform__versionhint {
+                    .hidden;
+                }
+                // SHOW CREATED DATE WRAP
+                .vp-versionform__versioncreateddatewrap {
+                    .inblock;
+                }
+            }
+        }
+        .vp-versionform__labelinputwrap {
+            margin-left: @versionLabelML;
+        }
+    }
+    // STATUS REGION STYLES
+    .vp-versionform__status {
+        .vp-versionform__statusselectwrap {
+            width: @statusSelectWidth;
+        }
+        // SHOW STATUS SECTION MODIFIER
+        &--show {
+            .block;
+        }
+    }
+    // 'CERTIFIED' REGION STYLES
+    .vp-versionform__certified {
+        .vp-versionform__certifieditem {
+            .mr--xl;
+        }
+        .vp-versionform__certifiedcontent {
+            .vp-versionform__certifieditem {
+                .hidden;
+            }
+            // CERTIFIED CONTENT FILLED MODIFIER
+            &--filled {
+                .vp-versionform__certifieditem {
+                    .inblock;
+                }
+            }
+        }
+        // ADD POPUP STYLES
+        .vp-versionform__addcertifieditembtnpopup {
+            width: @certifiedAddPopuoWidth;
+            left: @addCertifiedPopupTopArrowLeft;
+            top: @addCertifiedPopupTop;
+        }
+        // CERTIFIED 'ADD' BUTTON WRAPPER
+        .vp-versionform__addcertifiedbtnwrap {
+            &--show {
+                // POPUP SHOW MODIFIER
+                .vp-versionform__addcertifieditembtnpopup {
+                    .inblock;
+                }
+            }
+        }
+    }
+    // RELEASE NOTES STYLES
+    .vp-versionform__notes {
+        // TEXTAREA
+        .vp-versionform__releasenotesarea {
+            resize: none;
+            width: @releaseNotesInputWidth;
+            height: @releaseNotesInputHeight;
+        }
+    }
+    // PRE-REQUISITES
+    .vp-versionform__prerequisites {
+        .vp-versionform__prerequisitesitem {
+            .mr--xl;
+        }
+        .vp-versionform__prerequisitescontent {
+            .vp-versionform__prerequisitesitem {
+                .hidden;
+            }
+            // PRE-REQUISITES CONTENT FILLED MODIFIER
+            &--filled {
+                .vp-versionform__prerequisitesitem {
+                    .block;
+                }
+            }
+        }
+        // SHOW POPUP MODIFIER
+        .vp-versionform__editprerequisitesbtnwrap {
+            &--show {
+                .vp-versionform__editprerequisitesbtnpopup {
+                    .inblock;
+                }
+            }
+        }
+        // EDIT PRE REQUISITIES POPUP STYLES
+        .vp-versionform__editprerequisitesbtnpopup {
+            left: -(@preReqTopArrowLeft + @editBtnWidth/3);
+            top: @preReqPopupTopArrowTop;
+        }
+    }
+    // DOCUMENTATION STYLES
+    .vp-versionform__documentation {
+        // DOCUMENTATION NAME
+        .vp-versionform__documentlinkwrap {
+            width: @documentLinkWrapWidth;
+        }
+        .vp-versionform__documentlink {
+            line-height: 1.1;
+        }
+        .vp-versionform__content {
+            // SHOW ADDED DOCUMENTS MODIFIER
+            &--filled {
+                .vp-versionform__documentationlistwrap {
+                    .block;
+                    & ~ .vp-versionform__adddocbtn {
+                        .mt--xl;
+                    }
+                }
+            }
+        }
+    }
+    // SOURSE CONTROL STYLES
+    .vp-versionform__soursecontrol {
+        // SOURCE CONTROL ITEM
+        .vp-versionform__sourcecontrolitem {
+            label {
+                .inblock;
+                width: @sourceControlLabelWidth;
+            }
+        }
+        .vp-versionform__sourcecontrolurlinput {
+            width: @sourseControlInputWidth;
+        }
+    }
+    // SCREENSHOTS STYLES
+    .vp-versionform__screenshots {
+        .vp-versionform__screenshot {
+            width: @smallScreenshotWidth;
+            height: @smallScreenshotHeight;
+            border: 1px solid @cs09;
+            &:hover {
+                .vp-versionform__screenshotbtnwrap {
+                    .block;
+                }
+            }
+        }
+        // 'ADD' SCREENSHOT BUTTON
+        .vp-versionform__addscreenshotbtn {
+            width: @smallScreenshotWidth;
+            height: @smallScreenshotHeight;
+            border: 1px dashed @cs09;
+            &:hover {
+                background-color: @cs09;
+            }
+        }
+        // ROW SELECT BUTTON
+        .vp-versionform__panelbtn, .vp-versionform__screenshotbtnwrap {
+            height: @buttonsPanelHeight;
+            line-height: @buttonsPanelHeight;
+            width: @smallScreenshotWidth - @buttonsPanelHeight;
+            z-index: 2;
+        }
+        // BUTTON EGGE DECORATION
+        .vp-versionform__screenshotbtnwrap {
+            &:before {
+                content: '';
+                .absolute;
+                z-index: 1;
+                height: @buttonsPanelHeight;
+                width: @smallScreenshotWidth - @buttonsPanelHeight;
+                background-color: @cs07;
+                -webkit-transform-origin: left bottom;
+                transform-origin: left bottom;
+                -webkit-transform: skewx(44deg);
+                transform: skewx(44deg);
+            }
+        }
+        // REMOVE BUTTON (SCREENSHOT BUTTONS PANNEL)
+        .vp-versionform__removescreenshotbtn {
+            background: url('../assets/images/icons/remove_white_btn.png') no-repeat;
+            width: @removeWhiteWidth;
+            height: @removeWhiteHeight;
+            background-size: contain;
+        }
+        // EDIT BUTTON (SCREENSHOT BUTTONS PANNEL)
+        .vp-versionform__editscreenshotbtn {
+            background: url('../assets/images/icons/edit_white_btn.png') no-repeat;
+        }
+        // SHOW BUTTON (SCREENSHOT BUTTONS PANNEL)
+        .vp-versionform__showscreenshotbtn {
+            background: url('../assets/images/icons/recently_viewed_icn.png') no-repeat;
+            width: @showBtnWidth;
+            height: @recentlyIconHeight;
+            background-size: contain;
+        }
+        .vp-versionform__screenshotslistwrap {
+            .vp-versionform__screenshotitem {
+                .hidden;
+            }
+            // SCREENSHOT SECTION FILLED MODIFIER
+            &--filled {
+                .vp-versionform__screenshotitem {
+                    .inblock;
+                }
+            }
+        }
+        // SCREENSHOT POPUP STYLES
+        .vp-versionform__editscreenshotbtnpopup {
+            left: @editScreenshotPopupLeft;
+        }
+        // EDIT BUTTON SHOW MODIFIER
+        .vp-versionform__editscreenshotbtnwrap {
+            &--show {
+                .vp-versionform__editscreenshotbtnpopup {
+                    .inblock;
+                }
+            }
+        }
+    }
+    // DEPLOYMENT DETAILS STYLES
+    .vp-versionform__deploymentdetails {
+        .vp-versionform__deployiteminner, .vp-versionform__adddeploymentdetail {
+            width: @deploymentItemWidth;
+            height: @deploymentItemHeight;
+            line-height: @deploymentItemHeight;
+            &:hover {
+                border: 1px dashed @cs07;
+            }
+        }
+        .vp-versionform__deployitemlabelwrap {
+            width: @deployDetailsLabelWidth;
+        }
+        // BUTTONS AND CHECKBOX WRAPPER
+        .vp-versionform__optionspanelcontainer {
+            width: @optionsPanelWidth;
+        }
+        // INPUT FIELD WIDTH
+        .vp-versionform__deployiteminputwrap {
+            width: calc(~"100% - " (@optionsPanelWidth + @deployDetailsLabelWidth + 4px));
+        }
+        // DEPLOYMENT DETAILS ITEM STYLES
+        .vp-versionform__deployitemlistwrap {
+            .vp-versionform__deploydetailsitem {
+                .hidden;
+            }
+            // DEPLOYMENT DETAILS FILLED CONTENT MODIFIER
+            &--filled {
+                .vp-versionform__deploydetailsitem {
+                    .block;
+                    .mb--md
+                }
+            }
+        }
+    }
+}

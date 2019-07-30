@@ -1,0 +1,30 @@
+<!--TAB COMPONENT START-->
+<div class="vp-tabs vp-tabs--default vp-tabs--service vp-control relative max--width max--height clearfix">
+    <!--TABS HEADER NAVIGATION BAR-->
+    <div class="vp-tabs__nav max--width left">
+        <nav>
+            <ul class="vp-tabs__navlist  max--width text--center text--md text--light text--cs06 table">
+                <!--ACTIVE TAB STATE (MODIFIERS: # vp-tabs__tab--active   )-->
+                <li ng-class="getCurrentTab('ImportTab')" ng-click="showCurrentTab('ImportTab')"  style="width:180px">
+                    <span class="vp-tabs__tablabel vertical--top no--decor">Import</span>
+                </li>
+
+                 <li ng-class="getCurrentTab('ExportTab')" ng-click="showCurrentTab('ExportTab')" style="width:180px">
+                    <span class="vp-tabs__tablabel vertical--top no--decor">Export</span>
+                </li>
+                 <li ng-class="getCurrentTab('SaveExportsTab')" ng-click="showCurrentTab('SaveExportsTab')" style="width:180px">
+                    <span class="vp-tabs__tablabel vertical--top no--decor">Saved Export Details</span>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <!--TAB BODY WRAPPER, LOAD TEMPLATE INSIDE-->
+    <div class="vp-tabs__body overflow--auto left max--width">
+
+        <div  ng-if="currentTab==='ImportTab'"  class="vp-tabs__servicetabcontent" ng-include="'static/components/import-export/import-file-content/importfilecontent.component.html'"></div>
+        <div  ng-if="currentTab==='ExportTab'"  class="vp-tabs__servicetabcontent" ng-include="'static/components/import-export/export-file-content/exportfilecontent.component.html'"></div>
+        <div  ng-if="currentTab==='SaveExportsTab'"  class="vp-tabs__servicetabcontent" ng-include="'static/components/import-export/save-export-file-content/saveexportcontent.component.html'"></div>
+    </div>
+</div>
+<!--TAB COMPONENT END-->

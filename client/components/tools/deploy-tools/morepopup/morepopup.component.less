@@ -1,0 +1,64 @@
+// VARIABLES: SECTION 23
+.vp-moretoolspopup, .vp-moremachinespopup {
+    width: @moreToolsWidth;
+    box-shadow: @shadow;
+}
+
+.vp-moretoolspopup__container, .vp-moremachinespopup__container {
+    .ba--solid(@cs09);
+}
+
+//TOOL ROW
+.vp-moretoolspopup__toolitem, .vp-moremachinespopup__toolitem {
+    min-height: @selectedToolItemHeight;
+    line-height: @selectedToolItemHeight;
+    &:not(: last-of-type) {
+        border-bottom: 1px solid @cs09;
+    }
+    &:hover {
+        .vp-moremachinespopup__toolname, .vp-moretoolspopup__toolname {
+            color: @cs04;
+        }
+    }
+}
+
+//AUTO COMPLETE DROPDOWN STYLE
+.vp-moremachinespopup__searchautocomplete {
+    width: @autoCompleteWidth;
+    top: @searchFieldHeight;
+    left: @searchFieldPL;
+    z-index: 3;
+}
+
+//TOOL NAME (WIDTH is 100% - button size - icon size - MR)
+.vp-moretoolspopup__toolname, .vp-moremachinespopup__toolname {
+    width: calc(~"100% - " (@selectedToolsRemoveBtnSize + @toolsStateIconSize + 30))
+}
+
+//TOOLS SEARCH BOX
+.vp-moretoolspopup__searchboxwrapper, .vp-moremachinespopup__searchboxwrapper {
+    border-bottom: 1px solid @cs09;
+    //SEARCH FIELD WIDTH OVERRRIDE
+    .vp-moretoolspopup__searchinput, .vp-moremachinespopup__searchinput {
+        width: calc(~"100% - " (@searchFieldPR + @searchFieldPL));
+    }
+}
+
+//OVERRIDE WIDTH ,SEARCHBOX FROM UIELEMENT
+div.vp-moretoolspopup__searchbox, div.vp-moremachinespopup__searchbox {
+    .max--width;
+}
+
+//OVERRIDE POPUP 'TOP ARROW' POSITION
+.vp-uielement__popuptop::before {
+    left: @popupArrowLeft;
+}
+
+//SEARCH AUTO COMPLETE STYLE
+.vp-moremachinespopup__searchbox {
+    &.vp-moremachinespopup__searchbox--drop {
+        .vp-moremachinespopup__searchautocomplete {
+            .block;
+        }
+    }
+}

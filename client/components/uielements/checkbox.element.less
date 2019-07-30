@@ -1,0 +1,27 @@
+// VARIABLES: SECTION 10 //checkbox
+// COPONENT CLASS
+div.vp-uielement__checkbox {
+    .inblock;
+    &:hover{
+        .pointer;
+    }
+    input[type="checkbox"] {
+        display: none;
+    }
+    //CHECKBOX DESIGN UNCHECKED
+    input[type="checkbox"] + label:after {
+        content:'';
+        display: inline-block;
+        width: @checkBoxWidth;
+        height: @checkBoxWidth;
+        margin: -1px 4px 0 0;
+        vertical-align: middle;
+        background: url('../assets/images/icons/checkbox_empty.png') no-repeat;
+        cursor: pointer;
+    }
+    //CHECKBOX DISIGN CHECKED
+    input[type="checkbox"]:checked + label:after {
+        content:'';
+        background: url('../assets/images/icons/checkbox_selected.png') no-repeat;
+    }
+}

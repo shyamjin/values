@@ -1,0 +1,37 @@
+<!--PERMISSIONS SELECT FORM COMPONENT START-->
+<div class="vp-permissionsselect bg--white max">
+    <!--COLUMN LABELS SECTION-->
+    <section class="vp-permissionsselect__header text--capitalize text--cs03 text--light text--md max--width vp-versionform__deployitemlistwrap--filled">
+        <label class="vp-permissionsselect__operatorcol pre_requistize_style inblock" style="width: 60%;color: white;">Prerequisites</label>
+            <label class="vp-permissionsselect__admincol pre_requistize_style inblock" style="color: white;">Edit</label>
+            <label class="vp-permissionsselect__operatorcol pre_requistize_style inblock" style="color: white;">Delete</label>
+            <input placeholder="prerequisite search" class="input-sm form-control" type="search" ng-model="searchPrerequisiteKeyword" style="width: 80%; margin-top: 2%;"/>
+    </section>
+    <!--PERMISSIONS SELECT SECTION-->
+    <section class="vp-permissionsselect__body max--width" style="height:780px; overflow: overlay;">
+        <form action="#" name="vp-permissionsselect__form">
+            <ul class="vp-permissionsselect__list">
+                <!--DEPLOY TOOLS PERMISSIONS-->
+                <li class="vp-permissionsselect__item vp-permissionsselect__itemdeploytools pt--xxxl max--width" ng-repeat="prerequisite in prerequisitesAll | filter : searchPrerequisiteKeyword">
+                    <div class="vp-permissionsselect__iteminner">
+                        <div class="vp-permissionsselect__rolecol vertical--bottom text--regular text--lg inblock" style="width: 60%;">
+                            <span class="text--ellipsis text--ellipsis--single">{{prerequisite.prerequisites_name}}</span>
+                        </div>
+                        <div class="vp-permissionsselect__admincol inblock">
+                           <div class="vp-teamsform__editcol vertical--top pt--md inblock">
+                               <button type="button" class="vp-versionform__editdeploydetails vp-uielement__button vp-uielement__button--edit" ng-click="selectPrerequisite(prerequisite._id.$oid)"></button>
+                            </div>
+                        </div>
+                        <div class="vp-permissionsselect__operatorcol inblock">
+                            <!--OPERATOR CHECKBOX-->
+                            <div class="vp-teamsform__deletecol vertical--top pt--md inblock">
+                                <button type="button" class="vp-versionform__removescreenshotbtn vp-uielement__button vp-uielement__button--removeenabled pl--xxl" ng-click="openDeletePrerequisiteConfirmationPopup(prerequisite._id.$oid)"></button>
+                            </div>
+                        </div>
+                     </div>
+                </li>
+            </ul>
+        </form>
+    </section>
+</div>
+<!--PERMISSIONS SELECT FORM COMPONENT END-->

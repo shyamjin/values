@@ -1,0 +1,33 @@
+<div class="vp-tabs__recentrequestsbodywrapper max--height relative" ng-controller="RecentDeploymentRequestsController">
+	<!--RECENT REQUESTS TAB HEADER-->
+	<div class="vp-tabs__recentrequestsheader">
+		<div class="vp-tabs__bodyheaderfailedwrapper text--cs05  inblock">
+			<span class="vp-tabs__bodyheaderfailednotif">Failed: </span>
+			<span class="vp-tabs__bodyheaderfailedcount">{{requestsAll.data.requests_count.failed}}</span>
+		</div>
+		<div class="vp-tabs__bodyheaderinprogresswrapper text--cs04  inblock">
+			<span class="vp-tabs__bodyheaderinprogressnotif pl--sm">In progress: </span>
+			<span class="vp-tabs__bodyheaderinprogresscount">{{requestsAll.data.requests_count.inprogress}}</span>
+		</div>
+		<div class="vp-tabs__bodyheaderinprogresswrapper text--cs04  inblock">
+			<span class="vp-tabs__bodyheaderinprogressnotif pl--sm">Completed: </span>
+			<span class="vp-tabs__bodyheaderinprogresscount">{{requestsAll.data.requests_count.done}}</span>
+		</div>
+		<div class="vp-tabs__bodyheaderinprogresswrapper text--cs04  inblock">
+			<span class="vp-tabs__bodyheaderinprogressnotif pl--sm">Skipped: </span>
+			<span class="vp-tabs__bodyheaderinprogresscount">{{requestsAll.data.requests_count.skipped}}</span>
+		</div>
+	</div>
+	<!--INCLUDE TREE VIEW COMPONENT-->
+	<div class="vp-tabs__bodytreeview overflow-y--auto" ng-include="'static/components/dashboard/treeview/recent-requests/recent-requests-tree.component.html'"></div>
+	<!--RECENT REQUESTS TAB FOOTER-->
+	<div class="vp-recentrequestfooter max--width text--right absolute pos--bottom table">
+		<span class="vp-tabs__recentrequestsfootermsg text--cs06 text--light text--sm pb--sm vertical--bottom table--cell">
+			<!--Completed requests are cleared after 48 hours-->
+			Showing last 100 requests
+		</span>
+		<div class="vp-tabs__recentrequestsfooterbtnwrapper pr--md vertical--bottom table--cell">
+			<!--<button type="button" class="vp-tabs__recentrequestsfooterbtn vp-uielement__button vp-uielement__button&#45;&#45;cleanenabled" ng-click="ClearAll()">Clear all</button>-->
+		</div>
+	</div>
+</div>

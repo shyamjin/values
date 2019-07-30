@@ -1,0 +1,33 @@
+Running Sync Request Id, by Referring targetHost
+---
+tags:
+ - Sync
+parameters:
+- name: token
+  in: header
+  description: API key
+  required: false
+  type: string
+  format: string
+- name: access-token
+  in: header
+  description: API key
+  required: false
+  type: string
+  format: string 
+- name: id
+  in: path
+  type: string
+  required: true
+  description: Run Sync Request Id
+responses:
+  200:
+    description: Running Sync Request Id Successfully
+    examples:
+      result: "success"
+      message: null
+  404:
+    description: exception in Running Sync Request Id
+    examples:
+      result: "failed"
+      message: "Throws an exception"

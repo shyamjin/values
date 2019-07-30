@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+   <description></description>
+   <name>button_Continue</name>
+   <tag></tag>
+   <elementGuidId>558c6000-870d-41b1-b83d-7db2b8624b8b</elementGuidId>
+   <selectorMethod>BASIC</selectorMethod>
+   <useRalativeImagePath>false</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>tag</name>
+      <type>Main</type>
+      <value>button</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>type</name>
+      <type>Main</type>
+      <value>button</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>class</name>
+      <type>Main</type>
+      <value>vp-attentionmodal__continuebtn vp-uielement__button vp-uielement__button--apply ml--xxxl</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>ng-click</name>
+      <type>Main</type>
+      <value>removeThisMachine()</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>text</name>
+      <type>Main</type>
+      <value>Continue</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath</name>
+      <type>Main</type>
+      <value>id(&quot;show_delete_machine_confirmation_popup&quot;)/div[@class=&quot;vp-edittools__atttentionmodal absolute ng-scope&quot;]/div[@class=&quot;vp-attentionmodal vp-control bg--cs10 pt--xxxl pr--xxxl pb--xl pl--xxxl ng-scope&quot;]/div[@class=&quot;vp-attentionmodal__btnswrap right&quot;]/button[@class=&quot;vp-attentionmodal__continuebtn vp-uielement__button vp-uielement__button--apply ml--xxxl&quot;]</value>
+   </webElementProperties>
+</WebElementEntity>

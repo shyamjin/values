@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+   <description></description>
+   <name>label_machineselect</name>
+   <tag></tag>
+   <elementGuidId>27427c97-2d08-4497-9580-71039024d4a9</elementGuidId>
+   <selectorCollection>
+      <entry>
+         <key>BASIC</key>
+         <value>id(&quot;add_machine&quot;)/div[@class=&quot;vp-tooldepqeditpopup vp-control ng-scope&quot;]/div[@class=&quot;vp-tooldepqeditpopup__container vp-uielement__popup pt--md pr--xl pb--xl pl--xl bg--white&quot;]/div[@class=&quot;vp-tooldepqeditpopup__optionswrap mt--lg&quot;]/ul[@class=&quot;vp-tooldepqeditpopup__optionslist text--cs03 text--regular text--md&quot;]/li[@class=&quot;vp-tooldepqeditpopup__optionsitem mt--md ng-scope&quot;]/div[@class=&quot;vp-tooldepqeditpopup__iteminner text--ellipsis&quot;]/div[@class=&quot;vp-tooldepqeditpopup__checkbox vp-uielement__checkbox&quot;]/div[@class=&quot;vp-tooldepqeditpopup__itemnamewrap ml--sm inblock vertical--bottom&quot;]/label[@class=&quot;vp-tooldepqeditpopup__itemname text--ellipsis text--ellipsis--single ng-binding&quot;][count(. | //*[@for = 'vp-addmachinespopup__c1_0']) = count(//*[@for = 'vp-addmachinespopup__c1_0'])]</value>
+      </entry>
+   </selectorCollection>
+   <selectorMethod>BASIC</selectorMethod>
+   <useRalativeImagePath>false</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>tag</name>
+      <type>Main</type>
+      <value>label</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>for</name>
+      <type>Main</type>
+      <value>vp-addmachinespopup__c1_0</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>class</name>
+      <type>Main</type>
+      <value>vp-tooldepqeditpopup__itemname text--ellipsis text--ellipsis--single ng-binding</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>text</name>
+      <type>Main</type>
+      <value>blabla</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath</name>
+      <type>Main</type>
+      <value>id(&quot;add_machine&quot;)/div[@class=&quot;vp-tooldepqeditpopup vp-control ng-scope&quot;]/div[@class=&quot;vp-tooldepqeditpopup__container vp-uielement__popup pt--md pr--xl pb--xl pl--xl bg--white&quot;]/div[@class=&quot;vp-tooldepqeditpopup__optionswrap mt--lg&quot;]/ul[@class=&quot;vp-tooldepqeditpopup__optionslist text--cs03 text--regular text--md&quot;]/li[@class=&quot;vp-tooldepqeditpopup__optionsitem mt--md ng-scope&quot;]/div[@class=&quot;vp-tooldepqeditpopup__iteminner text--ellipsis&quot;]/div[@class=&quot;vp-tooldepqeditpopup__checkbox vp-uielement__checkbox&quot;]/div[@class=&quot;vp-tooldepqeditpopup__itemnamewrap ml--sm inblock vertical--bottom&quot;]/label[@class=&quot;vp-tooldepqeditpopup__itemname text--ellipsis text--ellipsis--single ng-binding&quot;]</value>
+   </webElementProperties>
+</WebElementEntity>

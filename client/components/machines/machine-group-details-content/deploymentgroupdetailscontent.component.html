@@ -1,0 +1,45 @@
+<div class="vp-machdetails vp-control pt--xxxl pr--xl pb--xxxl pl--xxxl bg--white clearfix max">
+    <ul class="vp-machdetails__fieldslist text--cs03"  style="min-height: 700px;" ng-if="machineGroupDetails.dep_group_details.length >0">
+        <section class="vp-permissionsselect__header text--capitalize text--cs03 text--light text--md max--width">
+            <label class="deployedtool_table_col_build inblock" style="width:25%"><span class="permissionweight"></span></label>
+            <label class="vp-deployedtool_version_col inblock" style="width:120px"><span class="permissionweight">Status</span></label>
+            <label class="deployedtool_table_col_build inblock" style="width:120px"><span class="permissionweight">Deployment Type</span></label>
+            <label class="vp-deployedtool_version_col inblock" style="width:120px"><span class="permissionweight">Requested By</span></label>
+            <label class="vp-deployedtool_version_col inblock" style="width:120px"><span class="permissionweight">Request Type</span></label>
+            <label class="vp-deployedtool_version_col inblock" style="width:170px"><span class="permissionweight">Package State Name</span></label>            
+            <hr class="vp-permissionsselect__separator mt--md bg--cs09 ba--clear">
+        </section>
+        <!--PERMISSIONS SELECT SECTION-->
+        <section class="vp-permissionsselect__body max--width">
+            <form action="#" name="vp-permissionsselect__form">
+                <ul class="vp-permissionsselect__list">
+                    <!--DEPLOY TOOLS PERMISSIONS-->
+                    <li class="vp-permissionsselect__item vp-permissionsselect__itemdeploytools pt--xxxl max--width" ng-repeat="deploymentDetails in machineGroupDetails.dep_group_details">
+                        <div class="vp-permissionsselect__iteminner">
+                            <div class="vp-deployedtool_actions_col vertical--bottom text--regular text--lg inblock"  style="width:25%">
+                                <div class="vp-machdetails__fieldtypewrap vp-machdetails__editablewrap inblock">
+                                    <button type="button" class="vp-machdetails__ipeditbtn vp-uielement__button vp-uielement__button--cleanenabled pa--none" ng-click="machineDeploymentGroupDetails(deploymentDetails._id)">{{deploymentDetails.name}}-{{deploymentDetails.create_date.$date | date}}</button>
+                                </div>
+                            </div>
+                            <div class="vp-deployedtool_version_col vertical--bottom text--regular text--lg inblock" style="width:120px">
+                                <span class="text--ellipsis text--ellipsis--single">{{deploymentDetails.status}}</span>
+                            </div>
+                            <div class="vp-deployedtool_build_col vertical--bottom text--regular text--lg inblock" style="width:120px">
+                                <span class="text--ellipsis text--ellipsis--single" ng-if="deploymentDetails.deployment_type">{{deploymentDetails.deployment_type}}</span>
+                            </div>
+                            <div class="vp-deployedtool_version_col vertical--bottom text--regular text--lg inblock" style="width:120px">
+                                <span class="text--ellipsis text--ellipsis--single" style="white-space:pre-wrap">{{deploymentDetails.requested_by}}</span>
+                            </div>
+                            <div class="vp-deployedtool_version_col vertical--bottom text--regular text--lg inblock" style="width:120px">
+                                <span class="text--ellipsis text--ellipsis--single">{{deploymentDetails.request_type}}</span>
+                            </div>
+                            <div class="vp-deployedtool_version_col vertical--bottom text--regular text--lg inblock" style="width:180px">
+                                <span class="text--ellipsis text--ellipsis--single">{{deploymentDetails.package_state_name}}</span>
+                            </div>                            
+                        </div>
+                    </li>
+                </ul>
+            </form>
+        </section>
+    </ul>
+</div>

@@ -1,0 +1,6 @@
+.vp-createclonerequest .vp-createclonerequest__navaside {
+  z-index: 200;
+}
+.vp-createclonerequest .vp-createclonerequest__content {
+  z-index: 100;
+}

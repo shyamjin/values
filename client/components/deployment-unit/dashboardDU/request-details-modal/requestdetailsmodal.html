@@ -1,0 +1,100 @@
+<!--REQUEST DETAILS MODAL COMPONENT START-->
+<div class="vp-rdmodal vp-control bg--white relative">
+	<div class="vp-rdmodal__header">
+		<!--TITLE-->
+		<h1 class="vp-rdmodal__title text--cs06 text--xl text--light mt--xl ml--xl inblock">Request Details</h1>
+		<!--CLOSE BUTTON-->
+		<button type="button" class="vp-rdmodal__closebtn btn--clear mt--md mr--lg right" ng-click="closeDeploymentRequestDetails()"></button>
+	</div>
+	<!--MODAL BODY-->
+	<div class="vp-rdmodal__body">
+		<!--TYPE SECTION-->
+		<div class="vp-rdmodal__type">
+			<span class="vp-rdmodal__fieldname text--cs03 text--light text--md inblock">Type:</span>
+			<span class="vp-rdmodal__fielddescription ml--xxl text--regular text--lg">{{requestDetails.data.request_type}}</span>
+		</div>
+		<!--TOOLS SECTION-->
+		<div class="vp-rdmodal__tools mt--xxl">
+			<span class="vp-rdmodal__fieldname text--cs03 text--light text--md inblock">Tools:</span>
+			<span class="vp-rdmodal__fielddescription ml--xxl text--regular text--lg">{{requestDetails.data.tool_name}} <span class="vp-rdmodal__toolversion ml--md">Version:</span>
+			<span class="vp-rdmodal__toolversionnumber">{{requestDetails.data.version_details.version_name}} {{requestDetails.data.version_details.version_number}}</span>
+			</span>
+			<!--SHOW ALL TOOLS BUTTON-->
+			<!--<button type="button" class="vp-rdmodal__toolsshowallbtn vp-uielement__button vp-uielement__button&#45;&#45;cleanenabled pa&#45;&#45;none ml&#45;&#45;md vertical&#45;&#45;top">Show all <span class="vp-rdmodal__toolscount">3</span> tools</span></button>-->
+		</div>
+		<!--ON MACHINES SECTION-->
+		<div class="vp-rdmodal__onmachines mt--xxl">
+			<span class="vp-rdmodal__fieldname text--cs03 text--light text--md inblock">On machines:</span>
+			<span class="vp-rdmodal__fielddescription ml--xxl text--regular text--lg">{{requestDetails.data.machine_name}}</span>
+			<!--SHOW ALL MACHINES BUTTON-->
+			<!--<button type="button" class="vp-rdmodal__machinesshowallbtn vp-uielement__button vp-uielement__button&#45;&#45;cleanenabled pa&#45;&#45;none ml&#45;&#45;sm vertical&#45;&#45;top">Show all <span class="vp-rdmodal__machinescount">12</span> machines</span></button>-->
+		</div>
+		<!--STATUS SECTION-->
+		<div class="vp-rdmodal__status mt--xxl">
+			<span class="vp-rdmodal__fieldname text--cs03 text--light text--md vertical--top inblock">Status</span>
+			<div class="vp-rdmodal__fielddescription ml--xxl text--regular text--lg inblock">
+				<!--STATUS DESCRIPTION INNER-->
+				<div class="vp-rdmodal__statusdescriptioncontainer inblock" ng-if="requestDetails.data.status==='Processing'">
+					<div class="vp-rdmodal__statusscheduleicon vertical--top inblock"></div>
+					<span class="vp-rdmodal__schedule vertical--top ml--sm">Scheduled for </span><span class="vp-rdmodal__scheduledate vertical--top ml--sm">{{requestDetails.data.scheduled_date.$date | date : "MMM d, y h:mma"}}</span>
+					<button type="button" class="vp-rdmodal__statuscalendarbtn vp-uielement__button vp-uielement__button--cleanenabled pa--none ml--sm relative"></button>
+				</div>
+                <div class="vp-rdmodal__statusdescriptioncontainer inblock" ng-if="requestDetails.data.status==='Failed'">
+					<span class="vp-rdmodal__scheduledate vertical--top ml--sm">Failed</span>
+                    <div class="vp-rdmodal__statusfailedicon vertical--top inblock"></div>
+				</div>
+                <div class="vp-rdmodal__statusdescriptioncontainer inblock" ng-if="requestDetails.data.status==='Completed'">
+					<span class="vp-rdmodal__scheduledate vertical--top ml--sm">Completed</span>
+				</div>
+			</div>
+		</div>
+        <div class="vp-rdmodal__onmachines mt--xxl">
+			<span class="vp-rdmodal__fieldname text--cs03 text--light text--md inblock">Submitted:</span>
+			<span class="vp-rdmodal__fielddescription ml--xxl text--regular text--lg">{{requestDetails.data.create_date.$date | date : "MMM d, y h:mm a"}}</span>
+		</div>
+        <div class="vp-rdmodal__status mt--xxl" ng-if="requestDetails.data.logs.length>0">
+			<div class="log-modal">
+                <a href="" ng-click="hideLog()" class="dep-log-button close">Close</a>
+                <div class="vp-machdetails__fieldlabelwrap inblock">
+                    <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Logs:</label>
+                </div>
+                <div class="vp-machdetails__fielditeminner">
+                    <!--IP FIELD CONTENT-->
+                    <table>
+                        <tr ng-repeat="singleDateLog in CurrentDeploymentlogs track by $index">
+                            <td style="width:150px;">{{singleDateLog.dateofdeployment | date : "MMM d, y h:mm a"}}</td>
+                            <td>
+                                <table>
+                                    <tr style="background-color:inherit" ng-repeat="logInfo in singleDateLog.logdata track by $index">
+                                        <td>{{logInfo}}</td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+           </div>
+		</div>
+	</div>
+	<!--MODAL FOOTER-->
+	<div class="vp-rdmodal__footer absolute pos--bottom">
+		<!--CLOSE BUTTON-->
+		<div class=" vp-uielement__button inblock">
+			<button type="button" class="vp-rdmodal__footerclosebtn vp-uielement__button vp-uielement__button--close" ng-click="closeDeploymentRequestDetails()">Close</button>
+		</div>
+        <div class=" vp-uielement__button inblock" ng-if="CurrentDeploymentlogs" style="margin-left: 71px;">
+			<button type="button" class="vp-rdmodal__footerclosebtn vp-uielement__button vp-uielement__button--close" ng-click="showLog()">Show Logs</button>
+		</div>
+		<div class="vp-rdmodal__discardbtnwrap right" ng-if="requestDetails.data.status==='Processing'">
+			<button type="button" class="vp-rdmodal__discardbtn vp-uielement__button vp-uielement__button--removeenabled text--regular text--md pl--xxl">Discard</button>
+		</div>
+		<div class=" vp-uielement__button inblock action_button" ng-if="requestDetails.data.status==='Failed'">
+			<button type="button" class="vp-rdmodal__footerclosebtn vp-uielement__button vp-uielement__button--close" ng-click="closeDeploymentRequestDetails()">Re-submit</button>
+		</div>
+		<div class=" vp-uielement__button inblock action_button" ng-if="requestDetails.data.status==='Completed'">
+			<button type="button" class="vp-rdmodal__footerclosebtn vp-uielement__button vp-uielement__button--close" ng-click="closeDeploymentRequestDetails()">Duplicate</button>
+		</div>
+	</div>
+</div>
+<!--REQUEST DETAILS MODAL COMPONENT END-->

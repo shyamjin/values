@@ -1,0 +1,33 @@
+Getting Deployment Unit Set
+---
+tags:
+ - Deployment Unit Set
+parameters:
+- name: token
+  in: header
+  description: API key
+  required: false
+  type: string
+  format: string
+- name: access-token
+  in: header
+  description: API key
+  required: false
+  type: string
+  format: string 
+- name: id
+  in: path
+  type: string
+  required: true
+  description: Get Deployment Unit Set
+responses:
+  200:
+    description: Successfully Get Deployment Unit Set
+    examples:
+      result: "success"
+      message: null
+  404:
+    description: exception in Getting Deployment Unit Set
+    examples:
+      result: "failed"
+      message: "Throws an exception"

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+   <description></description>
+   <name>button_Continue</name>
+   <tag></tag>
+   <elementGuidId>e4c38147-e2ac-4994-9ce5-d8e6ad393764</elementGuidId>
+   <selectorCollection>
+      <entry>
+         <key>BASIC</key>
+         <value>id(&quot;delete_attenation_popup&quot;)/div[@class=&quot;vp-edittools__atttentionmodal absolute ng-scope&quot;]/div[@class=&quot;vp-attentionmodal vp-control bg--cs10 pt--xxxl pr--xxxl pb--xl pl--xxxl ng-scope&quot;]/div[@class=&quot;vp-attentionmodal__btnswrap right ng-scope&quot;]/button[@class=&quot;vp-attentionmodal__continuebtn vp-uielement__button vp-uielement__button--apply ml--xxxl&quot;][count(. | //button[@type = 'button' and @class = 'vp-attentionmodal__continuebtn vp-uielement__button vp-uielement__button--apply ml--xxxl' and @ng-click = 'continueRemoveDU()' and (text() = 'Continue' or . = 'Continue')]) = count(//button[@type = 'button' and @class = 'vp-attentionmodal__continuebtn vp-uielement__button vp-uielement__button--apply ml--xxxl' and @ng-click = 'continueRemoveDU()' and (text() = 'Continue' or . = 'Continue')])]</value>
+      </entry>
+   </selectorCollection>
+   <selectorMethod>BASIC</selectorMethod>
+   <useRalativeImagePath>false</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>tag</name>
+      <type>Main</type>
+      <value>button</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>type</name>
+      <type>Main</type>
+      <value>button</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>class</name>
+      <type>Main</type>
+      <value>vp-attentionmodal__continuebtn vp-uielement__button vp-uielement__button--apply ml--xxxl</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>ng-click</name>
+      <type>Main</type>
+      <value>continueRemoveDU()</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>text</name>
+      <type>Main</type>
+      <value>Continue</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath</name>
+      <type>Main</type>
+      <value>id(&quot;delete_attenation_popup&quot;)/div[@class=&quot;vp-edittools__atttentionmodal absolute ng-scope&quot;]/div[@class=&quot;vp-attentionmodal vp-control bg--cs10 pt--xxxl pr--xxxl pb--xl pl--xxxl ng-scope&quot;]/div[@class=&quot;vp-attentionmodal__btnswrap right ng-scope&quot;]/button[@class=&quot;vp-attentionmodal__continuebtn vp-uielement__button vp-uielement__button--apply ml--xxxl&quot;]</value>
+   </webElementProperties>
+</WebElementEntity>

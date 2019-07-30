@@ -1,0 +1,98 @@
+// VARIABLES: SECTION LAST
+// TOOLS PAGE ASSEMBLY PARTIALS
+div.vp-toolspage {
+    // DEFAULT THEME MODIFIER (right column close)
+    &.vp-toolspage--default {
+        div.vp-toolspage__filter {
+            width: @dashFilterWidth;
+            height: calc(~"100% - " @headerHeight);
+        }
+        div.vp-toolspage__tabs {
+            width: @dashDefaultTabsWidth;
+        }
+        button.vp-tabs__bodyheaderfilterbtn {
+            .hidden;
+        }
+    }
+    // RIGHT COLUMN ACTIVE THEME MODIFIER
+    &.vp-toolspage--rightactive {
+        div.vp-toolspage__filter {
+            .hidden;
+        }
+        button.vp-tabs__bodyheaderselectallbtn {
+            .hidden;
+        }
+        // WHEN RIGHT SIDE BAR OPEN ,TABS SHOULD BE 100% o parent width
+        div.vp-toolspage__tabs {
+            .max--width;
+        }
+        // CEBTER COLUMN (main content) VIEW
+        div.vp-toolspage__centercolumn {
+            max-width: @dashRightSideOpenCenterColumnWidth;
+        }
+        // RIGHT COLUMN VIEW 
+        div.vp-toolspage__rightcolumn {
+            .inblock;
+            width: @dashRightSideOpenRightColumnWidth;
+        }
+    }
+    // BOTH THEMES VIEW STYLE
+    div.vp-toolspage__content {
+        max-width: calc(~"@Width - " @navasideToolbarWidth);
+        min-width: @minWidth - @navasideToolbarWidth;
+        margin-left: @navasideToolbarWidth;
+    }
+    // CORRECT TABS POSITION IN CENTER COLUMN
+    div.vp-toolspage__tabs {
+        margin-top: @dashTabsLabelMT;
+        height: calc(~"100% - " (@headerHeight + @dashTabsLabelMT + @tabBorderWidth));
+    }
+    div.vp-toolspage__navaside {
+        z-index: 20;
+    }
+    // NOTIFICATION STYLES
+    .vp-toolspage__headnotificationwrap {
+        width: calc(~"100% - " @navasideToolbarWidth);
+        margin-left: @navasideToolbarWidth;
+        &.vp-toolspage__headnotificationwrap--show {
+            .block;
+        }
+    }
+    // SHOW TOOL MODAL
+    .vp-toolspage__showtoolwrap {
+        min-width: @minWidth;
+        .vp-toolspage__showtool {
+            width: @innerShowToolPageWidth;
+        }
+        background-color: fade(@cs03, 75%);
+        &--show {
+            .block;
+            z-index: 9999;
+        }
+    }
+}
+
+// GLOBAL STYLE CHANGES in partial files
+div.vp-toolspage--rightactive {
+    // CHANGE HEADER COLOR WHEN RIGHT SIDEBAR OPEN
+    div.vp-header {
+        background-image: none;
+        .bg--cs01;
+    }
+}
+
+    .vp-deploymentrequestmodalwrap {
+        z-index: 9999;
+        min-width: @minWidth;
+        background-color: @csdarkmutted;
+        &--show {
+            .block;
+        }
+    }
+    // 'ADD A SETTING' MODAL POSITION
+    .vp-deploymentrequestmodal {
+        top: 5%;
+        left: 25%;
+        width: 50%;
+        height: 90%;
+    }

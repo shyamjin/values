@@ -1,0 +1,37 @@
+<!--PRE REQUISITIES EDIT POPUP COMPONENT START-->
+<div class="vp-tooldepqeditpopup vp-control" style="overflow-y:visible">
+    <div class="vp-tooldepqeditpopup__popuptop vp-uielement__popuptop"></div>
+    <div class="vp-tooldepqeditpopup__container vp-uielement__popup pt--md pr--xl pb--xl pl--xl bg--white" style="height: 100%; overflow-x: hidden; overflow-y: auto;">
+        <div class="vp-tooldepqeditpopup__inputwrap">
+            <input type="text" class="vp-tooldepqeditpopup__input input--clear max--width text--cs03 text--regular text--lg" ng-model="searchUserKeyword">
+        </div>
+        <div class="vp-tooldepqeditpopup__optionswrap mt--lg">
+            <!--VERSION OPTIONS LIST-->
+            <ul class="vp-tooldepqeditpopup__optionslist text--cs03 text--regular text--md">
+                <!--VERSION ITEM EXAMPLE-->
+                <li class="vp-tooldepqeditpopup__optionsitem mt--md" ng-repeat="user in users | filter : searchUserKeyword">
+                    <div class="vp-tooldepqeditpopup__iteminner text--ellipsis">
+                        <div class="vp-tooldepqeditpopup__checkbox vp-uielement__checkbox">
+                            <!--ITEM CHECKBOX-->
+                            <input type="checkbox" id="vp-deptoolsedituserpopup__c1_{{$index}}" name="vp_adduser" ng-model="userDetials[$index]" value="{{user}}" ng-click="addUser(user)" ng-checked="isUserSelected(user.user)"/>
+                            <label for="vp-deptoolsedituserpopup__c1_{{$index}}"></label>
+                            <!--ITEM NAME WRAPPER-->
+                            <div class="vp-tooldepqeditpopup__itemnamewrap ml--sm inblock vertical--bottom">
+                                <label for="vp-deptoolsedituserpopup__c1_" class="vp-tooldepqeditpopup__itemname text--ellipsis text--ellipsis--single" title="{{user.user}}">{{user.user}}</label>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!--<div class="vp-prereqeditpopup__container vp-uielement__popup pt&#45;&#45;sm pr&#45;&#45;md pb&#45;&#45;xl pl&#45;&#45;md bg&#45;&#45;white skip_slideup">-->
+        <!--<div class="vp-prereqeditpopup__optionswrap mt&#45;&#45;lg">-->
+             <!--<div class="vp-certifiedaddpopup__buttonswrap">-->
+                <!--&lt;!&ndash;APPLY BUTTON&ndash;&gt;-->
+                 <!--<button type="button" class="vp-uielement__button  vp-uielement__button&#45;&#45;apply mt&#45;&#45;xl" ng-click="closeAddUsers()">Apply</button>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+</div>
+<!--PRE REQUISITIES EDIT POPUP COMPONENT END-->

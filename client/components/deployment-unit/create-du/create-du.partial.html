@@ -1,0 +1,27 @@
+<!--EDIT TOOLS PARTIALS ASSEMBLY START (MODIFIERS: # vp-edittools--scroled)-->
+<div class="vp-edittools max" ng-controller="CreateNewDUController">
+
+    <form class="max" name="CreateNewDUForm">
+        <!--SIDE NAVBAR SECTION-->
+        <div class="vp-edittools__navaside fixed pos--top pos--bottom" ng-include="'static/components/dashboard/navaside/navaside.component.html'"></div>
+        <!-- HEADER MESSAGE SECTION-->
+        <div class="vp-toolspage__headnotification" id="header_message" ng-include="'static/components/dashboard/header-message/headermessage.component.html'"></div>
+        <!--HEADER SECTION-->
+        <div class="vp-edittools__header pos--top pos--right pos--left" ng-include="'static/components/tools/deploy-tools/header/header.component.html'"></div>
+        <!--STICKY HEADER SECTION-->
+        <div class="vp-edittools__stickyheader fixed pos--top pos--right pos--left bg--white hidden">
+            <h3 class="text--cs03 text--light text--xxl">Demo Debugee tool For jTrace</h3>
+        </div>
+        <div class="content_height">
+            <div class="vp-edittools__content bg--white max--height tool_scroll relative">
+                <div class="vp-edittools__contentbounded " style="width:100%">
+                    <!--TOO INFORMATION SECTION-->
+                    <div class="vp-edittools__toolinfo " ng-include="'static/components/deployment-unit/create-du/du-info/duinfo.component.html'"></div>
+                </div>
+            </div>
+            <!--BOTTOM TOOLBAR SECTION-->
+            <div class="vp-edittools__toolbar fixed pos--right pos--bottom pos--left" ng-include="'static/components/deployment-unit/create-du/toolbar/toolbar.component.html'"></div>
+        </div>
+    </form>
+</div>
+<!--EDIT TOOLS PARTIALS ASSEMBLY END-->

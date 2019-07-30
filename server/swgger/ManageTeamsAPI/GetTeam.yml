@@ -1,0 +1,33 @@
+Getting Team, by Referring team_id
+---
+tags:
+ - Manage Teams
+parameters:
+- name: token
+  in: header
+  description: API key
+  required: false
+  type: string
+  format: string
+- name: access-token
+  in: header
+  description: API key
+  required: false
+  type: string
+  format: string 
+- name: team_id
+  in: path
+  type: string
+  required: true
+  description: Get Team
+responses:
+  200:
+    description: Getting Team Successfully
+    examples:
+      result: "success"
+      message: null
+  404:
+    description: exception in Getting Team
+    examples:
+      result: "failed"
+      message: "Throws an exception"

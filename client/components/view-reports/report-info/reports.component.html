@@ -1,0 +1,32 @@
+<div class="vp-mmanagetab vp-control text--none max inblock nowrap" ng-controller="ViewReportsController">
+    <!--MANAGE MACHINES TAB CONTENT FILTER (MODIFIERS: # vp-mmanagetab__filterwrap--close )-->
+    <section class="vp-mmanagetab__filterwrap vp-mmanagetab__filterwrap--close max--height relative inblock">
+        <button type="button" class="vp-mmanagetab__filterclosebtn vp-uielement__button vp-uielement__button--dropdownarrowclosed  absolute"></button>
+    </section>
+    <section class="vp-mmanagetab__content vertical--top inblock">
+            <!--plugin SEARCH-->
+            <div class="vp-mmanagetab__findmachinewrap vertical--top mt--md ml--md left">
+                <div class="vp-mmanagetab__findmachine max--height">
+                    <!--Plugin-SEARCH COLUMN COMPONENT START-->
+                    <div class="vp-machinessearch bg--white max--width">
+                        <span class="vp-machinessearch__topborder block"></span>
+                        <div class="vp-machinessearch__listwrapper max--width">
+                            <ul class="vp-machinessearch__list max--width">
+                                <li class="vp-machinessearch__item vp-machinessearch__item--prod outer" ng-repeat="report in reportURL">
+                                    <div class="vp-machinessearch__iteminner vp-machinessearch__item--test pl--xxxl text--regular text--md clearfix">
+                                        <div class="vp-machinessearch__itemdescriptionwrap pt--sm pb--sm word--break left">
+                                            <span class="{{report.name}}">{{report.name}}</span>
+                                        </div>
+                                        <div class="vp-machinessearch__itembtnwrap pointer relative right hidden">
+                                            <span class="vp-machinessearch__itembtn bg--cs07 text--center text--cs06 text--regular text--md absolute" ng-click="redirectToSlamDataReports(report.url)">Select</span>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+</div>

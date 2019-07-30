@@ -1,0 +1,56 @@
+// VARIABLES: SECTION 46
+.vp-importfileload {
+    .vp-importfileload__fieldlabelwrap:extend(.vp-createnewmachform .vp-createnewmachform__fieldlabelwrap) {}
+    .vp-importfileload__fieldcontent:extend(.vp-createnewmachform .vp-createnewmachform__fieldcontent) {}
+    // FILE INPUT NAME STYLE
+    .vp-importfileload__filenameinput:extend(.vp-createnewmachform .vp-createnewmachform__fieldcontent input) {
+        width: @fileNameInputWidth;
+    }
+    // DRAG AND DROP SECTION STYLES
+    .vp-importfileload__dragdrop {
+        width: @dragdropWidth;
+        height: @dragdropHeight;
+        line-height: @dragdropHeight;
+    }
+    .vp-importfileload__processingsection {
+        height: @fileProcessingSectionHeight;
+        line-height: @fileProcessingSectionHeight;
+    }
+    .vp-importfileload__processingmsg--show, .vp-importfileload__bulkreportsection--show {
+        .inblock;
+    }
+
+
+}
+
+.file-upload {
+  position: relative;
+  overflow: hidden;
+  margin: 10px;
+   border-style: solid;
+    border-width: 1px;
+    border-color: #254b75;
+    background-color: #254b75;
+    color: #f5f5f5;
+    min-width: 76px;
+    border-radius: 24px;
+    height: 24px;
+    font-weight: 500;
+    font-size: 14px;
+    margin-left: 0px;
+   }
+
+.file-upload input.file-input {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  cursor: pointer;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  }
+
+
+

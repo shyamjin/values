@@ -1,0 +1,89 @@
+/**
+ * This file/module contains all configuration for the build process.
+ */
+module.exports = {
+  /**
+   * The `build_dir` folder is where our projects are compiled during
+   * development and the `compile_dir` folder is where our app resides once it's
+   * completely built.
+   */
+  build_dir: 'static',
+  compile_dir: 'static_bin',
+   index_dir: '.',
+  /**
+   * This is a collection of file patterns that refer to our app code (the
+   * stuff in `src/`). These file paths are used in the configuration of
+   * build tasks. `js` is all project javascript, less tests. `ctpl` contains
+   * our reusable components' (`src/common`) template HTML files, while
+   * `atpl` contains the same, but for our app's code. `html` is just our
+   * main HTML file, `less` is our main stylesheet, and `unit` contains our
+   * app's unit tests.
+   */
+   // , 'components/**/*.js' 
+  app_files: {
+    js: [ 'src/**/*.js'],
+    jsunit: [ 'src/**/*.spec.js' ],
+    
+    coffee: [ 'src/**/*.coffee', '!src/**/*.spec.coffee' ],
+    coffeeunit: [ 'src/**/*.spec.coffee' ],
+
+    atpl: [ 'partials/**/*.partial.html'],
+    ctpl: [ 'src/common/**/*.tpl.html' ],
+
+    html: [ 'index.html', 'components/**/*.html'],
+    less: 'styles/vp.less',
+    css: [ 'styles/*.css' ]
+  },
+
+  /**
+   * This is a collection of files used during testing only.
+   */
+  test_files: {
+    js: [
+      'vendor/angular-mocks/angular-mocks.js'
+    ]
+  },
+
+  /**
+   * This is the same as `app_files`, except it contains patterns that
+   * reference node files (`node_modules/`) that we need to place into the build
+   * process somewhere. While the `app_files` property ensures all
+   * standardized files are collected for compilation, it is the user's job
+   * to ensure non-standardized (i.e. vendor-related) files are handled
+   * appropriately in `vendor_files.js`.
+   *
+   * The `vendor_files.js` property holds files to be automatically
+   * concatenated and minified with our project source files.
+   *
+   * The `vendor_files.css` property holds any CSS files to be automatically
+   * included in our app.
+   *
+   * The `vendor_files.assets` property holds any assets to be copied along
+   * with our app's assets. This structure is flattened, so it is not
+   * recommended that you use wildcards.
+   * "selectize": "^0.12.4",
+   * "ui-select": "^0.19.8"
+   * 'node_modules/selectize/dist/css/selectize.css',
+   */
+  node_files :  {
+    js: [
+      'node_modules/angular/angular.min.js',
+      'node_modules/jquery/dist/jquery.min.js',
+      'node_modules/less/dist/less.min.js',
+      'node_modules/requirejs/require.js',
+      'node_modules/angular-resource/angular-resource.min.js',
+      'node_modules/angular-cookies/angular-cookies.min.js',
+      'node_modules/angular-ui-router/release/angular-ui-router.min.js',
+      'node_modules/angular-timer/dist/angular-timer.min.js',
+      'node_modules/humanize-duration/humanize-duration.js',
+      'node_modules/moment/min/moment-with-locales.js',
+      'node_modules/angular-tooltips/dist/angular-tooltips.min.js',
+      'node_modules/angular-tooltips/dist/angular-tooltips.min.css',
+      'node_modules/angularjs-dropdown-multiselect/dist/angularjs-dropdown-multiselect.min.js',
+      'node_modules/bootstrap/dist/css/bootstrap.min.css',
+      'components/audits/angular-smart-table/dist/smart-table.min.js',
+      'node_modules/ng-focus-if/focusIf.min.js'
+    ]
+  },
+};
+

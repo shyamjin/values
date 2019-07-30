@@ -1,0 +1,27 @@
+<!--VERSION FORM COMPONENT START-->
+<div class="vp-versionform vp-versionform--showtool vp-component bg--white max--width" id="version_tab_{{toolData.version.version_number}}">
+    <section class="vp-versionform__backwards mt--xxl">
+        <div class="vp-versionform__labelsection pl--lg inblock">
+            <h3 class="vp-versionform__label pl--sm text--cs03 text--light text--md inblock">Version Number:</h3>
+        </div>
+        <div class="vp-versionform__content inblock">
+            <span class="vp-versionform__backwardscontentinner text--ellipsis text--ellipsis--single">{{toolData.version.version_number}}</span>
+        </div>
+    </section>
+    <!--VERSION ID-->
+    <section class="vp-versionform__backwards mt--xxl">
+        <div class="vp-versionform__labelsection pl--lg inblock">
+            <h3 class="vp-versionform__label pl--sm text--cs03 text--light text--md inblock">Version name:</h3>
+        </div>
+        <div class="vp-versionform__content inblock">
+            <span class="vp-versionform__backwardscontentinner text--ellipsis text--ellipsis--single">{{toolData.version.version_name}}</span>
+        </div>
+        <div class="vp-versionform__content inblock">
+            <div class="vp-sttoolinfo__editbtnwrap">
+                <button id="approve_tool_{{toolData.version.version_number}}" type="button" class="vp-uielement__button vp-uielement__button--edittool absolute pos--right pos--top mr--xxl mt--md" style="top: 8px;" ng-click="approveTool(toolData)">Approve</button>
+                <button type="button" class="vp-uielement__button vp-uielement__button--deployenabled absolute pos--right pos--top mr--xxl mt--md" style="top: 8px; right: 5%;" ng-click="rejectTool(toolData.tool_id)">Reject</button>
+            </div>
+        </div>
+    </section>
+</div>
+<!--VERSION FORM COMPONENT END-->

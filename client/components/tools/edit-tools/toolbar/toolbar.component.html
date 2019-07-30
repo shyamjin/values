@@ -1,0 +1,14 @@
+<!--EDIT TOOLS, TOOLBAR COMPONENT START-->
+<div class="vp-ettoolbar vp-control bg--cs06 max--width" ng-controller="EditToolBarController">
+    <div class="vp-ettoolbar__innerbounded clearfix">
+        <!--SAVE CHANGES BUTTON-->
+        <div class="vp-dttoolbar__discardbtnwrap right">
+            <input type="submit" value="Save changes" class="vp-dttoolbar__savebtn vp-uielement__button vp-uielement__button--deployenabled" ng-click="editTool(EditToolForm)"/>
+        </div>
+        <!--DISCARD CHANCHES BUTTON-->
+        <div class="vp-ettoolbar__savebtnwrap mr--xxxl right">
+            <button type="button" class="vp-ettoolbar__savebtn vp-uielement__button vp-uielement__button--cleanenabled" ng-click="discardChanges()">Discard changes</button>
+        </div>
+    </div>
+</div>
+<!--EDIT TOOLS,TOOLBAR COMPONENT END-->

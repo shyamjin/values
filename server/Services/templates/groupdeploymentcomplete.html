@@ -1,0 +1,106 @@
+<span class="span_data">Dear {{ data.goup_data.name }},</span>
+<br>
+<span class="span_data"> Your Request has <b  {% if data.goup_data.status=='Failed' %} style="color:#DC0B21" {% else %} style="color:#278544"  {% endif %} >{{ data.goup_data.status }}</b>  </span>
+<br>
+Details are as below:
+<br>
+<span class="span_data">
+<table style="width:50%" border="2">
+	<tr>
+    <td>Request Id</td>
+    <td>{{ data.goup_data.request_id }}</td> 
+  </tr>
+   <tr>
+    <td>Total number of requests</td>
+    <td>{{ data.goup_data.total_requested }}</td> 
+  </tr>
+  <tr>
+    <td>Successfully completed  </td>
+    <td>{{ data.goup_data.total_compleated }}</td> 
+  </tr>
+  <tr>
+    <td>Deployment Type</td>
+    <td>{{ data.goup_data.type }}</td> 
+  </tr>
+  <tr>
+  	<td>Create Date</td>
+  	<td>{{ data.goup_data.create_date }} </td>
+  </tr>
+ 
+</table>
+  <br>
+{% if data.goup_data.type == 'toolgroup' %}
+<span class="span_data">TOOL LIST </span>
+{% endif %}
+  <br>
+{% if data.goup_data.type == 'dugroup' %}
+<span class="span_data">DU LIST </span>
+{% endif %}
+  <br>
+{% for entity in data.all_tool_du_data %}
+<table style="width:50%" border="2">
+  <tr>
+  	{% if data.goup_data.type == 'toolgroup' %}
+    <td><strong>Tool Name</strong></td>
+    {% else %}
+    <td><strong>DU Name</strong></td>           
+    {% endif %}    
+    <td><strong>{{ entity.parent_entity_name }}</strong></td>
+  </tr>
+  <tr>
+    <td>Status</td>
+    <td  {% if entity.status=='Failed' %} style="color:#DC0B21" {% else %} style="color:#278544"  {% endif %} >{{ entity.status }}</td> 
+  </tr>
+  <tr>
+    <td>Status-Message</td>
+    <td>{{ entity.status_message}}</td> 
+  </tr>
+  {% if data.goup_data.type == 'toolgroup' %}
+  <tr>  
+    <td>Version Name</td>
+    <td>{{ entity.version_name }}</td> 
+  </tr>
+  <tr>
+    <td>Version Number</td>
+    <td>{{ entity.version_number }}</td> 
+  </tr>
+  {% endif %}
+  <tr>
+    <td>Request type</td>
+    <td>{{ entity.type}}</td> 
+  </tr>
+  <tr>
+    <td>Build Number</td>
+    <td>{{ entity.build_number }}</td> 
+  </tr>
+<tr>
+    <td>Machine Name</td>
+    <td>{{ entity.machine_name }}</td> 
+  </tr>
+  <tr>
+    <td>Machine Host</td>
+    <td>{{ entity.machine_host }}</td> 
+  </tr>
+  <tr>
+    <td>Deployment Id</td>
+    <td>{{ entity.deployment_id}}</td> 
+  </tr>
+  <tr>
+    <td>Deployment Order</td>
+    <td>{{ entity.deployment_order}}</td> 
+  </tr>
+  <tr>
+    <td>Start Time</td>
+    <td>{{ entity.start_time }}</td> 
+  </tr>
+  <tr>
+    <td>End Time</td>
+    <td>{{ entity.end_time }}</td> 
+  </tr> 
+
+</table>
+  <br>
+<span class="span_data"><br><br></span>
+ {% endfor %}
+</span>
+

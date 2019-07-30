@@ -1,0 +1,33 @@
+fetch a particular clone,referring the account by Clone Request Id
+---
+tags:
+  - Clone Request
+parameters:
+- name: token
+  in: header
+  description: API key
+  required: false
+  type: string
+  format: string
+- name: access-token
+  in: header
+  description: API key
+  required: false
+  type: string
+  format: string 
+- name: id
+  in: path
+  type: string
+  required: true
+  description: Clone Request Id
+responses:
+    200:
+      description: Get Clone Request by Clone Request Id
+      examples:
+        result: "success"
+        message: null
+    404:
+      description: exception in fetching Clone Request
+      examples:
+        result: "failed"
+        message: "Throws an exception"

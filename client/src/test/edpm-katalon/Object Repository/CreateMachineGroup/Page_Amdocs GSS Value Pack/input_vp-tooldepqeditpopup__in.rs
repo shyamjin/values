@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+   <description></description>
+   <name>input_vp-tooldepqeditpopup__in</name>
+   <tag></tag>
+   <elementGuidId>274c3727-5993-40da-abe1-7e0c5642f9fb</elementGuidId>
+   <selectorCollection>
+      <entry>
+         <key>BASIC</key>
+         <value>//input[@ng-model = 'searchMachineKeyword']</value>
+      </entry>
+   </selectorCollection>
+   <selectorMethod>BASIC</selectorMethod>
+   <useRalativeImagePath>false</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>tag</name>
+      <type>Main</type>
+      <value>input</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>type</name>
+      <type>Main</type>
+      <value>text</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>class</name>
+      <type>Main</type>
+      <value>vp-tooldepqeditpopup__input input--clear max--width text--cs03 text--regular text--lg ng-untouched ng-valid ng-not-empty ng-dirty ng-valid-parse</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>ng-model</name>
+      <type>Main</type>
+      <value>searchMachineKeyword</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath</name>
+      <type>Main</type>
+      <value>id(&quot;add_machine&quot;)/div[@class=&quot;vp-tooldepqeditpopup vp-control ng-scope&quot;]/div[@class=&quot;vp-tooldepqeditpopup__container vp-uielement__popup pt--md pr--xl pb--xl pl--xl bg--white&quot;]/div[@class=&quot;vp-tooldepqeditpopup__inputwrap&quot;]/input[@class=&quot;vp-tooldepqeditpopup__input input--clear max--width text--cs03 text--regular text--lg ng-untouched ng-valid ng-not-empty ng-dirty ng-valid-parse&quot;]</value>
+   </webElementProperties>
+</WebElementEntity>

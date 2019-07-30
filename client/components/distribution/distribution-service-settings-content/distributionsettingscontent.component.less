@@ -1,0 +1,19 @@
+// VARIABLES: SECTION 51
+.vp-distributionsettingscont {
+    input[type=text] {
+        border: 1px solid @cs08;
+        &:focus {
+            border: 1px solid @cs04;
+        }
+    }
+    &__form {
+
+        padding-top: @permissionsSelectFormPT;
+        padding-bottom: @toolbarHeight;
+        padding-left: @permissionsSelectFormPL;
+    }
+    .vp-distributionsettingscont__toolbar:extend(.vp-ettoolbar) {
+        .vp-distributionsettingscont__innerbounded:extend(.vp-ettoolbar .vp-ettoolbar__innerbounded) {}
+        
+    }
+}

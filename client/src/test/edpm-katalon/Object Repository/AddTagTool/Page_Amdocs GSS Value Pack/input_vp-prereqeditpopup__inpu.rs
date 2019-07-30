@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+   <description></description>
+   <name>input_vp-prereqeditpopup__inpu</name>
+   <tag></tag>
+   <elementGuidId>04161f51-6d0e-480d-9043-e1cbb2ae7b06</elementGuidId>
+   <selectorCollection>
+      <entry>
+         <key>BASIC</key>
+         <value>//input[@type = 'text' and @ng-model = 'searchTagKeyword']</value>
+      </entry>
+   </selectorCollection>
+   <selectorMethod>BASIC</selectorMethod>
+   <useRalativeImagePath>false</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>tag</name>
+      <type>Main</type>
+      <value>input</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>type</name>
+      <type>Main</type>
+      <value>text</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>class</name>
+      <type>Main</type>
+      <value>vp-prereqeditpopup__input input--clear max--width text--cs03 text--regular text--lg skip_slideup ng-untouched ng-valid ng-not-empty ng-dirty ng-valid-parse</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>ng-model</name>
+      <type>Main</type>
+      <value>searchTagKeyword</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath</name>
+      <type>Main</type>
+      <value>id(&quot;add_tag&quot;)/div[@class=&quot;vp-prereqeditpopup vp-control ng-scope&quot;]/div[@class=&quot;vp-prereqeditpopup__container vp-uielement__popup pt--md pr--xl pb--xl pl--xl bg--white skip_slideup&quot;]/div[@class=&quot;vp-prereqeditpopup__inputwrap&quot;]/input[@class=&quot;vp-prereqeditpopup__input input--clear max--width text--cs03 text--regular text--lg skip_slideup ng-untouched ng-valid ng-not-empty ng-dirty ng-valid-parse&quot;]</value>
+   </webElementProperties>
+</WebElementEntity>

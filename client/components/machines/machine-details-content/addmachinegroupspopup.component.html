@@ -1,0 +1,30 @@
+<!--PRE REQUISITIES EDIT POPUP COMPONENT START-->
+<div class="vp-tooldepqeditpopup vp-control" style="height:100%;">
+    <div class="vp-tooldepqeditpopup__popuptop vp-uielement__popuptop"></div>
+    <div class="vp-tooldepqeditpopup__container vp-uielement__popup pt--md pr--xl pb--xl pl--xl bg--white">
+        <div class="vp-tooldepqeditpopup__inputwrap">
+            <input type="text" class="vp-tooldepqeditpopup__input input--clear max--width text--cs03 text--regular text--lg" ng-model="searchMachineGroupKeyword">
+        </div>
+        <div class="vp-tooldepqeditpopup__optionswrap mt--lg">
+            <!--VERSION OPTIONS LIST-->
+            <ul class="vp-tooldepqeditpopup__optionslist text--cs03 text--regular text--md">
+                <!--VERSION ITEM EXAMPLE-->
+                <li class="vp-tooldepqeditpopup__optionsitem mt--md" ng-repeat="group in MachineGroups.data | filter : searchMachineGroupKeyword">
+                    <div class="vp-tooldepqeditpopup__iteminner text--ellipsis">
+                        <div class="vp-tooldepqeditpopup__checkbox vp-uielement__checkbox">
+                            <!--ITEM CHECKBOX-->
+                            <input type="checkbox" id="vp-deptoolseditpopup__c1_machine_{{$index}}" name="vp_addmachinegroup" ng-model="machineGroups[$index]" value="{{group}}" ng-click="addToMachineGroup(group)" ng-checked="isMachineGroupSelected(group.group_name)"/>
+                            <label for="vp-deptoolseditpopup__c1_machine_{{$index}}"></label>
+                            <!--ITEM NAME WRAPPER-->
+                            <div class="vp-tooldepqeditpopup__itemnamewrap ml--sm inblock vertical--bottom">
+                                <label for="vp-deptoolseditpopup__c1_machine_{{$index}}" class="vp-tooldepqeditpopup__itemname text--ellipsis text--ellipsis--single" title="{{group.group_name}}">{{group.group_name}}</label>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <!--<button type="button" class="vp-uielement__button  vp-uielement__button&#45;&#45;apply mt&#45;&#45;xl" ng-click="closeAddMachineGroup()">Apply</button>-->
+    </div>
+</div>
+<!--PRE REQUISITIES EDIT POPUP COMPONENT END-->

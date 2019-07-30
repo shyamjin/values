@@ -1,0 +1,18 @@
+<!--ADD USER FORM COMPONENT START-->
+<div class="vp-userform vp-userformnewuser vp-control max">
+        <ul class="vp-userform__fieldslist text--cs03 pr--lg">
+            <li class="vp-userform__fielditem vp-userform__nameitem pt--xxl" ng-repeat="(fieldKey,fieldValue) in application.data track by $index" ng-if="fieldKey!='_id'">
+                <div class="vp-userform__fielditeminner">
+                    <!--'NAME' FIELD LABEL-->
+                    <div class="vp-userform__fieldlabelwrap inblock">
+                        <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single text--bold">{{fieldKey.split('_').join(' ').toUpperCase()}} : </label>
+                    </div>
+                    <!--'NAME' FIELD CONTENT-->
+                    <div class="vp-userform__fieldcontent vp-userform__namecontent inblock">
+                        <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">{{fieldValue}} </label>
+                    </div>
+                </div>
+            </li>
+        </ul>
+</div>
+<!--ADD USER FORM COMPONENT END-->

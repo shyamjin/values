@@ -1,0 +1,36 @@
+// VARIABLES: SECTION 52?
+.vp-addnewmachineform {
+    &__fieldlabelwrap {
+        width: @detailLabelWidth;
+        line-height: 1.1;
+    }
+    // FIELD CONTENT STYLES
+    &__fieldcontent {
+        width: calc(~"100% -" @detailLabelWidth + 4px);
+        .text--regular;
+        .text--lg;
+        .text--cs03;
+        input, select {
+            border: 1px solid @cs08;
+            .text--cs03;
+            .text--regular;
+            .text--lg;
+            .pl--lg;
+            padding-top: 1px;
+            padding-bottom: 1px;
+        }
+        input {
+            width: @newFieldcontentInputWidth;
+        }
+        select {
+            // input width + padding left
+            width: @newFieldcontentInputWidth + 15px;
+        }
+    }
+}
+
+
+    .mandatory {
+    color: #c00;
+    font-size: 16px;
+    }

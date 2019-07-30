@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+   <description></description>
+   <name>div_Select</name>
+   <tag></tag>
+   <elementGuidId>410b2790-31a0-445d-a991-b8a907434ef2</elementGuidId>
+   <selectorMethod>BASIC</selectorMethod>
+   <useRalativeImagePath>false</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>tag</name>
+      <type>Main</type>
+      <value>div</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>ng-transclude</name>
+      <type>Main</type>
+      <value>toggleDropdown</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>ng-click</name>
+      <type>Main</type>
+      <value>toggleDropdown()</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>text</name>
+      <type>Main</type>
+      <value>Select </value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath</name>
+      <type>Main</type>
+      <value>/html[@class=&quot;ng-scope&quot;]/body[1]/div[@class=&quot;vp-app__deploytoolspage deployments-page max--height ng-scope&quot;]/div[@class=&quot;vp-machines max ng-scope&quot;]/div[@class=&quot;vp-machines__component bg--white max--height relative&quot;]/div[@class=&quot;vp-machine__contentbounded max--height&quot;]/div[@class=&quot;vp-machines__tabs left max--width ng-scope&quot;]/div[@class=&quot;vp-tabs vp-tabs--default vp-tabs--machines vp-control relative max--width max--height clearfix ng-scope&quot;]/div[@class=&quot;vp-tabs__body overflow--auto left max--width&quot;]/div[@class=&quot;vp-tabs__createmachinesbulk max ng-scope&quot;]/div[@class=&quot;vp-createanewmach max ng-scope&quot;]/div[@class=&quot;vp-createanewmach__newmachineinfo pr--xl ng-scope&quot;]/div[@class=&quot;vp-createnewmachform vp-control bg--white max ng-scope&quot;]/form[@class=&quot;vp-createnewmachform__createanewmachine max--width ng-invalid ng-invalid-required ng-dirty ng-valid-parse&quot;]/ul[@class=&quot;vp-createnewmachform__fieldslist text--cs03 max--width&quot;]/li[@class=&quot;vp-userform__fielditem vp-userform__roleitem pt--lg&quot;]/div[@class=&quot;vp-versionform vp-component bg--white max--width&quot;]/div[@class=&quot;vp-userform__fielditeminner&quot;]/flexible-attributes[@class=&quot;ng-isolate-scope&quot;]/div[@class=&quot;vp-versionform__content inblock&quot;]/section[@class=&quot;vp-versionform__deploymentdetails&quot;]/div[@class=&quot;vp-versionform__deployitemlistwrap--filled&quot;]/ul[1]/li[@class=&quot;vp-versionform__deploydetailsitem ng-scope&quot;]/div[@class=&quot;vp-versionform__deployiteminner bg--cs06 clearfix&quot;]/div[2]/div[@class=&quot;ng-scope&quot;]/div[@class=&quot;ng-isolate-scope&quot;]/div[@class=&quot;multiselect-parent btn-group dropdown-multiselect&quot;]/div[1]</value>
+   </webElementProperties>
+</WebElementEntity>

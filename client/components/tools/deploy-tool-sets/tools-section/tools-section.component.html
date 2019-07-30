@@ -1,0 +1,38 @@
+<!--TOOLS-SECTION COMPONENT START-->
+<div class="vp-toolssection vp-control pt--xl pl--xxxl bg--white max--width clearfix">
+	<!--LABEL SECTION (MODIFIERS: # vp-toolssection__notification--active)-->
+	<div class="vp-toolssection__labelwrap vp-toolssection__notification--active relative left">
+		<label class="vp-toolssection__label text--ellipsis text--ellipsis--single text--cs01 pt--sm text--light text--lg inblock">Tool Sets (<span class="vp-toolssection__toolscount">{{toolSetsSelectedToDeploy.length}}</span>):</label>
+		<!--LABEL NOTIFICATION-->
+		<div class="vp-toolssection__labelnotification text--cs05 text--light text--sm absolute pos--bottom hidden">
+			<!--<div class="vp-toolssection__notificationicon vertical&#45;&#45;middle inblock"></div>-->
+			<!--<div class="vp-toolssection__notificationmsg inblock">-->
+				<!--<span class="vp-toolssection__notificationcounter vertical&#45;&#45;middle">2</span>-->
+				<!--<span class="vp-toolssection__notificationmsg vertical&#45;&#45;middle">tools have errors</span>-->
+			<!--</div>-->
+		</div>
+	</div>
+	<!--TOOLS (MODIFIERS: # vp-toolssection__toolswrap--manytools)-->
+	<div class="vp-toolssection__toolswrap vp-toolssection__toolswrap--manytools left">
+		<!--TOOL TEMPLATE (MODIFIERS: # vp-toolssection__toolnotification--active
+		# vp-uielement__toolitem--unknown # vp-uielement__toolitem--ready # vp-uielement__toolitem--error) -->
+		<div class="vp-toolssection__tool vp-uielement__toolitem--unknown relative">
+			<div class="vp-toolssection__stateicon vp-uielement__itemstateicon inblock"></div>
+			<span class="vp-toolssection__toolname text--cs03 text--light text--xxl">{{selectedToolSet.toolset_name}}</span>
+			<!--FIND TOOLS BUTTON (MODIFIERS: # vp-toolssection__moretoolsbtn--show)-->
+			<div class="vp-toolssection__moretoolsbtnwrapper ml--md relative inblock">
+				<button type="button" class="vp-toolssection__moretoolsbtn vp-uielement__button vp-uielement__button--dropdownarrow vertical--top" ng-click="showMoreTools()"></button>
+				<div class="vp-toolssection__moretoolspopup absolute hidden" id="more_tools_popup_include" ng-include="'static/components/tools/deploy-tool-sets/morepopup/moretoolspopup.component.html'"></div>
+			</div>
+			<!--ADD TOOLS BUTTON (MODIFIERS: # vp-toolssection__addtoolsbtn--show)-->
+			<!--<div class="vp-toolssection__addtoolsbtnwrapper relative inblock">-->
+				<!--<button type="button" class="vp-toolssection__addtoolsbtn vp-uielement__button vp-uielement__button&#45;&#45;cleanenabled pa&#45;&#45;none ml&#45;&#45;md relative" ng-click="showMoreToolsToAdd()"><span>+Add tools</span></button>-->
+				<!--<div class="vp-toolssection__addtoolspopup absolute hidden" id="more_tools_add_popup" ng-include="'static/components/tools/deploy-tool-sets/addtoolspopup/addtoolspopup.component.html'"></div>-->
+			<!--</div>-->
+			<!--<div class="vp-toolssection__toolnotification absolute pos&#45;&#45;bottom ">-->
+				<!--<span class="vp-toolssection__toolnotificationmsg text&#45;&#45;cs05 text&#45;&#45;light text&#45;&#45;sm hidden">This version has not been certified for MPS 2.0 and many may not deploy smoothly</span>-->
+			<!--</div>-->
+		</div>
+	</div>
+</div>
+<!--TOOLS-SECTION COMPONENT END-->

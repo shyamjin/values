@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+   <description></description>
+   <name>button_Update</name>
+   <tag></tag>
+   <elementGuidId>5e087309-4830-4584-b092-922148339270</elementGuidId>
+   <selectorCollection>
+      <entry>
+         <key>BASIC</key>
+         <value>//button[@type = 'button' and @ng-click = 'updateDUSetList()' and (text() = 'Update' or . = 'Update')]</value>
+      </entry>
+   </selectorCollection>
+   <selectorMethod>BASIC</selectorMethod>
+   <useRalativeImagePath>false</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>tag</name>
+      <type>Main</type>
+      <value>button</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>type</name>
+      <type>Main</type>
+      <value>button</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>ng-disabled</name>
+      <type>Main</type>
+      <value>EditToolForm.input_type.$error.required</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>class</name>
+      <type>Main</type>
+      <value>vp-addtoolmodal__donebtn vp_updatebtn vp-uielement__button vp-uielement__button--deployenabled</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>ng-click</name>
+      <type>Main</type>
+      <value>updateDUSetList()</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>text</name>
+      <type>Main</type>
+      <value>Update</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath</name>
+      <type>Main</type>
+      <value>id(&quot;show_du_list&quot;)/div[@class=&quot;vp-addToolmodal absolute ng-scope&quot;]/div[@class=&quot;vp-addtoolmodal vp-control bg--white relative ng-scope&quot;]/div[@class=&quot;vp-addtoolmodal__footer absolute pos--bottom&quot;]/div[@class=&quot;vp-rdmodal__discardbtnwrap right&quot;]/button[@class=&quot;vp-addtoolmodal__donebtn vp_updatebtn vp-uielement__button vp-uielement__button--deployenabled&quot;]</value>
+   </webElementProperties>
+</WebElementEntity>

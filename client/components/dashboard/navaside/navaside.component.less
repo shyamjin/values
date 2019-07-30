@@ -1,0 +1,66 @@
+// VARIABLES: SECTION 7 
+// COPONENT CLASS
+div.vp-navaside {
+    // DEFAULT THEME MODIFIER
+    div.vp-navaside__toolbar {
+        width: @navasideToolbarWidth;
+    }
+    // ACTIVE NAV MENU SIZE
+
+
+
+
+
+    #side-nav-toggle {
+          width: 0;
+        left: @navasideToolbarWidth;
+        -webkit-transition:  1s; /* Safari */
+        transition:  1s ;
+         overflow-x: hidden;
+         z-index: 1;
+         height: 100%;
+    }
+
+
+
+
+    // "HAMBURGER" BUTOTN VIEW
+    button.vp-navaside__togglebtn {
+        width: @navasimeMenuBtnWidth;
+        height: @navasideMenuBtnHeight;
+        background: url('../assets/images/icons/menu_btn.png') no-repeat;
+        background-size: contain;
+    }
+    // ADMIN NAVIGATION VIEW
+    nav.vp-navaside__adminnavigation {
+        margin-left: @navasideNavLinkMenuML;
+    }
+    div.vp-navaside__mainnavwrapper {
+        margin-top: @navasideNavLinkMenuMT;
+    }
+    // MENU LINKS VIEW & :HOVER
+    li.vp-navaside__navoption, li.vp-navaside__navaccountoption {
+        .mb--xxl;
+        // NAV LINKS VIEW STYLE
+        a {
+            color: inherit;
+            text-decoration: none;
+            &:hover {
+                .pointer;
+                .text--cs07;
+            }
+        }
+    }
+    // SEPARATOR VIEW
+    div.vp-navaside__navseparator {
+        height: @navasideNavSeparatorHeight;
+        width: @navasideNavSeparatorWidth;
+    }
+    // NAVIGATION MENU SHOW ACTIVE
+    &.vp-navaside__nav--active {
+        div.vp-navaside__nav {
+            display: inline-block;
+        }
+    }
+    z-index: 100;
+}

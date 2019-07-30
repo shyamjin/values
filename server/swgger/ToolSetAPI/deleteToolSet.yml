@@ -1,0 +1,35 @@
+Deleting Toolset, referring by Id
+---
+tags:
+ - Tool Set
+parameters:
+- name: token
+  in: header
+  description: API key
+  required: false
+  type: string
+  format: string
+- name: access-token
+  in: header
+  description: API key
+  required: false
+  type: string
+  format: string 
+- name: id
+  in: path
+  type: string
+  required: true
+  description: Delete Tool set
+responses:
+  200:
+    description: ToolSet was deleted
+    examples:
+      result: "success"
+      message: ""
+  404:
+    description: exception in deleting the Machine Groups
+    examples:
+      result: "failed"
+      message: "Throws an exception"
+      
+    

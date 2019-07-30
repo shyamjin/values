@@ -1,0 +1,27 @@
+<div class="vp-versionform__content inblock" style="padding-left: 1%">
+    <section class="vp-versionform__deploymentdetails">
+        <div class="vp-versionform__deployitemlistwrap--filled">
+            <ul>
+                <li class="vp-versionform__deploydetailsitem" ng-repeat="fa in flexAttrs track by $index">
+                    <div class="vp-versionform__deployiteminner bg--cs06 clearfix">
+                        <div class="vp-versionform__deployitemlabelwrap pl--xl left">
+                            <label class="vp-versionform__deployitemlabel text--light text--md text--ellipsis text--ellipsis--single">{{fa.title}}<span ng-show="{{fa.is_mandatory}}" class="vp-createnewmachform__fieldrequire">*</span></label>
+
+                        </div>
+                        <div ng-switch on="fa.type">
+                            <div ng-switch-when="Select">
+                                <div name="fa-{{fa.name}}" ng-dropdown-multiselect="" options="fa.valid_values" selected-model="fa.selectedOptions" extra-settings="singleSelectSettings" disable-section="disabled"></div>
+                            </div>
+
+                            <div ng-switch-when="MultiSelect">
+                                <div name="fa-{{fa.name}}" ng-dropdown-multiselect="" options="fa.valid_values" selected-model="fa.selectedOptions" extra-settings="multiSelectSettings" disable-section="disabled"></div>
+                            </div>
+
+                            <input name="fa-{{fa.name}}" type="text" ng-switch-default ng-model="fa.value" ng-disabled="disabled">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+</div>

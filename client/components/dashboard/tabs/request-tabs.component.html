@@ -1,0 +1,28 @@
+<!--TAB COMPONENT START ( MODIFIERS: vp-tabs--default # vp-tabs--transparent #  vp-tabs--sideopen # vp-tabs--vertical )-->
+<div class="vp-tabs vp-tabs--transparent vp-control max--width max--height clearfix" ng-controller="RequestsTabController">
+	<!--TABS HEADER NAVIGATION BAR-->
+	<div class="vp-tabs__nav max--width left">
+		<nav>
+			<ul class="vp-tabs__navlist  max--width text--center text--capitalize text--regular text--lg text--cs07 bg--transparent pl--xl table">
+				<!--ACTIVE TAB STATE (LI MODIFIERS: vp-tabs__tab--active)-->
+				<li class="vp-tabs__tab pointer left" ng-class="getActiveRequestsTab('0')" ng-if="isallowed['/recent/requests']" ng-click="showActiveRequestsTab('0')">
+					<a> <!--  href="#/recent/requests"-->
+						<span class="vp-tabs__tablabel">Recent Requests</span>
+					</a>
+				</li>
+				<!--DEAFULT TAB STATE-->
+				<li class="vp-tabs__tab pointer left" ng-class="getActiveRequestsTab('1')" ng-if="isallowed['/saved/requests']" ng-click="showActiveRequestsTab('1')">
+					<a> <!--href="#/saved/requests" -->
+						<span class="vp-tabs__tablabel">Saved Requests</span>
+					</a>
+				</li>
+			</ul>
+		</nav>
+	</div>
+	<!--TAB BODY WRAPPER, LOAD TEMPLATE INSIDE-->
+	<div class="vp-tabs__body max--width text--light text--md left">
+		<div class="vp-tabs__recentrequestbody max--height" ng-if="activeRequestTab==='0' && isallowed['/recent/requests']" ng-include="'static/components/dashboard/tabs/recentrequests-body/recent-requests-body.component.html'"></div>
+		<div class="vp-tabs__requesttree max--height overflow-y--auto" ng-if="activeRequestTab==='1' && isallowed['/saved/requests']"  ng-include="'static/components/dashboard/treeview/saved-requests/saved-requests-tree.component.html'"></div>
+	</div>
+</div>
+<!--TAB COMPONENT END-->

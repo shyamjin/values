@@ -1,0 +1,62 @@
+Update Config
+---
+tags:
+   - Config
+parameters:
+- name: token
+  in: header
+  description: API key
+  required: false
+  type: string
+  format: string
+- name: access-token
+  in: header
+  description: API key
+  required: false
+  type: string
+  format: string 
+- name: input
+  in: body
+  description: Config data
+  required: true
+  type: string
+  format: string
+  schema:
+    $ref: "#/definitions/Config"     # <---------
+
+
+responses:
+  200:
+    description: The Config was updated successfully
+    schema:
+        $ref: "#/definitions/Data"     # <---------
+    examples:
+      result: "success"
+      message: "The Config was updated successfully"
+  404:
+    description: exception in updating Machine Groups
+    examples:
+      result: "failed"
+      message: "Throws an exception"
+
+
+definitions:
+  Config:           # <----------
+    type: object
+    required:
+      - _id
+    properties:
+      _id:
+        type: object
+        properties:
+          oid: 
+            type: string               
+  Data:
+    type: object
+    properties:
+        data:
+          type: string
+        result:
+          type: string
+        message:
+           type: string      

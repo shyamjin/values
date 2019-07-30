@@ -1,0 +1,52 @@
+<!--'UPDATE PASSWORD' MODAL COMPONENT START-->
+<div class="vp-changepasswordmodal vp-control bg--white relative">
+	<div class="vp-changepasswordmodal__header">
+		<!--TITLE-->
+		<h1 class="vp-changepasswordmodal__title text--cs06 text--xl text--light mt--xl ml--xl inblock">Generate Personal Access Token</h1>
+		<!--CLOSE BUTTON-->
+		<button type="button" class="vp-changepasswordmodal__closebtn btn--clear mt--md mr--lg right" ng-click="closeGenerateToken()"></button>
+	</div>
+	<!--MODAL BODY-->
+	<div class="vp-changepasswordmodal__body">
+		<!--FIELD TITLE SECTION-->
+		<section class="vp-changepasswordmodal__title">
+			<ul>
+				<li>
+                    <label class="vp-scheduledpopup__popuplabel mb--xl">Current Server time: {{scheduled_timestamp | date : "MM/d/y h:mm a"}}</label>
+                </li>
+				<li class="vp-scheduledpopup__schedulerow mt--xl mb--xl">
+					<div class="vp-uielement__radiobtn vp-scheduledpopup__radiobtn">
+						<input type="radio" class="vp-scheduledpopup__deploynowradiobtn" id="vp-scheduledpopup__deploynowradiobtn_no_expiration" name="expiration" ng-model="expiration_at" value="no_expiration" checked ng-click="setTokenExpiration('no_expiration')">
+						<label for="vp-scheduledpopup__deploynowradiobtn_no_expiration"></label>
+						<label>No expiration</label>
+					</div>
+				</li>
+				<!--RADIO BUTTOP 'DEPLOY AT'-->
+				<li class="vp-scheduledpopup__schedulerow mt--md mb--xl">
+					<div class="vp-uielement__radiobtn vp-scheduledpopup__radiobtn vertical--top">
+						<input type="radio" class="vp-scheduledpopup__deployatradiobtn" id="vp-scheduledpopup__deployatradiobtn_expiration_at" name="expiration" ng-model="expiration_at" value="later" ng-click="setTokenExpiration('later')">
+						<label for="vp-scheduledpopup__deployatradiobtn_expiration_at"></label>
+					</div>
+					<label class="vp-scheduledpopup__daployatlabel vertical--top">Expire at:</label>
+					<!--SCHEDULE TIME WRAPPER-->
+					<div class="vp-scheduledpopup__timewrapper inblock" style="width:160px;">
+						<input class="vp-scheduledpopup__scheduletime input--clear text ml--xl" type="datetime-local" name="expiration_date_time" ng-model="expirationDateTime" style="width:170px; border: solid 1px;"/>
+						<span class="vp-scheduledpopup_hint text--light text--cs08 text--sm ml--xl">MM/DD/YYYY HH:MM</span>
+					</div>
+				</li>
+			</ul>
+		</section>
+        </div>
+		<!--MODAL FOOTER-->
+		<div class="vp-changepasswordmodal__footer absolute pos--bottom">
+			<!--CLOSE BUTTON-->
+			<div class="vp-changepasswordmodal__closebtnwrap inblock">
+				<button type="button" class="vp-addsettingmodal__footerclosebtn vp-uielement__button vp-uielement__button--close" ng-click="closeGenerateToken()">Close</button>
+			</div>
+			<!--DISCARD BUTTON-->
+			<div class="vp-rdmodal__discardbtnwrap right">
+				<button type="button" ng-disabled="EditToolForm.input_type.$error.required" class="vp-changepasswordmodal__donebtn vp-uielement__button vp-uielement__button--deployenabled" ng-click="generateToken()">Generate Token</button>
+			</div>
+		</div>
+	</div>
+	<!--'ADD A SETTING' MODAL COMPONENT END-->

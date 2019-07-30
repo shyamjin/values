@@ -1,0 +1,89 @@
+// VARIABLES: SECTION 37
+// TOOLS PAGE ASSEMBLY PARTIALS
+.vp-edittools {
+    input[type=text], textarea {
+        &:focus {
+            border: 1px solid @cs04;
+        }
+    }
+    // SCROLED STATE MODIFIER
+    &--scroled {
+        .vp-edittools__stickyheader {
+            .block;
+        }
+    }
+    min-height: 100%;
+    // CONTENT SECTION STYLES
+    .vp-edittools__content {
+        min-height: 100%;
+        margin-left: @navasideToolbarWidth;
+        //padding-top: @dtHeaderHeight;
+    }
+
+// CONTENT SECTION 
+    .vp-edittools__contentbounded {
+        width: @innerBoundedWidth;
+    }
+    // TOP TOOL MAIN INFORMATION
+    .vp-edittools__toolinfo {
+        padding-top: @toolinfoPT;
+        padding-left: @toolinfoPL;
+    }
+    // FIXED SIDE NAV BAR
+    .vp-edittools__navaside {
+        z-index: 200;
+    }
+    // STICKY HEADER STYLES
+    .vp-edittools__stickyheader {
+        height: @stickyHeaderHeight + @dtHeaderHeight;
+        margin-left: @navasideToolbarWidth;
+        padding-top: @dtHeaderHeight + 15px;
+        padding-left: @stickyHeaderLabelPL;
+        box-shadow: 0px 5px 10px -2px @cs08;
+        z-index: 90;
+    }
+    // BOTTOM FIXED TOOLBAR 
+    .vp-edittools__toolbar, .vp-edittools__header {
+        z-index: 100;
+        margin-left: @navasideToolbarWidth;
+    }
+    .vp-edittools__tabs {
+        padding-left: @verticalTabsPL;
+        padding-bottom: @toolsContentPB;
+    }
+    .validation_msg {
+        margin-left:11%;
+        margin-top:5px;
+        color:red;
+    }
+    .validation_msg_version {
+        margin-left:0%;
+        margin-top:5px;
+        color:red;
+    }
+    .validation_msg_document{
+        margin-left: 23%;
+        margin-top: 5px;
+        color: red;
+    }
+    .validation_msg_ci{
+        margin-left:34%;
+        margin-top:10px;
+        color:red;
+    }
+}
+
+    .vp-edittools__atttentionmodalwrap {
+        z-index: 9999;
+        min-width: @minWidth;
+        background-color: @csdarkmutted;
+        &.vp-deploytools__atttentionmodalwrap--show{
+            .block;
+        }
+    }
+    .vp-edittools__atttentionmodal {
+        left: 50%;
+        top: 50%;
+        margin-left: -@attentionModalWidth/2;
+        margin-top: -@attentionModalHeight/2;
+    }

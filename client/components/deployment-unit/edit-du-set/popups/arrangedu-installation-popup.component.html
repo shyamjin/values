@@ -1,0 +1,168 @@
+<!--'ADD A SETTING' MODAL COMPONENT START-->
+<div class="vp-control bg--white relative" ng-class="openFilterMove('modal')" style="height: 95%;">
+	<div class="vp-addtoolmodal__header">
+		<!--TITLE-->
+		<h1 class="vp-addtoolmodal__title text--cs06 text--xl text--light mt--xl ml--xl inblock">Arrange DU's Installation Order</h1>
+		<!--CLOSE BUTTON-->
+		<button type="button" class="vp-addtoolmodal__closebtn btn--clear mt--md mr--lg right" ng-click="closeDUSetOrderModal()"></button>
+	</div>
+
+	<!--MODAL BODY-->
+	<div class="vp-addtoolmodal__body">
+		<!--FIELD TITLE SECTION-->
+		<section class="vp-addtoolmodal__title">
+			<div class="vp-addtoolmodal__addedtoolwrap vp-toolssearch vertical--top mt--md ml--md left" style="width: 360px; height: 500px;">
+                <div class="vp-addtoolmodal__addedtoolslist vertical--top mt--md ml--md left">
+                    <div class="vp_control max">
+                        <label class="vp-mmanagetab__machinesectionlabel text--light text--xl">CHOOSEN DU's </label>
+                        <div class="vp-filter__clearallwrapper pl--md right">
+					        <button type="reset" class="vp-uielement__button vp-filter__clearall vp-uielement__button--cleanenabled" ng-click="addAllDU()">Add all</button>
+				        </div>
+                        <div class="vp_tile_duWrapper clearfix" style="width: 310px; height: 474px;">
+                            <ul ui-on-Drop="onDrop($event,$data,selectedDU)">
+                                <li class="vp-tilegrid__tile pa--sm left" ng-repeat="du in selectedDUToArrange track by $index" ui-draggable="true" drag="du" on-drop-success="dropSuccessHandler($event,$index,selectedDU)">
+                                    <!--DEPLOY TOOL "TILE" ELEMENT START-->
+                                    <!--( MODIFIERS: vp-tooltile__containingtoolmsg--active # vp-tooltile__deprecatedwarning--active # vp-tooltile--selected # vp-tooltile__favorite--active )-->
+                                    <div ng-class="{'vp-dutile--selected': selected , 'vp-dutile--not-selected': !selected  }" class="vp-dutile vp-component text--cs03 pt--md pr--md pl--md vp-dutile__containingtoolmsg--active vp-tooltile__deprecatedwarning--active vp-tooltile__favorite--active  relative" style="width: 200px; height: 160px;">
+                                        <div class="vp-dutile__iconswrapprer right">
+                                            <!--TILE ICON-->
+                                            <div class="vp-dutile__icon text--light text--xxxxl text--white vertical--top text--center" ng-class="setBackground(du.type)" style="margin-top: -6px; height: 30px; width: 30px; border-radius: 28px; line-height: 23px;">
+                                                <span class="vp-dutile_iconinner iconinner_du">
+                                                    {{du.type.substring(0, 1)}}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--TOOL TILE METADATA (title, description, containig tool)-->
+                                        <div class="vp-dutile__tilemetadata left">
+                                            <div class="vp-dutile__label text--regular text--ellipsis text--ellipsis--two text--xl mb--md verticall--top" title="{{du.name}}"><a style="text-decoration : none !important;" href="#/deploymentunit/view/{{du._id.$oid}}">{{du.name}}</a></div>
+                                            <div class="vp-dutile__deprecatedwarning text--light text--lg mt--md" ng-if="du.approval_status==='Certified'">
+                                                <img alt="" class="vp-dutile__depreceteicon" src="static/assets/images/icons/active_icn.png">
+                                                <span class="vp-dutile__deprecetemsg ml--sm">{{du.approval_status}}</span>
+                                            </div>
+                                            <div class="vp-dutile__deprecatedwarning text--light text--lg mt--md" ng-if="du.approval_status==='Created'">
+                                                <img alt="" class="vp-dutile__depreceteicon" src="static/assets/images/icons/Deprecated_icn.png">
+                                                <span class="vp-dutile__deprecetemsg ml--sm">{{du.approval_status}}</span>
+                                            </div>
+                                            <div class="vp-dutile__deprecatedwarning text--light text--lg mt--md" ng-if="du.approval_status==='Tested'">
+                                                <img alt="" class="vp-dutile__depreceteicon" src="static/assets/images/icons/DU_status_yellow.png">
+                                                <span class="vp-dutile__deprecetemsg ml--sm">{{du.approval_status}}</span>
+                                            </div>
+                                            <div class="vp-dutile__containingtoolmsg text--light text--lg mt--md text--ellipsis text--ellipsis--single hidden"><span class="text--bold">B:</span> <span>{{du.build_number}}</span></div>
+                                            <div class="vp-dutile__containingtoolmsg text--light text--lg mt--md text--ellipsis text--ellipsis--single hidden" style="width:146px;"> <span class="text--bold">T:</span>
+                                                <span class="vp-dutile__containingtoolname" title="INIT" ng-repeat="tag in du.tag">{{tag}}<span ng-if="$index!==du.tag.length-1">,</span></span>
+                                            </div>
+                                        </div>
+                                        <div class="vp-dutile__tilemetadata right" style="margin-right: -125px; margin-top: 60px;">
+                                            <button type="button" class="vp-uielement__button vp-uielement__button--cancle" style="margin-bottom:10px;" ng-click="addDUToArrangeList(du)">Add ></button>
+                                        </div>
+                                        <!--TOOL TILE FOOTER SECRION-->
+                                        <div class="vp-dutile__footer absolute clearfix set_footer">
+                                            <!--REMOVE TOOL BUTTON -->
+                                            <div class="vp-dutile__deprecatedwarning text--light text--lg mt--md" style="margin-left: -15px;">
+                                                <img alt="" class="vp-dutile__depreceteicon" src="static/assets/images/icons/Dependency_icon.png">
+                                                <span class="vp-dutile__deprecetemsg ml--sm mr--md">Dependency</span>
+                                                <div class="vp-tooltile__checkbox vp-uielement__checkbox">
+                                                    <input type="checkbox" name="selectedDU" ng-model="addDU" id ="{{du.name}}" value="{{du._id.$oid}}" ng-change="selectDUToAddDU(du)" ng-checked="du.dependent===true || du.dependent==='true'"/>
+                                                    <label for="{{du.name}}"></label>
+                                                </div>
+                                            </div>
+                                            <!--<button ng-click="removeDU($index)" type="button" class="vp-uielement__button vp-uielement__button&#45;&#45;edittool vp-tooltile__edittoolbtn mr&#45;&#45;md right">Remove from set</button>-->
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--<div class="actionwrap vertical&#45;&#45;top mt&#45;&#45;md ml&#45;&#45;md left">-->
+                <!--<button type="button" class="vp-uielement__button vp-uielement__button&#45;&#45;cancle" ng-click="removeDUFromArrangeList()">< Remove</button>-->
+            <!--</div>-->
+            <div class="vp-addtoolmodal__addedtoolwrap vp-toolssearch vertical--top mt--md ml--md left" style="width: 55%; height: 500px; padding-left: 130px; margin-left:20px;">
+                <div class="vp-addtoolmodal__addedtoolslist vertical--top mt--md ml--md left">
+                    <div class="vp_control max">
+                        <h5 class="validation_msg_tool_set" ng-show="arrangedDU.length<1" style="margin-left: -12%; margin-top: -20px; margin-bottom: 10px;">Please select atleast one DU to add in DU Package!</h5>
+                        <label class="vp-mmanagetab__machinesectionlabel text--light text--xl">INSTALLATION ORDER </label>
+                        <div class="vp-filter__clearallwrapper pl--md right">
+					        <button type="reset" class="vp-uielement__button vp-filter__clearall vp-uielement__button--cleanenabled" ng-click="removeAllDU()">Remove all</button>
+				        </div>
+                        <div class="vp_tile_duWrapper clearfix" style="width: 310px; height: 500px;">
+                            <ul ui-on-Drop="onDrop($event,$data,arrangedDU)">
+                                <li class="vp-tilegrid__tile pa--sm left" ng-repeat="du in arrangedDU track by $index" ui-draggable="true" drag="du" on-drop-success="dropSuccessHandler($event,$index,arrangedDU)">
+                                        <!--DEPLOY TOOL "TILE" ELEMENT START-->
+                                        <!--( MODIFIERS: vp-tooltile__containingtoolmsg--active # vp-tooltile__deprecatedwarning--active # vp-tooltile--selected # vp-tooltile__favorite--active )-->
+                                        <div class="arrange_order" style="margin-top: 80px;">
+                                            <div class="vp-dutile__icon text--light text--xxxxl text--white vertical--top text--center" ng-class="setOrderBackground($index)" style="margin-top: -6px; height: 30px; width: 30px; border-radius: 28px; line-height: 23px;">
+                                                <span class="vp-dutile_iconinner iconinner_du">
+                                                    {{$index+1}}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div ng-class="{'vp-dutile--selected': selected , 'vp-dutile--not-selected': !selected  }" class="vp-dutile vp-component text--cs03 pt--md pr--md pl--md vp-dutile__containingtoolmsg--active vp-tooltile__deprecatedwarning--active vp-tooltile__favorite--active  relative" style="width: 200px; height: 160px; margin-left: 40px; margin-top: -102px;">
+                                            <div class="vp-dutile__iconswrapprer right">
+                                                <!--TILE ICON-->
+                                                <div class="vp-dutile__icon text--light text--xxxxl text--white vertical--top text--center" ng-class="setBackground(du.type)" style="margin-top: -6px; height: 30px; width: 30px; border-radius: 28px; line-height: 23px;">
+                                                    <span class="vp-dutile_iconinner iconinner_du">
+                                                        {{du.type.substring(0, 1)}}
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="vp-dutile__tilemetadata left" style="margin-left: -135px; margin-top: 60px;">
+                                                <button type="button" class="vp-uielement__button vp-uielement__button--cancle" ng-click="removeDUFromArrangeList(du)">< Remove</button>
+                                            </div>
+                                            <!--TOOL TILE METADATA (title, description, containig tool)-->
+                                            <div class="vp-dutile__tilemetadata left">
+                                                <div class="vp-dutile__label text--regular text--ellipsis text--ellipsis--two text--xl mb--md verticall--top" title="{{du.name}}"><a style="text-decoration : none !important;" href="#/deploymentunit/view/{{du._id.$oid}}">{{du.name}}</a></div>
+                                                <div class="vp-dutile__deprecatedwarning text--light text--lg mt--md" ng-if="du.approval_status==='Certified'">
+                                                    <img alt="" class="vp-dutile__depreceteicon" src="static/assets/images/icons/active_icn.png">
+                                                    <span class="vp-dutile__deprecetemsg ml--sm">{{du.approval_status}}</span>
+                                                </div>
+                                                <div class="vp-dutile__deprecatedwarning text--light text--lg mt--md" ng-if="du.approval_status==='Created'">
+                                                    <img alt="" class="vp-dutile__depreceteicon" src="static/assets/images/icons/Deprecated_icn.png">
+                                                    <span class="vp-dutile__deprecetemsg ml--sm">{{du.approval_status}}</span>
+                                                </div>
+                                                <div class="vp-dutile__deprecatedwarning text--light text--lg mt--md" ng-if="du.approval_status==='Tested'">
+                                                    <img alt="" class="vp-dutile__depreceteicon" src="static/assets/images/icons/DU_status_yellow.png">
+                                                    <span class="vp-dutile__deprecetemsg ml--sm">{{du.approval_status}}</span>
+                                                </div>
+                                                <div class="vp-dutile__containingtoolmsg text--light text--lg mt--md text--ellipsis text--ellipsis--single hidden"><span class="text--bold">B:</span> <span>{{du.build_number}}</span></div>
+                                                <div class="vp-dutile__containingtoolmsg text--light text--lg mt--md text--ellipsis text--ellipsis--single hidden" style="width:146px;"> <span class="text--bold">T:</span>
+                                                    <span class="vp-dutile__containingtoolname" title="INIT" ng-repeat="tag in du.tag">{{tag}}<span ng-if="$index!==du.tag.length-1">,</span></span>
+                                                </div>
+                                            </div>
+                                            <!--TOOL TILE FOOTER SECRION-->
+                                            <div class="vp-dutile__footer absolute clearfix set_footer">
+                                                <div class="vp-dutile__deprecatedwarning text--light text--lg mt--md" style="margin-left: -15px;">
+                                                    <img alt="" class="vp-dutile__depreceteicon" src="static/assets/images/icons/Dependency_icon.png">
+                                                    <span class="vp-dutile__deprecetemsg ml--sm mr--md">Dependency</span>
+                                                    <div class="vp-tooltile__checkbox vp-uielement__checkbox">
+                                                        <input type="checkbox" name="selectedDU" ng-model="arrangeDU" id ="arrange_{{du.name}}" value="{{du.du_id}}" ng-change="manageDU(du)" ng-checked="du.dependent===true || du.dependent==='true'"/>
+                                                        <label for="arrange_{{du.name}}"></label>
+                                                    </div>
+                                                </div>
+                                                <!--<button ng-click="removeDU($index)" type="button" class="vp-uielement__button vp-uielement__button&#45;&#45;edittool vp-tooltile__edittoolbtn mr&#45;&#45;md right">Remove from set</button>-->
+                                            </div>
+                                        </div>
+                                        <div class="arrange_order" ng-if="$index!==arrangedDU.length-1">
+                                            <button type="button" id="move_down_{{$index}}" class="vp-uielement__button vp-uielement__button--pushdown change_order_edit right" ng-click="moveArrangedListForward($index)"></button>
+                                        </div>
+                                    </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+		</section>
+    </div>
+		<!--MODAL FOOTER-->
+    <div class="vp-addtoolmodal__footer absolute pos--bottom"  ng-class="openFilterMove('footer')" style="top: 91.09%;margin-left:50%; border-top:transparent">
+        <!--CLOSE BUTTON-->
+        <div class="vp-addtoolmodal__closebtnwrap inblock">
+            <button type="button" class="vp-addtoolmodal__footerclosebtn vp-uielement__button vp-uielement__button--close" ng-click="deleteDUSetOrderList()">Cancel</button>
+        </div>
+        <!--DISCARD BUTTON-->
+        <div class="vp-rdmodal__discardbtnwrap right">
+            <button type="button" ng-disabled="EditToolForm.input_type.$error.required" class="vp-addtoolmodal__donebtn vp_updatebtn vp-uielement__button vp-uielement__button--deployenabled" ng-click="updateDUSetOrderList()">Update</button>
+        </div>
+    </div>
+</div>

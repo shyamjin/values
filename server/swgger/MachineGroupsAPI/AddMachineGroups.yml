@@ -1,0 +1,69 @@
+Create new Machine Group
+---
+tags:
+   - Machine Groups
+parameters:
+- name: token
+  in: header
+  description: API key
+  required: false
+  type: string
+  format: string
+- name: access-token
+  in: header
+  description: API key
+  required: false
+  type: string
+  format: string 
+- name: input
+  in: body
+  description: Machine Group data
+  required: true
+  type: string
+  format: string
+  schema:
+    $ref: "#/definitions/MachineGroup"     # <---------
+
+
+responses:
+  200:
+    description: The machine is saved successfully
+    schema:
+        $ref: "#/definitions/Data"     # <---------
+    examples:
+      result: "success"
+      message: "The machine is saved successfully"
+  404:
+    description: exception in creating new Machine Group
+    examples:
+      result: "failed"
+      message: "Throws an exception"
+
+
+definitions:
+  MachineGroup:           # <----------
+    type: object
+    required:
+      - group_name
+      - machine_id_list
+    optional:      
+      - description      
+
+    properties:
+      group_name:
+        type: string
+      description:
+        type: string   
+      machine_id_list:        
+        type: array
+        items:
+          type: string           
+  Data:
+    type: object
+    properties:
+        data:
+          type: string
+        result:
+          type: string
+        message:
+           type: string      

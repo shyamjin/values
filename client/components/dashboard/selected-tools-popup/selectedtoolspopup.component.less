@@ -1,0 +1,40 @@
+// VARIABLES: SECTION 15
+// COPONENT CLASS
+div.vp-selectedtoolspopup {
+    width: @selectedToolsPopupWidth;
+    .vp-selectedtoolspopup__container {
+        .ba--solid(@cs09);
+         transition : height linear 0.5s;
+
+    }
+    li.vp-selectedtoolspopup__toolitem {
+        min-height: @selectedToolItemHeight;
+        line-height: @selectedToolItemHeight;
+        &:not(:last-of-type) {
+            border-bottom: 1px solid @cs09;
+        }
+        //TOOL NAME (WIDTH is 100% - button size - MR)
+        span.vp-selectedtoolspopup__toolname {
+            width: calc(~"100% - " (@selectedToolsRemoveBtnSize + 30))
+
+        }
+    }
+    //OVERRIDE POPUP TOP-ARROW POSITION (defined in UIELEMENT/POPUP.ELEMENT)
+    .vp-selectedtoolspopup__topborder:before {
+        left: @selectedToolsPopupTopArrowLeft;
+    }
+}
+
+.selectedtoolspopup--hide {
+    transition: all 1s ease-out;
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+
+}
+
+.selectedtoolspopup--show {
+    transition: all 1s ease-out;
+    opacity: 1;
+    height: auto;
+}

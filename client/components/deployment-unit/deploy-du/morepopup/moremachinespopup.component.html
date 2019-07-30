@@ -1,0 +1,45 @@
+<!--SHOW MORE MACHINES POPUP COMPONENT START-->
+<div class="vp-moremachinespopup vp-control">
+	<!--TRIANGLE ARROW-->
+	<div class="vp-moremachinespopup__topborder vp-uielement__popuptop"></div>
+	<!--SELECTED MACHINES LIST CONTAINER-->
+	<div class="vp-moremachinespopup__container vp-uielement__popup bg--white">
+		<div class="vp-moremachinespopup__searchboxwrapper pt--sm pr--lg pb--sm pl--lg">
+			<!--SEARCH FIELD (MODIFIERS: # vp-moremachinespopup__searchbox--drop)-->
+			<div class="vp-moremachinespopup__searchbox vp-uielement__searchbox">
+				<div class="vp-moremachinespopup__searchautocomplete bg--cs06 absolute hidden" ng-include="'static/components/tools/deploy-tools/search-autocomplete/searchautocomplete.component.html'"></div>
+				<form id="vp-moremachinespopup__searchform vp-uielement__searchform">
+					<!--SEARCH INPUT TEXT-->
+					<input class="vp-moremachinespopup__searchinput vp-uielement__searchinput text--light text--lg text--cs08 bg--cs06" type="text"
+						placeholder="Find a machine" name="searchMachine" ng-model="searchMachineKeyword"/>
+					<!--SEARCH INPUT SUBMIT BUTON-->
+					<button type="button" class="vp-moremachinespopup__searchbtn vp-uielementt__searchbtn"></button>
+				</form>
+			</div>
+		</div>
+		<ul ng-repeat="du in duSelectedToDeploy" ng-if="du.du_name===selectedDU.du_name">
+			<!--TOOL EXAMPLE (MODIFIERS: # vp-uielement__toolitem--unknown # vp-uielement__toolitem--ready # vp-uielement__toolitem--error)-->
+			<li class="vp-moremachinespopup__toolitem pl--md">
+				<!--TOOL STATE ICON-->
+				<div class="vp-moremachinespopup__toolitemstate vp-uielement__itemstateicon vertical--middle mt--lg left"></div>
+				<!--TOOL NAME-->
+				<span class="vp-moremachinespopup__toolname word--break pl--md text--regular text--md text--cs03 inblock">All machines</span>
+				<!--REMOVE BUTTON-->
+				<div class="vp-moremachinespopup__removebtnwrapper right">
+					<button type="button" class="vp-moremachinespopup__removebtn vp-uielement__button vp-uielement__button--smallclose mr--lg vertical--middle" ng-click="removeMachine(du.du_name, 'all')"></button>
+				</div>
+			</li>
+			<!--TOOL EXAMPLE (MODIFIERS: # vp-uielement__toolitem--unknown # vp-uielement__toolitem--ready # vp-uielement__toolitem--error)-->
+			<li class="vp-moremachinespopup__toolitem pl--md" ng-repeat="machine in du.requests | filter : searchMachineKeyword" ng-class="getFormValidated(du.du_name, machine.machine_name)">
+				<!--TOOL STATE ICON-->
+				<div class="vp-moremachinespopup__toolitemstate vp-uielement__itemstateicon vertical--middle mt--lg left"></div>
+				<span class="vp-moremachinespopup__toolname word--break pl--md text--regular text--md text--cs03 inblock" ng-click="getSelectedMachine(machine.machine_name)">{{machine.machine_name}}</span>
+				<!--REMOVE BUTTON-->
+				<div class="vp-moremachinespopup__removebtnwrapper right">
+					<button type="button" class="vp-moremachinespopup__removebtn vp-uielement__button vp-uielement__button--smallclose  mr--lg vertical--middle" ng-click="removeMachine(du.du_name, machine.machine_name)"></button>
+				</div>
+			</li>
+		</ul>
+	</div>
+</div>
+<!--SHOW MORE machines POPUP COMPONENT END-->

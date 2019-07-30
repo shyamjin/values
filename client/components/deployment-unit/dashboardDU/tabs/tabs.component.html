@@ -1,0 +1,38 @@
+<!--TAB COMPONENT START ( MODIFIERS: vp-tabs--default # vp-tabs--transparent #  vp-tabs--sideopen # vp-tabs--vertical )-->
+<div class="vp-tabs vp-tabs--default vp-control relative max--width max--height clearfix">
+	<!--TABS HEADER NAVIGATION BAR-->
+	<div class="vp-tabs__nav max--width left">
+		<nav>
+			<ul class="vp-tabs__navlist  max--width text--center text--capitalize text--md text--light text--cs06 pl--xl table">
+				<li class="vp-tabs__tab pointer pr--sm pl--sm left" ng-class="getActiveTab('/dashboard/du')" ng-click="showActiveTab('/dashboard/du')" ng-if="isallowed['/dashboard/du']">
+					<a href="#/dashboard/du">
+					<span class="vp-tabs__tablabel vertical--top ml--md">All DU</span>
+					<span class="vp-tabs__tabcountnotification bg--cs05 text--sm text--white mt--sm vertical--top"></span>
+				</li>
+				<!--&lt;!&ndash;DEAFULT TAB STATE WITH COUNTER NOTIFICATION(LI MODIFIERS: vp-tabs__tab&#45;&#45;active # vp-tabs__tabcountnotification&#45;&#45;active ) &ndash;&gt;-->
+				<li class="vp-tabs__tab vp-tabs__tabcountnotification--active pointer pr--lg pl--lg left" ng-class="getActiveTab('/du/updates')" ng-click="showActiveTab('/du/updates')" ng-if="isallowed['/du/updates']">
+					<a href="#/du/updates">
+						<div class="vp-tabs__tabicon vp-tabs__tabicontoolupdates mb--md vertical--bottom inblock"></div>
+						<span class="vp-tabs__tablabel vertical--top ml--md">DU updates</span>
+					</a>
+				</li>
+				<li class="vp-tabs__tab pointer pr--lg pl--lg left vp-tabs__tabcountnotification--active" ng-class="getActiveTab('/deploymentunitset/all')" ng-click="showActiveTab('/deploymentunitset/all')" ng-if="isallowed['/deploymentunitset/all']">
+					<a href="#/deploymentunitset/all">
+						<div class="vp-tabs__tabicon vp-tabs__tabicontoolsets mb--md vertical--bottom inblock"></div>
+						<span class="vp-tabs__tablabel vertical--top ml--md">DU Package</span>
+					</a>
+				</li>
+			</ul>
+		</nav>
+	</div>
+	<!--TAB BODY WRAPPER, LOAD TEMPLATE INSIDE-->
+	<div class="vp-tabs__body left max--width">
+		<!--INCLUDE TILE GRID TO THE TABS BODY FOR All DU-->
+		<div class="vp-tabs__tilegrid" ng-if="displayTab==='/dashboard/du'" ng-include="'static/components/deployment-unit/dashboardDU/tilegrid/all-du.component.html'"></div>
+		<!--INCLUDE TILE GRID TO THE TABS BODY FOR DU Updates-->
+		<div class="vp-tabs__tilegrid" ng-if="displayTab==='/du/updates'" ng-include="'static/components/deployment-unit/dashboardDU/tilegrid/du-updates.component.html'"></div>
+		<!--INCLUDE TILE GRID TO THE TABS BODY FOR NEW TOOLS-->
+		<div class="vp-tabs__tilegrid" ng-if="displayTab==='/deploymentunitset/all'" ng-include="'static/components/deployment-unit/dashboardDU/tilegrid/du-sets.component.html'"></div>
+	</div>
+</div>
+<!--TAB COMPONENT END-->

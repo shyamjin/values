@@ -1,0 +1,24 @@
+<!--TAB COMPONENT START-->
+<div class="vp-tabs vp-tabs--default vp-tabs--service vp-control relative max--width max--height clearfix" ng-controller="ManageTagsController">
+    <!--TABS HEADER NAVIGATION BAR-->
+    <div class="vp-tabs__nav max--width left">
+        <nav>
+            <ul class="vp-tabs__navlist  max--width text--center text--md text--light text--cs06 table">
+                <!--ACTIVE TAB STATE (MODIFIERS: # vp-tabs__tab--active   )-->
+                <li class="vp-tabs__tab pointer pr--sm pl--sm left" ng-class="getActiveTab('/manage/tags')" ng-click="showActiveTab('/manage/tags')" >
+                    <a href="#/manage/tags"><span class="vp-tabs__tablabel vertical--top no--decor">Tag List</span></a>
+                </li>
+                <li class="vp-tabs__tab pointer pr--sm pl--sm left" ng-class="getActiveTab('/tag/new')" ng-click="showActiveTab('/tag/new')">
+                    <a href="#/tag/new"><span class="vp-tabs__tablabel vertical--top no--decor">Add New Tag</span></a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <!--TAB BODY WRAPPER, LOAD TEMPLATE INSIDE-->
+    <div class="vp-tabs__body overflow--hidden left max--width">
+        <div  ng-if="activeTab==='/manage/tags'"  class="vp-tabs__servicetabcontent" ng-include="'static/components/manage-tags/manage-tag/manage-tag-component.html'"></div>
+        <div  ng-if="activeTab==='/tag/new'"  class="vp-tabs__servicetabcontent" ng-include="'static/components/manage-tags/add-new-tag/add-new-tag-content-component.html'"></div>
+    </div>
+</div>
+<!--TAB COMPONENT END-->

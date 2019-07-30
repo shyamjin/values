@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<proxy>
+  <name>10.232.233.70</name>
+  <port>8080</port>
+  <userName>/var/jenkins_home/.ssh/id_rsa</userName>
+  <secretPassword>u9CKpUvE/LvzdFCVItWK5w==</secretPassword>
+</proxy>

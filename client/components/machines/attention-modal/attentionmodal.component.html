@@ -1,0 +1,20 @@
+<!--ATTENTION MODAL COMPONENT START-->
+<div class="vp-attentionmodal vp-control bg--cs10 pt--xxxl pr--xxxl pb--xl pl--xxxl">
+    <!--HEADER TITLE-->
+    <h1 class="vp-attentionmodal__header text--cs03 text--light text--xxl">Attention!</h1>
+    <!--TEXT AREA-->
+    <div class="vp-attentionmodal__msgwrap pt--xxxl pb--xxxl text--cs3 text--light text--lg">
+        <p>Deleting machine will only delete </p>
+        <p>if it is not used in any entity.</p>
+        <p class="mt--xxl">Click "Continue" to proceed or </p>
+        <p>"Cancel" to return without deleting machine.</p>
+    </div>
+    <!--BUTTONS WRAPPER-->
+    <div class="vp-attentionmodal__btnswrap right">
+        <!--CANCEL BUTTON-->
+        <button type="button" class="vp-attentionmodal__cancelbtn vp-uielement__button vp-uielement__button--cleanenabled" ng-click="closeDeleteMachineConfirmationPopup()">Cancel</button>
+        <!--CONTINUE BUTTON-->
+        <button type="button" class="vp-attentionmodal__continuebtn vp-uielement__button vp-uielement__button--apply ml--xxxl" ng-click="removeThisMachine()">Continue</button>
+    </div>
+</div>
+<!--ATTENTION MODAL COMPONENT END-->

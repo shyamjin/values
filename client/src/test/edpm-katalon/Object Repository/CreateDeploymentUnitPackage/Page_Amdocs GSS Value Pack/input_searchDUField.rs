@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+   <description></description>
+   <name>input_searchDUField</name>
+   <tag></tag>
+   <elementGuidId>4b1caf90-85f5-45d4-864f-9013c4326b0e</elementGuidId>
+   <selectorMethod>BASIC</selectorMethod>
+   <useRalativeImagePath>false</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>tag</name>
+      <type>Main</type>
+      <value>input</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>class</name>
+      <type>Main</type>
+      <value>vp-toolssearch__searchinput vp-uielement__searchinput ng-untouched ng-valid ng-not-empty ng-dirty ng-valid-parse</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>name</name>
+      <type>Main</type>
+      <value>searchDUField</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>ng-model</name>
+      <type>Main</type>
+      <value>searchDUToAdd</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>type</name>
+      <type>Main</type>
+      <value>text</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>placeholder</name>
+      <type>Main</type>
+      <value>Find a DU</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath</name>
+      <type>Main</type>
+      <value>id(&quot;show_du_list&quot;)/div[@class=&quot;vp-addToolmodal absolute ng-scope&quot;]/div[@class=&quot;vp-addtoolmodal vp-control bg--white relative ng-scope&quot;]/div[@class=&quot;vp-addtoolmodal__body&quot;]/section[@class=&quot;vp-addtoolmodal__title&quot;]/div[@class=&quot;vp-addtoolmodal__findmachinewrap vertical--top mt--md ml--md left&quot;]/div[@class=&quot;vp-mmanagetab__findmachine max--height ng-scope&quot;]/div[@class=&quot;vp-toolssearch bg--white max--width ng-scope&quot;]/div[@class=&quot;vp-toolssearch__searchboxwrap pt--md pr--md pl--md&quot;]/div[@class=&quot;vp-toolssearch__searchbox vp-uielement__searchbox relative&quot;]/input[@class=&quot;vp-toolssearch__searchinput vp-uielement__searchinput ng-untouched ng-valid ng-not-empty ng-dirty ng-valid-parse&quot;]</value>
+   </webElementProperties>
+</WebElementEntity>

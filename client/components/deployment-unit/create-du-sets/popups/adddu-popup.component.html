@@ -1,0 +1,46 @@
+    <!--'ADD A SETTING' MODAL COMPONENT START-->
+<div class="vp-addtoolmodal vp-control bg--white relative" ng-class="openFilterMove('modal')">
+	<div class="vp-addtoolmodal__header">
+		<!--TITLE-->
+		<h1 class="vp-addtoolmodal__title text--cs06 text--xl text--light mt--xl ml--xl inblock">Add a DU to this DU Package</h1>
+		<!--CLOSE BUTTON-->
+		<button type="button" class="vp-addtoolmodal__closebtn btn--clear mt--md mr--lg right" ng-click="closeDUSetModal()"></button>
+	</div>
+
+	<!--MODAL BODY-->
+	<div class="vp-addtoolmodal__body">
+		<!--FIELD TITLE SECTION-->
+		<section class="vp-addtoolmodal__title">
+			<div class="vp-toolset__bodyheaderfiltericonwrapper mr--xxxl text--light text--md text--cs03 pointer left">
+				<!--BODY HEADER FILTER BUTTON -->
+                <button type="button" class="vp-toolset__bodyheaderfilterbtn vp-uielement__button  vp-uielement__button--cleanenabled pl--xxl text--light text--md" ng-click="openFilter()"><span>Filter</span></button>
+                <div class="openfilter_body hidden" id="open_filter" ng-include="'static/components/dashboard/filter/openfilter.component.html'"></div>
+			</div>
+			<div class="vp-addtoolmodal__findmachinewrap vertical--top mt--md ml--md left" style="width: 420px;">
+                <div class="vp-mmanagetab__findmachine max--height" ng-include="'static/components/deployment-unit/create-du-sets/du-search-column/dusearchcolumn.component.html'"></div>
+            </div>
+            <div class="vp-addtoolmodal__addedtoolwrap vertical--top mt--md ml--md left">
+                <h1 >Added DU's : </h1>
+                <div ng-repeat="du in selectedDU track by $index">
+                    <div class="vp-addtoolmodal__addedtoolslist vertical--top mt--md ml--md left" style="width: 200px;">
+                        <label class="vp-addedtool__fieldname text--cs03 text--light text--md inblock">{{du.name}} {{du.type}}</label>
+                    </div>
+                    <div class="vp-teamsform__deletecol vp_removetoolbtn vertical--top pt--md inblock">
+                        <button type="button" class="vp-versionform__removescreenshotbtn vp-uielement__button vp-uielement__button--removeenabled pl--xxl mt--sm" ng-click="removeDU($index)">Remove</button>
+                    </div>
+                </div>
+            </div>
+		</section>
+    </div>
+		<!--MODAL FOOTER-->
+    <div class="vp-addtoolmodal__footer absolute pos--bottom"  ng-class="openFilterMove('footer')">
+        <!--CLOSE BUTTON-->
+        <div class="vp-addtoolmodal__closebtnwrap inblock">
+            <button type="button" class="vp-addtoolmodal__footerclosebtn vp-uielement__button vp-uielement__button--close" ng-click="deleteDUSetList()">Cancel</button>
+        </div>
+        <!--DISCARD BUTTON-->
+        <div class="vp-rdmodal__discardbtnwrap right">
+            <button type="button" ng-disabled="EditToolForm.input_type.$error.required" class="vp-addtoolmodal__donebtn vp_updatebtn vp-uielement__button vp-uielement__button--deployenabled" ng-click="updateDUSetList()">Update</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,159 @@
+
+PDINDA@PDINDA03 MINGW64 ~/Desktop
+$ ./testssl.sh https://illin4489:8000/
+
+ATTENTION: No cipher mapping file found!
+Please note from 2.9dev on testssl.sh needs files in "$TESTSSL_INSTALL_DIR/etc/" to function correctly.
+
+Type "yes" to ignore this warning and proceed at your own risk --> yes
+
+ATTENTION: No TLS data file found -- needed for socket based handshakes
+Please note from 2.9dev on testssl.sh needs files in "$TESTSSL_INSTALL_DIR/etc/" to function correctly.
+
+Type "yes" to ignore this warning and proceed at your own risk --> yes
+
+No engine or GOST support via engine with your /mingw64/bin/openssl
+
+###########################################################
+    testssl.sh       2.9.5-6 from https://testssl.sh/
+
+      This program is free software. Distribution and
+             modification under GPLv2 permitted.
+      USAGE w/o ANY WARRANTY. USE IT AT YOUR OWN RISK!
+
+       Please file bugs @ https://testssl.sh/bugs/
+
+###########################################################
+
+ Using "OpenSSL 1.0.2e 3 Dec 2015" [~141 ciphers]
+ on PDINDA03:/mingw64/bin/openssl
+ (built: "reproducible build, date unspecified", platform: "mingw64")
+
+
+ Start 2018-10-05 13:37:16        -->> 10.234.124.35:8000 (illin4489) <<--
+
+ rDNS (10.234.124.35):   illin4489.corp.amdocs.com
+ Service detected:       Couldn't determine what's running on port 8000, assuming no HTTP service => skipping all HTTP checks
+
+
+ Testing protocols via sockets except SPDY+HTTP2
+
+ SSLv2      not offered (OK)
+ SSLv3      not offered (OK)
+ TLS 1      not offered
+ TLS 1.1    not offered
+ TLS 1.2    not offered
+ SPDY/NPN   (SPDY is an HTTP protocol and thus not tested here)
+ HTTP2/ALPN (HTTP/2 is a HTTP protocol and thus not tested here)
+
+
+ Testing ~standard cipher categories
+
+ NULL ciphers (no encryption)                  not offered (OK)
+ Anonymous NULL Ciphers (no authentication)    not offered (OK)
+ Export ciphers (w/o ADH+NULL)                 not offered (OK)
+ LOW: 64 Bit + DES encryption (w/o export)     not offered (OK)
+ Weak 128 Bit ciphers (SEED, IDEA, RC[2,4])    not offered (OK)
+ Triple DES Ciphers (Medium)                   not offered (OK)
+ High encryption (AES+Camellia, no AEAD)       not offered
+ Strong encryption (AEAD ciphers)              not offered
+
+
+ Testing robust (perfect) forward secrecy, (P)FS -- omitting Null Authentication/Encryption, 3DES, RC4
+ Cipher mapping not available, doing a fallback to openssl
+
+ PFS is offered (OK)
+
+
+ Testing server preferences
+
+ Has server cipher order?     nope (NOT ok)
+ Negotiated protocol          TLSv1.2
+ Negotiated cipher            ECDHE-RSA-AES256-SHA, 256 bit ECDH (P-256) (limited sense as client will pick)
+ Negotiated cipher per proto  (limited sense as client will pick)
+     ECDHE-RSA-AES256-SHA:                               SSLv3, TLSv1, TLSv1.1, TLSv1.2
+ No further cipher order check has been done as order is determined by the client
+
+
+ Testing server defaults (Server Hello)
+
+ TLS extensions (standard)    "renegotiation info/#65281" "EC point formats/#11" "session ticket/#35" "heartbeat/#15"
+ Session Ticket RFC 5077 hint 300 seconds, session tickets keys seems to be rotated < daily
+ SSL Session ID support       yes
+ Session Resumption           Tickets no, ID: no
+ TLS clock skew               SSLv3 through TLS 1.2 didn't return a timestamp
+ Signature Algorithm          SHA256 with RSA
+ Server key size              RSA 2048 bits
+ Fingerprint / Serial         SHA1 F29018CE59F7B3633DF4BF954F7721B5FF39EA17 / 56000199A83C2B02EA9F4988A20000000199A8
+                              SHA256 9097EA759500C1B6A73810D00BA8F8ED59233DD3D036C207FEC45DE0C54E07BB
+ Common Name (CN)             illin4489
+ subjectAltName (SAN)         eDPMDev@int.amdocs.com illin4489
+ Issuer                       Amdocs Class 3 Secure Server CA (corp.amdocs.com)
+ Trust (hostname)             Ok via SAN and CN (same w/o SNI)
+ Chain of trust               "/c/Users/PDINDA/Desktop/etc/*.pem" cannot be found / not readable
+ EV cert (experimental)       no
+ Certificate Expiration       616 >= 60 days (UTC: 2018-06-13 15:09 --> 2020-06-12 15:09)
+ # of certificates provided   1
+ Certificate Revocation List  http://crl.corp.amdocs.com/Amdocs%%20Class%%203%%20Secure%%20Server%%20CA.crl
+                              ldap:///CN=Amdocs%%20Class%%203%%20Secure%%20Server%%20CA,CN=ILRNACERT03,CN=CDP,CN=Public%%20Key%%20Services,CN=Services,CN=Configuration,DC=corp,DC=amdocs,DC=com?certificateRevocationList?base?objectClass=cRLDistributionPoint
+ OCSP URI                     http://ocsp.corp.amdocs.com/ocsp
+ OCSP stapling                --
+ OCSP must staple             no
+ DNS CAA RR (experimental)    unknown query type: type257
+--
+ Certificate Transparency     N/A
+
+
+ Testing vulnerabilities
+
+ Heartbleed (CVE-2014-0160)                not vulnerable (OK), timed out
+ CCS (CVE-2014-0224)                       not vulnerable (OK)
+ Ticketbleed (CVE-2016-9244), experiment.  --   (applicable only for HTTPS)
+ Secure Renegotiation (CVE-2009-3555)      not vulnerable (OK)
+ Secure Client-Initiated Renegotiation     likely not vulnerable (OK), timed out
+ CRIME, TLS (CVE-2012-4929)                not vulnerable (OK) (not using HTTP anyway)
+ POODLE, SSL (CVE-2014-3566)               not vulnerable (OK)
+ TLS_FALLBACK_SCSV (RFC 7507)              Downgrade attack prevention supported (OK)
+ SWEET32 (CVE-2016-2183, CVE-2016-6329)    not vulnerable (OK)
+ FREAK (CVE-2015-0204)                     not vulnerable (OK)
+ DROWN (CVE-2016-0800, CVE-2016-0703)      not vulnerable on this host and port (OK)
+                                           make sure you don't use this certificate elsewhere with SSLv2 enabled services
+                                           https://censys.io/ipv4?q=9097EA759500C1B6A73810D00BA8F8ED59233DD3D036C207FEC45DE0C54E07BB could help you to find out
+ LOGJAM (CVE-2015-4000), experimental      not vulnerable (OK): no DH EXPORT ciphers, no DH key detected
+ BEAST (CVE-2011-3389)                     SSL3:
+                                           TLS1:
+                                           VULNERABLE -- but also supports higher protocols (possible mitigation): TLSv1.1 TLSv1.2
+ LUCKY13 (CVE-2013-0169), experimental     not vulnerable (OK)
+ RC4 (CVE-2013-2566, CVE-2015-2808)        VULNERABLE (NOT ok):
+
+
+ Testing all 141 locally available ciphers against the server, ordered by encryption strength
+ Cipher mapping not available, doing a fallback to openssl
+
+Hexcode  Cipher Suite Name (RFC)                           KeyExch.   Encryption  Bits     Cipher Suite Name (OpenSSL)
+---------------------------------------------------------------------------------------------------------------------------------
+ xc014                                                     ECDH 256   AES         256
+ xc019                                                     ECDH 256   AES         256
+ x35                                                       RSA        AES         256
+ x84                                                       RSA        Camellia    256
+ xc013                                                     ECDH 256   AES         128
+ xc018                                                     ECDH 256   AES         128
+ x2f                                                       RSA        AES         128
+ x96                                                       RSA        SEED        128
+ x41                                                       RSA        Camellia    128
+ x07                                                       RSA        IDEA        128
+ xc011                                                     ECDH 256   RC4         128
+ xc016                                                     ECDH 256   RC4         128
+ x05                                                       RSA        RC4         128
+ x04                                                       RSA        RC4         128
+ xc012                                                     ECDH 256   3DES        168
+ xc017                                                     ECDH 256   3DES        168
+ x0a                                                       RSA        3DES        168
+ xc010                                                     ECDH 256   None        None
+ xc015                                                     ECDH 256   None        None
+ x02                                                       RSA        None        None
+ x01                                                       RSA        None        None
+
+Local problem: couldn't find client simulation data in /c/Users/PDINDA/Desktop/etc/client-simulation.txt
+
+ Done 2018-10-05 13:52:12 [0910s] -->> 10.234.124.35:8000 (illin4489) <<--

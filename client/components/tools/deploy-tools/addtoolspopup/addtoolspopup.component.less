@@ -1,0 +1,18 @@
+// VARIABLES: SECTION 22
+div.vp-addtoolspopup {
+    width: @addToolsPopupWidth;
+    box-shadow: @shadow;
+    input.vp-addtoolspopup__toolname {
+        border: 1px solid @cs08;
+        //INPUT WIDTH (minus paddings)
+        width: calc( @addToolsPopupWidth - 40px);
+    }
+    //OVERRIDE UI RADIO BUTTON DISPLAY
+    div.vp-addtoolspopup__radiobtn {
+        .block;
+    }
+    //OVERRIDE POPUP 'TOP ARROW' POSITION
+    .vp-addtoolspopup__topborder:before {
+        left: @addToolsPopArrowLeft;
+    }
+}

@@ -1,0 +1,41 @@
+<!--TAB COMPONENT START-->
+<div class="vp-tabsvertical vp-control max--width max--height clearfix" ng-controller="EditToolVerticalTabController">
+	<!--TABS HEADER NAVIGATION BAR-->
+	<div class="vp-tabsvertical__nav max--width left">
+		<nav>
+			<ul class="vp-tabsvertical__navlist text--center table">
+				<!--'ADD A VERSION' TAB-->
+				<li class="vp-tabsvertical__tabaddbtn pointer left bg--cs06">
+					<div class="vp-tabsvertical__tabinner max--width max--height">
+						<!--'ADD A VERSION' BUTTON-->
+						<button type="button" class="vp-tabsvertical__add vp-uielement__button  vp-uielement__button--cleanenabled max--width max--height" ng-click="addNewVersion()">+ add a version</button>
+					</div>
+				</li>
+				<!--EMPTY TAB STATE EXAMPLE ( MODIFIERS: # vp-tabsvertical__tab--active # vp-tabsvertical__tab--empty # vp-tabsvertical__tab--nolabel)-->
+				<!--TAB ACTIVE VERSION STATE ( MODIFIERS: # vp-tabsvertical__tab--active # vp-tabsvertical__tab--empty # vp-tabsvertical__tab--nolabel)    order reverse - -->
+				<li class="vp-tabsvertical__tab pointer left" ng-repeat="version in versionData track by $index" id="vp_vertical_tab_{{$index}}" ng-click="showVersionDetailsTab($index)" ng-class="getActiveTab($index)">
+					<div class="vp-tabsvertical__tabinner max--height max--width intable">
+						<div class="vp-tabsvertical__labelwrap text--right pl--sm lh--font inblock table--cell vertical--middle">
+							<labe class="vp-tabsvertical__tabversion text--cs03 text--light text--md text--ellipsis text--ellipsis--single block">Ver {{version.version_number}}</labe>
+							<labe class="vp-tabsvertical__tabversionlabel text--cs08 text---light text--sm text--ellipsis text--ellipsis--single block">{{version.version_name}}</labe>
+						</div>
+						<div class="vp-tabsvertical__tabstatuswrap right table--cell max--height">
+							<!--VERSION STATUS STATE ICON (MODIFIERS: # vp-uielement__versionstate--inactive # vp-uielement__versionstate--active)-->
+							<span ng-if="version.status==='1' || version.status==='Active'" class="vp-tabsvertical__tabstatus vp-uielement__versionstate vp-uielement__versionstate--active inblock"></span>
+                            <span ng-if="version.status==='0' || version.status==='Deprecated'" class="vp-tabsvertical__tabstatus vp-uielement__versionstate vp-uielement__versionstate--inactive inblock"></span>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</nav>
+	</div>
+	<!--TAB BODY WRAPPER, LOAD TEMPLATE INSIDE-->
+	<div class="vp-tabsvertical__body bg--white left pa--xxxl max--height inherit" style="width:60%">
+		<!--TOOL VERSION ACTION BUTTON (MODIFIERS: # vp-tabsvertical__versionactionbtnwrap--remove # vp-tabsvertical__versionactionbtnwrap--deploy)-->
+		<div class="vp-tabsvertical__versionactionbtnwrap vp-tabsvertical__versionactionbtnwrap--remove absolute mr--xxl" ng-if="versionData.length>1" ng-repeat="version in versionData track by $index" style="top: 26%;">
+			<button type="button" class="vp-tabsvertical__versionactionbtn vp-uielement__button" ng-if="!version._id.$oid" ng-click="removeVersion()"></button>
+		</div>
+		<div class="vp-tabsvertical__versionsform" ng-include="'static/components/tools/edit-tools/version-form/versionsform.component.html'"></div>
+	</div>
+</div>
+<!--TAB COMPONENT END-->

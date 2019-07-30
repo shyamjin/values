@@ -1,0 +1,33 @@
+Deleting PreRequisites, referring by Id
+---
+tags:
+ - PreRequisites
+parameters:
+- name: token
+  in: header
+  description: API key
+  required: false
+  type: string
+  format: string
+- name: access-token
+  in: header
+  description: API key
+  required: false
+  type: string
+  format: string 
+- name: id
+  in: path
+  type: string
+  required: true
+  description: Delete PreRequisites
+responses:
+  200:
+    description: Deleted PreRequisites Successfully
+    examples:
+      result: "success"
+      message: null
+  404:
+    description: exception in deleting the PreRequisites
+    examples:
+      result: "failed"
+      message: "Throws an exception"

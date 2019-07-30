@@ -1,0 +1,25 @@
+<!--MACHINES-SECTION COMPONENT START-->
+<div class="vp-machinessection vp-control pl--xxxl pt--lg max--width">
+	<div class="vp-machinessection__labelwrap pt--md left" ng-repeat="tool in toolsSelectedToDeploy" ng-if="tool.tool_name===selectedTool.tool_name">
+		<label class="vp-machinessection__label text--ellipsis text--ellipsis--single text--cs01 text--light text--lg">Machines (<span class="vp-toolssection__toolscount">{{tool.requests.length}}</span>):</label>
+	</div>
+	<div class="vp-machinessection__tabs inblock" ng-include="'static/components/tools/deploy-tools/tabs/tabs.component.html'"></div>
+    <div class="vp-machinesform__fieldinputwrap  vertical--top pl--md inblock" ng-if="request_type==='deploy'" ng-init="deploy_on='machine'">
+        <label for="input_radio_select-deploy_on" class="ml--md">Deploy On:</label>
+        <div class="vp-uielement__radiobtn ml--md">
+            <input type="radio" id="vp-versionform__input_radio_machine_select" ng-model="deploy_on" value="machine" name="deploy_on_flag" ng-click="setDeployOnValue('machine')" checked>
+            <label for="vp-versionform__input_radio_machine_select"></label>
+            <label for="vp-versionform__input_radio_machine_select">Machine</label>
+        </div>
+		<div class="vp-uielement__radiobtn">
+            <input type="radio" id="vp-versionform__input_radio_machine_group_select" ng-model="deploy_on" value="machine_group" name="deploy_on_flag" ng-click="setDeployOnValue('machine_group')">
+            <label for="vp-versionform__input_radio_machine_group_select"></label>
+            <label for="vp-versionform__input_radio_machine_group_select">Machine Group</label>
+        </div>
+        <div class="vp-machinessection__machinessearch vertical--top inblock" ng-if="deploy_on==='machine' && request_type==='deploy'" style="margin-left: -250px;" ng-include="'static/components/tools/deploy-tools/machines-search-column/machinesearchcolumn.component.html'"></div>
+         <div class="vp-machinessection__machinessearch vertical--top inblock" ng-if="deploy_on==='machine_group' && request_type==='deploy'" style="margin-left: -250px;" ng-include="'static/components/tools/deploy-tools/machine-group-search-column/machinegroupsearchcolumn.component.html'"></div>
+	</div>
+
+
+</div>
+<!--MACHINES-SECTION COMPONENT END--  ng-hide="request_type!=='deploy'"> -->

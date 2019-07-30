@@ -1,0 +1,5 @@
+<!--USERS TAB COMPONENT START-->
+<div class="vp-distributioncont max relative" ng-controller="ManageDeploymentPluginContentController">
+    <div class="vp-distributioncont__distributionsearch vertical--top inblock" style="width: 55%;" ng-include="'static/components/deployment-plugins/plugin-list-search/pluginlistsearch.component.html'"></div>
+    <div class="vp-distributioncont__distributionsearch vertical--top inblock"  style="width: 40%;" ng-if="pluginOperation==='update' && showResultPane === true" ng-include="'static/components/deployment-plugins/upload-deployment-plugin-content/uploaddeploymentplugincontent.component.html'"></div>
+</div>

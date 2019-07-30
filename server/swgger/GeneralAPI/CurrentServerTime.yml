@@ -1,0 +1,28 @@
+Current Server Time
+---
+tags:
+ - Distribution Sync
+parameters:
+- name: token
+  in: header
+  description: API key
+  required: false
+  type: string
+  format: string
+- name: access-token
+  in: header
+  description: API key
+  required: false
+  type: string
+  format: string 
+responses:
+  200:
+    description: Get Current Server Time Successfully
+    examples:
+      result: "success"
+      message: null
+  404:
+    description: exception in Getting Current Server Time
+    examples:
+      result: "failed"
+      message: "Throws an exception"

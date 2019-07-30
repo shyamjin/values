@@ -1,0 +1,123 @@
+<div class="vp-machdetails vp-control pt--xxxl pr--xl pb--xxxl pl--xxxl bg--white clearfix max" style="padding-top:5%">
+    <form name="editDUSetStateForm">
+    <ul class="vp-userform__fieldslist text--cs03 pr--lg">
+        <!--IP FIELD ROW-->
+       <li class="vp-machdetails__fielditem vp-machdetails__ipitem">
+           <div class="vp-machdetails__fielditeminner">
+                        <!--IP FIELD LABEL-->
+               <div class="vp-machdetails__fieldlabelwrap inblock">
+                   <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">State ID:</label>
+               </div>
+                        <!--IP FIELD CONTENT-->
+               <div class="vp-machdetails__fieldcontent inblock">
+                   <div class="vp-machdetails__fieldipwrap inblock">
+                       <span class="vp-machdetails__fieldip text--regular text--lg text--ellipsis text--ellipsis--single">{{application.data._id.$oid}}</span>
+                   </div>
+               </div>
+           </div>
+       </li>
+       <li class="vp-userform__fielditem vp-userform__nameitem pt--xxl">
+            <div class="vp-userform__fielditeminner">
+                <!--'NAME' FIELD LABEL-->
+                <div class="vp-userform__fieldlabelwrap inblock">
+                    <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">DU Package Name <span class="mandatory">*</span> </label>
+                </div>
+                <!--'NAME' FIELD CONTENT-->
+                <div class="vp-versionform__content inblock">
+                    <div class="vp-versionform__statusselectwrap">
+                        <span class="vp-machdetails__fieldip text--regular text--lg text--ellipsis text--ellipsis--single">{{application.data.parent_entity_name}}</span>
+                    </div>
+                 </div>
+            </div>
+       </li>
+       <li class="vp-userform__fielditem vp-userform__nameitem pt--xxl">
+            <div class="vp-userform__fielditeminner">
+                <!--'NAME' FIELD LABEL-->
+                <div class="vp-userform__fieldlabelwrap inblock">
+                    <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Status<span class="mandatory">*</span> </label>
+                </div>
+                <!--'NAME' FIELD CONTENT-->
+                <div class="vp-versionform__content inblock">
+                    <div class="vp-versionform__statusselectwrap">
+                        <select name="approval_status" id="approval_status" ng-model="application.data.approval_status" class="vp-versionform__dropdownlist vp-versionform__dropdownlist2 vp-uielement__select max--width"  style="height:26px; width: 120px;" ng-change="addApproval(application.data.approval_status)">
+                            <option ng-repeat="status in approvalStatusAll" value="{{status.name}}">{{status.name}}</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+       </li>
+       <li class="vp-userform__fielditem vp-userform__nameitem pt--xxl">
+           <div class="vp-userform__fielditeminner">
+                    <!--'MEMBER OF' FIELD LABEL-->
+                <h3 class="tool_list_header ellipsis">DU'S NAME</h3>
+                <div class="vp-userform__fieldlabelwrap vertical--top inblock pt--md" style="width: 93%;">
+                    <!--USER INFO COMPONENT START (MODIFIERS: # vp-selecteduserform--active )-->
+                    <div class="vp_control">
+                        <div class="vp_tile_toolWrapper clearfix" style="top: 20px; width:100%">
+                            <ul>
+                                <li class="vp-tilegrid__tile pa--sm left du_package_card" ng-repeat="du in application.data.states" ng-class="setMargin($index)">
+                                    <!--DEPLOY TOOL "TILE" ELEMENT START-->
+                                    <!--( MODIFIERS: vp-tooltile__containingtoolmsg--active # vp-tooltile__deprecatedwarning--active # vp-tooltile--selected # vp-tooltile__favorite--active )-->
+                                    <div ng-class="{'vp-dutile--selected': selected , 'vp-dutile--not-selected': !selected  }" class="vp-dutile vp-component text--cs03 pt--md pr--md pl--md vp-dutile__containingtoolmsg--active vp-tooltile__deprecatedwarning--active vp-tooltile__favorite--active du_package_inner relative">
+                                        <div class="vp-dutile__iconswrapprer right" style="display: inline-block;">
+                                            <!--TILE ICON-->
+                                            <div class="vp-dutile__icon text--light text--xxxxl text--white vertical--top text--center bg--cs17" ng-class="setBackground(du.type)" style="margin-top: -6px; height: 30px; width: 30px; border-radius: 28px; line-height: 23px;">
+                                                <span class="vp-dutile_iconinner iconinner_du">
+                                                    {{du.type.substring(0, 1)}}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--TOOL TILE METADATA (title, description, containig tool)-->
+                                        <div class="vp-dutile__tilemetadata left" style="display: contents;">
+                                            <div class="vp-dutile__containingtoolmsg text--light text--lg mt--md text--ellipsis text--ellipsis--single hidden"  title="{{du.parent_entity_name}}">
+                                                <tooltip id="tooltip_{{$index}}_du_name" tooltip-side="top" class="tag_name">
+                                                <a style="text-decoration : none !important; width:280px" class="text--ellipsis text--ellipsis--single" href="" tooltips="" tooltip-template="{{du.parent_entity_name}}">{{du.parent_entity_name}}</a>
+                                                </tooltip>
+                                            </div>
+                                            <div class="vp-dutile__containingtoolmsg text--light text--lg mt--md text--ellipsis text--ellipsis--single hidden" style="padding-top: 10%;">
+                                              <tooltip id="tooltip_{{$index}}_new"  tooltip-side="top" class="tag_name">
+                                                  <span class="text--bold">State:<span class="mandatory">*</span></span>
+                                                      <span class="vp-createnewmachform__fieldcontent vp-createnewmachform__hostcontent inblock">
+                                                                <!--<select name="vp-userform__dropdownlist_entity_type" class="vp-userform__dropdownlist vp-uielement__select" ng-model="du.selectedState" id="select_build_{{$index}}"style="margin-left:30px; width: 170px;" ng-change="selectDUState(du._id.$oid, du.selectedState)" required>
+                                                                    <option data-ng-repeat="value in du.state" value="{{value._id.$oid}}">{{value.name}}- {{value.build.build_number}}</option>
+                                                                </select>-->
+                                                      <span class="vp-machdetails__fieldip text--regular text--lg text--ellipsis text--ellipsis--single" tooltips=""  tooltip-template="{{du.name}}" style="width: 270px;">{{du.name}}</span>
+                                                  </span>
+                                              </tooltip>
+                                            </div>
+                                            <div class="vp-dutile__containingtoolmsg text--light text--lg mt--md text--ellipsis text--ellipsis--single hidden" style="padding-top: 10%;">
+                                                <span class="text--bold">Status:<span class="mandatory">*</span></span>
+                                                <span class="vp-createnewmachform__fieldcontent vp-createnewmachform__hostcontent inblock">
+                                                      <span class="vp-machdetails__fieldip text--regular text--lg text--ellipsis text--ellipsis--single" tooltips=""  tooltip-template="{{du.approval_status}}" style="width: 270px;">{{du.approval_status}}</span>
+                                                  </span>
+                                            </div>
+                                            <div class="vp-dutile__containingtoolmsg text--light text--lg mt--md text--ellipsis text--ellipsis--single hidden" style="padding-top: 10%;">
+                                        </div>
+                                        <!--TOOL TILE FOOTER SECRION-->
+                                            <!--REMOVE TOOL BUTTON -->
+                                            <!--<button ng-click="removeDU($index)" type="button" class="vp-uielement__button vp-uielement__button&#45;&#45;edittool vp-tooltile__edittoolbtn mr&#45;&#45;md right">Remove from set</button>-->
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+<!--USER INFO COMPONENT END-->
+                </div>
+                </div>
+       </li>
+    </ul>
+    <div class="vp-machdetails__btnssectionblock mt--xxl right">
+        <div class="vp-machinetoolbar__createbtnwrap right">
+            <!--CREATE MACHINE BUTTON (MODIFIERS: # vp-uielement__button--deploydisabled )-->
+            <button type="button" class="vp-machinetoolbar__createbtn vp-uielement__button vp-uielement__button--deployenabled pr--lg pl--lg" ng-click="editDUSetState(editDUSetStateForm)">Save changes</button>
+        </div>
+        <!--DISCARD CHANCHES BUTTON-->
+        <div class="vp-machinetoolbar__discardbtnwrap mr--xxxl left">
+            <button type="button" class="vp-machinetoolbar__discardbtn vp-uielement__button vp-uielement__button--cleanenabled" ng-click="discardDUSetStateChanges()">Discard</button>
+            <button type="button" class="vp-machdetails__removemachinebtn vp-uielement__button vp-uielement__button--edittool pr--md pl--md ml--md" ng-if="isallowed['/state/delete/:id']" ng-click="removeThisState(application.data._id.$oid)">Remove this state</button>
+
+        </div>
+    </div>
+    </form>
+</div>

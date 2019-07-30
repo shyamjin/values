@@ -1,0 +1,55 @@
+<!--TAB COMPONENT START-->
+<div class="vp-tabs vp-tabs--default vp-tabs--usermanage vp-control relative max--width max--height clearfix">
+    <!--TABS HEADER NAVIGATION BAR-->
+    <div class="vp-tabs__nav max--width left">
+        <nav>
+            <ul class="vp-tabs__navlist  max--width text--center text--md text--light text--cs06 table">
+                <!--ACTIVE TAB STATE (MODIFIERS: # vp-tabs__tab--active   )-->
+                <li class="vp-tabs__tab pointer pr--sm pl--sm left" ng-class="getActiveUserTab('/users')" id="manage_users_0" ng-click="showActiveUserTab('/users')">
+                    <a class="vp-tabs__tablabel vertical--top no--decor" href="#/users">Users</a>
+                </li>
+                <!--DEAFULT TAB STATE (MODIFIERS: # vp-tabs__tab--active )-->
+                <li class="vp-tabs__tab pointer pr--sm pl--sm left" ng-class="getActiveUserTab('/adduser')" id="manage_users_1" ng-click="showActiveUserTab('/adduser')">
+                    <!--TAB TITLE-->
+                    <a class="vp-tabs__tablabel vertical--top no--decor" href="#/adduser">Add new user</a>
+                </li>
+                <li class="vp-tabs__tab pointer pr--sm pl--sm left" ng-class="getActiveUserTab('/users/import')" id="manage_users_2" ng-click="showActiveUserTab('/users/import')">
+                    <!--TAB TITLE FOR BULK USERS-->
+                    <a class="vp-tabs__tablabel vertical--top no--decor" href="#/users/import">Add serveral users</a>
+                </li>
+                <!--DEAFULT TAB STATE (MODIFIERS: # vp-tabs__tab--active )-->
+                <li class="vp-tabs__tab pointer pr--sm pl--sm left" ng-class="getActiveUserTab('/manage/users/groups')" id="manage_users_3" ng-click="showActiveUserTab('/manage/users/groups')">
+                    <a class="vp-tabs__tablabel vertical--top no--decor" href="#/manage/users/groups">Teams</a>
+                </li>
+                <!--DEAFULT TAB STATE (MODIFIERS: # vp-tabs__tab--active )-->
+                <li class="vp-tabs__tab pointer pr--sm pl--sm left" ng-class="getActiveUserTab('/manageroles')" id="manage_users_4" ng-click="showActiveUserTab('/manageroles')">
+                    <a class="vp-tabs__tablabel vertical--top no--decor" href="#/manageroles">Permissions</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <!--TAB BODY WRAPPER, LOAD TEMPLATE INSIDE-->
+    <div class="vp-tabs__body overflow--auto left max--width">
+
+        <!--'USERS' TAB CONTENT-->
+        <div  ng-if="displayTab === '/users'"  class="vp-tabs__userstabcontent" ng-include="'static/components/manage-users/users-content/userscontent.component.html'"></div>
+
+        <!--'ADD NEW USER' TAB CONTENT-->
+        <div ng-if="displayTab === '/adduser'" class="vp-tabs__addnewusertabcontent"  ng-include="'static/components/manage-users/add-new-user-content/addnewusercontent.component.html'"></div>
+        <!--ADD BULK USERS CONTENT-->
+
+        <div ng-if="displayTab === '/users/import'" class="vp-tabs__addnewusertabcontent" style="padding-top:3%;padding-left:3%" ng-include="'static/components/manage-users/add-bulk-user-content/addbulkusercontent.component.html'"></div>
+
+        <!--'TEAMS' TAB CONTENT-->
+        <div ng-if="displayTab === '/manage/users/groups'&& displayOtherTab === ''" class="vp-tabs__teamstabcontent" ng-include="'static/components/manage-users/teams-content/teamscontent.component.html'"></div>
+
+        <!--'PERMISSIONS' TAB CONTENT-->
+        <div ng-if="displayTab === '/manageroles'" class="vp-tabs__permissiontabcontent" ng-include="'static/components/manage-users/permissions-content/permissionscontent.component.html'"></div>
+
+        <div ng-if="displayTab === '/manage/users/groups' && displayOtherTab === '/create/user/group'" class="vp-tabs__addnewusertabcontent"  ng-include="'static/components/manage-users/add-new-user-content/addnewusergroupcontent.component.html'"></div>
+
+        <div ng-if="displayTab === '/manage/users/groups' && displayOtherTab === '/edit/user/group'" class="vp-tabs__addnewusertabcontent"  ng-include="'static/components/manage-users/edit-user-group-content/editusergroupcontent.component.html'"></div>
+
+    </div>
+</div>
+<!--TAB COMPONENT END-->

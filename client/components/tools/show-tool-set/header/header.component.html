@@ -1,0 +1,19 @@
+<div class="vp-showtoolheader" ng-controller="ShowToolSetHeaderController">
+    <!--TOOL ICON-->
+    <div class="vp-showtoolheader__iconwrap mt--md ml--xxl inblock">
+        <div class="vp-showtoolheader__icon text--white vertical--top text--center text--xxl text--light bg--cs02">
+           <span class="vp-showtoolheader__iconinner">
+                <img alt="" src="{{generalToolSetData.thumbnail_logo}}" style="width:100%;">
+            </span>
+        </div>
+    </div>
+    <div class="vp-showtoolheader__titlewrap inblock">
+        <!--TITLE-->
+        <h1 class="vp-showtoolheader__title text--cs06 text--xl text--regular ml--lg inblock text--ellipsis text--ellipsis--single">{{generalToolSetData.name}}</h1>
+    </div>
+
+    <!--CLOSE BUTTON-->
+    <button type="button" class="vp-showtoolheader__closebtn vp-uielement__button vp-uielement__button--bigclose btn--clear mt--md mr--lg right" ng-click="closeThis()"></button>
+    <!--ADD TO FAVOROTES BUTTON -->
+    <!--<button type="button" class="vp-showtoolheader__favbutton vp-uielement__button vp-uielement__button&#45;&#45;cleanenabled pa&#45;&#45;none mt&#45;&#45;md mr&#45;&#45;xxxl right">Add to favorites</button>-->
+</div>

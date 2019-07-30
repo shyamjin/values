@@ -1,0 +1,9 @@
+
+# SOFTLINKS TO BE CREATED IN WINDOWS
+
+ln -s /home/dpm/^Ctatic/files /home/dpm/client/static/files
+ln -s $PWD/server/static/files $PWD/client/static/files
+ln -s $PWD/server/static/DPMDataUpdates $PWD/client/static/DPMDataUpdates
+ln -s $PWD/server/static/DPMDistributionCenter $PWD/client/static/DPMDistributionCenter
+ln -s $PWD/server/archives $PWD/client/static/archives
+ln -s $PWD/server/Plugins $PWD/client/static/Plugins

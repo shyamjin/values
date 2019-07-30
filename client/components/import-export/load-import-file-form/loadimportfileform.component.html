@@ -1,0 +1,58 @@
+<!-- FILE FORM COMPONENT START-->
+<div class="vp-importfileload vp-control bg--white max">
+    <div class="vp-importfileload__fieldinner">
+        <!--'FILE' FIELD LABEL-->
+       <!-- <div class="vp-importfileload__fieldlabelwrap vertical&#45;&#45;top inblock">
+            <label class="vp-importfileload__fieldlabel text&#45;&#45;light text&#45;&#45;md text&#45;&#45;ellipsis text&#45;&#45;ellipsis&#45;&#45;single">File:</label>
+        </div>-->
+        <!--'FILE' FIELD CONTENT-->
+        <div class="vp-importfileload__fieldcontent vp-importfileload__ipcontent inblock">
+            <!--TOP INPUT SECTION-->
+            <section class="vp-importfileload__fileinputsection">
+                <form name="importForm" ng-controller="ImportExportController"  enctype = "multipart/form-data" ng-submit="importData(importForm)">
+                    <!--<input type="text" class="vp-importfileload__filenameinput input&#45;&#45;clear" name="vp-importfileload__aliasinput">-->
+                    <button class="file-upload">
+                        <input type="file" class="file-input" import-model="fileToImport"/>File
+                    </button>
+                    <input type="text" class="vp-importfileload__browsebtn vp-uielement__button vp-uielement__button--edittool ml--md" style="min-width: 270px;text-align: center;"  ng-model="importFileSelected" name="importFile"  ng-disabled=true />
+                    <input type="submit" value="Import" class="vp-importfileload__loadbtn vp-uielement__button vp-uielement__button--apply pr--md pl--md mt--xxl block" style="border-style: solid;border-width: 1px;border-color: #254b75;background-color: #254b75;color: #f5f5f5;margin-top: 85px;margin-left: 290px;" />
+                </form>
+            </section>
+            <!--DRAG AND DROP SECTION-->
+            <!--<section class="vp-importfileload__dragdropsection mt&#45;&#45;md">
+                <div class="vp-importfileload__dragdrop bg&#45;&#45;cs06 text&#45;&#45;center">
+                    <span class="text&#45;&#45;cs08 text&#45;&#45;light text&#45;&#45;lg">...or drag the file here...</span>
+                </div>
+            </section>-->
+            <!--PROCESSING SECTION-->
+            <section class="vp-exportfileload__processingsection" style="margin-left:33%;" ng-if="preLoader">
+                <div class="loader mb--sm" style="margin-left: 60px;"></div>
+                <span class="vp-exportfileload__processingmsg text--cs03 text--light text--xxl">Loading & processing...</span>
+            </section>
+            <!--BULK FILE REPORT SECTION (MODIFIERS: # vp-importfileload__bulkreportsection--show )-->
+            <section class="vp-machfileload__bulkreportsection vp-machfileload__bulkreportsection--show text--cs03" ng-if="resultPane">
+                <div class="vp-importfileload__bulkreportsection vp-importfileload__bulkreportsection--show text--cs03">
+                        <div class="vp-importfileload__createdmachineslistwrap mt--xl">
+                            <h13 style="text-align:center;font-weight: bold;"> Result</h13><br><br><br><br>
+                            <ul class="vp-importfileload__createdmachineslist">
+                                <li class="vp-importfileload__createdmachineitem mt--sm">Message : {{result.message}}</li>
+                                <li class="vp-importfileload__createdmachineitem mt--sm" ng-if="result.result==='success'">Tool/Du/Du Package exported :</li>
+                                <div class="vp-importfileload__createdmachineitem mt--sm" ng-if="result.data.file_path" ng-repeat="tool in result.data.tool_names track by $index">
+                                {{$index+1}} - {{tool}}
+                                </div>
+                                <div class="vp-importfileload__createdmachineitem mt--sm"  ng-if="!result.data.file_path" ng-repeat="tool in result.data track by $index">
+                                    {{$index+1}} - {{tool}}
+                                </div>
+                                <li class="vp-importfileload__createdmachineitem mt--sm" ng-if="result.data.toolNamesNotExported">Tool/Du/Du Package not exported :</li>
+                                <div>
+                                <li class="vp-importfileload__createdmachineitem mt--sm" ng-if="result.data.toolNamesNotExported" ng-repeat="tool in result.data.toolNamesNotExported track by $index">{{$index+1}} - {{tool}}</li>
+                                <li class="vp-exportfileload__createdmachineitem mt--sm" ng-if="result.data.toolNamesNotExported">Result : {{result.result}}</li>
+                                </div>
+                            </ul>
+                        </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+<!-- FILE FORM COMPONENT END-->

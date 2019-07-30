@@ -1,0 +1,76 @@
+<!--'CREATE A NEW MACHINE' TAB CONTENT COMPONENT START-->
+<div class="vp-createnewmachform vp-control bg--white max">
+    <form name="createNewMachineForm" class="vp-createnewmachform__createanewmachine max--width">
+        <ul class="vp-createnewmachform__fieldslist text--cs03 max--width">
+            <!--FIELD ROW 'ALIAS'-->
+            <li class="vp-createnewmachform__fielditem vp-createnewmachform__aliasitem pt--lg">
+                <div class="vp-createnewmachform__fielditeminner">
+                    <!--ALIAS FIELD LABEL-->
+                    <div class="vp-createnewmachform__fieldlabelwrap inblock">
+                        <label class="vp-createnewmachform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Group Name<span class="vp-createnewmachform__fieldrequire">*</span>:</label>
+                    </div>
+                    <!--ALIAS FIELD CONTENT-->
+                    <div class="vp-createnewmachform__fieldcontent vp-createnewmachform__aliascontent inblock">
+                        <input type="text" class="vp-createnewmachform__aliasinput input--clear" name="group_name" ng-model="newMachineGroupData.group_name" required>
+                    </div>
+                </div>
+            </li>
+            <h5 class="validation_msg_machine" ng-show="createNewMachineGroupForm.group_name.$error.required">Please enter machine group name</h5>
+            <!--FIELD ROW IP-->
+            <li class="vp-createnewmachform__fielditem vp-createnewmachform__ipitem mt--lg">
+                <div class="vp-createnewmachform__fielditeminner">
+                    <!--IP FIELD LABEL-->
+                    <div class="vp-createnewmachform__fieldlabelwrap inblock">
+                        <label class="vp-createnewmachform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Description:</label>
+                    </div>
+                    <!--IP FIELD CONTENT-->
+                    <div class="vp-createnewmachform__fieldcontent vp-createnewmachform__ipcontent inblock">
+                        <textarea ng-model="newMachineGroupData.description" name="group_description" id="DESC" length="500" class="vp-toolinfo__descriptioninput input--clear text--cs03 text--regular text--lg pl--md" style="width: 220px; height: 80px;border: 1px solid #969898;" required></textarea>
+                    </div>
+                </div>
+            </li>
+            <li class="vp-createnewmachform__fielditem vp-createnewmachform__usersitem mt--xxl">
+                <div class="vp-createnewmachform__fielditeminner max--width">
+                    <!--USERS FIELD LABEL-->
+                    <div class="vp-createnewmachform__fieldlabelwrap vertical--top mt--sm inblock">
+                        <label class="vp-createnewmachform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Machine's:</label>
+                    </div>
+                    <!--USERS FIELD CONTENT-->
+                    <div class="vp-createnewmachform__fieldcontent vp-createnewmachform__userscontent inblock">
+                        <ul class="vp-createnewmachform__userslist clearfix">
+                            <!--USER ROW EXAMPLE-->
+                            <li class="vp-createnewmachform__useritem mt--sm mr--md left" ng-repeat="machine in newMachineGroupData.machine_id_list track by $index">
+                                <div class="vp-createnewmachform__useriteminner text--regular text--lg text--cs03 nowrap">
+                                    <div class="vp-createnewmachform__userinfowrap inblock">
+                                        <span class="vp-createnewmachform__userinfo text--ellipsis text--ellipsis--single">{{machine.machine_name}}</span>
+                                    </div>
+                                    <div class="vp-createnewmachform__userremovebtnwrap vertical--top inblock">
+                                        <button type="button" class="vp-createnewmachform__userremovebtn vp-uielement__button vp-uielement__button--smallclose vertical--middle pa--none ml--sm" ng-click="addMachine(machine)"></button>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="vp-createnewmachform__addusersbuttonitem mt--sm mr--md pa--none left">
+                                <div class="vp-createnewmachform__addusersbuttoniteminner inblock">
+                                    <button type="button" class="vp-uielement__button vp-uielement__button--cleanenabled"><span class="vertical--middle" ng-click="showAddMachine()">+Add machine's</span></button>
+                                </div>
+                                <div id="add_machine" class="vp-versionform__addcertifieditembtnpopup hidden" ng-include="'static/components/machines/popups/addmachinespopup.component.html'"></div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            <li class="vp-userform__fielditem vp-userform__roleitem pt--lg" style="margin-top: 40px;">
+                <div class="vp-versionform vp-component bg--white max--width">
+                    <div class="vp-userform__fielditeminner">
+                        <!--'EMPLOYEE ID' FIELD LABEL-->
+                        <div class="vertical--top inblock">
+                            <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Flexible Attributes:</label>
+                        </div>
+                        <flexible-attributes entity="MachineGroup" fa-name-value-map="faNameValueMap" on-fa-load="faDefLoaded(faDef)"/>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </form>
+</div>
+<!--'CREATE A NEW MACHINE' TAB CONTENT COMPONENT START-->

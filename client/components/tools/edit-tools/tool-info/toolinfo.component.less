@@ -1,0 +1,93 @@
+// VARIABLES: SECTION 32
+// COPONENT CLASS
+.vp-toolinfo {
+    .vp-toolinfo__iconwrap {
+        width: @toolIconWrapSize;
+        height: @toolIconWrapSize;
+        border: 1px dashed @cs09;
+    }
+    //ICON STYLES
+    .vp-toolinfo__icon {
+        width: @toolIconSize;
+        height: @toolIconSize;
+        border-radius: @toolIconSize;
+        line-height: @toolIconSize;
+    }
+    //EDIT LOGO POPUP STYLES
+    .vp-toolinfo__editlogopopup{
+        left: @editLogoPopupTopArrowLeft;
+    }
+    //EDIT LOGO BUTTON MODIFIER
+    .vp-toolinfo__editlogobtnwrap{
+        &--show{
+            .vp-toolinfo__editlogopopup{
+                .inblock;
+            }
+        }
+    }
+    //TOOLNAME
+    .vp-toolinfo__toolname {
+        margin-left: @toolNameML;
+    }
+    .vp-toolinfo__toolnameinput {
+        width: @nameInputWidth;
+    }
+    //REMOVE BUTTON MT
+    .vp-toolinfo__removebtnwrap {
+        margin-top: @removeBtnMT;
+    }
+    .vp-toolinfo__descriptionwrap, .vp-toolinfo__supportinput, .vp-toolinfo__supportwrap, .vp-toolinfo__tagswrap, .vp-toolinfo__descriptioninput, .vp-toolinfo__tagsinput, .vp-toolinfo__certifiedwrap, .vp-toolinfo__tagswra {
+        line-height: @inputFieldHeight;
+    }
+    //DESCRIPTION/TAGS FIELD STYLES
+    .vp-toolinfo__descriptioninput, .vp-toolinfo__tagsinput {
+        width: @longFieldsWidth;
+    }
+    //SUPPORT INPUT FIELD WIDTH
+    .vp-toolinfo__supportinput {
+        width: @longFieldsWidth/2;
+    }
+    //LABEL MAX WIDTH DEFINITION
+    .vp-toolinfo__descriptionlabel, .vp-toolinfo__certifiedlabel, .vp-toolinfo__tagslabel, .vp-toolinfo__supportlabel {
+        width: 150px; //@labelWidth;
+        height: @inputFieldHeight;
+        .text--left; //.text--right;
+    }
+    input[type=text]:read-only {
+        border: 0;
+        width: auto;
+    }
+    // INPUT FIELDS
+    input[type=email] {
+        border: 1px solid @cs09;
+    }
+
+    input[type=text] {
+        border: 1px solid @cs09;
+    }
+    &--edit {
+        //EDIT BUTTON
+        .vp-toolinfo__namebtn {
+            .vp-uielement__button--edit;
+            .mt--xxl;
+            .ml--sm
+        }
+    }
+    &--new {
+        //DONE BUTTON
+        .vp-toolinfo__namebtn {
+            .vp-uielement__button--cleanenabled;
+            .text--regular;
+            .text--md;
+            .mt--xll;
+            &:after {
+                content: 'Done';
+            }
+        }
+    }
+}
+.du__type_header
+{
+    margin-top: 15px;
+    margin-bottom: 10px;
+}

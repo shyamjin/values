@@ -1,0 +1,27 @@
+<!--TAB COMPONENT START-->
+<div class="vp-tabsvertical vp-control max--width max--height clearfix">
+    <!--TABS HEADER NAVIGATION BAR-->
+    <div class="vp-tabsvertical__nav max--width left">
+        <nav>
+            <ul class="vp-tabsvertical__navlist text--center table">
+
+                <!--DEFAULT INACTIVE 'VERSION' TAB WITHOUT LABEL STATE ( MODIFIERS: # vp-tabsvertical__tab--active)-->
+                <li class="vp-tabsvertical__tab vp-tabsvertical__tab--active vp-tabsvertical__tab--nolabel pointer left">
+                    <div class="vp-tabsvertical__tabinner max--height max--width intable">
+                        <div class="vp-tabsvertical__labelwrap pl--sm lh--font inblock table--cell vertical--middle" style="width:150px">
+                             <a class="vp-tabsvertical__tabversion text--cs03 text--light text--md text--ellipsis text--ellipsis--single block">
+                            <span>DU Package State Details</span>
+                             </a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <!--TAB BODY WRAPPER, LOAD TEMPLATE INSIDE-->
+    <div class="vp-tabsvertical__body bg--white left max--height relative">
+        <!--MACHINE DETAILS TAB CONTENT-->
+        <div class="vp-tabsvertical__bodycontent max" ng-if="application.data" ng-include="'static/components/states/duset-state-details-content/dusetstatedetailscontent.component.html'"></div>
+    </div>
+</div>
+<!--TAB COMPONENT END-->

@@ -1,0 +1,285 @@
+<!--ADD USER FORM COMPONENT START-->
+<div class="vp-userform vp-userformnewuser vp-control max" xmlns="http://www.w3.org/1999/html">
+   <form  name="cloneReqForm" role="form">
+       <ul class="vp-userform__fieldslist text--cs03 pr--lg">
+           <h3 class="account_list_header ellipsis">Account Details</h3>
+           <div class="vp-userform__fielditeminner">
+               <!--'NAME' FIELD-->
+                <li class="vp-userform__fielditem vp-userform__nameitem pt--xxl">
+                    <div class="vp-userform__fielditeminner">
+                        <!--'NAME' FIELD LABEL-->
+                        <div class="vp-userform__fieldlabelwrap inblock">
+                            <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Account Name<span class="mandatory">*</span> </label>
+                        </div>
+                        <!--'NAME' FIELD CONTENT-->
+                        <div class="vp-userform__fieldcontent vp-userform__namecontent inblock">
+                            <input name="account_name" ng-model="accountDetails.account_name"  id="account_name" type="text" length="50" class="vp-userform__nameinput input--clear"  required />
+                        </div>
+                    </div>
+                </li>
+                <h5 class="validation_msg_clone_request" ng-show="cloneReqForm.account_name.$error.required">Please enter tool account name</h5>
+                <!--'DESCRIPTION' FIELD-->
+                <li class="vp-userform__fielditem vp-userform__passworditem pt--xxl">
+                    <div class="vp-userform__fielditeminner">
+                        <!--'PASSWORD' FIELD LABEL-->
+                        <div class="vp-userform__fieldlabelwrap inblock">
+                            <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">MPS Version</label>
+                        </div>
+                        <!--'PASSWORD' FIELD CONTENT-->
+                        <div class="vp-userform__fieldcontent vp-userform__passwordcontent inblock">
+                            <input name="mps_version" ng-model="accountDetails.mps_version"  id="mps_version" type="number" length="50" min="0">
+                        </div>
+                    </div>
+                </li>
+                <h5 class="validation_msg_clone_request" ng-show="cloneReqForm.mps_version.$error.required">Please enter MPS version</h5>
+           </div>
+       </ul>
+       <ul>
+           <h3 class="machine_list_header ellipsis">Machine Details</h3>
+           <div  class="vp-userform__fielditeminner">
+                <li class="vp-userform__fielditem vp-userform__nameitem pt--xxl">
+                    <div class="vp-userform__fielditeminner">
+                        <!--'NAME' FIELD LABEL-->
+                        <div class="vp-userform__fieldlabelwrap inblock">
+                            <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Machine Name</label>
+                        </div>
+                        <!--'NAME' FIELD CONTENT-->
+                        <div class="vp-userform__fieldcontent vp-userform__namecontent inblock">
+                            <input name="machine_name" ng-model="machineDetails.machine_name"  id="machine_name" type="text" length="50"class="vp-userform__nameinput input--clear" />
+                        </div>
+                    </div>
+                </li>
+                <li class="vp-userform__fielditem vp-userform__nameitem pt--xxl">
+                    <div class="vp-userform__fielditeminner">
+                        <!--'NAME' FIELD LABEL-->
+                        <div class="vp-userform__fieldlabelwrap inblock">
+                            <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Host<span class="mandatory">*</span> </label>
+                        </div>
+                        <!--'NAME' FIELD CONTENT-->
+                        <div class="vp-userform__fieldcontent vp-userform__namecontent inblock">
+                            <input name="host" ng-model="machineDetails.host"  id="host_name" type="text" length="50"class="vp-userform__nameinput input--clear"  required />
+                        </div>
+                    </div>
+                </li>
+                <h5 class="validation_msg_clone_request" ng-show="cloneReqForm.host.$error.required">Please enter host</h5>
+                <li class="vp-userform__fielditem vp-userform__nameitem pt--xxl">
+                    <div class="vp-userform__fielditeminner">
+                        <!--'NAME' FIELD LABEL-->
+                        <div class="vp-userform__fieldlabelwrap inblock">
+                            <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">IP<span class="mandatory">*</span> </label>
+                        </div>
+                        <!--'NAME' FIELD CONTENT-->
+                        <div class="vp-userform__fieldcontent vp-userform__namecontent inblock">
+                            <input type="text" name="ip" ng-model="machineDetails.ip"  id="IP" length="50" class="vp-userform__nameinput input--clear"  required />
+                        </div>
+                    </div>
+                </li>
+                <li class="vp-userform__fielditem vp-userform__nameitem pt--xxl">
+                    <div class="vp-userform__fielditeminner">
+                        <!--'NAME' FIELD LABEL-->
+                        <div class="vp-userform__fieldlabelwrap inblock">
+                            <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">User Name<span class="mandatory">*</span> </label>
+                        </div>
+                        <!--'NAME' FIELD CONTENT-->
+                        <div class="vp-userform__fieldcontent vp-userform__namecontent inblock">
+                            <input name="user_name" ng-model="machineDetails.user_name"  id="user_name" type="text" length="50" class="vp-userform__nameinput input--clear"  required />
+                        </div>
+                    </div>
+                </li>
+                <h5 class="validation_msg_clone_request" ng-show="cloneReqForm.user_name.$error.required">Please enter user name</h5>
+                <li class="vp-userform__fielditem vp-userform__nameitem pt--xxl">
+                    <div class="vp-userform__fielditeminner">
+                        <!--'NAME' FIELD LABEL-->
+                        <div class="vp-userform__fieldlabelwrap inblock">
+                            <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Authenticate using </label>
+                        </div>
+                        <!--'NAME' FIELD CONTENT-->
+                        <div class="vp-userform__fieldcontent vp-userform__namecontent inblock">
+                            <select id="authenticate_using_{{$index}}" name="authenticate_using" class="vp-userform__dropdownlist dropdown_auth_type vp-uielement__select" ng-model="machineDetails.auth_type" style="width: 200px;" required>
+                                <option value="password">password</option>
+                                <option value="ssh">ssh keys</option>
+                            </select>
+                        </div>
+                    </div>
+                </li>
+                <h5 class="validation_msg_clone_request" ng-show="cloneReqForm.authenticate_using.$error.required">Please select type of authentication</h5>
+
+                <li class="vp-userform__fielditem vp-userform__nameitem pt--xxl" ng-if="machineDetails.auth_type==='password'">
+                    <div class="vp-userform__fielditeminner">
+                        <!--'NAME' FIELD LABEL-->
+                        <div class="vp-userform__fieldlabelwrap inblock">
+                            <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Password<span class="mandatory">*</span> </label>
+                        </div>
+                            <!--'NAME' FIELD CONTENT-->
+                        <div class="vp-userform__fieldcontent vp-userform__namecontent inblock">
+                            <input type="password" name="password" ng-model="machineDetails.password"  id="password"  length="50" class="vp-userform__nameinput input--clear"  required />
+                            </div>
+                    </div>
+                </li>
+                <h5 class="validation_msg_clone_request" ng-show="cloneReqForm.password.$error.required">Please enter password</h5>
+
+               <!--FIELD ROW 'TYPES'-->
+                <li class="vp-userform__fielditem vp-userform__nameitem pt--xxl">
+                    <div class="vp-userform__fielditeminner">
+                        <!--TYPES FIELD LABEL-->
+                        <div class="vp-userform__fieldlabelwrap inblock">
+                            <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Types:<span class="vp-createnewmachform__fieldrequire">*</span></label>
+                        </div>
+                        <div class="vp-userform__fieldcontent vp-userform__namecontent inblock">
+                            <select name="vp-versionform__dropdownlist1" id="dropdown_{{$index}}" ng-model="machineType" class="vp-userform__dropdownlist dropdown_auth_type vp-uielement__select"  ng-change="selectMachineType(machineType)" style="width: 200px;">
+                                <option data-ng-repeat="machineType in types" value="{{machineType._id.$oid}}">{{machineType.type}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </li>
+                <h5 class="validation_msg_clone_request" ng-show="machine_type==='' || machine_type===undefined || machine_type===null">Please enter select machine type</h5>
+               <li class="vp-userform__fielditem vp-userform__passworditem pt--xxl">
+                    <div class="vp-userform__fielditeminner">
+                        <!--'PASSWORD' FIELD LABEL-->
+                        <div class="vp-userform__fieldlabelwrap inblock">
+                            <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Port</label>
+                        </div>
+                        <!--'PASSWORD' FIELD CONTENT-->
+                        <div class="vp-userform__fieldcontent vp-userform__passwordcontent inblock">
+                            <input name="port" ng-model="machineDetails.port"  id="port" type="number">
+                        </div>
+                    </div>
+               </li>
+                <li class="vp-userform__fielditem vp-userform__nameitem pt--xxl">
+                    <div class="vp-userform__fielditeminner">
+                        <!--'NAME' FIELD LABEL-->
+                        <div class="vp-userform__fieldlabelwrap inblock">
+                            <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Shell Type </label>
+                        </div>
+                        <!--'NAME' FIELD CONTENT-->
+                        <div class="vp-userform__fieldcontent vp-userform__namecontent inblock">
+                            <select id="shell_type_{{$index}}" name="vp-shell_type" class="vp-userform__dropdownlist dropdown_auth_type vp-uielement__select" ng-model="machineDetails.shell_type" style="width: 200px;">
+                                <option value="not required">not required</option>
+                                <option value="{{type}}" ng-repeat="type in shell_type">{{type}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </li>
+                <li class="vp-userform__fielditem vp-userform__nameitem pt--xxl">
+                    <div class="vp-userform__fielditeminner">
+                        <!--'NAME' FIELD LABEL-->
+                        <div class="vp-userform__fieldlabelwrap inblock">
+                            <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Reload command</label>
+                        </div>
+                        <!--'NAME' FIELD CONTENT-->
+                        <div class="vp-userform__fieldcontent vp-userform__namecontent inblock">
+                            <select id="reload_command_{{$index}}" name="vp-reload_command" class="vp-userform__dropdownlist dropdown_auth_type vp-uielement__select" ng-model="machineDetails.reload_command" style="width: 200px;">
+                                <option value="not required">not required</option>
+                                <option value="{{command}}" ng-repeat="command in reload_commands ">{{command}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </li>
+
+                <!--FIELD ROW 'CONNECTION'-->
+                <li class="vp-createnewmachform__fielditem vp-createnewmachform__aliaseitem mt--lg">
+                    <div class="vp-createnewmachform__fielditeminner">
+                        <!--CONNECTION FIELD LABEL-->
+                        <div class="vp-createnewmachform__fieldlabelwrap vertical--bottom inblock">
+                            <label class="vp-createnewmachform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Connection<span class="vp-createnewmachform__fieldrequire">*</span>:</label>
+                        </div>
+                        <!--CONNECTION FIELD CONTENT-->
+                        <!--<div class="vp-createnewmachform__fieldcontent vp-createnewmachform__connectioncontent inblock">-->
+                        <!--<div class="vp-uielement__checkbox vp-createnewmachform__tunnelingcheckbox inblock">-->
+                            <!--<input type="checkbox" id="vp-createnewmachform__tunnelingcheckbox" name="vp-createnewmachform__tunnelingcheckbox" />-->
+                            <!--<label for="vp-createnewmachform__tunnelingcheckbox"></label>-->
+                        <!--</div>-->
+                        <!--<label for="vp-createnewmachform__tunnelingcheckbox" class="vp-createnewmachform__fieldconnection text&#45;&#45;regular text&#45;&#45;lg ml&#45;&#45;sm vertical&#45;&#45;bottom">enable tunneling</label>-->
+                    <!--</div>-->
+                        <div class="vp-createnewmachform__connectioncheckblock mt--md">
+                            <button type="button" class="vp-createnewmachform__connectbtn vp-uielement__button vp-uielement__button--connect text--regular text--md mt--sm text--cs07" ng-click="testConnection(cloneReqForm)"><span class="ml--lg">Check connection</span></button>
+                            <!--CONNECTION TEST NOTIFICATION (MODIFIERS: # vp-createnewmachform__teststatusnotification--success # vp-createnewmachform__teststatusnotification--fail )-->
+                            <span class="vp-createnewmachform__teststatusnotification vp-createnewmachform__teststatusnotification--success mt--md ml--xxl text--regular text--lg" ng-if="machineTestResult.result==='success'">{{machineTestResult.message}}</span>
+                            <span class="vp-createnewmachform__teststatusnotification vp-createnewmachform__teststatusnotification--fail mt--md ml--xxl text--regular text--lg" ng-if="machineTestResult.result==='failed'">{{machineTestResult}}</span>
+                        </div>
+                    </div>
+                </li>
+            </div>
+       </ul>
+       <ul>
+           <div class="vp-userform__fielditeminner">
+               <li class="vp-userform__fielditem vp-userform__roleitem pt--lg">
+                   <div class="vp-userform__fielditeminner">
+                       <!--'MEMBER OF' FIELD LABEL-->
+                        <div class="vp-userform__fieldlabelwrap vertical--top inblock pt--md">
+                            <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Tools:</label>
+                        </div>
+                        <!--'MEMBER OF' FIELD CONTENT-->
+                        <div class="vp-userform__fieldcontent vp-userform__memberofcontent inblock">
+                            <!--TEAMS LIST-->
+                            <ul class="vp-userform__teamslist">
+                                <!--TEAM ITEM EXAMPLE-->
+                                <li class="vp-userform__teamitem vp-userform__managementteam pt--md">
+                                    <div class="vp-userform__fielditeminner">
+                                        <button type="button" class="vp-versionform__adddocbtn vp-uielement__button vp-uielement__button--cleanenabled pa--none vertical--bottom" ng-click="showAddTool()"><span>+Add</span></button>
+                                        <div class="vp-addToolmodalwrap fixed max--position hidden" id="show_tools">
+                                            <div class="vp-addToolmodal absolute" ng-include="'static/components/clonerequests/create-clone-request/popups/addtool-popup.component.html'"></div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li class="vp-userform__fielditem tool_list vp-userform__roleitem pt--lg">
+                <div class="vp-userform__fielditeminner">
+                    <!--'MEMBER OF' FIELD LABEL-->
+                    <h3 class="tool_list_header ellipsis">TOOL'S INSTALLATION</h3>
+                    <div class="vp-userform__fieldlabelwrap vertical--top inblock pt--md">
+                        <!--USER INFO COMPONENT START (MODIFIERS: # vp-selecteduserform--active )-->
+                        <div class="vp_control max">
+                            <div class="vp_tile_toolWrapper clearfix">
+                                <ul>
+                                    <li class="vp_tooltile left" ng-repeat="tool in toolList" style="padding: 0px;">
+                                        <div ng-class="{'vp-tooltile--selected': selected , 'vp-tooltile--not-selected': !selected  }" class="vp-tooltile vp-component text--cs03 pt--md pr--md pl--md vp-tooltile__containingtoolmsg--active vp-tooltile__deprecatedwarning--active vp-tooltile__favorite--active  relative" style="height: 160px; width: 330px;">
+                                            <div class="vp_tooltile__iconswrapprer left">
+                                                <!--TILE ICON-->
+                                                <div class="vp_tooltile__icon text--light text--xxxxl text--white vertical--top text--center bg--cs01">
+                                                    <span class="vp_tooltile_iconinner">
+                                                        {{tool.tool_name.substring(0, 1)}}
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="vp_tooltile__tilemetadata left">
+                                                <div class="vp_tooltile__label text--regular text--ellipsis text--ellipsis--two text--xl mb--md verticall--top" title="{{tool.tool_name}}"><a href="#/tool/view/{{tool.tool_id}}" style="text-decoration : none !important;">{{tool.tool_name}}</a></div>
+                                                <div class="vp_tooltile__deprecatedwarning text--light text--sm mt--md">
+                                                    <img alt="" class="vp_tooltile__depreceteicon" src="static/assets/images/icons/active_icn.png">
+                                                    <span class="vp_tooltile__deprecetemsg ml--sm">Active</span>
+                                                </div>
+                                                <div class="vp_tooltile__containingtoolmsg text--light text--md mt--md text--ellipsis text--ellipsis--single hidden">Version Identifier: {{tool.version_id}}</div>
+                                                <!--<div class="vp-tooltile__description text&#45;&#45;light text&#45;&#45;md" title="Environment configuration check Environment configuration check Environment configuration check bbbeeeeee">Environment configuration check Environment configuration check Environment configuration check bbbeeeeee</div>-->
+                                                <div class="vp_tooltile__containingtoolmsg text--light text--md mt--md text--ellipsis text--ellipsis--single hidden">Version:
+                                                    <span class="vp_tooltile__containingtoolname" title="INIT">{{tool.version_name}} v{{tool.version_number}}</span>
+                                                </div>
+                                            </div>
+                                            <!--TOOL TILE FOOTER SECRION-->
+                                            <div class="vp_tooltile__footer absolute clearfix">
+                                                <!--REMOVE TOOL BUTTON -->
+                                                <button ng-click="removeToolFromToolList(tool.tool_id)" type="button" class="vp-uielement__button vp-uielement__button--edittool vp-tooltile__edittoolbtn mr--md right">Remove</button>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+<!--USER INFO COMPONENT END-->
+                    </div>
+                </div>
+            </li>
+           </div>
+       </ul>
+       <div class="submit" style="margin-right:100px;">
+           <div class="row">
+               <div class="input-field col s12 right-align">
+                   <input type="submit" class="btn btn-primary" value="Submit" />
+               </div>
+           </div>
+       </div>
+   </form>
+</div>
+<!--ADD USER FORM COMPONENT END-->

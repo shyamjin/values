@@ -1,0 +1,25 @@
+// VARIABLES: SECTION 24
+//HEADER IMAGE
+.vp-pageheader__wrapper {
+    height: @dtHeaderHeight;
+    background-image: url('../assets/images/icons/header_background.png');
+    background-size: 100% 100%;
+}
+//DEPLOY TOOLS TITLE STATE
+.vp-pageheader__title{
+    .vp-deploytools &{
+        &:after{
+            content: 'DEPLOY TOOLS';
+        }
+    }
+}
+//EDIT TOOLS TITLE STATE
+.vp-pageheader__title{
+    .vp-edittools &{
+        &:after{
+              content: 'EDIT TOOLS';
+        }
+    }
+}
+
+

@@ -1,0 +1,136 @@
+// VARIABLES: SECTION 28
+.vp-machinesform {
+    input[type=text]{
+        &:focus{
+            border: 1px solid @cs04;
+        }
+    }
+    &.vp-machinesform--notification{
+        //ACTIVATE TOP NOTIFICATION
+        .vp-machinesform__topmsgwrap{
+            .block;
+        }
+    }
+    //FORM TOP NOTIFICATION
+    .vp-machinesform__topmsgwrap, .vp-machinesform__toolbar {
+        height: @topMsgWrapHeight;
+        line-height: @topMsgWrapHeight;
+    }
+    //FORM CONTENT
+    .vp-machinesform__content {
+        padding-left: @contentPL;
+    }
+    //TOOLBAR BUTTONS MR
+    .vp-machinesform__restorebtn, .vp-machinesform__copyallbtn {
+        margin-left: @toolbarBtnsML;
+    }
+    //TOOLBAR BUTTON
+    .vp-machinesform__copyallbtnwrap {
+        //'COPY TO ALL' WAIT STATE
+        &.vp-machinesform__copyallbtnwrap--wait {
+            .vp-machinesform__copyallbtnstate {
+                .vp-machinesform__waiticonstyle;
+            }
+        }
+        //'COPY TO ALL' DONE STATE
+        &.vp-machinesform__copyallbtnwrap--done {
+            .vp-machinesform__copyallbtnstate {
+                .vp-machinesform__copiediconstyle;
+            }
+            &:after {
+                content: 'Copied to all machines';
+                .text--cs08;
+                .text--light;
+                .text--sm;
+            }
+        }
+    }
+    //ROW HEIGHT
+    .vp-machinesform__field, .vp-machinesform__fieldinner, .vp-machinesform__fieldinputwrap {
+        height: auto; //@formRowHeight;
+        line-height: @formRowHeight;
+    }
+    //FIELD LABEL STYLE
+    .vp-machinesform__fieldlabelwrap {
+        width: @fieldLabelWidth;
+    }
+    //FIELD STATES
+    .vp-machinesform__field {
+        .vp-machinesform__fieldinput {
+            border: 1px solid @cs08;
+        }
+        //LARGE FIELD WITH COPY BUTTONS MODIFIER
+        &.vp-machinesform__field--largecopy {
+            //SHOW COPY BUTTON
+            .vp-machinesform__fieldbtnwrap {
+                .inblock;
+            }
+            //LARGE INPUT FIELD WIDTH
+            .vp-machinesform__fieldinputwrap {
+                width: @fieldLargeInputWrapWidth;
+            }
+            //FIELDS BUTTON WRAPPER STYLE
+            .vp-machinesform__fieldbtnwrap {
+                width: @fieldBtnWrapperWidth;
+                //'COPY TO ALL MACHINES' MSG WAIT STATE
+                &.vp-machinesform__fieldbtnwrap--wait {
+                    .vp-machinesform__copytoallbtnstate {
+                        .vp-machinesform__waiticonstyle;
+                    }
+                }
+                &.vp-machinesform__fieldbtnwrap--done {
+                    //'COPY TO ALL MACHINES' MSG COPIED STATE
+                    .vp-machinesform__copytoallbtnstate {
+                        .vp-machinesform__copiediconstyle;
+                    }
+                    &:after {
+                        content: 'Copied';
+                        .text--cs08;
+                        .text--light;
+                        .text--sm;
+                    }
+                }
+            }
+        }
+        //LARGE FIELD WITHOUT COPY BUTTONS MODIFIER
+        &.vp-machinesform__field--large {
+            //LARGE INPUT FIELD WIDTH
+            .vp-machinesform__fieldinputwrap {
+                width: @fieldLargeInputWrapWidth;
+            }
+        }
+        //SMALL FIELD WITHOUT COPY BUTTONS MODIFIER
+        &.vp-machinesform__field--small {
+            //SMALL INPUT FIELD WIDTH
+            .vp-machinesform__fieldinputwrap {
+                width: @fieldSmallInputWrapWidth;
+            }
+        }
+    }
+}
+
+//FORM MIXINS
+.vp-machinesform__copiediconstyle {
+    width: @copiedIconWidth;
+    height: @copiedIconHeight;
+    background: url('../assets/images/icons/copied_icn.png') no-repeat;
+    background-size: contain;
+}
+
+.vp-machinesform__waiticonstyle {
+    width: @waitIconSize;
+    height: @waitIconSize;
+    background: url('../assets/images/icons/copied_animated_icn.gif') no-repeat;
+    background-size: contain;
+}
+.validation_msg_deployment {
+    margin-left: 20%;
+    margin-top: -1px;
+    color: red;
+}
+.field_uploaded_label {
+    color : @cs02;
+}
+.field_uploaded_input {
+    border: 1px solid @cs02;
+}

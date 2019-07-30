@@ -1,0 +1,27 @@
+<!--VERSION FORM COMPONENT START-->
+<div class="vp-versionform vp-component bg--white max--width">
+    <!--VERSION SECTION-->
+    <section class="vp-versionform__version">
+        <div class="vp-versionform__labelsection vertical--top pt--sm inblock">
+            <!--DROPDOWN ARROW (MODIFIERS: # vp-uielement__button--dropdownarrowclosed )-->
+            <!--<button type="button" class="vp-versionform__versionexpand vp-uielement__button vp-uielement__button&#45;&#45;dropdownarrow"></button>-->
+            <h3 class="vp-versionform__label pl--sm text--cs03 text--light text--md inblock">Version:</h3>
+        </div>
+        <!--CONTENT-->
+        <div class="vp-versionform__content inblock">
+            <!--VERSION INPUT (MODIFIERS: # vp-versionform__versioninputwrap--done )-->
+            <div class="vp-versionform__versioninputwrap inblock">
+                <input id="VERSION_NUMBER_{{$index}}" name="version_number"  ng-model="toolData.version.version_number" type="text" class="vp-versionform__versioninput input--clear text--cs03 text--regular text--lg" required readonly>
+                <h5 class="validation_msg_version" ng-if="!ProposeNewToolForm.version_number.$valid">Please enter version number</h5>
+                <!--<button type="button" class="vp-versionform__versiondonebtn vp-uielement__button  vp-uielement__button&#45;&#45;cleanenabled">Done</button>-->
+                <p class="vp-versionform__versionhint text--cs08 text--light text--sm">Versions must be in "x.y" format</p>
+            </div>
+            <div class="vp-versionform__labelinputwrap vertical--top ml--xl inblock">
+                <label for="VERSION_NAME_{{$index}}">label:</label>
+                <input ng-model="toolData.version.version_name" name="version_name"  id="VERSION_NAME_{{$index}}" type="text" class="vp-versionform__labelinput input--clear" required readonly>
+                <h5 class="validation_msg_version" ng-if="!ProposeNewToolForm.version_name.$valid">Please enter version name</h5>
+            </div>
+        </div>
+    </section>	
+</div>
+<!--VERSION FORM COMPONENT END-->

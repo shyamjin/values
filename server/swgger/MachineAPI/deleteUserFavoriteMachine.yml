@@ -1,0 +1,33 @@
+Deleting User Favorite Machine, referring by Id
+---
+tags:
+ - Machine
+parameters:
+- name: token
+  in: header
+  description: API key
+  required: false
+  type: string
+  format: string
+- name: access-token
+  in: header
+  description: API key
+  required: false
+  type: string
+  format: string 
+- name: id
+  in: path
+  type: string
+  required: true
+  description: User Favorite Machine Id
+responses:
+  200:
+    description: Deleted User Favorite Machine Successfully
+    examples:
+      result: "success"
+      message: null
+  404:
+    description: exception in deleting the User Favorite Machine
+    examples:
+      result: "failed"
+      message: "Throws an exception"

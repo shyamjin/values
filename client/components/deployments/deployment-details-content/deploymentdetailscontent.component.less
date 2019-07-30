@@ -1,0 +1,58 @@
+// VARIABLES: SECTION 43 
+.vp-machdetails {
+    // FIELD LABEL STYLES
+    .vp-machdetails__fieldlabelwrap {
+        width: @detailLabelWidth;
+        line-height: 1.1;
+    }
+    // FIELD CONTENT STYLES
+    .vp-machdetails__fieldcontent {
+        width: calc(~"100% -" @detailLabelWidth + 4px);
+    }
+    // IP SECTION CONTENT WIDTH
+    .vp-machdetails__fieldipbtnswrap {
+        width: @detailsIpBtnsBlockWidth;
+    }
+    .vp-machdetails__fieldipwrap {
+        max-width: calc(~"100% - " @detailsIpBtnsBlockWidth + 4px);
+    }
+    .vp-machdetails__editablewrap {
+        max-width: calc(~"100% - " @editBtnWidth + 14px);
+    }
+    .vp-machdetails__tunnelingcolumn {
+        &:not(:last-of-type) {
+            width: 20%;
+        }
+        &:last-of-type {
+            width: 12.5%;
+        }
+    }
+    // TUNNELING SEPARATOR
+    .vp-machdetails__tunnelingseparator {
+        height: 1px;
+    }
+    // TUNNELING INPUTS
+    .vp-machdetails__tunnelingitem {
+        input {
+            border: 1px solid @cs08;
+            .text--cs03;
+            .text--regular;
+            .text--lg;
+            padding: 2px 0px;
+        }
+    }
+    // SAVE AND CHECK BUTTON
+    .vp-machdetails__savecheckbtn {
+        width: @saveCheckBtnWidth;
+        line-height: 0.9;
+    }
+    // CONNECTION TEST STATES
+    .vp-machdetails__teststatusnotification {
+        &--success{
+            .text--cs04;
+        }
+        &--fail{
+            .text--cs05;
+        }
+    }
+}

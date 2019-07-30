@@ -1,0 +1,19 @@
+<!--USERS TAB COMPONENT START-->
+<div class="vp-distributioncont max relative">
+    <!--distribution SEARCH COLUMN-->
+    <div class="vp-distributioncont__distributionsearch vertical--top inblock" ng-include="'static/components/distribution/distribution-machine-list-search/distributionmachinelistsearch.component.html'"></div>
+    <!--USER INFO COLUMN-->
+    <div class="vp-distributioncont__userinfo ml--xxxl vertical--to inblock" ng-hide="distributionSelected === false" ng-include="'static/components/distribution/distribution-info/distributioninfo.component.html'"></div>
+
+
+    <!--TOOLBAR-->
+    <div class="vp-distributioncont__toolbar bg--cs06 max--width fixed pos--bottom pos--left">
+        <div class="vp-distributioncont__innerbounded clearfix">
+            <div class="vp-distributioncont__updatebtnwrap right">
+                <!--UPDATE BUTTON (MODIFIERS: # vp-uielement__button--deploydisabled )-->
+                <button type="button" class="vp-distributioncont__updatebtn vp-uielement__button vp-uielement__button--deployenabled pr--lg pl--lg" ng-click="openModal()">Distribute All</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--distribution TAB COMPONENT END-->

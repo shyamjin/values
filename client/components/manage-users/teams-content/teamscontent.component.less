@@ -1,0 +1,18 @@
+// VARIABLES: SECTION 52
+.vp-teamscont {
+    input[type=text], textarea {
+        border: 1px solid @cs08;
+        &:focus {
+            border: 1px solid @cs04;
+        }
+    }
+    .vp-teamscont__form {
+        width: @teamsFormWidth;
+        padding-top: @permissionsSelectFormPT;
+        padding-left: @permissionsSelectFormPL;
+    }
+    // TOOLBAR STYLES (EXTEND FROM EDIT TOOLS TOOLBAR)
+    .vp-teamscont__toolbar:extend(.vp-ettoolbar) {
+        .vp-teamscont__innerbounded:extend(.vp-ettoolbar .vp-ettoolbar__innerbounded) {}
+    }
+}

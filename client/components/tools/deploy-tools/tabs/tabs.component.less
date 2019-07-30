@@ -1,0 +1,108 @@
+// VARIABLES: SECTION 25
+.vp-dttabs {
+    .vp-dttabs__listwrapper {
+        .vp-dttabs__list {
+            height: @dtTabHeight;
+            border-bottom: 1px solid @cs08;
+        }
+        //GLOBAL STYLES
+        li.vp-dttabs__tab {
+            width: @dtTabWidth;
+            height: @dtTabHeight;
+            line-height: @dtTabHeight;
+            background-color: @cs06;
+        }
+        //TAB LABEL STYLES
+        .vp-dttabs__tablabelwrapper {
+            height: @dtTabHeight;
+            max-width: @tabLabelMaxWidth;
+        }
+        //TABS BODY STYLES
+        .vp-dttabs__body {
+            min-height: @dtTabsBodyMinHeight;
+        }
+        //FILLED TABS STATE MODIFIER (NOT EMPTY)
+        &.vp-dttabs__list--filled, &.vp-dttabs__list--many {
+            //TABS BODY BORDER
+            .vp-dttabs__body {
+                border-right: 1px solid @cs08;
+                border-bottom: 1px solid @cs08;
+                border-left: 1px solid @cs08;
+            }
+            //TAB STYLE
+            li.vp-dttabs__tab {
+                border-top: 1px solid @cs08;
+                border-bottom: 1px solid @cs08;
+                border-left: 1px solid @cs08;
+                &:last-of-type {
+                    border-right: 1px solid @cs08;
+                }
+                //ACTIVE TAB STYLE
+                &.vp-dttabs__tab--active {
+                    border-bottom-width: 0;
+                    .bg--white;
+                }
+            }
+        }
+        //'MANY' MACHINES TABS STATE MODIFIER CHANGES
+        &.vp-dttabs__list--many {
+            .vp-dttabs__tab {
+                border-right: 1px solid @cs08;
+                //HIDE ALL TABS EXEPT ONE FIRST DEFAULT
+                &:not(.vp-dttabs__tabdefault) {
+                    .hidden;
+                }
+            }
+            .vp-dttabs__tabbtn {
+                //CHANGE TAB BUTTON VIEW
+                .vp-uielement__button--dropdownarrow
+            }
+            //'NEXT' 'PREVIOUS' MACHINES BUTTONS STYLE
+            .vp-dttabs__buttonswrapper {
+                .block;
+                left: @dtTabWidth;
+            }
+            //POPUP LEFT POSITION (half arrow left + border size)
+            .vp-dttabs__moremachinespopup {
+                left: -(@popupArrowLeft + 2px);
+                top: @dtTabHeight;
+                z-index: 1;
+            }
+            .vp-dttabs__tabbtnwrapper {
+                &.vp-dttabs__tabbtn--show {
+                    .vp-dttabs__moremachinespopup {
+                        .block;
+                    }
+                }
+            }
+        }
+        //'EMPTY' MACHINES TABS STATE MODIFIER
+        &.vp-dttabs__list--empty {
+            li.vp-dttabs__tab {
+                //HIDE ALL TABS EXEPT ONE FIRST DEFAULT
+                &:not(.vp-dttabs__tabdefault) {
+                    .hidden;
+                }
+                //HIDE TABS INNER DATA AND ICON
+                .vp-dttabs__tabinner {
+                    .hidden;
+                }
+            }
+            .vp-dttabs__list {
+                border-bottom: 0;
+            }
+            //'EMPTY' TABS BODY STYLES
+            .vp-dttabs__body {
+                background-color: @cs06;
+                .vp-dttabs__form{
+                    .hidden;
+                }
+            }
+            //'EMPTY' TABS INNER MESSAGE
+            .vp-dttabs__emptybodymsgwrapper {
+                .inblock;
+                margin-top: @emptyBodyMsgMT;
+            }
+        }
+    }
+}

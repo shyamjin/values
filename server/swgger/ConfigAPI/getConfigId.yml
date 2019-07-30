@@ -1,0 +1,35 @@
+fetch a configuration,referring by object Id
+---
+tags:
+  - Config
+
+parameters:
+- name: token
+  in: header
+  description: API key
+  required: false
+  type: string
+  format: string
+- name: access-token
+  in: header
+  description: API key
+  required: false
+  type: string
+  format: string    
+- name: id
+  in: path
+  type: string
+  required: true
+  description: Object Id
+
+responses:
+    200:
+      description: Get a configuration by Object Id
+      examples:
+        result: "success"
+        message: null
+    404:
+      description: exception in fetching configuration
+      examples:
+        result: "failed"
+        message: "Throws an exception"

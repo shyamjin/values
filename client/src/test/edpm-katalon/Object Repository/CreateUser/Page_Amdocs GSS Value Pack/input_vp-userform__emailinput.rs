@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+   <description></description>
+   <name>input_vp-userform__emailinput</name>
+   <tag></tag>
+   <elementGuidId>789e6251-a132-4bd3-886e-161d78908ef2</elementGuidId>
+   <selectorMethod>BASIC</selectorMethod>
+   <useRalativeImagePath>false</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>tag</name>
+      <type>Main</type>
+      <value>input</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>type</name>
+      <type>Main</type>
+      <value>email</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>class</name>
+      <type>Main</type>
+      <value>vp-userform__emailinput input--clear ng-untouched ng-not-empty ng-dirty ng-invalid ng-invalid-email</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>name</name>
+      <type>Main</type>
+      <value>vp-userform__emailinput</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>ng-model</name>
+      <type>Main</type>
+      <value>newUsersData.email</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath</name>
+      <type>Main</type>
+      <value>/html[@class=&quot;ng-scope&quot;]/body[1]/div[@class=&quot;vp-app__deploytoolspage deployments-page max--height ng-scope&quot;]/div[@class=&quot;vp-manageusers max ng-scope&quot;]/div[@class=&quot;vp-manageusers__content max--height&quot;]/div[@class=&quot;vp-manageusers__tabs left max--width ng-scope&quot;]/div[@class=&quot;vp-tabs vp-tabs--default vp-tabs--usermanage vp-control relative max--width max--height clearfix ng-scope&quot;]/div[@class=&quot;vp-tabs__body overflow--auto left max--width&quot;]/div[@class=&quot;vp-tabs__addnewusertabcontent ng-scope&quot;]/div[@class=&quot;vp-addnewusercont vp-control max ng-scope&quot;]/div[@class=&quot;vp-addnewusercont__form ng-scope&quot;]/div[@class=&quot;vp-userform vp-userformnewuser vp-control max ng-scope&quot;]/form[@class=&quot;vp-userform__userform max ng-valid-min ng-dirty ng-valid-parse ng-valid-number ng-invalid ng-invalid-email&quot;]/ul[@class=&quot;vp-userform__fieldslist text--cs03 pr--lg&quot;]/li[@class=&quot;vp-userform__fielditem vp-userform__emailitem pt--xxl&quot;]/div[@class=&quot;vp-userform__fielditeminner&quot;]/div[@class=&quot;vp-userform__fieldcontent vp-userform__emailcontent inblock&quot;]/input[@class=&quot;vp-userform__emailinput input--clear ng-untouched ng-not-empty ng-dirty ng-invalid ng-invalid-email&quot;]</value>
+   </webElementProperties>
+</WebElementEntity>

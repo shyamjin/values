@@ -1,0 +1,35 @@
+<!--TAB COMPONENT START-->
+<div class="vp-tabsvertical vp-control max--width max--height clearfix">
+	<!--TABS HEADER NAVIGATION BAR-->
+	<div class="vp-tabsvertical__nav max--width left">
+		<nav>
+			<ul class="vp-tabsvertical__navlist text--center table">
+				<!--'ADD A VERSION' TAB-->
+				<!--<li class="vp-tabsvertical__tabaddbtn pointer left bg&#45;&#45;cs06">-->
+					<!--<div class="vp-tabsvertical__tabinner max&#45;&#45;width max&#45;&#45;height">-->
+						<!--&lt;!&ndash;'ADD A VERSION' BUTTON&ndash;&gt;-->
+						<!--<button type="button" class="vp-tabsvertical__add vp-uielement__button  vp-uielement__button&#45;&#45;cleanenabled max&#45;&#45;width max&#45;&#45;height" ng-click="addNewVersion()">+ add a version</button>-->
+					<!--</div>-->
+				<!--</li>-->
+				<!--TAB ACTIVE VERSION STATE ( MODIFIERS: # vp-tabsvertical__tab--active # vp-tabsvertical__tab--empty # vp-tabsvertical__tab--nolabel)-->
+				<li class="vp-tabsvertical__tab pointer vp-tabsvertical__tab--active left">
+					<div class="vp-tabsvertical__tabinner max--height max--width intable">
+						<div class="vp-tabsvertical__labelwrap text--right pl--sm lh--font inblock table--cell vertical--middle">
+							<labe class="vp-tabsvertical__tabversion text--cs03 text--light text--md text--ellipsis text--ellipsis--single block">Ver {{version.version_number}}</labe>
+							<labe class="vp-tabsvertical__tabversionlabel text--cs08 text---light text--sm text--ellipsis text--ellipsis--single block">{{version.version_name}}</labe>
+						</div>
+						<div class="vp-tabsvertical__tabstatuswrap right table--cell max--height">
+							<!--VERSION STATUS STATE ICON (MODIFIERS: # vp-uielement__versionstate--inactive # vp-uielement__versionstate--active)-->
+							<span class="vp-tabsvertical__tabstatus vp-uielement__versionstate vp-uielement__versionstate--active inblock"></span>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</nav>
+	</div>
+	<!--TAB BODY WRAPPER, LOAD TEMPLATE INSIDE-->
+	<div class="vp-tabsvertical__body bg--white left pa--xxxl max--height inherit">		
+		<div class="vp-tabsvertical__versionsform" ng-include="'static/components/tools/propose-tools/version-form/versionsform.component.html'"></div>
+	</div>
+</div>
+<!--TAB COMPONENT END-->

@@ -1,0 +1,85 @@
+<!--OPEN FILTER COMPONENT START-->
+<div class="vp-filter vp-filter--openfilterdialog vp-uielement__popup vp-control overflow--auto max--width max--height" style="height: 100%; overflow: overlay;">
+	<!--TRIANGLE ARROW-->
+	
+	<div class="vp-filter__topborder vp-uielement__popuptop"></div>
+	<div class="vp-filter__openfilterformwrapper bg--cs06">
+		<form name="vp-filter__dashboardfilter">
+			<div class="vp-filter__buttonsmenu max--width">
+				<!--'APPLY' BUTTON-->
+				<div class="vp-filter__applywrapper pl--md left">
+					<button type="button" class="vp-uielement__button vp-filter__apply vp-uielement__button--apply pl--md" ng-click="applySyncFilters()">Apply</button>
+				</div>
+				<!--'CLEAR ALL' BUTTON-->
+				<div class="vp-filter__clearallwrapper pl--md left">
+					<button type="reset" class="vp-uielement__button vp-filter__clearall vp-uielement__button--cleanenabled" ng-click="resetFilter()">Clear All</button>
+				</div>
+				<div class=" vp-filter__cancelwrapper pr--md right">
+					<button type="button" class="vp-uielement__button vp-filter__openfiltercancel vp-uielement__button--cancle" ng-click="resetFilter()">Cancel</button>
+				</div>
+			</div>
+			<!--FILTER ELEMENT START-->
+			<div class="vp-filterelement max--width max--height">
+				<!--FILTER OPRIONS LIST-->
+				<ul class="vp-filterelement__filterlist text--cs03 text--regular text--md">
+					<!--FILTER LEVEL ONE VIEW
+		            ( MODIFIERS : vp-filterelement__filterrowlvlone--expanded )-->
+					<li class="vp-filterelement__filterrow vp-filterelement__filterrowlvlone" ng-class="setOperationFilterCSS(operationFilterFlag)">
+						<div class="vp-filterelement__filterrowdata" ng-click="showOperationFilter()">
+							<span class="vp-filterelement__expandicon inblock"></span>
+							<span class="vp-filterelement__filtermainlable ml--sm">Operation</span>
+						</div>
+						<!--LEVEL TWO FILTER CODE-->
+						<div class="vp-filterelement__contentlvlonewrapper hidden">
+							<ul>
+								<!--FILTER LEVEL TWO CODE-->
+								<li class="vp-filterelement__filterrow vp-filterelement__filterrowlvltwo">
+									<div class="vp-header__filteroptionwrapper">
+										<div class="vp-uielement__checkbox">
+											<input id="idx_request_insert" type="checkbox" name="operation_insert" ng-model="operation_insert" value="insert" ng-click="setOperationFilter('insert')" />
+											<label for="idx_request_insert"></label>
+										</div>
+										<span class="vp-filterelement__secondarylable">Insert</span>
+									</div>
+								</li>
+								<li class="vp-filterelement__filterrow vp-filterelement__filterrowlvltwo">
+									<div class="vp-header__filteroptionwrapper">
+										<div class="vp-uielement__checkbox">
+											<input id="idx_request_update" type="checkbox" name="operation_update" ng-model="operation_update" value="update" ng-click="setOperationFilter('update')" />
+											<label for="idx_request_update"></label>
+										</div>
+										<span class="vp-filterelement__secondarylable">Update</span>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</li>
+					<li class="vp-filterelement__filterrow vp-filterelement__filterrowlvlone" ng-class="setStatusFilterCSS(statusFilterFlag)">
+						<div class="vp-filterelement__filterrowdata" ng-click="showStatusFilter()">
+							<span class="vp-filterelement__expandicon inblock"></span>
+							<span class="vp-filterelement__filtermainlable ml--sm">Status</span>
+						</div>
+						<!--LEVEL TWO FILTER CODE-->
+						<div class="vp-filterelement__contentlvlonewrapper hidden">
+							<ul>
+								<!--FILTER LEVEL TWO CODE-->
+								<li class="vp-filterelement__filterrow vp-filterelement__filterrowlvltwo" ng-repeat="status in SyncStatus">
+									<div class="vp-header__filteroptionwrapper">
+										<div class="vp-uielement__checkbox">
+											<input id="idx_status_{{$index}}" type="checkbox" name="status_filter_{{status}}" ng-model="status_filter" value="{{status}}" ng-click="setStatusFilter(status)" />
+											<label for="idx_status_{{$index}}"></label>
+										</div>
+										<span class="vp-filterelement__secondarylable text--capitalize">{{status}}</span>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</li>
+				</ul>
+
+			</div>
+			<!--FILTER ELEMENT END-->
+		</form>
+	</div>
+</div>
+<!--OPEN FILTER COMPONENT END-->

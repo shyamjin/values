@@ -1,0 +1,112 @@
+// VARIABLES: SECTION 6
+// VERTICAL TAB 
+.vp-tabsvertical {
+    // LIMIT NAV HEADER WIDTH TO A SINGLE ITEM
+    .vp-tabsvertical__nav {
+        width: @verticalTabWidth;
+    }
+    .vp-navvertical-width{
+         width: 190px;
+        max-height:700px;
+         overflow-y:auto;
+         overflow-x:hidden;
+    }
+    // VERTICAL TAB LI VIEW
+    .vp-tabsvertical__tab {
+        width: @verticalTabWidth;
+        height: @verticalTabHeight;
+        line-height: @verticalTabHeight;
+        border-left: 1px solid @cs09;
+        border-bottom: 1px solid @cs09;
+        border-right: 1px solid @cs09;
+        .bg--cs06;
+        // ACTIVE and EMPTY STATE STYLES1
+        &--active, &--empty {
+            background:white;
+            border-right: 0;
+            cursor: default;
+            .text--regular;
+            .text--lg;
+            .relative;
+            width: @verticalTabWidth + 1px;
+            z-index: 1;
+        }
+        // EMPTY TAB MODIFIER
+        &--empty {
+            line-height: @verticalTabHeight;
+            &:after {
+                content: '{new version}';
+                .text--regular;
+                .text--md;
+                .text--cs08;
+            }
+            // HIDE TAB INNER CONTENT WHEN TAB IS NEW
+            .vp-tabsvertical__tabinner {
+                .hidden;
+            }
+        }
+        &--nolabel {
+            // HIDE VERSION LABEL
+            .vp-tabsvertical__tabversionlabel {
+                .hidden;
+            }
+        }
+    }
+    .tab_vertical{
+        width:191px;
+    }
+    // 'ADD A VERSION' TAB
+    .vp-tabsvertical__tabaddbtn {
+        width: @verticalTabWidth;
+        height: @verticalTabHeight;
+        line-height: @verticalTabHeight;
+        border: 1px dashed @cs09;
+        & + .vp-tabsvertical__tab {
+            border-top: 1px solid @cs09;
+        }
+    }
+    // TAB INNER STYLES
+    .vp-tabsvertical__tabinner {
+        table-layout: fixed;
+    }
+    .vp-tabsvertical__labelwrap {
+        width: @verticalTabWidth - @statusIconWrapperWidth;
+    }
+    // STATUS ICON WRAPPER STYLE
+    .vp-tabsvertical__tabstatuswrap {
+        width: @statusIconWrapperWidth;
+    }
+    // SET WIDTH TO THE WRAPPER SIZE MINUS THE NAV HEADER TOOLBAR
+    .vp-tabsvertical__body {
+        width: calc(~"100% - " @verticalTabWidth);
+        border: 1px solid @cs09;
+    }
+    .vp-tabcontent-width{
+        width: calc(~"100% - " 190px);
+        border: 1px solid @cs09;
+    }
+    .vp-tabsvertical__versionactionbtnwrap {
+        // 'REMOVE VERSION' STATE STYLES
+        &--remove {
+            .pos--right;
+            // REMOVE BUTTON STYLES
+            .vp-tabsvertical__versionactionbtn {
+                .vp-uielement__button--removeenabled;
+                .pl--xxl;
+                &:before {
+                    content: 'Remove this version';
+                }
+            }
+        }
+        // DEPLOY VERSION STATE STYLES
+        &--deploy {
+            // DEPLOY BUTTON STYLES
+            .vp-tabsvertical__versionactionbtn {
+                .vp-uielement__button--deployenabled;
+                &:before {
+                    content: 'Deploy';
+                }
+            }
+        }
+    }
+}

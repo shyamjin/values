@@ -1,0 +1,69 @@
+<!--PERMISSIONS SELECT FORM COMPONENT START-->
+<div class="vp-permissionsselect bg--white max" ng-controller="PluginListSearchController">
+    <!--PLUGIN DATA READ DIALOG WRAPPER (MODIFIERS: # vp-deploytools__atttentionmodalwrap--show )-->
+    <div class="vp-deploymentrequestmodalwrap fixed max--position hidden" id="show_plugin_data_popup">
+        <div class="vp-deploymentrequestmodal absolute" ng-include="'static/components/deployment-plugins/deployment-plugin-details-modal/deployment-plugin-details-modal.html'"></div>
+    </div>
+    <!--ATTENTION DIALOG WRAPPER-->
+    <div class="vp-deploytools__atttentionmodalwrap fixed max--position hidden" id="show_delete_plugin_confirmation_popup">
+        <div class="vp-deploytools__atttentionmodal absolute" ng-include="'static/components/deployment-plugins/attention-modal/attentionmodal.component.html'"></div>
+    </div>
+    <section class="vp-permissionsselect__header text--capitalize text--cs03 text--light text--md max--width">
+        <div class="inblock text--center">
+            <label class="vp-permissionsselect__admincol inblock ml--lg" style="margin-right: 400px;">Plugin</label>
+            <label class="vp-permissionsselect__admincol inblock ml--lg">View</label>
+            <label class="vp-permissionsselect__operatorcol inblock ml--lg">Edit</label>
+            <label class="vp-permissionsselect__operatorcol inblock ml--lg">Delete</label>
+            <label class="vp-permissionsselect__operatorcol inblock ml--lg">Open</label>
+            <label class="vp-permissionsselect__operatorcol inblock ml--lg">Download</label>
+        </div>
+        <hr class="vp-permissionsselect__separator mt--md bg--cs09 ba--clear">
+    </section>
+    <!--PERMISSIONS SELECT SECTION-->
+    <section class="vp-permissionsselect__body max--width" style="max-height: 680px; overflow: overlay;">
+        <form action="#" name="vp-permissionsselect__form">
+            <ul class="vp-permissionsselect__list">
+                <!--DEPLOY TOOLS PERMISSIONS-->
+                <li class="vp-permissionsselect__item vp-permissionsselect__itemdeploytools pt--xl max--width" ng-repeat="plugin in allDeploymentPlugins | filter : searchPluginKeyword">
+                    <div class="vp-permissionsselect__iteminner">
+                        <div class="vertical--bottom text--regular text--lg inblock" style="width: 500px">
+                            <span class="text--ellipsis text--ellipsis--single">{{plugin.plugin_name}}</span>
+                        </div>
+                        <div class="noselect text--center inblock">
+                            <div class="vp-permissionsselect__admincol inblock">
+                               <div class="vp-teamsform__editcol vertical--top pt--md inblock">
+                                   <button type="button" class="vp-versionform__editdeploydetails vp-uielement__button vp-uielement__button--view" ng-click="viewPlugin(plugin._id.$oid)"></button>
+                                   <!--ng-if="isallowed['/plugin/deployment/read/:path]" -->
+                                </div>
+                            </div>
+                            <div class="vp-permissionsselect__admincol inblock">
+                                <div class="vp-teamsform__editcol vertical--top pt--md inblock">
+                                   <button type="button" class="vp-versionform__editdeploydetails vp-uielement__button vp-uielement__button--edit" ng-click="selectPlugin(plugin._id.$oid)"></button>
+                                </div>
+                            </div>
+                            <div class="vp-permissionsselect__operatorcol inblock" ng-if="plugin!=='DefaultDeploymentPlugin'" style="width: 66px;">
+                                <!--OPERATOR CHECKBOX-->
+                                <div class="vp-teamsform__deletecol vertical--top pt--md inblock" style="width: 100%; margin-left: 10px;">
+                                    <button type="button" class="vp-versionform__removescreenshotbtn vp-uielement__button vp-uielement__button--removeenabled pl--xxl" ng-click="openDeletePluginConfirmationPopup(plugin.plugin_name)">Remove</button>
+                                </div>
+                            </div>
+                            <div class="vp-permissionsselect__operatorcol inblock" ng-if="plugin!=='DefaultDeploymentPlugin'" style="margin-left: 10px;">
+                                <!--OPERATOR CHECKBOX-->
+                                <div class="vp-teamsform__deletecol vertical--top pt--md inblock" style="width: 100%; margin-left: 10px;">
+                                    <button type="button" class="vp-uielement__button vp-uielement__button--cleanenabled pl--xxl" ng-click="downloadPlugin(plugin.file_path)">Open</button>
+                                </div>
+                            </div>
+                            <div class="vp-permissionsselect__operatorcol inblock" ng-if="plugin!=='DefaultDeploymentPlugin'" style="margin-left: 33px;">
+                                <!--OPERATOR CHECKBOX-->
+                                <div class="vp-teamsform__deletecol vertical--top pt--md inblock" style="width: 100%;">
+                                    <a href="{{plugin.file_path}}" class="vp-ettoolbar__savebtn vp-uielement__button vp-uielement__button--cleanenabled no--decor" download>Download</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </form>
+    </section>
+</div>
+<!--PERMISSIONS SELECT FORM COMPONENT END-->

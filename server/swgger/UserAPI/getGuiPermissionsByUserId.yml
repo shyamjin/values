@@ -1,0 +1,29 @@
+Get GUI Permissions
+---
+tags:
+  - User
+parameters:
+- name: token
+  in: header
+  description: API key
+  required: false
+  type: string
+  format: string
+- name: access-token
+  in: header
+  description: API key
+  required: false
+  type: string
+  format: string 
+
+responses:
+  200:
+    description: GUI Permissions fetched
+    examples:
+    result: "success"
+    message: ""
+  404:
+    description: exception in fetching GUI Permissions
+    examples:
+    result: "failed"
+    message: "Throws an exception"

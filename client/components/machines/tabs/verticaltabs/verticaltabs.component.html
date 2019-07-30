@@ -1,0 +1,75 @@
+<!--TAB COMPONENT START-->
+<div class="vp-tabsvertical vp-control max--width max--height clearfix" ng-controller="EditMachineDetailsTabController" ng-if="Machine.data">
+    <!--TABS HEADER NAVIGATION BAR-->
+    <div class="vp-tabsvertical__nav max--width left">
+        <nav>
+            <ul class="vp-tabsvertical__navlist text--center table">
+                <!--TAB ACTIVE 'VERSION' STATE ( MODIFIERS: # vp-tabsvertical__tab--active )-->
+                <li class="vp-tabsvertical__tab pointer left" ng-class="getActiveMachineDetailsTab(0)" id="edit_machine_details" ng-click="showActiveMachineDetailsTab(0)">
+                    <div class="vp-tabsvertical__tabinner max--height max--width intable">
+                        <div class="vp-tabsvertical__labelwrap pl--sm lh--font inblock table--cell vertical--middle">
+                            <a class="vp-tabsvertical__tabversion text--cs03 text--light text--md text--ellipsis text--ellipsis--single block">Machines details</a>
+                        </div>
+                    </div>
+                </li>
+                <!--DEFAULT INACTIVE 'VERSION' TAB WITHOUT LABEL STATE ( MODIFIERS: # vp-tabsvertical__tab--active)-->
+                <li class="vp-tabsvertical__tab vp-tabsvertical__tab--nolabel pointer left" ng-class="getActiveMachineDetailsTab(1)" id="edit_machine_deployed_tools_details" ng-click="showActiveMachineDetailsTab(1)">
+                    <div class="vp-tabsvertical__tabinner max--height max--width intable">
+                        <div class="vp-tabsvertical__labelwrap pl--sm lh--font inblock table--cell vertical--middle">
+                            <a class="vp-tabsvertical__tabversion text--cs03 text--light text--md text--ellipsis text--ellipsis--single block">Deployed tools</a>
+                        </div>
+                    </div>
+                </li>
+                <!--DEFAULT INACTIVE 'VERSION' TAB WITHOUT LABEL STATE ( MODIFIERS: # vp-tabsvertical__tab--active)-->
+                <li class="vp-tabsvertical__tab vp-tabsvertical__tab--nolabel pointer left" ng-class="getActiveMachineDetailsTab(2)" id="edit_machine_deployed_du_details" ng-click="showActiveMachineDetailsTab(2)">
+                    <div class="vp-tabsvertical__tabinner max--height max--width intable">
+                        <div class="vp-tabsvertical__labelwrap pl--sm lh--font inblock table--cell vertical--middle">
+                            <a class="vp-tabsvertical__tabversion text--cs03 text--light text--md text--ellipsis text--ellipsis--single block">Deployed DU's</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="vp-tabsvertical__tab vp-tabsvertical__tab--nolabel pointer left" ng-class="getActiveMachineDetailsTab(3)" id="edit_du_machine_deployment_history_details" ng-click="showActiveMachineDetailsTab(3)">
+                    <div class="vp-tabsvertical__tabinner max--height max--width intable">
+                        <div class="vp-tabsvertical__labelwrap pl--sm lh--font inblock table--cell vertical--middle">
+                            <a class="vp-tabsvertical__tabversion text--cs03 text--light text--md text--ellipsis text--ellipsis--single block">Tool History</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="vp-tabsvertical__tab vp-tabsvertical__tab--nolabel pointer left" ng-class="getActiveMachineDetailsTab(4)" id="edit_tool_machine_deployment_history_details" ng-click="showActiveMachineDetailsTab(4)">
+                    <div class="vp-tabsvertical__tabinner max--height max--width intable">
+                        <div class="vp-tabsvertical__labelwrap pl--sm lh--font inblock table--cell vertical--middle">
+                            <a class="vp-tabsvertical__tabversion text--cs03 text--light text--md text--ellipsis text--ellipsis--single block">DU History</a>
+                        </div>
+                    </div>
+                </li>
+                <!--DEFAULT INACTIVE 'VERSION' TAB WITHOUT LABEL STATE ( MODIFIERS: # vp-tabsvertical__tab--active)-->
+                <li class="vp-tabsvertical__tab vp-tabsvertical__tab--nolabel pointer left" ng-class="getActiveMachineDetailsTab(5)" id="edit_machine_team_details" ng-click="showActiveMachineDetailsTab(5)">
+                    <div class="vp-tabsvertical__tabinner max--height max--width intable">
+                        <div class="vp-tabsvertical__labelwrap pl--sm lh--font inblock table--cell vertical--middle">
+                            <a class="vp-tabsvertical__tabversion text--cs03 text--light text--md text--ellipsis text--ellipsis--single block">Users &amp teams</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="vp-tabsvertical__tab vp-tabsvertical__tab--nolabel pointer left" ng-class="getActiveMachineDetailsTab(6)" id="edit_machine_users_details" ng-click="showActiveMachineDetailsTab(6)">
+                    <div class="vp-tabsvertical__tabinner max--height max--width intable">
+                        <div class="vp-tabsvertical__labelwrap pl--sm lh--font inblock table--cell vertical--middle">
+                            <a class="vp-tabsvertical__tabversion text--cs03 text--light text--md text--ellipsis text--ellipsis--single block">Machine Group</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <!--TAB BODY WRAPPER, LOAD TEMPLATE INSIDE-->
+    <div class="vp-tabsvertical__body bg--white left max--height relative">
+        <!--MACHINE DETAILS TAB CONTENT-->
+        <div ng-if="displayDetailsTab===0" class="vp-tabsvertical__bodycontent max" ng-include="'static/components/machines/machine-details-content/machinedetailscontent.component.html'"></div>
+        <div ng-if="displayDetailsTab===1" class="vp-tabsvertical__bodycontent max" ng-include="'static/components/machines/machine-details-content/deployedtooldetailscontent.component.html'"></div>
+        <div ng-if="displayDetailsTab===2" class="vp-tabsvertical__bodycontent max" ng-include="'static/components/machines/machine-details-content/deployeddudetailscontent.component.html'"></div>
+        <div ng-if="displayDetailsTab===3" class="vp-tabsvertical__bodycontent max" ng-include="'static/components/machines/machine-details-content/tooldeploymenthistorydetailscontent.component.html'"></div>
+        <div ng-if="displayDetailsTab===4" class="vp-tabsvertical__bodycontent max" ng-include="'static/components/machines/machine-details-content/dudeploymenthistorydetailscontent.component.html'"></div>
+        <div ng-if="displayDetailsTab===5" class="vp-tabsvertical__bodycontent max" ng-include="'static/components/machines/machine-details-content/userdetailscontent.component.html'"></div>
+        <div ng-if="displayDetailsTab===6" class="vp-tabsvertical__bodycontent max" ng-include="'static/components/machines/machine-details-content/machinegroupdetailscontent.component.html'"></div>
+    </div>
+</div>
+<!--TAB COMPONENT END-->

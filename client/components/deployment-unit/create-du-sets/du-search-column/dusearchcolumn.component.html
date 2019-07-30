@@ -1,0 +1,34 @@
+<!--MACHINES-SEARCH COLUMN COMPONENT START-->
+<div class="vp-toolssearch bg--white max--width">
+    <span class="vp-toolssearch__topborder block"></span>
+    <div class="vp-toolssearch__searchboxwrap pt--md pr--md pl--md">
+         <!--SEARCH FIELD (MODIFIERS: # vp-machinessearch__searchbox--drop)-->
+        <div class="vp-toolssearch__searchbox vp-uielement__searchbox relative">
+            <div class="vp-toolssearch__searchautocomplete bg--cs06 absolute hidden" ng-include="'static/components/tools/deploy-tools/search-autocomplete/searchautocomplete.component.html'"></div>
+            <form id="vp-toolssearch__searchform vp-uielement__searchform">
+                <!--SEARCH INPUT TEXT-->
+                <input class="vp-toolssearch__searchinput vp-uielement__searchinput" name="searchDUField" ng-model="searchDUField" type="text" placeholder="Find a DU" />
+                <!--SEARCH INPUT SUBMIT BUTON-->
+                <button class="vp-toolssearch__searchbtn vp-uielementt__searchbtn" type="button"></button>
+            </form>
+            <!--SEARCH HINT-->
+            <span class="vp-toolssearch__hint vp-uielement__hint">Use the du name,du package name,tags or description</span>
+        </div>
+    </div>
+    <div class="vp-toolssearch__listwrapper max--width">
+        <ul class="vp-toolssearch__list max--width" ng-repeat="duData in applications">
+            <!--ITEM EXAMPLE (MODIFIERS: # vp-machinessearch__item--test # vp-machinessearch__item--prod)-->
+            <li class="vp-toolssearch__item vp-toolssearch__item" ng-repeat="du in duData.data" ng-hide="isDUSelected(du)">
+                <div class="vp-toolssearch__iteminner vp-toolssearch__item--test pl--xxxl text--regular text--md clearfix">
+                    <div class="vp-toolssearch__itemdescriptionwrap pt--sm pb--sm word--break left">
+                        <span class="vp-toolssearch__itemdescription text--cs03">{{du.name | filter:searchDUToAdd}} {{du.type}}</span>
+                    </div>
+                    <div class="vp-toolssearch__itembtnwrap pointer relative right hidden">
+                        <span class="vp-toolssearch__itembtn bg--cs07 text--center text--cs06 text--regular text--md absolute" ng-click="addDU(du)">Add</span>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<!--MACHINES-SEARCH COLUMN COMPONENT END-->

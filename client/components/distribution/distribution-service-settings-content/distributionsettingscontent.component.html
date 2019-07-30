@@ -1,0 +1,15 @@
+<!--'ADD NEW SERVICE' TAB CONTENT COMPONENT START-->
+<div class="vp-distributionsettingscont vp-control max" ng-controller="DistributionServiceController">
+    <!--ADD NEW SERVICE FORM-->
+    <div class="vp-distributionsettingscont__form" ng-include="'static/components/distribution/distribution-service-settings-form/distributionsettingsform.component.html'"></div>
+    <!--TOOLBAR -->
+    <div class="vp-distributionsettingscont__toolbar fixed pos--bottom pos--left bg--cs06 max--width">
+        <div class="vp-distributionsettingscont__innerbounded clearfix">
+            <div class="vp-distributionsettingscont__addservicebtnwrap right">
+                <!--ADD SERVICE BUTTON (MODIFIERS: # vp-uielement__button--deploydisabled )-->
+                <button type="button" class="vp-distributionsettingscont__distributionsettingsbtn vp-uielement__button vp-uielement__button--deployenabled pr--lg pl--lg"  ng-click="updateConfigDistribution('vp-serviceform__serviceform')">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--'ADD NEW SERVICE' TAB CONTENT COMPONENT END-->

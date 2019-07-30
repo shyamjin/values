@@ -1,0 +1,446 @@
+<!--VERSION FORM COMPONENT START-->
+<div class="vp-versionform vp-component bg--white max--width" ng-controller="CreateToolVersionController" ng-repeat="version in versionData track by $index" id="version_tab_{{version.version_number}}" ng-if="displayTab===$index">
+    <!--ADD A SETTING MODAL WRAPPER (MODIFIERS: # vp-versionform__addsettingmodalwrap--show )-->
+    <div class="vp-versionform__addsettingmodalwrap fixed max--position hidden" id="add_settings">
+        <div class="vp-versionform__addsettingmodal absolute" ng-include="'static/components/tools/create-tools/addsetting-popup/addsetting-popup.component.html'"></div>
+    </div>
+    <!--VERSION SECTION-->
+    <section class="vp-versionform__version">
+        <div class="vp-versionform__labelsection vertical--top pt--sm inblock">
+            <!--DROPDOWN ARROW (MODIFIERS: # vp-uielement__button--dropdownarrowclosed )-->
+            <!--<button type="button" class="vp-versionform__versionexpand vp-uielement__button vp-uielement__button&#45;&#45;dropdownarrow"></button>-->
+            <h3 class="vp-versionform__label pl--sm text--cs03 text--light text--md inblock">Version:<span class="mandatory">*</span></h3>
+        </div>
+        <!--CONTENT-->
+        <div class="vp-versionform__content inblock">
+            <!--VERSION INPUT (MODIFIERS: # vp-versionform__versioninputwrap--done )-->
+            <div class="vp-versionform__versioninputwrap inblock">
+                <input id="VERSION_NUMBER_{{$index}}" name="version_number"  ng-model="version.version_number" type="text" class="vp-versionform__versioninput input--clear text--cs03 text--regular text--lg" required>
+                <h5 class="validation_msg_version" ng-if="version_errors.version_number">{{version_errors.version_number}}</h5>
+                <!--<button type="button" class="vp-versionform__versiondonebtn vp-uielement__button  vp-uielement__button&#45;&#45;cleanenabled">Done</button>-->
+                <p class="vp-versionform__versionhint text--cs08 text--light text--sm">Versions must be in "x.y" format</p>
+                <div class="vp-versionform__versioncreateddatewrap text--cs03 inblock hidden">
+                    <span class="text--md ml--lg">Created:<span class="vp-versionform__versioncreateddate ml--md text--regular text--lg">14-Jul-2016</span></span>
+                </div>
+            </div>
+            <div class="vp-versionform__labelinputwrap vertical--top ml--xl inblock">
+                <label for="VERSION_NAME_{{$index}}">label:<span class="mandatory">*</span></label>
+                <input ng-model="version.version_name" name="version_name"  id="VERSION_NAME_{{$index}}" type="text" class="vp-versionform__labelinput input--clear" required>
+                <h5 class="validation_msg_version" ng-if="version_errors.version_name">{{version_errors.version_name}}</h5>
+            </div>
+        </div>
+    </section>
+
+     <!--VERSIION DATE SECTION (MODIFIERS: # vp-versionform__status--show )-->
+    <section class="vp-versionform__status vp-versionform__status--show mt--xl">
+        <div class="vp-versionform__labelsection pl--lg inblock">
+            <h3 class="vp-versionform__label pl--sm text--cs03 text--light text--md inblock ">Version Date:</h3>
+        </div>
+        <!--CONTENT-->
+        <div class="vp-versionform__content inblock">
+            <input name="version_date"class="ba--primary"  id="VERSION_DATE" value="{{version.version_date | date:'yyyy-MM-dd'}}" type="date" ng-model="version.version_date" required/>
+        </div>
+    </section>
+
+    <!--BACKWARDS COMPADIBLE SECTION-->
+    <section class="vp-versionform__backwards mt--xl">
+        <div class="vp-versionform__labelsection pl--lg inblock">
+            <h3 class="vp-versionform__label pl--sm text--cs03 text--light text--md inblock">Backwards compadible:<span class="mandatory">*</span></h3>
+        </div>
+        <div class="vp-versionform__content inblock">
+            <!--'YES' RADIO BUTTON-->
+            <div class="vp-uielement__radiobtn">
+                <input name="backward_compatible" ng-model="version.backward_compatible" value="yes" type="radio" id="BC_Y_{{version.version_number}}_{{$index}}" required>
+                <label for="BC_Y_{{version.version_number}}_{{$index}}"></label>
+                <label for="BC_Y_{{version.version_number}}_{{$index}}">Yes</label>
+            </div>
+            <!--'NO' RADIO BUTTON-->
+            <div class="vp-uielement__radiobtn ml--xxxl">
+                <input name="backward_compatible" ng-model="version.backward_compatible" value="no" type="radio" id="BC_N_{{version.version_number}}_{{$index}}" required>
+                <label for="BC_N_{{version.version_number}}_{{$index}}"></label>
+                <label for="BC_N_{{version.version_number}}_{{$index}}">No</label>
+            </div>
+        </div>
+        <h5 class="validation_msg_version" ng-if="version_errors.backward_compatible">{{version_errors.backward_compatible}}</h5>
+    </section>
+
+    <!--CERTIFIED SECTION-->
+    <section class="vp-versionform__certified mt--xl">
+        <div class="vp-versionform__labelsection vertical--top pl--lg inblock">
+            <!--SECTION LABEL-->
+            <h3 class="vp-versionform__label pl--sm text--cs03 text--light text--md inblock">Certified:</h3>
+        </div>
+        <div class="vp-versionform__content inblock">
+            <!--CERTIFIED FIELD CONTENT (MODIFIERS: # vp-versionform__certifiedcontent--filled)-->
+            <div class="vp-versionform__certifiedcontent--filled">
+                <ul class="vp-versionform__certifiedlist">
+                    <!--ITEM EXAMPLE-->
+                    <li class="vp-versionform__certifieditem mb--sm right " ng-repeat="certificate in version.mps_certified">
+                        <span>{{certificate}}</span>
+                        <button type="button" class="vp-versionform__editcertified vp-uielement__button vp-uielement__button--edit vertical--bottom skip_slideup" ng-click="showCertified($index)"></button>
+                    </li>
+                    <li class="vp-versionform__addcertifieditembtn mb--sm left btn_toggle">
+                        <!--ADD CERTIFIED BUTTON WRAPPER (MODIFIERS: # vp-versionform__addcertifiedbtnwrap--show )-->
+                        <div class="vp-versionform__addcertifiedbtnwrap relative">
+                            <!--ADD BUTTON-->
+                            <button type="button" class="vp-versionform__addcertifiedbtn vp-uielement__button pa--none vp-uielement__button--cleanenabled mr--xl skip_slideup" ng-click="showCertified($index)">+Add</button>
+                            <!--ADD CERTIFIED POPUP-->
+                            <div id="add_certificate" class="vp-versionform__addcertifieditembtnpopup tag_popup absolute skip_slideup hidden" ng-include="'static/components/tools/create-tools/popups/certified-addpopup.component.html'"></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!--RELEASE NOTES SECTION-->
+    <section class="vp-versionform__notes mt--xl">
+        <!--SECTION LABEL-->
+        <div class="vp-versionform__labelsection vertical--top pl--lg inblock">
+            <h3 class="vp-versionform__label pl--sm text--cs03 text--light text--md inblock">Release notes:</h3>
+        </div>
+        <div class="vp-versionform__content inblock">
+            <textarea ng-model="version.release_notes" name="version_release_notes" id="RELEASE_NOTES_{{$index}}" class="vp-versionform__releasenotesarea" wrap="soft"></textarea>
+        </div>
+    </section>
+    <!--PRE-REQUISITES SECTION-->
+    <section class="vp-versionform__prerequisites mt--xl">
+        <div class="vp-versionform__labelsection vertical--top pl--lg inblock">
+            <h3 class="vp-versionform__label pl--sm text--cs03 text--light text--md inblock">Pre-requisites:</h3>
+        </div>
+        <div class="vp-versionform__content inblock">
+
+            <!--PRE-REQUISITES FIELD CONTENT (MODIFIERS: # vp-versionform__prerequisitescontent--filled )-->
+            <div class="vp-versionform__prerequisitescontent--filled">
+                <ul class="vp-versionform__prerequisiteslist clearfix">
+                    <!--ITEM EXAMPLE-->
+                    <li class="vp-versionform__prerequisitesitem mb--sm right  " ng-repeat="prerequisite in version.pre_requiests">
+                        <div class="vp-versionform__prerequisitesiteminner">
+                            <span>{{prerequisite.name}} {{prerequisite.version}}</span>
+                            <!--EDIT BUTTON WRAPPER (MODIFIERS: # vp-versionform__editprerequisitesbtnwrap--show )-->
+                            <div class="vp-versionform__editprerequisitesbtnwrap inblock ">
+                                <button type="button" class="vp-versionform__editprerequisitesbtn vp-uielement__button vp-uielement__button--edit vertical--bottom skip_slideup" ng-click="showEditPrerequisites($index)"></button>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="vp-versionform__prerequisitesaddbtn mb--sm left btn_toggle">
+                        <!--ADD BUTTON-->
+                        <button type="button" class="vp-versionform__addprerequisitesbtn vp-uielement__button pa--none vp-uielement__button--cleanenabled skip_slideup mr--xl" ng-click="showEditPrerequisites($index)">+Add</button>
+                         <!--ADD PREREQUISITE POPUP-->
+                        <div id="edit_prerequisite" class="vp-versionform__addcertifieditembtnpopup tag_popup absolute hidden" ng-include="'static/components/tools/create-tools/popups/prerequisities-editpopup.component.html'"></div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!--TOOL-DEPENDENCY SECTION-->
+    <section class="vp-versionform__prerequisites mt--xl">
+        <div class="vp-versionform__labelsection vertical--top pl--lg inblock">
+            <h3 class="vp-versionform__label pl--sm text--cs03 text--light text--md inblock">Tool Dependency:</h3>
+        </div>
+        <div class="vp-versionform__content inblock">
+
+            <!--PRE-REQUISITES FIELD CONTENT (MODIFIERS: # vp-versionform__prerequisitescontent--filled )-->
+            <div class="vp-versionform__prerequisitescontent--filled">
+                <ul class="vp-versionform__prerequisiteslist clearfix">
+                    <!--ITEM EXAMPLE-->
+                    <li class="vp-versionform__prerequisitesitem mb--sm right" ng-repeat="tool in version.dependent_tools">
+                        <div class="vp-versionform__prerequisitesiteminner">
+                            <span>{{tool.tool_name}} {{tool.version_name}} {{tool.version_number}}</span>
+                            <!--EDIT BUTTON WRAPPER (MODIFIERS: # vp-versionform__editprerequisitesbtnwrap--show )-->
+                            <div class="vp-versionform__editprerequisitesbtnwrap inblock relative">
+                                <button type="button" class="vp-versionform__editprerequisitesbtn vp-uielement__button vp-uielement__button--edit vertical--bottom skip_slideup" ng-click="showDependentTools($index)"></button>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="vp-versionform__prerequisitesaddbtn mb--sm left btn_toggle">
+                        <!--ADD BUTTON-->
+                        <button type="button" class="vp-versionform__addprerequisitesbtn vp-uielement__button pa--none vp-uielement__button--cleanenabled skip_slideup mr--xl" ng-click="showDependentTools($index)">+Add</button>
+                         <!--ADD PREREQUISITE POPUP-->
+                        <div id="edit_dependent_tools" class="vp-versionform__addcertifieditembtnpopup tag_popup absolute hidden" ng-include="'static/components/tools/create-tools/popups/dependenttools-editpopup.component.html'"></div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!--DOCUMENTATION SECTION-->
+    <section class="vp-versionform__documentation mt--lg">
+        <div class="vp-versionform__labelsection vertical--top pl--lg inblock">
+            <h3 class="vp-versionform__label pl--sm text--cs03 text--light text--md inblock">Documentation:</h3>
+        </div>
+        <!--DOCUMENTS CONTENT (MODIFIERS: # vp-versionform__content--filled )-->
+        <div class="vp-versionform__content inblock">
+            <!--DOCUMENTATION LIST WRAPPER-->
+            <div class="vp-versionform__documentationlistwrap">
+                <ul class="vp-versionform__documentationlist" ng-repeat="doc in version.document.documents">
+                    <!--DOCUMENT ITEM EXAMPLE-->
+                    <li class="vp-versionform__documentationitem">
+                        <div class="vp-versionform__documentationiteminner">
+                            <div class="vp-versionform__documentbtnwrap  vertical--top inblock">
+                                <!--DOCUMENT NAME LINK-->
+                                <a ng-href="{{doc.url}}" target="_blank" class="vp-versionform__documentlink no--decor text--cs07 text--regular text--lg pt--sm text--ellipsis text--ellipsis--single">{{doc.name}}</a>
+                            </div>
+                            <!--EDIT BUTTON-->
+                            <button type="button" class="vp-versionform__editdoc vp-uielement__button vp-uielement__button--edit ml--xl" ng-click="showEditDocument(version.version_number, $index)"></button>
+                            <!--REMOVE BUTTON-->
+                            <button type="button" class="vp-versionform__removedoc vp-uielement__button vp-uielement__button--removeenabled ml--xxl" ng-click="removeDocument(version.version_number, $index)"></button>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <!--ADD DOCUMENTATION BUTTON-->
+            <button type="button" class="vp-versionform__adddocbtn vp-uielement__button vp-uielement__button--cleanenabled pa--none vertical--bottom" ng-click="showDocument($index)"><span>+Add</span></button>
+            <div class="vp-versionform__addsettingmodalwrap fixed max--position hidden" id="add_document">
+                <div class="vp-versionform__addsettingmodal absolute" ng-include="'static/components/tools/create-tools/popups/adddocument-popup.component.html'"></div>
+            </div>
+        </div>
+    </section>
+    <!--SOURCE CONTROL SECTION-->
+    <section class="vp-versionform__soursecontrol mt--xl">
+        <div class="vp-versionform__labelsection vertical--top pl--lg inblock">
+            <!--SECTION NAME-->
+            <h3 class="vp-versionform__label pl--sm text--cs03 text--light text--md inblock">Source control:</h3>
+        </div>
+        <div class="vp-versionform__content inblock">
+            <div class="vp-versionform__sourcecontrolinputwrap">
+                <ul>
+                    <!--URL FIELD-->
+                    <li class="vp-versionform__sourcecontrolitem" style="margin-bottom:16px;">
+                        <label  for="branch_tag_{{$index}}">Branch / Tag:<span class="mandatory">*</span></label>
+                        <select id="branch_tag_{{$index}}" ng-model="version.branch_tag" name="attr_type" class="vp-versionform__dropdownlist vp-versionform__dropdownlist2 vp-uielement__select max--width" style="width:180px; height:24px;" required>
+                            <option ng-repeat="attr_type in attribute_types" value="{{attr_type}}">{{attr_type}}</option>
+                        </select>
+                    </li>
+                    <h5 class="validation_msg_version" ng-if="version_errors.branch_tag">{{version_errors.branch_tag}}</h5>
+                    <!--URL FIELD-->
+                    <li class="vp-versionform__sourcecontrolitem">
+                        <label  for="GIT_URL_{{$index}}">URL:</label>
+                        <input id="GIT_URL_{{$index}}" name="git_url" ng-model="version.gitlab_repo" type="text" class="vp-versionform__sourcecontrolurlinput input--clear" placeholder="[enter path here]" ng-required="version.gitlab_branch && version.jenkins_job">
+                    </li>
+                    <h5 class="validation_msg_version" ng-if="version_errors.gitlab_repo">{{version_errors.gitlab_repo}}</h5>
+                    <!--BRANCH FIELD-->
+                    <li class="vp-versionform__sourcecontrolitem mt--lg">
+                        <label for="GIT_BRANCH_{{$index}}">Branch:</label>
+                        <input id="GIT_BRANCH_{{$index}}" type="text" class="vp-versionform__sourcecontrolurlinput input--clear" name="git_branch" ng-model="version.gitlab_branch" ng-required="version.gitlab_repo && version.jenkins_job">
+                    </li>
+                    <h5 class="validation_msg_version" ng-if="version_errors.gitlab_branch">{{version_errors.gitlab_branch}}</h5>
+                    <!--JOB NAME FIELD-->
+                    <li class="vp-versionform__sourcecontrolitem mt--lg">
+                        <label for="GIT_JOB_{{$index}}">Job name:</label>
+                        <input id="GIT_JOB_{{$index}}" type="text" class="vp-versionform__sourcecontrolurlinput input--clear" name="jenkins_job_name" ng-model="version.jenkins_job" ng-required="version.gitlab_repo && version.gitlab_branch">
+                    </li>
+                    <h5 class="validation_msg_version" ng-if="version_errors.jenkins_job">{{version_errors.jenkins_job}}</h5>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!--DEPLOYER TO USE -->
+     <section class="vp-versionform__soursecontrol mt--xl">
+        <div class="vp-versionform__labelsection vertical--top pl--lg inblock">
+            <!--SECTION NAME-->
+            <h3 class="vp-versionform__label pl--sm text--cs03 text--light text--md inblock">Deployer to use:<span class="mandatory">*</span></h3>
+        </div>
+        <div class="vp-versionform__content inblock">
+            <div class="vp-versionform__sourcecontrolinputwrap">
+                <select id="deployer_to_use_{{$index}}" ng-model="version.deployer_to_use" name="deployer" class="vp-versionform__dropdownlist vp-versionform__dropdownlist2 vp-uielement__select max--width" style="width:180px; height:24px;" required>
+                    <option ng-repeat="deployer in allDeploymentPlugins" value="{{deployer.plugin_name}}">{{deployer.plugin_name}}</option>
+                </select>
+            </div>
+        </div>
+     </section>
+     <!--repository to use-->
+     <section class="vp-versionform__soursecontrol mt--xl">
+        <div class="vp-versionform__labelsection vertical--top pl--lg inblock">
+            <!--SECTION NAME-->
+            <h3 class="vp-versionform__label pl--sm text--cs03 text--light text--md inblock">Repository to use:<span class="mandatory">*</span></h3>
+        </div>
+        <div class="vp-versionform__content inblock">
+            <div class="vp-versionform__sourcecontrolinputwrap">
+                <select id="repo_to_use_{{$index}}" ng-model="version.repository_to_use" name="deployer" class="vp-versionform__dropdownlist vp-versionform__dropdownlist2 vp-uielement__select max--width" style="width:180px; height:24px;" required>
+                    <option ng-repeat="repos in repositoryAll.data"  value="{{repos.name}}">{{repos.name}}</option>
+                </select>
+            </div>
+        </div>
+     </section>
+    <!--SCREENSHOTS SECTION-->
+    <section class="vp-versionform__screenshots mt--xl">
+        <div class="vp-versionform__labelsection vertical--top inblock">
+            <!--DROPDOWN ARROW (MODIFIERS: # vp-uielement__button--dropdownarrowclosed )-->
+            <!--<button type="button" class="vp-versionform__screeshotsexpand vp-uielement__button vp-uielement__button&#45;&#45;dropdownarrow"></button>-->
+            <h3 class="vp-versionform__label pl--sm text--cs03 text--light text--md inblock">Screenshots:</h3>
+        </div>
+        <div class="vp-versionform__content inblock">
+            <!--SCREENSHOTS REGION WRAPPER (MODIFIERS: # vp-versionform__screenshotslistwrap--filled )-->
+            <div class="vp-versionform__screenshotslistwrap--filled">
+                <ul>
+                    <!--SCREENSHOT ITEM-->
+                    <!-- IF NEW SCREENSHOTS ADDDED TO NEW VERSION -->
+                    <li class="vp-versionform__screenshotitem mr--xl mb--xl left" ng-repeat="files in screenshotFiles"  ng-init="parentIndex = $index">
+                        <div id="edit_newscr_{{$index}}_{{version.version_number}}" class="vp-versionform__screenshot" ng-repeat="file in files">
+                            <div class="vp-versionform__screenshotbtnwrap relative right hidden">
+                                <!--SCREENSHOT BUTTONS PANEL-->
+                                <div id="edt_newscr_{{$index}}_{{version.version_number}}" class="vp-versionform__panelbtn bg--cs07 absolute">
+                                    <!--REMOVE BUTTON-->
+                                    <button type="button" class="vp-versionform__removescreenshotbtn vp-uielement__button mt--sm mr--md right" id="rm_media_file_{{version.version_number}}" ng-click="removeMediaFile(parentIndex, $index)"></button>
+                                    <!--EDIT BUTTON WRAPPER (MODIFIERS: # vp-versionform__editscreenshotbtnwrap--show )-->
+                                    <!--<div class="vp-versionform__editscreenshotbtnwrap relative">-->
+                                        <!--<button type="button" class="vp-versionform__editscreenshotbtn vp-uielement__button vp-uielement__button&#45;&#45;edit mt&#45;&#45;sm mr&#45;&#45;xxxl right"></button>-->
+                                    <!--</div>-->
+                                    <!--SHOW BUTTON-->
+                                    <!--<button type="button" class="vp-versionform__showscreenshotbtn vp-uielement__button  mt&#45;&#45;sm mr&#45;&#45;xxxl right"></button>-->
+                                </div>
+                            </div>
+                            <img alt="" id="media_file_{{$index}}_{{parentIndex}}" alt="media file {{$index}}" style="width: 150px; height: 100px; margin-bottom:10%;">
+                        </div>
+                    </li>
+                    <!--ADD SCREENSHOT BUTTON-->
+                    <li class="vp-versionform__screenshotaddbtn mr--xl mb--xl left">
+                        <button type="button" class="vp-versionform__addscreenshotbtn vp-uielement__removedoc vp-uielement__button vp-uielement__button--cleanenabled pa--none left skip_slideup" ng-click="showEditScreenshot(version._id.$oid, $index)">+Add</button>
+                        <div class="vp-versionform .vp-versionform__certified tag_popup absolute hidden"  id="edit_screenshot" ng-include="'static/components/tools/create-tools/popups/editscreenshot-popup.component.html'"></div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!--DEPLOYMENT DETAILS-->
+    <section class="vp-versionform__deploymentdetails">
+        <div class="vp-versionform__labelsection vertical--top pl--lg inblock">
+            <!--SECTION LABEL-->
+            <h3 class="vp-versionform__label pl--sm text--cs03 text--light text--md inblock">Deployment Fields:</h3>
+        </div>
+        <div class="vp-versionform__content inblock">
+            <!--DEPLOYMENT DETAILS LIST (MODIFIERS: # vp-versionform__deployitemlistwrap--filled )-->
+            <div class="vp-versionform__deployitemlistwrap--filled">
+                <ul>
+                    <!--TEXT INPUT ITEM EXAMPLE-->
+                    <li class="vp-versionform__deploydetailsitem" ng-repeat="choice in version.deployment_field.fields track by $index">
+                        <div class="vp-versionform__deployiteminner bg--cs06 clearfix" ng-if="choice.input_type==='text' || choice.input_type==='email' || choice.input_type==='password' || choice.input_type==='date' || choice.input_type==='number'">
+                            <!--LABEL-->
+                            <div class="vp-versionform__deployitemlabelwrap pl--xl left">
+                                <label class="vp-versionform__deployitemlabel text--light text--md text--ellipsis text--ellipsis--single">{{choice.input_name}}</label>
+                            </div>
+                            <!--TEXT INPUT WRAPPER-->
+                            <div class="vp-versionform__deployiteminputwrap left">
+                                <input type="{{choice.input_type}}" class="vp-versionform__detailinput input--clear bg--white text--cs03 text--regular text--lg max--width" id="INPUT_TYPE_{{$index}}" ng-model="choice.default_value" name="input_type">
+                            </div>
+                            <div class="vp-versionform__optionspanelcontainer clearfix right">
+                                <!--REMOVE BUTTON-->
+                                <div class="vp-versionform__removescreenshotbtnwrap mr--xxxl right">
+                                    <button type="button" class="vp-versionform__removescreenshotbtn vp-uielement__button vp-uielement__button--removeenabled pl--xxl" ng-click="removeField($index)">Remove</button>
+                                </div>
+                                <!--EDIT BUTTON-->
+                                <div class="vp-versionform__editdeploydetailswrap mr--xxxl right">
+                                    <button type="button" class="vp-versionform__editdeploydetails vp-uielement__button vp-uielement__button--edit" ng-click="showEditSettings($index, version.version_number)"></button>
+                                </div>
+                                <!--MANDATORY CHECKBOX-->
+                                <div class="vp-versionform__mandatorywrap vp-uielement__checkbox mr--xxxl right">
+                                    <input type="checkbox" id="vp-versionform__{{$index}}" ng-model="choice.is_mandatory" name="is_mandatory" ng-checked="choice.is_mandatory===true" ng-true-value="true" ng-false-value="false"/>
+                                    <label for="vp-versionform__{{$index}}"></label>
+                                    <label for="vp-versionform__{{$index}}" class="ml--sm">Mandatory</label>
+                                </div>
+                            </div>
+                        </div>
+                        <!--RADIO BUTTONS YES/NO ITEM EXAMPLE-->
+                        <div class="vp-versionform__deployiteminner bg--cs06 clearfix" ng-if="choice.input_type==='radio'" style="height: initial;">
+                            <!--LABEL-->
+                            <div class="vp-versionform__deployitemlabelwrap pl--xl left">
+                                <label class="vp-versionform__deployitemlabel text--light text--md text--ellipsis text--ellipsis--single">{{choice.input_name}}</label>
+                            </div>
+                            <!--RADIO BUTTONS INPUT WRAPPER-->
+                            <div class="vp-versionform__deployiteminputwrap left">
+                                <!--'YES' RADIO BUTTON-->
+                                <div class="vp-uielement__radiobtn" ng-repeat="field in choice.valid_values">
+                                    <input type="radio" id="vp-versionform__deploymentsdetailsyes_{{$index}}_{{choice.input_name}}_{{field}}" ng-attr-name="{{field}}_{{$index}}_{{choice.input_name}}" value="{{field}}" ng-model="choice.default_value">
+                                    <label for="vp-versionform__deploymentsdetailsyes_{{$index}}_{{choice.input_name}}_{{field}}"></label>
+                                    <label for="vp-versionform__deploymentsdetailsyes_{{$index}}_{{choice.input_name}}_{{field}}">{{field}}</label>
+                                </div>
+                            </div>
+                            <div class="vp-versionform__optionspanelcontainer clearfix right">
+                                <!--REMOVE BUTTON-->
+                                <div class="vp-versionform__removescreenshotbtnwrap mr--xxxl right">
+                                    <button type="button" class="vp-versionform__removescreenshotbtn vp-uielement__button vp-uielement__button--removeenabled pl--xxl" ng-click="removeField($index)">Remove</button>
+                                </div>
+                                <!--EDIT BUTTON-->
+                                <div class="vp-versionform__editdeploydetailswrap mr--xxxl right">
+                                    <button type="button" class="vp-versionform__editdeploydetails vp-uielement__button vp-uielement__button--edit" ng-click="showEditSettings($index, version.version_number)"></button>
+                                </div>
+                                <!--MANDATORY CHECKBOX-->
+                                <div class="vp-versionform__mandatorywrap vp-uielement__checkbox mr--xxxl right">
+                                    <input type="checkbox" id="vp-versionform__deploymentsdetailsyes_{{$index}}" name="{{$index}}_{{choice.input_name}}" ng-model="choice.is_mandatory" name="is_mandatory" ng-checked="choice.is_mandatory=='True'" ng-true-value="true" ng-false-value="false"/>
+                                    <label for="vp-versionform__deploymentsdetailsyes_{{$index}}"></label>
+                                    <label for="vp-versionform__deploymentsdetailsyes_{{$index}}" class="ml--sm">Mandatory</label>
+                                </div>
+                            </div>
+                        </div>
+                        <!--DROP DOWN LIST ITEM EXAMPLE-->
+                        <div class="vp-versionform__deployiteminner bg--cs06 clearfix" ng-if="choice.input_type==='dropdown'">
+                            <!--LABEL-->
+                            <div class="vp-versionform__deployitemlabelwrap pl--xl left">
+                                <label class="vp-versionform__deployitemlabel text--light text--md text--ellipsis text--ellipsis--single">{{choice.input_name}}</label>
+                            </div>
+                            <!--DROP DOWN LIST INPUT WRAPPER-->
+                            <div class="vp-versionform__deployiteminputwrap left">
+                                <select name="vp-versionform__dropdownlist1" id="dropdown_{{$index}}" ng-model="choice.default_value" class="vp-versionform__dropdownlist vp-versionform__dropdownlist1 vp-uielement__select max--width" name="{{choice.input_name}}">
+                                    <option data-ng-repeat="value in choice.valid_values" value="{{value}}">{{value}}</option>
+                                    </select>
+                            </div>
+                            <div class="vp-versionform__optionspanelcontainer clearfix right">
+                                <!--REMOVE BUTTON-->
+                                <div class="vp-versionform__removescreenshotbtnwrap mr--xxxl right">
+                                    <button type="button" class="vp-versionform__removescreenshotbtn vp-uielement__button vp-uielement__button--removeenabled pl--xxl" ng-click="removeField($index)">Remove</button>
+                                </div>
+                                <!--EDIT BUTTON-->
+                                <div class="vp-versionform__editdeploydetailswrap mr--xxxl right">
+                                    <button type="button" class="vp-versionform__editdeploydetails vp-uielement__button vp-uielement__button--edit" ng-click="showEditSettings($index, version.version_number)"></button>
+                                </div>
+                                <!--MANDATORY CHECKBOX-->
+                                <div class="vp-versionform__mandatorywrap vp-uielement__checkbox mr--xxxl right">
+                                    <input type="checkbox" id="vp-versionform__mandatory4_{{$index}}" name="vp-versionform__mandatory1" ng-model="choice.is_mandatory" name="is_mandatory" ng-checked="choice.is_mandatory=='True'" ng-true-value="true" ng-false-value="false"/>
+                                    <label for="vp-versionform__mandatory4_{{$index}}"></label>
+                                    <label for="vp-versionform__mandatory4_{{$index}}" class="ml--sm">Mandatory</label>
+                                </div>
+                            </div>
+                        </div>
+                        <!--CHECK BOX ITEM EXAMPLE-->
+                        <div class="vp-versionform__deployiteminner bg--cs06 clearfix" ng-if="choice.input_type==='checkbox'" style="height: initial;">
+                            <!--LABEL-->
+                            <div class="vp-versionform__deployitemlabelwrap pl--xl left">
+                                <label class="vp-versionform__deployitemlabel text--light text--md text--ellipsis text--ellipsis--single">{{choice.input_name}}</label>
+                            </div>
+                            <!--RADIO BUTTONS INPUT WRAPPER-->
+                            <div class="vp-versionform__deployiteminputwrap left">
+                                <!--'YES' RADIO BUTTON-->
+                                <div class="vp-versionform__mandatorywrap vp-uielement__checkbox mr--xxxl right" ng-repeat="field in choice.valid_values track by $index">
+                                    <input type="checkbox" id="vp-versionform__checkbox_field_{{$index}}_{{choice.input_name}}_{{field}}" name="{{valid_values[$index]}}_{{$index}}" ng-model="choice.selected_values[$index]"  value="{{field}}" ng-click="addDefaultValueToCheckbox(choice.input_name, field)"/>
+                                    <label for="vp-versionform__checkbox_field_{{$index}}_{{choice.input_name}}_{{field}}"></label>
+                                    <label for="vp-versionform__checkbox_field_{{$index}}_{{choice.input_name}}_{{field}}" class="ml--sm">{{field}}</label>
+                                </div>
+                            </div>
+                            <div class="vp-versionform__optionspanelcontainer clearfix right">
+                                <!--REMOVE BUTTON-->
+                                <div class="vp-versionform__removescreenshotbtnwrap mr--xxxl right">
+                                    <button type="button" class="vp-versionform__removescreenshotbtn vp-uielement__button vp-uielement__button--removeenabled pl--xxl" ng-click="removeField($index)">Remove</button>
+                                </div>
+                                <!--EDIT BUTTON-->
+                                <div class="vp-versionform__editdeploydetailswrap mr--xxxl right">
+                                    <button type="button" class="vp-versionform__editdeploydetails vp-uielement__button vp-uielement__button--edit" ng-click="showEditSettings($index, version.version_number)"></button>
+                                </div>
+                                <!--MANDATORY CHECKBOX-->
+                                <div class="vp-versionform__mandatorywrap vp-uielement__checkbox mr--xxxl right">
+                                    <input type="checkbox" name="{{valid_values[$index]}}_{{$index}}" id="is_mandatory2_{{$index}}" ng-model="choice.is_mandatory" name="is_mandatory" ng-checked="choice.is_mandatory=='True'" ng-true-value="true" ng-false-value="false"/>
+                                    <label for="is_mandatory2_{{$index}}"></label>
+                                    <label for="is_mandatory2_{{$index}}" class="ml--sm">Mandatory</label>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="vp-versionform__adddeployitem bg--cs06">
+                <!--ADD BUTTON-->
+                <button type="button" class="vp-versionform__adddeploymentdetail vp-uielement__button vp-uielement__button--cleanenabled text--left" ng-click="showSettings($index)"><span class="ml--lg">+Add</span></button>
+            </div>
+        </div>
+    </section>
+</div>
+<!--VERSION FORM COMPONENT END-->

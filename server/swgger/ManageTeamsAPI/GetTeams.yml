@@ -1,0 +1,28 @@
+Getting Teams
+---
+tags:
+ - Manage Teams
+parameters:
+- name: token
+  in: header
+  description: API key
+  required: false
+  type: string
+  format: string
+- name: access-token
+  in: header
+  description: API key
+  required: false
+  type: string
+  format: string 
+responses:
+  200:
+    description: Getting Teams Successfully
+    examples:
+      result: "success"
+      message: null
+  404:
+    description: exception in Getting Teams
+    examples:
+      result: "failed"
+      message: "Throws an exception"

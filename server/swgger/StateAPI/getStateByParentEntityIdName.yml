@@ -1,0 +1,41 @@
+fetch a particular state, referring the state by Parent Entity Id and State Name
+---
+tags:
+  - States
+parameters:
+- name: token
+  in: header
+  description: API key
+  required: false
+  type: string
+  format: string
+- name: access-token
+  in: header
+  description: API key
+  required: false
+  type: string
+  format: string 
+- name: parent_entity_id
+  in: path  
+  description: Parent Entity Id
+  required: true
+  type: string
+  format: string
+- name: name
+  in: path  
+  description: State Name
+  required: true
+  type: string
+  format: string
+
+responses:
+  200:
+    description: Get state by Parent Entity Id and State Name
+    examples:
+    result: "success"
+    message: null
+  404:
+    description: exception in fetching state
+    examples:
+    result: "failed"
+    message: "Throws an exception"

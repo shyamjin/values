@@ -1,0 +1,141 @@
+<div class="vp-userform vp-userformnewuser vp-control max" style="padding-left:5%">
+   <form name="CreateNewDUSetStateForm">
+    <ul class="vp-userform__fieldslist text--cs03 pr--lg">
+        <!--'NAME' FIELD-->
+        <li class="vp-userform__fielditem vp-userform__nameitem pt--xxl">
+            <div class="vp-userform__fielditeminner">
+                <!--'NAME' FIELD LABEL-->
+                <div class="vp-userform__fieldlabelwrap inblock">
+                    <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">State Name<span class="mandatory">*</span> </label>
+                </div>
+                <!--'NAME' FIELD CONTENT-->
+                <div class="vp-userform__fieldcontent vp-userform__namecontent inblock">
+                    <input type="text" class="vp-userform__nameinput input--clear" name="statename" ng-model="application.data.statename" required />
+                </div>
+            </div>
+        </li>
+        <h5 class="validation_msg_tool_set" ng-show="CreateNewDUStateForm.name.$error.required">Please enter DU Package State name</h5>
+        <li class="vp-userform__fielditem vp-userform__nameitem pt--xxl">
+            <div class="vp-userform__fielditeminner">
+                <!--'NAME' FIELD LABEL-->
+                <div class="vp-userform__fieldlabelwrap inblock">
+                    <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">DU Package Name <span class="mandatory">*</span> </label>
+                </div>
+                <!--'NAME' FIELD CONTENT-->
+                <div class="vp-versionform__content inblock">
+                    <div class="vp-versionform__statusselectwrap">
+                        <select name="duset_name" id="duset_name"  ng-model="application.data.duset" class="vp-versionform__dropdownlist vp-versionform__dropdownlist2 vp-uielement__select max--width"  style="height:26px; width: 180px;" ng-change="getDUSetById(application.data.duset)">
+                             <option ng-repeat="duset in dusetsAll.data" value="{{duset._id.$oid}}">{{duset.name}}</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </li>
+         <li class="vp-userform__fielditem vp-userform__nameitem pt--xxl">
+            <div class="vp-userform__fielditeminner">
+                <!--'NAME' FIELD LABEL-->
+                <div class="vp-userform__fieldlabelwrap inblock">
+                    <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Type: <span class="mandatory">*</span> </label>
+                </div>
+                <!--'NAME' FIELD CONTENT-->
+                <div class="vp-versionform__content inblock">
+                    <div class="vp-versionform__statusselectwrap">
+                            <select id="entity_type" name="vp-userform__dropdownlist_entity_type" class="vp-versionform__dropdownlist vp-versionform__dropdownlist2 vp-uielement__select max--width" ng-model="deploymentTypeToSelect.type" style="height:26px; width: 180px;" ng-change="setDUDeployType(deploymentTypeToSelect.type)">
+                                <option value="Build">Specified Build</option>
+                                <option value="State">Specified State</option>
+                            </select>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="vp-userform__fielditem vp-userform__nameitem pt--xxl">
+            <div class="vp-userform__fielditeminner">
+                <!--'NAME' FIELD LABEL-->
+                <div class="vp-userform__fieldlabelwrap inblock">
+                    <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Status <span class="mandatory">*</span> </label>
+                </div>
+                <!--'NAME' FIELD CONTENT-->
+                <div class="vp-versionform__content inblock">
+                <div class="vp-versionform__statusselectwrap">
+                    <select name="du_approval_status" id="du_approval_status"  ng-model="application.data.approval_status" class="vp-versionform__dropdownlist vp-versionform__dropdownlist2 vp-uielement__select max--width"  style="height:26px; width: 180px;">
+                         <option ng-repeat="approvals in ApprovalsStatus" value="{{approvals.name}}">{{approvals.name}}</option>
+                    </select>
+                </div>
+            </div>
+            </div>
+        </li>
+        <li class="vp-userform__fielditem tool_list vp-userform__roleitem pt--lg">
+            <div class="vp-userform__fielditeminner">
+                    <!--'MEMBER OF' FIELD LABEL-->
+                <h3 class="tool_list_header ellipsis">DU'S NAME</h3>
+                <div class="vp-userform__fieldlabelwrap vertical--top inblock pt--md" style="width:100%">
+                    <!--USER INFO COMPONENT START (MODIFIERS: # vp-selecteduserform--active )-->
+                    <div class="vp_control max">
+                        <div class="vp_tile_toolWrapper clearfix" style="top: 20px; width:100%">
+                            <ul>
+                                <li class="vp-tilegrid__tile pa--sm left" ng-repeat="du in AlLDuDetails.data.du_set_details" style="margin-top: 16px; margin-left: 20px;width: 330px; height: 180px">
+                                    <!--DEPLOY TOOL "TILE" ELEMENT START-->
+                                    <!--( MODIFIERS: vp-tooltile__containingtoolmsg--active # vp-tooltile__deprecatedwarning--active # vp-tooltile--selected # vp-tooltile__favorite--active )-->
+                                    <div ng-class="{'vp-dutile--selected': selected , 'vp-dutile--not-selected': !selected  }" class="vp-dutile vp-component text--cs03 pt--md pr--md pl--md vp-dutile__containingtoolmsg--active vp-tooltile__deprecatedwarning--active vp-tooltile__favorite--active  relative" style="width: 330px; height: 180px; margin-top: 6px; margin-left: 6px">
+                                        <div class="vp-dutile__iconswrapprer right inblock">
+                                            <!--TILE ICON-->
+                                            <div class="vp-dutile__icon text--light text--xxxxl text--white vertical--top text--center bg--cs17" ng-class="setBackground(du.type)" style="margin-top: -6px; height: 30px; width: 30px; border-radius: 28px; line-height: 23px;">
+                                                <span class="vp-dutile_iconinner iconinner_du">
+                                                    {{du.type.substring(0, 1)}}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--TOOL TILE METADATA (title, description, containig tool)-->
+                                        <div class="vp-dutile__tilemetadata left inContent">
+                                            <div class="vp-dutile__label text--regular text--ellipsis text--ellipsis--two text--xl mb--md verticall--top" title="{{du.name}}">
+                                                <tooltip id="tooltip_{{$index}}_du_name" tooltip-side="top" class="tag_name">
+                                                <a style="text-decoration : none !important;"class="text--ellipsis text--ellipsis--single" tooltips="" tooltip-template="{{du.name}}">{{du.name}}</a>
+                                                </tooltip>
+                                            </div>
+                                            <div class="vp-dutile__containingtoolmsg text--light text--lg mt--md text--ellipsis text--ellipsis--single hidden inblock" ng-if="StateFlag === true" style="display: inline-block;">
+                                                <span class="text--bold">State:<span class="mandatory">*</span></span>
+                                                <span class="vp-createnewmachform__fieldcontent vp-createnewmachform__hostcontent inblock">
+                                                        <select name="vp-userform__dropdownlist_entity_type" class="vp-userform__dropdownlist vp-uielement__select" ng-model="selectedDUState[$index]" id="select_state_{{$index}}"style="margin-left:65px; width: 170px;" ng-change="selectDU(du._id.$oid, selectedDUState[$index],'')" required>
+                                                            <option data-ng-repeat="value in du.states" value="{{value}}">{{value.name}}- {{value.build.build_number}}</option>
+                                                        </select>
+                                                </span>
+                                            </div>
+                                            <div class="vp-dutile__containingtoolmsg text--light text--lg mt--md text--ellipsis text--ellipsis--single hidden inblock" style="display: inline-block;" ng-if="du.state_approval_status">
+                                                <span class="text--bold">Status:</span>
+                                                <span class="vp-createnewmachform__fieldcontent vp-createnewmachform__hostcontent inblock" style="padding-left: 60px;">
+                                                    {{du.state_approval_status}}
+                                                </span>
+                                            </div>
+                                             <div class="vp-dutile__containingtoolmsg text--light text--lg mt--md text--ellipsis text--ellipsis--single hidden inblock" ng-if="BuildFlag === true" style="display: inline-block;">
+                                                <span class="text--light">Build:<span class="mandatory">*</span></span>
+                                                <span class="vp-createnewmachform__fieldcontent vp-createnewmachform__hostcontent inblock">
+                                                        <select name="vp-userform__dropdownlist_entity_type" class="vp-userform__dropdownlist vp-uielement__select" ng-model="selectedDUBuild[$index].build" id="select_build_{{$index}}"style="margin-left:65px; width: 170px;" ng-change="selectDU(du._id.$oid, selectedDUBuild[$index].build)" required>
+                                                            <option data-ng-repeat="value in du.build" value="{{value._id.$oid}}">{{value.build_number}}</option>
+                                                        </select>
+                                                </span>
+                                            </div>
+                                            <div class="vp-dutile__containingtoolmsg text--light text--lg mt--md text--ellipsis text--ellipsis--single hidden inblock" ng-if="BuildFlag === true" style="display: inline-block;">
+                                                <span class="text--light">State Name:</span>
+                                                <span class="vp-createnewmachform__fieldcontent vp-createnewmachform__hostcontent inblock" >
+                                                        <input type="text" id="statename_{{$index}}_{{value.build_number}}" class="vp-userform__nameinput" name="statename" ng-model="selectedDUBuild[$index].name" ng-change="selectDU(du._id.$oid,selectedDUBuild[$index].build,selectedDUBuild[$index].name)" style="margin-left:30px; width: 170px;" required />
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <!--TOOL TILE FOOTER SECRION-->
+                                        <div class="vp-dutile__footer absolute clearfix set_footer">
+                                            <!--REMOVE TOOL BUTTON -->
+                                            <!--<button ng-click="removeDU($index)" type="button" class="vp-uielement__button vp-uielement__button&#45;&#45;edittool vp-tooltile__edittoolbtn mr&#45;&#45;md right">Remove from set</button>-->
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+<!--USER INFO COMPONENT END-->
+                </div>
+            </div>
+        </li>
+
+    </ul>
+   </form>
+</div>

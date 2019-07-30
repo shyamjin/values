@@ -1,0 +1,27 @@
+Gets all Tool Sets
+---
+tags:
+ - Tool Set
+parameters:
+- name: token
+  in: header
+  description: API key
+  required: false
+  type: string
+  format: string
+- name: access-token
+  in: header
+  description: API key
+  required: false
+  type: string
+  format: string 
+responses:
+  200:
+    description: Successfully fetch all Tool Sets
+    examples:
+      message: null
+  404:
+    description: exception in fetching Tool Sets
+    examples:
+      result: "failed"
+      message: "Throws an exception"

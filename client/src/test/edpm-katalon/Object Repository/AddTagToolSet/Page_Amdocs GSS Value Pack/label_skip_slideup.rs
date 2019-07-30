@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+   <description></description>
+   <name>label_skip_slideup</name>
+   <tag></tag>
+   <elementGuidId>7362b77e-6b20-49c9-8f2b-34c3d087786f</elementGuidId>
+   <selectorCollection>
+      <entry>
+         <key>BASIC</key>
+         <value>id(&quot;add_tag&quot;)/div[@class=&quot;vp-prereqeditpopup vp-control ng-scope&quot;]/div[@class=&quot;vp-prereqeditpopup__container vp-uielement__popup pt--md pr--xl pb--xl pl--xl bg--white skip_slideup&quot;]/div[@class=&quot;vp-prereqeditpopup__optionswrap mt--lg&quot;]/ul[@class=&quot;vp-prereqeditpopup__optionslist text--cs03 text--regular text--md skip_slideup&quot;]/li[@class=&quot;vp-prereqeditpopup__optionsitem mt--md skip_slideup ng-scope&quot;]/div[@class=&quot;vp-prereqeditpopup__iteminner text--ellipsis&quot;]/div[@class=&quot;vp-prereqeditpopup__checkbox vp-uielement__checkbox&quot;]/label[@class=&quot;skip_slideup&quot;][count(. | //label[@for = 'vp-tagaddpopup__c1_0']) = count(//label[@for = 'vp-tagaddpopup__c1_0'])]</value>
+      </entry>
+   </selectorCollection>
+   <selectorMethod>BASIC</selectorMethod>
+   <useRalativeImagePath>false</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>tag</name>
+      <type>Main</type>
+      <value>label</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>for</name>
+      <type>Main</type>
+      <value>vp-tagaddpopup__c1_0</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>class</name>
+      <type>Main</type>
+      <value>skip_slideup</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath</name>
+      <type>Main</type>
+      <value>id(&quot;add_tag&quot;)/div[@class=&quot;vp-prereqeditpopup vp-control ng-scope&quot;]/div[@class=&quot;vp-prereqeditpopup__container vp-uielement__popup pt--md pr--xl pb--xl pl--xl bg--white skip_slideup&quot;]/div[@class=&quot;vp-prereqeditpopup__optionswrap mt--lg&quot;]/ul[@class=&quot;vp-prereqeditpopup__optionslist text--cs03 text--regular text--md skip_slideup&quot;]/li[@class=&quot;vp-prereqeditpopup__optionsitem mt--md skip_slideup ng-scope&quot;]/div[@class=&quot;vp-prereqeditpopup__iteminner text--ellipsis&quot;]/div[@class=&quot;vp-prereqeditpopup__checkbox vp-uielement__checkbox&quot;]/label[@class=&quot;skip_slideup&quot;]</value>
+   </webElementProperties>
+</WebElementEntity>

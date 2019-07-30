@@ -1,0 +1,33 @@
+<!--SHOW MORE TOOLS POPUP COMPONENT START-->
+<div class="vp-moretoolspopup vp-control">
+	<!--TRIANGLE ARROW-->
+	<div class="vp-moretoolspopup__topborder vp-uielement__popuptop"></div>
+	<!--SELECTED TOOLS LIST CONTAINER-->
+	<div class="vp-moretoolspopup__container vp-uielement__popup bg--white skip_slideup" style="max-height:600px;overflow-x: hidden;overflow-y: auto;">
+		<div class="vp-moretoolspopup__searchboxwrapper pt--sm pr--lg pb--sm pl--lg">
+			<!--SEARCH FIELD -->
+			<div class="vp-moretoolspopup__searchbox vp-uielement__searchbox">
+				<form id="vp-moretoolspopup__searchform vp-uielement__searchform">
+					<!--SEARCH INPUT TEXT-->
+					<input class="vp-moretoolspopup__searchinput vp-uielement__searchinput text--light text--lg text--cs08 bg--cs06 skip_slideup" type="text" ng-model="searchDUKeyword" placeholder="Find a du" name="searchDUKeyword" />
+					<!--SEARCH INPUT SUBMIT BUTON-->
+					<button type="button" class="vp-moretoolspopup__searchbtn vp-uielementt__searchbtn skip_slideup"></button>
+				</form>
+			</div>
+		</div>
+		<ul class="skip_slideup">
+			<!--TOOL EXAMPLE (MODIFIERS: # vp-uielement__toolitem--unknown # vp-uielement__toolitem--ready # vp-uielement__toolitem--error)-->
+			<li class="vp-moretoolspopup__toolitem pl--md skip_slideup" ng-repeat="du in duSelectedToDeploy | filter : searchDUKeyword"  ng-class="getDUValidated(du.du_name, selectedMachine)">
+				<!--TOOL STATE ICON-->
+				<div class="vp-moretoolspopup__toolitemstate vp-uielement__itemstateicon vertical--middle mt--lg left"></div>
+				<!--TOOL NAME-->
+				<span class="vp-moretoolspopup__toolname word--break pl--md text--regular text--md text--cs03 inblock skip_slideup" ng-click="getSelectedDU($index)">{{du.du_name}} - {{du.du_type}}</span>
+				<!--REMOVE BUTTON-->
+				<div class="vp-moretoolspopup__removebtnwrapper right">
+					<button type="button" class="vp-moretoolspopup__removebtn vp-uielement__button vp-uielement__button--smallclose mr--lg vertical--middle skip_slideup" ng-click="removeDU($index)"></button>
+				</div>
+			</li>
+		</ul>
+	</div>
+</div>
+<!--SHOW MORE TOOLS POPUP COMPONENT END-->

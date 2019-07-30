@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+   <description></description>
+   <name>button_Close</name>
+   <tag></tag>
+   <elementGuidId>cc8d02c2-0981-447d-b288-f4b44f93d4a4</elementGuidId>
+   <selectorMethod>BASIC</selectorMethod>
+   <useRalativeImagePath>false</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>tag</name>
+      <type>Main</type>
+      <value>button</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>type</name>
+      <type>Main</type>
+      <value>button</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>class</name>
+      <type>Main</type>
+      <value>vp-addsettingmodal__footerclosebtn vp-uielement__button vp-uielement__button--close</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>ng-click</name>
+      <type>Main</type>
+      <value>closeSettings(fieldIndex)</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>text</name>
+      <type>Main</type>
+      <value>Close</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath</name>
+      <type>Main</type>
+      <value>id(&quot;add_settings&quot;)/div[@class=&quot;vp-versionform__addsettingmodal absolute ng-scope&quot;]/div[@class=&quot;vp-addsettingmodal vp-control bg--white relative ng-scope&quot;]/div[@class=&quot;vp-addsettingmodal__footer absolute pos--bottom&quot;]/div[@class=&quot;vp-addsettingmodal__closebtnwrap inblock&quot;]/button[@class=&quot;vp-addsettingmodal__footerclosebtn vp-uielement__button vp-uielement__button--close&quot;]</value>
+   </webElementProperties>
+</WebElementEntity>

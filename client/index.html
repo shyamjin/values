@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<html ng-controller="AppCtrl">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Amdocs GSS Value Pack</title>
+		<link rel="stylesheet" type="text/css" href="static/styles/valuepack-1.0.0.css"/>
+		<script type="text/javascript" src="static/node_modules/requirejs/require.js" data-main="static/src/scripts/main.js"></script>
+	</head>
+	<body>
+		<!--LOGIN -->
+		<div ng-if="pageTitle==='Login'" ng-include="'static/components/authentication/login/login.html'"></div>
+		<!--FORGOT PASSWORD -->
+		<div ng-if="pageTitle==='Forgot Password'" ng-include="'static/components/authentication/forgot-password/forgot-password.html'"></div>
+		<!--NEW USER PASSWORD RESET -->
+		<div ng-if="pageTitle==='Reset Password'" ng-include="'static/components/authentication/reset-password/reset-password.html'"></div>
+		<!--USER PASSWORD CHANGE-->
+		<div ng-if="pageTitle==='Change Password'" ng-include="'static/components/authentication/change-password/change-password.html'"></div>
+		<!--MAIN DASHBOARD -->
+		<div ng-if="pageTitle==='Dashboard'" class="vp-app__toolspage max--height" ng-include="'static/partials/dashboard/dashboard.partial.html'"></div>
+		<!--DEPLOY TOOLS-->
+		<div ng-if="pageTitle==='Deploy Tool' || pageTitle==='Re-deploy Tool' || pageTitle==='Un-deploy Tool' || pageTitle==='Upgrade Tool'" class="vp-app__deploytoolspage max--height" ng-include="'static/partials/tools/deploy-tools/deploy-tools.partial.html'"></div>
+		<!--EDIT TOOL-->
+		<div ng-if="pageTitle==='Edit Tool'" class="vp-app__edittoolspage overflow_hidden max--height" ng-include="'static/partials/tools/edit-tools/edit-tools.partial.html'"></div>
+		<!--Manage Users-->
+		<div ng-if="pageTitle==='Manage Users' || pageTitle==='Create New User' || pageTitle==='Manage User Groups' || pageTitle==='Manage Role' || pageTitle==='Create New User Group' || pageTitle==='Edit User Group' || pageTitle==='Create Bulk User'" class="vp-app__deploytoolspage deployments-page max--height" ng-include="'static/partials/manage-users/manageusers.partial.html'"></div>
+		<!--Distribution-->
+		<div ng-if="pageTitle==='Distribution Service'" class="vp-app__deploytoolspage max--height" ng-include="'static/partials/distribution/distribution.partial.html'"></div>
+		<!--Manage Machines-->
+		<div ng-if="pageTitle==='Manage Machines'" class="vp-app__deploytoolspage deployments-page max--height" ng-include="'static/partials/machines/machines.partial.html'"></div>
+		<!--Deployments-->
+		<div ng-if="pageTitle==='Deployments'" class="vp-app__deploytoolspage deployments-page max--height" ng-include="'static/partials/deployments/deployments.partial.html'"></div>
+		<!--View Tool Details-->
+		<div ng-if="pageTitle==='Tool Details'" class="vp-app__deploytoolspage overflow_hidden max--height" ng-include="'static/partials/tools/show-tool/show-tool.partial.html'"></div>
+		<!--View Tool Details-->
+		<div ng-if="pageTitle==='Create New Tool Set'" class="vp-app__deploytoolspage overflow_hidden max--height" ng-include="'static/partials/tools/create-tool-sets/create-tool-set.partial.html'"></div>
+		<!--View Tool Set Details-->
+		<div ng-if="pageTitle==='View Tool Set'" class="vp-app__deploytoolspage overflow_hidden max--height" ng-include="'static/partials/tools/show-tool-set/show-tool-set.partial.html'"></div>
+		<!--Edit Tool Set Details-->
+		<div ng-if="pageTitle==='Edit Tool Set'" class="vp-app__deploytoolspage deployments-page overflow_hidden max--height" ng-include="'static/partials/tools/edit-tool-set/edit-tool-set.partial.html'"></div>
+		<!--Value Pack Settings-->
+		<div ng-if="pageTitle==='Value Pack Settings'" class="vp-app__deploytoolspage max--height" ng-include="'static/partials/settings/settings.partial.html'"></div>
+		<!--Deploy Tool Set-->
+		<div ng-if="pageTitle==='Deploy Tool Set'" class="vp-app__deploytoolspage max--height" ng-include="'static/partials/tools/deploy-tools/deploy-tools.partial.html'"></div>
+		<!--Import Export Data-->
+		<div ng-if="pageTitle==='Import Export Data'" class="vp-app__deploytoolspage deployments-page max--height" ng-include="'static/partials/import-export/importexport.partial.html'"></div>
+		<!--Create Clone Request-->
+		<div ng-if="pageTitle==='Create Clone Request'" class="vp-app__deploytoolspage max--height" ng-include="'static/partials/clonerequests/create-clone-request/createclonerequest.partial.html'"></div>
+		<!--Create Tool -->
+		<div ng-if="pageTitle==='Create New Tool'" class="vp-app__deploytoolspage overflow_hidden max--height" ng-include="'static/partials/tools/create-tools//create-tools.partial.html'"></div>
+		<!--Create Tool -->
+		<div ng-if="pageTitle==='Synchronization Services'" class="vp-app__deploytoolspage max--height" ng-include="'static/partials/synchronization-services/synchronization-service.partial.html'"></div>
+			<!--Clone requests-->
+		<div ng-if="pageTitle==='Clone Requests'" class="vp-app__deploytoolspage deployments-page max--height" ng-include="'static/partials/clonerequests/clonerequests.partial.html'"></div>
+		<!--View New Tool Details-->
+		<div ng-if="pageTitle==='New Tool Details'" class="vp-app__deploytoolspage max--height" ng-include="'static/partials/tools/show-new-tool/show-new-tool.partial.html'"></div>
+		<!--View Updated Tool Details-->
+		<div ng-if="pageTitle==='Updated Tool Details'" class="vp-app__deploytoolspage max--height" ng-include="'static/partials/tools/show-updated-tool/show-updated-tool.partial.html'"></div>
+		<!--View Updated Tool Details-->
+		<div ng-if="pageTitle==='Deployment Reports'" class="vp-app__deploytoolspage max--height" ng-include="'static/partials/reports/reports.partial.html'"></div>
+		<!--Error Page-->
+		<div ng-if="pageTitle==='Error'" class="vp-app__deploytoolspage max--height" ng-include="'static/components/authentication/error-handling/error.html'"></div>
+		<!--DU Dashboard Page-->
+		<div ng-if="pageTitle==='DU'" class="vp-app__toolspage overflow_hidden max--height" ng-include="'static/components/deployment-unit/dashboardDU/dashboard-du.partial.html'"></div>
+		<!--New DU Page-->
+		<div ng-if="pageTitle==='Create New DU'" class="vp-app__toolspage overflow_hidden max--height" ng-include="'static/components/deployment-unit/create-du/create-du.partial.html'"></div>
+		<!--Edit DU Page-->
+		<div ng-if="pageTitle==='Edit DU'" class="vp-app__toolspage overflow_hidden max--height" ng-include="'static/components/deployment-unit/edit-du/edit-du.partial.html'"></div>
+		<!--Edit DU Page-->
+		<div ng-if="pageTitle==='DU Details'" class="vp-app__deploytoolspage overflow_hidden max--height" ng-include="'static/components/deployment-unit/show-du/show-du.partial.html'"></div>
+		<!--New DU Page-->
+		<div ng-if="pageTitle==='Create New DU Package'" class="vp-app__toolspage overflow_hidden max--height" ng-include="'static/components/deployment-unit/create-du-sets/create-du-set.partial.html'"></div>
+		<!--New DU Page-->
+		<div ng-if="pageTitle==='Edit DU Package'" class="vp-app__toolspage overflow_hidden max--height" ng-include="'static/components/deployment-unit/edit-du-set/edit-du-set.partial.html'"></div>
+		<!--New DU Page-->
+		<div ng-if="pageTitle==='DU Package Details'" class="vp-app__toolspage  overflow_hidden max--height" ng-include="'static/components/deployment-unit/show-du-set/show-du-set.partial.html'"></div>
+		<!--Manage Tags-->
+		<div ng-if="pageTitle==='Manage Tags'" class="vp-app__deploytoolspage deployments-page max--height" ng-include="'static/partials/manage-tags/manage-tags.partial.html'"></div>
+		<!--DEPLOY DU-->
+		<div ng-if="pageTitle==='Deploy DU' || pageTitle==='Re-deploy DU' || pageTitle==='Un-deploy DU' || pageTitle==='Revert DU'" class="vp-app__deploytoolspage max--height" ng-include="'static/partials/deploy-du/deploy-du.partial.html'"></div>
+		<!--DEPLOY DUSET-->
+		<div ng-if="pageTitle==='Deploy DU Package'" class="vp-app__deploytoolspage max--height" ng-include="'static/partials/deploy-du/deploy-du.partial.html'"></div>
+		<!--DEPLOY DUSET-->
+		<div ng-if="pageTitle==='About DPM'" class="vp-app__deploytoolspage max--height" ng-include="'static/components/app/about-dpm/about-dpm.partial.html'"></div>
+		<!--Manage PLUGINS-->
+		<div ng-if="pageTitle==='Plugin'" class="vp-app__deploytoolspage deployments-page max--height" ng-include="'static/partials/plugin/plugin.partial.html'"></div>
+		<!--Manage Prerequisites-->
+		<div ng-if="pageTitle==='Manage Prerequisites'" class="vp-app__toolspage max--height" ng-include="'static/partials/manage-prerequisites/manage-prerequisites.partial.html'"></div>
+		<!--Manage Monitoring-->
+		<div ng-if="pageTitle==='Running Services'" class="vp-app__deploytoolspage deployments-page max--height" ng-include="'static/partials/monitoring/runningservices.partial.html'"></div>
+		<!--Manage Reports-->
+		<div ng-if="pageTitle==='View Reports'" class="vp-app__deploytoolspage deployments-page max--height" ng-include="'static/partials/reports/reports.partial.html'"></div>
+		<!--Manage States-->
+		<div ng-if="pageTitle==='Manage States'" class="vp-app__deploytoolspage deployments-page max--height" ng-include="'static/partials/states/states.partial.html'"></div>
+		<!--Manage Flexible Attribute-->
+		<div ng-if="pageTitle==='Manage FA'" class="vp-app__deploytoolspage deployments-page max--height" ng-include="'static/components/manage-fas/manage-fas.partial.html'"></div>
+		<!--Manage Tags-->
+		<div ng-if="pageTitle==='Manage Deployment Plugins'" class="vp-app__deploytoolspage deployments-page max--height" ng-include="'static/components/deployment-plugins/manage-deployment-plugins.partial.html'"></div>
+		<!--Propose Tool -->
+		<div ng-if="pageTitle==='Propose New Tool'" class="vp-app__deploytoolspage max--height" ng-include="'static/partials/tools/propose-tools/propose-tools.partial.html'"></div>
+		<!--View Proposed Tool -->
+		<div ng-if="pageTitle==='View Proposed Tool'" class="vp-app__deploytoolspage max--height" ng-include="'static/partials/tools/show-proposed-tool/show-proposed-tool.partial.html'"></div>
+		<!--View Auditing-->
+		<div ng-if="pageTitle==='View Audits'" class="vp-app__deploytoolspage max--height" ng-include="'static/partials/audits/audits.partial.html'"></div>
+		<!--View Auditing-->
+		<div ng-if="pageTitle==='View Repository'" class="vp-app__deploytoolspage max--height" ng-include="'static/partials/repository/repository.partial.html'"></div>
+	</body>
+</html>

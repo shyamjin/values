@@ -1,0 +1,40 @@
+// VARIABLES: SECTION 31
+// TOOLS PAGE ASSEMBLY PARTIALS
+.vp-deploytools {
+    min-height: 100%;
+    .vp-deploytools__content {
+        width: calc(~"100% - " @navasideToolbarWidth);
+        min-width: @minWidth - @navasideToolbarWidth;
+        min-height: 100%;
+        margin-left: @navasideToolbarWidth;
+    }
+    //LAYOUT Z-INDEX
+    .vp-deploytools__machinessection {
+        z-index: 100;
+    }
+    .vp-deploytools__toolssection {
+        z-index: 200;
+    }
+    .vp-deploytools__toolbar {
+        z-index: 300;
+        margin-left: @navasideToolbarWidth;
+    }
+    .vp-deploytools__navaside {
+        z-index: 400;
+    }
+    //ATTENTION MODAL STYLES
+    .vp-deploytools__atttentionmodalwrap {
+        z-index: 9999;
+        min-width: @minWidth;
+        background-color: @csdarkmutted;
+        &.vp-deploytools__atttentionmodalwrap--show{
+            .block;
+        }
+    }
+    .vp-deploytools__atttentionmodal {
+        left: 50%;
+        top: 50%;
+        margin-left: -@attentionModalWidth/2;
+        margin-top: -@attentionModalHeight/2;
+    }
+}

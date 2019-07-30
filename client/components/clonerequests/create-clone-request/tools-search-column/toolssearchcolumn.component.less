@@ -1,0 +1,96 @@
+// VARIABLES: SECTION 27
+.vp-toolssearch {
+    margin-top:-10px;
+    margin-left:-20px;
+    width:450px;
+    // SOLID BORDER
+    .ba--solid(@cs09);
+    // SEARCHBOX HINT STYLES
+    .vp-toolssearch__hint {
+        .text--cs03;
+    }
+    // LIST WRAPPER
+    .vp-toolssearch__listwrapper {
+        height:500px;
+        overflow-y:scroll;
+    }
+    // SEARCHBOX WRAPPER
+    .vp-toolssearch__searchboxwrap {
+        padding-bottom: @searchBoxPB;
+        border: 1px solid @cs09;
+    }
+    // ACTIVE SEARCH AUTOCOMPLETE STYLE
+    .vp-toolssearch__searchbox{
+        &.vp-toolssearch__searchbox--drop{
+            .vp-toolssearch__searchautocomplete{
+                .block;
+            }
+        }
+    }
+    // AUTO COMPLETE WRAPPER STYLE
+    .vp-toolssearch__searchautocomplete{
+        width: @autoCompleteWidth;
+        top:@searchFieldHeight;
+        left:@searchFieldPL;
+        z-index: 3;
+    }
+    // TOP DECORATIVE BORDER
+    .vp-toolssearch__topborder {
+        border-top: 10px solid @cs02;
+    }
+    .vp-toolssearch__itemdescriptionwrap {
+        max-width: calc(~"100% - " @rowSelectBtnUpLength);
+    }
+    // ITEM STYLES
+    .vp-toolssearch__item {
+        min-height: @rowMinHeight;
+        border: 1px solid @cs09;
+        // ITEM 'TEST' STATE
+        &.vp-toolssearch__item--test {
+            .vp-toolssearch__itemdescription:after {
+                content: 'Test';
+                .block;
+                .mt--sm;
+                .text--cs08;
+            }
+        }
+        // ITEM 'PRODACTION' STATE
+        &.vp-toolssearch__item--prod {
+            .vp-toolssearch__itemdescription:after {
+                content: '';
+                .block;
+                .mt--sm;
+                .text--cs05;
+            }
+        }
+        &:hover {
+            background-color: @cs06;
+            .ba--solid(@cs07);
+            .vp-toolssearch__itembtnwrap{
+                .block;
+            }
+        }
+    }
+    // ROW SELECT BUTTON
+    .vp-toolssearch__itembtn, .vp-toolssearch__itembtnwrap {
+        height: @rowMinHeight;
+        line-height: @rowMinHeight;
+        width: @rowSelectBtnDownLength;
+        z-index: 2;
+    }
+    // BUTTON EGGE DECORATION
+    .vp-toolssearch__itembtnwrap {
+        &:before {
+            content: '';
+            .block;
+            .absolute;
+            z-index: 1;
+            height: @rowMinHeight;
+            width: @rowSelectBtnDownLength;
+            background-color: @cs07;
+            transform-origin: left bottom;
+            -webkit-transform: skewx(33.7deg);
+            transform: skewx(33.7deg);
+        }
+    }
+}

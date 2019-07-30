@@ -1,0 +1,30 @@
+fetch Distribution Center Schedule Request Config
+---
+tags:
+  - Config
+
+parameters:
+- name: token
+  in: header
+  description: API key
+  required: false
+  type: string
+  format: string
+- name: access-token
+  in: header
+  description: API key
+  required: false
+  type: string
+  format: string     
+
+responses:
+    200:
+      description: Get Distribution Center Schedule Request Config successfully
+      examples:
+      result: "success"
+      message: null
+    404:
+      description: exception in fetching Distribution Center Schedule Request Config
+      examples:
+      result: "failed"
+      message: "Throws an exception"

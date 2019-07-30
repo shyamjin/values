@@ -1,0 +1,33 @@
+Manual Export, by Referring targetHost
+---
+tags:
+ - Sync
+parameters:
+- name: token
+  in: header
+  description: API key
+  required: false
+  type: string
+  format: string
+- name: access-token
+  in: header
+  description: API key
+  required: false
+  type: string
+  format: string 
+- name: targetHost
+  in: path
+  type: string
+  required: true
+  description: Manual Export
+responses:
+  200:
+    description: Manual Export Successful
+    examples:
+      result: "success"
+      message: null
+  404:
+    description: exception in Manual Export
+    examples:
+      result: "failed"
+      message: "Throws an exception"

@@ -1,0 +1,59 @@
+<!--TILE GRID COMPONENT START-->
+<!--(MODIFIERS: vp-tilegrid--large # vp-tilegrid--small)-->
+<div class="vp-tilegrid vp-component max--height clearfix" ng-controller="AllDUSetController">
+	<div class="vp-tabs__bodyheader vp-tabs__bodyheader--scrolled relative">
+		<div class="vp-tabs__bodyheaderfiltericonwrapper mr--xxxl text--light text--md text--cs03 pointer right">
+			<!--BODY HEADER FILTER BUTTON -->
+			<button ng-if="isallowed['/deploymentunitset/new']" type="button"  class="vp-tabs__duCreate_active vp-uielement__button tag_popup vp-uielement__button--cleanenabled pl--xxl text--light text--md" ng-click="createNewDuPackage()">
+				</button>
+			<div id="show_dashboard_filter_duset" class="vp-tabs__bodyheaderselectedtoolspopup absolute hidden" style="margin-left: -130px;width: 260px;" ng-include="'static/components/deployment-unit/dashboardDU/filter/dashboarddusetfilter.component.html'"></div>
+			<button type="button" class="vp-tabs__bodyheaderfilterbtn vp-uielement__button  vp-uielement__button--cleanenabled pl--xxl text--light text--md" ng-click="showDuSetFilter()" ng-if="isFilterApplied === false"><span>Filter</span></button>
+			<button type="button" class="vp-tabs__bodyheaderfilterbtn_active vp-uielement__button tag_popup vp-uielement__button--cleanenabled pl--xxl text--light text--md" ng-click="showDuSetFilter()" ng-if="isFilterApplied === true"><span>Filter</span></button>
+		</div>
+	</div>
+	<div class="vp-tilegrid__listwrapper clearfix tileGrid_scroll">
+		<ul>
+			<li class="vp-tilegrid__tile pa--sm left" ng-repeat="duSet in DUSets | filter: searchDUKeyword">
+				<!--DEPLOY TOOL "TILE" ELEMENT START-->
+				<!--( MODIFIERS: vp-tooltile__containingtoolmsg--active # vp-tooltile__deprecatedwarning--active # vp-tooltile--selected # vp-tooltile__favorite--active )-->
+				<div ng-class="{'vp-dutile--selected': selected , 'vp-dutile--not-selected': !selected  }" class="vp-dutile vp-component text--cs03 pt--md pr--md pl--md vp-dutile__containingtoolmsg--active vp-tooltile__deprecatedwarning--active vp-tooltile__favorite--active  relative" style="width:270px">
+					<div class="vp-dutile__iconswrapprer right">
+                        <!--TILE ICON-->
+                        <div class="vp-dutile__icon text--light text--xxxxl text--white vertical--top text--center" ng-class="setBackground(duData.type)">
+
+							<span class="vp-tooltile_iconinner">
+								<img alt="" class="vp-tooltile_iconinner" src="{{duSet.thumbnail_logo}}" style="width:100%; height: 100%; margin-bottom: 12px;">
+							</span>
+                        </div>
+                    </div>
+					<!--TOOL TILE METADATA (title, description, containig tool)-->
+					<div class="left" style="width:180px">
+						<tooltip id="tooltip_{{$index}}_{{duSet.name}}"  tooltip-side="top">
+							<div class="text--regular text--ellipsis text--ellipsis--single text--xl mb--md verticall--top" tooltips="" tooltip-template="{{duSet.name}}" title="{{duSet.name}}" style="width:200px">
+								<a style="text-decoration : none !important;" href="#/deploymentunitset/view/{{duSet._id.$oid}}">{{duSet.name}}</a>
+							</div>
+						</tooltip>
+						<div></div>
+						<tooltip id="tooltip_{{$index}}_new"  tooltip-side="top" class="tag_name">
+							<div class="vp-dutile__containingtoolmsg text--light text--lg mt--md text--ellipsis text--ellipsis--single hidden pt--md" tooltips=""  tooltip-template="{{duSet.tag.join(', ')}}" style="width:230px;"> <span class="text--bold">T:</span>
+								<span class="vp-dutile__containingtoolname" title="INIT" ng-repeat="tag in duSet.tag">{{tag}}<span ng-if="$index!==duSet.tag.length-1">,</span></span>
+							</div>
+						</tooltip>
+					</div>
+					<!--TOOL TILE FOOTER SECRION-->
+					<div class="vp-dutile__footer absolute clearfix" style="width: 90%;">
+						<!--DEPLOY BUTTON VIEW (MODIFIER: vp-uielement__button--deployenabled )-->
+						<button type="button" class="vp-uielement__button vp-uielement__button--deployenabled vp-tooltile__deploybtn right" ng-click="duSetDeploy(duSet._id.$oid)">Deploy</button>
+						<!--EDIT TOOL BUTTON -->
+						<button ui-sref="editDUSet({id:duSet._id.$oid})" type="button" class="vp-uielement__button vp-uielement__button--edittool vp-tooltile__edittoolbtn mr--md right">Edit</button>
+					</div>
+				</div>
+			</li>
+		</ul>
+		<!--GRID OPTIONAL FOOTER (MODIFIERS: # vp-tilegrid__gridfooter--active)-->
+		<div class="vp-tilegrid__gridfooter mt-xxl pt--xl pb--xxl max--width text--center hidden vp-tilegrid__gridfooter--active" style="display:inline-block" ng-if="DUSets.length<totalCount" ng-hide="hideShowMoreDuSet === true">
+			<button type="button" class="vp-tilegrid__gridfootershowbtn vp-uielement__button vp-uielement__button--showmoretools" ng-click="showMoreDUSet()" >Show more du package</button>
+		</div>
+	</div>
+</div>
+<!--TILE GRID COMPONENT END-->

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Amdocs GSS Value Pack | Login</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+	<div class="login-box">
+		<div ng-controller="AccountLogoController">
+			<div class="login-logo" ng-hide="AccountLogo.account_logo.length > 0">
+				<img alt="" src="static/assets/images/Deployment.png">
+			</div>
+			<div class="login-logo" style="margin-left: -10%;"
+				ng-show="AccountLogo.account_logo.length > 0">
+				<table>
+					<tr>
+						<td><img alt="" src="static/assets/images/Deployment.png">
+						</td>
+						<td style="padding-left: 6px;"><img alt=""
+							src="{{AccountLogo.account_logo}}"
+							style="width: 203px; height: 176px"></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div style="">
+			<table style="border-style: black; border-width: 1px">
+				<tr>
+					<td>
+						<div style="" ng-controller="UserLoginController">
+							<form name="loginForm" role="form"
+								ng-submit="validateUser(loginForm)">
+								<div class="row" style="">
+									<div class="" style="width: 100%;">
+										<label for="uname">Username:</label> <input name="uname"
+											type="text" class="login-input" ng-model="username">
+									</div>
+								</div>
+								<div class="row">
+									<div class=" " style="width: 100%;">
+										<label for="pwd"> Password: </label> <input name="pwd"
+											type="password" class="login-input" ng-model="password">
+									</div>
+								</div>
+								<div class="row">
+									<div class="login-footer">
+										<input class="login-button" style="border-radius: 10px;"
+											type="submit" value="Login" />
+									</div>
+								</div>
+								<br>
+								<div class="row">
+									<div class="col-s6">
+										<a style="color: white; left: 25%; position: relative;"
+											href="#/forgotpassword">Forgot your Password?</a>
+										<!--<a style="color: white; left:10%; position: relative;" ng-if="systemDetails.allow_new_tools === true || systemDetails.allow_new_tools === 'true'" href="#/propose/tool">Propose a new tool</a>-->
+										<!-- <a style="color: white; left:30%; position: relative;" href="#/signup"  >Sign Up</a> -->
+									</div>
+									<!--<div class="col-s6">-->
+									<!--<a style="color: white; left:30%; position: relative;" href="#/propose/tool">Propose a new tool</a>-->
+									<!--&lt;!&ndash; <a style="color: white; left:30%; position: relative;" href="#/signup"  >Sign Up</a> &ndash;&gt;-->
+									<!--</div>-->
+								</div>
+
+								<div class="row">
+									<div class="col-s6">
+										<div class="spinner test" ng-if="loadingBar === false">
+											<div></div>
+											<div></div>
+											<div></div>
+											<div></div>
+										</div>
+									</div>
+								</div>
+							</form>
+							<div
+								style="margin-left: 6%; color: red; padding-bottom: 3%; font-weight: 400;"
+								ng-show="invalidLogin">{{errorMessage}}</div>
+
+						</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+
+	</div>
+
+	<div class="row" ng-controller="UserLoginController">
+		<div class="vp-deploymentrequestmodalwrap fixed max--position hidden"
+		id="view_system_details">
+		<div class="absolute"
+			ng-include="'static/components/authentication/system-details/system-details.html'"></div>
+	</div>
+		<div style="position: absolute; width: 50%; bottom: 10px;"
+			ng-click="showSystemDetails()">
+			<a
+				style="color: cornflowerblue; text-transform: uppercase; left: 2%; position: relative; font-size: 10px; text-decoration: none;"
+				href="#">{{systemDetails.account_name}} | {{systemDetails.dpm_type}} | {{systemDetails.dpm_version}}</a>
+		</div>
+
+
+	</div>
+
+
+
+</body>
+</html>

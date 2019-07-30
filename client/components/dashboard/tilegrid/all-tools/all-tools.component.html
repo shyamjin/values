@@ -1,0 +1,89 @@
+<!--TILE GRID COMPONENT START-->
+<div class="vp-tilegrid vp-component max--height clearfix" ng-controller="ToolListController">
+	<!--(MODIFIERS: vp-tilegrid--large # vp-tilegrid--small)-->
+	<div class="vp-tabs__bodyheader vp-tabs__bodyheader--scrolled relative">
+		<!--MODIFIER: # vp-uielement__button--cleanenabled # vp-tabs__bodyheaderselectedtooplsbtn--show -->
+		<button type="button" class="vp-uielement__button vp-uielement__button--cleanenabled pa--none" ng-click="show = !show"><span class="vp-header__selectedcounter">{{selectedTools.length}}</span><span> tools</span></button>
+		<span class="text--regular text--md">selected</span>
+		<div id="selected_tools" class="vp-tabs__bodyheaderselectedtoolspopup  absolute" ng-class="{'selectedtoolspopup--show': show, 'selectedtoolspopup--hide': !show}" ng-include="'static/components/dashboard/selected-tools-popup/selectedtoolspopup.component.html'"></div>
+		<!--'DEPLOY SELECTED TOOLS' BUTTON VIEW (MODIFIERS: # vp-uielement__button--deployselectedtoolsenabled)-->
+		<button type="button" class="vp-tabs__bodyheaderdeploybtn vp-uielement__button vp-uielement__button--deployselectedtoolsenabled ml--xl " ng-click="selectMultipleToolsForDeployment(selectedTools)">Deploy selected tools</button>
+			<!--'SELECT ALL' BUTTON VIEW-->
+			<button type="button" class="vp-tabs__bodyheaderselectallbtn vp-uielement__button vp-uielement__button--cleanenabled ml--xl text--regular text--lg">Select all</button>
+			<div class="vp-tabs__bodyheaderfiltericonwrapper mr--xxxl text--light text--md text--cs03 pointer right">
+				<!--BODY HEADER FILTER BUTTON -->
+				<button ng-if="isallowed['/tool/new']" type="button" class="vp-tabs__duCreate_active vp-uielement__button tag_popup vp-uielement__button--cleanenabled pl--xxl text--light text--md"  ng-click="addNewTool()">
+				</button>
+                <div id="show_dashboard_filter" class="vp-tabs__bodyheaderselectedtoolspopup absolute filter_popup hidden" style="top:100%; right: 0%;" ng-include="'static/components/dashboard/filter/dashboardfilter.component.html'"></div>
+				<button type="button" class="vp-tabs__bodyheaderfilterbtn vp-uielement__button tag_popup vp-uielement__button--cleanenabled pl--xxl text--light text--md" ng-click="showFilter()" ng-if="isFilterApplied === false"><span>Filter</span></button>
+				<button type="button" class="vp-tabs__bodyheaderfilterbtn_active vp-uielement__button tag_popup vp-uielement__button--cleanenabled pl--xxl text--light text--md" ng-click="showFilter()" ng-if="isFilterApplied === true"><span>Filter</span></button>
+			</div>
+	</div>
+	<div class="vp-tilegrid__listwrapper overflow-y--auto max--height clearfix">
+		<ul>
+			<li class="vp-tilegrid__tile pa--sm left" ng-repeat="tool in applications | filter:searchToolKeyword">
+				<!--DEPLOY TOOL "TILE" ELEMENT START-->
+				<!--( MODIFIERS: vp-tooltile__containingtoolmsg--active # vp-tooltile__deprecatedwarning--active # vp-tooltile--selected # vp-tooltile__favorite--active )-->
+				<div ng-class="{'vp-tooltile--selected': selected , 'vp-tooltile--not-selected': !selected  }" class="vp-tooltile vp-component text--cs03 pt--md pr--md pl--md vp-tooltile__containingtoolmsg--active vp-tooltile__deprecatedwarning--active vp-tooltile__favorite--active  relative">
+					<div class="vp-tooltile__iconswrapprer left">
+						<!--TILE ICON-->
+						<div class="vp-tooltile__icon text--light text--xxxxl text--white vertical--top text--center bg--cs01">
+							<span class="vp-tooltile_iconinner">
+								<img alt="" class="vp-tooltile_iconinner" src="{{tool.thumbnail_logo}}" style="width:100%; height: 100%; margin-bottom: 12px;">
+							</span>
+						</div>
+						<!--DEPRECATE WARNING MESSAGE SECTION-->
+						<div ng-if="tool.status=='1'" class="vp-tooltile__deprecatedwarning text--light text--sm mt--md">
+							<img alt="" class="vp-tooltile__depreceteicon" src="static/assets/images/icons/active_icn.png">
+							<span class="vp-tooltile__deprecetemsg ml--sm">Active</span>
+						</div>
+						<div ng-if="tool.status=='2'" class="vp-tooltile__deprecatedwarning text--light text--sm mt--md">
+							<img alt="" class="vp-tooltile__depreceteicon" src="static/assets/images/icons/inactive_icn.png">
+							<span class="vp-tooltile__deprecetemsg ml--sm">in development</span>
+						</div>
+						<div ng-if="tool.status=='3'" class="vp-tooltile__deprecatedwarning text--light text--sm mt--md">
+							<img alt="" class="vp-tooltile__depreceteicon" src="static/assets/images/icons/Deprecated_icn.png">
+							<span class="vp-tooltile__deprecetemsg ml--sm">Deprecated</span>
+						</div>
+					</div>
+					<!--TOOL TILE METADATA (title, description, containig tool)-->
+					<div class="vp-tooltile__tilemetadata left inContent">
+						<tooltip id="tooltip_{{$index}}_{{tool.tool_name}}">
+							<div class="vp-tooltile__label text--regular text--ellipsis text--ellipsis--two text--xl mb--md verticall--top" tooltip-side="bottom" tooltips="" tooltip-template="{{tool.name}}" title="{{tool.name}}">
+								<a style="text-decoration : none !important;" href="#/tool/view/{{tool._id.$oid}}">{{tool.name}}</a>
+							</div>
+						</tooltip>
+						<tooltip id="tooltip_{{$index}}_description">
+						<div class="vp-tooltile__containingtoolmsg text--light text--md mt--md text--ellipsis text--ellipsis--single hidden" tooltip-side="bottom" tooltips="" tooltip-template="{{tool.description}}" >{{tool.description}}</div>
+						</tooltip>
+						<!--<div class="vp-tooltile__description text&#45;&#45;light text&#45;&#45;md" title="Environment configuration check Environment configuration check Environment configuration check bbbeeeeee">Environment configuration check Environment configuration check Environment configuration check bbbeeeeee</div>-->
+						<div class="vp-tooltile__containingtoolmsg text--light text--md mt--md text--ellipsis text--ellipsis--single hidden">Included in tool set:
+							<span class="vp-tooltile__containingtoolname" title="INIT">{{tool.included_in[0].toolset_name}}..</span>
+						</div>
+					</div>
+					<!--'FAVORITE' ICON VIEW-->
+					<!--<div class="vp-tooltile__favoriticon pointer right"></div>-->
+					<!--TOOL TILE FOOTER SECRION-->
+					<div class="vp-tooltile__footer absolute clearfix">
+						<!--SELECT CHECKBOX SECTION-->
+						<div class="vp-tooltile__checkbox vp-uielement__checkbox mt--md vertical--bottom">
+							<input id="select_check_{{tool.name}}" type="checkbox" name="selectedTools" ng-model="selectedTools" value="{{tool._id.$oid}}" ng-click="selectTool(tool)" ng-checked="isToolSelected(tool)"/>
+							<!--FIRST LABEL FOR CUSTOM CHECKBOX-->
+							<label for="select_check_{{tool.name}}"></label>
+							<label class="vp-tooltile__checkboxlabel text--cs08 text--light text--md" for="select_check_{{tool.name}}">Select</label>
+						</div>
+						<!--DEPLOY BUTTON VIEW (MODIFIER: vp-uielement__button--deployenabled )-->
+						<button ng-click="deployTool(tool.versions[0].version_id, tool.versions[0].latest_build_number)" type="button" class="vp-uielement__button vp-uielement__button--deployenabled vp-tooltile__deploybtn right" ng-if="isallowed['/deploy/tool/:id/:build_number']">Deploy</button>
+						<!--EDIT TOOL BUTTON -->
+						<button ui-sref="editTool({id:tool._id.$oid})" type="button" class="vp-uielement__button vp-uielement__button--edittool vp-tooltile__edittoolbtn mr--md right" ng-if="isallowed['/edit/tool/:id']">Edit tool</button>
+					</div>
+				</div>
+			</li>
+		</ul>
+		<!--GRID OPTIONAL FOOTER (MODIFIERS: # vp-tilegrid__gridfooter--active)-->
+		<div class="vp-tilegrid__gridfooter pt--xl mt--xl pb--xxl max--width text--center hidden vp-tilegrid__gridfooter--active" style="display:inline-block" ng-if="applications.length<totalCount" ng-hide="hideShowMoreTools === true">
+			<button type="button" class="vp-tilegrid__gridfootershowbtn vp-uielement__button vp-uielement__button--showmoretools" ng-click="showMoreTools()">Show more tools</button>
+		</div>
+	</div>
+</div>
+<!--TILE GRID COMPONENT END-->

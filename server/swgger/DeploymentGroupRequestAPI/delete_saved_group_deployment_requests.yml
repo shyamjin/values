@@ -1,0 +1,33 @@
+Delete saved group deployment requests, referring by Group Deployment Request Id
+---
+tags:
+ - Group Deployment Requests
+parameters:
+- name: token
+  in: header
+  description: API key
+  required: false
+  type: string
+  format: string
+- name: access-token
+  in: header
+  description: API key
+  required: false
+  type: string
+  format: string 
+- name: group_id
+  in: path
+  type: string
+  required: true
+  description: Group Deployment Request Id
+responses:
+  200:
+    description: Successfully deleted Group Deployment Request
+    examples:
+      result: "success"
+      message: null
+  404:
+    description: exception in deleting saved Group Deployment Request
+    examples:
+      result: "failed"
+      message: "Throws an exception"

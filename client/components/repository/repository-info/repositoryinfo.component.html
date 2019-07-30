@@ -1,0 +1,118 @@
+<!--USER INFO COMPONENT START (MODIFIERS: # vp-selecteduserform--active )-->
+<div ng-class="getRepoFormClass()" style="margin-bottom: 10%;">
+    <form action="#" name="vp-userform__selectedfasform" class="vp-userform__selectedfasform max pl--xl" >
+        <ul ng-class="getRepoUlClass()">
+             <li class="vp-userform__fielditem vp-userform__nameitem pt--xxl">
+                <div class="vp-userform__fielditeminner">
+                    <!--'NAME' FIELD LABEL-->
+                    <div class="inblock repos_key_width">
+                        <label class="vp-userform__selectedusername vp-userform__fieldlabel text--lg--xl text--light text--ellipsis text--ellipsis--single">ID:<span class="mandatory">*</span> </label>
+                    </div>
+                    <!--'NAME' FIELD CONTENT-->
+                    <div class="vp-versionform__content inblock">
+                        <div class="vp-versionform__statusselectwrap">
+                            <label  class="vp-userform__selectedusername vp-userform__fieldlabel text--lg text--light text--ellipsis text--ellipsis--single">{{repositoryViewIdData.data._id.$oid}}</label>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="vp-userform__fielditem vp-userform__nameitem pt--xxl">
+                <div class="vp-userform__fielditeminner">
+                    <!--'NAME' FIELD LABEL-->
+                    <div class="inblock repos_key_width">
+                        <label class="vp-userform__selectedusername vp-userform__fieldlabel text--lg text--light text--ellipsis text--ellipsis--single">Name:<span class="mandatory">*</span> </label>
+                    </div>
+                    <!--'NAME' FIELD CONTENT-->
+                    <div class="vp-versionform__content inblock">
+                        <div class="vp-versionform__statusselectwrap">
+                            <label  class="vp-userform__selectedusername vp-userform__fieldlabel text--lg text--light text--ellipsis text--ellipsis--single">{{repositoryViewIdData.data.name}}</label>
+                        </div>
+                    </div>
+                </div>
+            </li>
+             <li class="vp-userform__fielditem vp-userform__nameitem pt--xxl">
+                <div class="vp-userform__fielditeminner">
+                    <!--'ROLE' FIELD LABEL-->
+                    <div class="inblock repos_key_width">
+                        <label class="vp-userform__selectedusername vp-userform__fieldlabel text--lg text--light text--ellipsis text--ellipsis--single">Handle Additional Artifacts<span class="mandatory">*</span></label>
+                    </div>
+                    <!--'ROLE' FIELD CONTENT-->
+                    <div class="vp-userform__fieldcontent vp-userform__rolecontent inblock" style="width:0px">
+                        <select name="vp-userform__role_dropdownlist" class="vp-userform__dropdownlist vp-uielement__select" ng-model="repositoryViewIdData.data.additional_artifacts_upload"   >
+                            <option  name="vp-userform__artifact_dropdownlistoption_{{$index}}" ng-selected="artifacts==repositoryViewIdData.data.additional_artifacts_upload"  ng-repeat="artifacts in additional_artifacts_upload" value="{{artifacts}}">{{artifacts}}</option>
+                      </select>
+                    </div>
+                </div>
+            </li>
+            <li class="vp-userform__fielditem vp-userform__nameitem pt--xxl">
+                <div class="vp-userform__fielditeminner">
+                    <!--'ROLE' FIELD LABEL-->
+                    <div class="inblock repos_key_width">
+                        <label class="vp-userform__selectedusername vp-userform__fieldlabel text--lg text--light text--ellipsis text--ellipsis--single">Handler<span class="mandatory">*</span></label>
+                    </div>
+                    <!--'ROLE' FIELD CONTENT-->
+                    <div class="vp-userform__fieldcontent vp-userform__rolecontent inblock" style="width:0px">
+                        <select name="vp-userform__role_dropdownlist" class="vp-userform__dropdownlist vp-uielement__select" ng-model="repositoryViewIdData.data.handler" style="width: 300px;">
+                            <option  name="vp-userform__artifact_dropdownlistoption_{{$index}}" ng-selected="plugins.plugin_name==repositoryViewIdData.data.handler"  ng-repeat="plugins in allRepositoryPlugins" value="{{plugins.plugin_name}}">{{plugins.plugin_name}}</option>
+                      </select>
+                    </div>
+                     <button ng-if="isallowed['/plugin']" type="button" class="vp-tabs__duCreate_active vp-uielement__button tag_popup vp-uielement__button--cleanenabled pl--xxl text--light text--md"  ng-click="createNewHandler()" style="float:right">
+				    </button>
+                </div>
+            </li>
+
+            <li class="vp-createnewmachform__fielditem vp-createnewmachform__aliaseitem mt--lg">
+                <div class="vp-createnewmachform__fielditeminner">
+                    <ul class="vp-createnewmachform__connectionsublist" style="width: 560px;">
+                        <li class="vp-machdetails__connectionfielditem vp-machdetails__connectiontunneling mt--xl max--width">
+                            <div class="inblock repos_key_width">
+                                <label class="vp-userform__selectedusername vp-userform__fieldlabel text--lg text--light text--ellipsis text--ellipsis--single">Additional parameters:</label>
+                            </div>
+                            <!--TUNNELING FIELD CONTENT-->
+                            <div class="vp-machdetails__tunnelingcontent max--width mt--xl">
+                                <!--COLUMN LABELS-->
+                                <div class="vp-machdetails__tunnelinglabelwrap text--light text--md clearfix">
+                                    <span class="vp-machdetails__tunnelingcolumn pl--md left repos_key_width" style="font-weight: bold;">Key</span>
+                                    <span class="vp-machdetails__tunnelingcolumn pl--md left" style="font-weight: bold;">Value</span>
+                                </div>
+                                <hr class="vp-machdetails__tunnelingseparator ba--clear bg--cs09 mt--sm">
+                                <!--TUNNELING INPUTS-->
+                                <div class="vp-machdetails__tunnelinginputswrap mt--sm">
+                                    <ul class="vp-machdetails__tunnelinginputslist">
+                                        <!--TUNNELING INPUTS ROW EXAMPLE-->
+                                         <li class="vp-userform__fielditem vp-userform__nameitem pt--xxl" ng-repeat="data in additional_parameters track by $index">
+                                            <div class="vp-userform__fielditeminner">
+                                                <!--'NAME' FIELD LABEL-->
+                                                <div class="inblock repos_key_width">
+                                                    <tooltip id="tooltip_{{$index}}"  tooltip-side="top">
+                                                        <input id="key_{{data.key}}_{{$index}}" type="text" class="vp-userform__selectedusername vp-userform__fieldlabel text--lg text--light text--ellipsis text--ellipsis--single" tooltips=""  tooltip-template="{{data.key}}" ng-model="data.key"/>
+                                                    </tooltip>
+                                                </div>
+                                                <!--'NAME' FIELD CONTENT-->
+                                                <div class="vp-versionform__content inblock">
+                                                    <div class="vp-versionform__statusselectwrap">
+                                                        <tooltip id="tooltip_{{$index}}_new"  tooltip-side="top">
+                                                            <input id="auth_host_{{$index}}"  class="vp-userform__selectedusername vp-userform__fieldlabel text--lg text--light text--ellipsis text--ellipsis--single" tooltips=""  tooltip-template="{{data.value}}" style="width: 300px;" ng-model="data.value"/>
+                                                        </tooltip>
+                                                    </div>
+                                                </div>
+                                                <!--REMOVE BUTTON-->
+                                                <button type="button" class="vp-machdetails__removebtn vp-uielement__button vp-uielement__button--removeenabled left" style="float: right;" ng-click="removeRepoParameter($index)"></button>
+                                                <!--SAVE AND CHECK BUTTON-->
+                                                <button type="button" class="vp-machdetails__savecheckbtn vp-uielement__button vp-uielement__button--cleanenabled vertical--top right"></button>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    <div>
+                                        <button type="button" class="vp-machdetails__addhostbtn vp-uielement__button vp-uielement__button--cleanenabled mt--sm pa--none" ng-click="addRepoParameter()">+ Add a parameter</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </form>
+</div>
+<!--USER INFO COMPONENT END-->

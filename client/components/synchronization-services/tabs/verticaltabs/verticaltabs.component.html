@@ -1,0 +1,32 @@
+<!--TAB COMPONENT START-->
+<div class="vp-tabsvertical vp-control max--width max--height clearfix" ng-controller="SyncDetailsTabController">
+    <!--TABS HEADER NAVIGATION BAR-->
+    <div class="vp-tabsvertical__nav max--width left">
+        <nav>
+            <ul class="vp-tabsvertical__navlist text--center table">
+                <!--TAB ACTIVE 'VERSION' STATE ( MODIFIERS: # vp-tabsvertical__tab--active )-->
+                <li class="vp-tabsvertical__tab pointer vp-tabsvertical__tab--active left" id="edit_sync_details" ng-if="displayDetailsTab==='/manage/synchronization/services'">
+                    <div class="vp-tabsvertical__tabinner max--height max--width intable">
+                        <div class="vp-tabsvertical__labelwrap pl--sm lh--font inblock table--cell vertical--middle">
+                            <a class="vp-tabsvertical__tabversion text--cs03 text--light text--md text--ellipsis text--ellipsis--single block">Sync Details</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="vp-tabsvertical__tab pointer vp-tabsvertical__tab--active left" id="edit_sync_report_details" ng-if="displayDetailsTab==='/view/sync/requests'">
+                    <div class="vp-tabsvertical__tabinner max--height max--width intable">
+                        <div class="vp-tabsvertical__labelwrap pl--sm lh--font inblock table--cell vertical--middle">
+                            <a class="vp-tabsvertical__tabversion text--cs03 text--light text--md text--ellipsis text--ellipsis--single block">Sync Details</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <!--TAB BODY WRAPPER, LOAD TEMPLATE INSIDE-->
+    <div class="vp-tabsvertical__body bg--white left max--height relative">
+        <!--MACHINE DETAILS TAB CONTENT-->
+        <div ng-if="displayDetailsTab==='/manage/synchronization/services'" class="vp-tabsvertical__bodycontent max" ng-include="'static/components/synchronization-services/sync-details-content/syncdetailscontent.component.html'"></div>
+        <div ng-if="displayDetailsTab==='/view/sync/requests'" class="vp-tabsvertical__bodycontent max" ng-include="'static/components/synchronization-services/view-sync-request-content/viewsyncrequestcontent.component.html'"></div>
+    </div>
+</div>
+<!--TAB COMPONENT END-->

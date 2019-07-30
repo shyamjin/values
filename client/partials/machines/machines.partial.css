@@ -1,0 +1,6 @@
+.vp-machines .vp-machines__navaside {
+  z-index: 200;
+}
+.vp-machines .vp-machines__content {
+  z-index: 100;
+}

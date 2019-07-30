@@ -1,0 +1,552 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Python Module Index &#8212; eDPM plugins 2.0.4 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.0.4',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="top" title="eDPM plugins 2.0.4 documentation" href="index.html" />
+
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+
+   <h1>Python Module Index</h1>
+
+   <div class="modindex-jumpbox">
+   <a href="#cap-d"><strong>d</strong></a> | 
+   <a href="#cap-i"><strong>i</strong></a> | 
+   <a href="#cap-p"><strong>p</strong></a> | 
+   <a href="#cap-s"><strong>s</strong></a> | 
+   <a href="#cap-t"><strong>t</strong></a>
+   </div>
+
+   <table class="indextable modindextable" cellspacing="0" cellpadding="2">
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-d"><td></td><td>
+       <strong>d</strong></td><td></td></tr>
+     <tr>
+       <td><img src="_static/minus.png" class="toggler"
+              id="toggle-1" style="display: none" alt="-" /></td>
+       <td>
+       <a href="DBUtil.html#module-DBUtil"><code class="xref">DBUtil</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="DBUtil.html#module-DBUtil.Accounts"><code class="xref">DBUtil.Accounts</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="DBUtil.html#module-DBUtil.Build"><code class="xref">DBUtil.Build</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="DBUtil.html#module-DBUtil.CloneRequest"><code class="xref">DBUtil.CloneRequest</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="DBUtil.html#module-DBUtil.Config"><code class="xref">DBUtil.Config</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="DBUtil.html#module-DBUtil.ContributionGitPushLogs"><code class="xref">DBUtil.ContributionGitPushLogs</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="DBUtil.html#module-DBUtil.Counter"><code class="xref">DBUtil.Counter</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="DBUtil.html#module-DBUtil.DBUtil"><code class="xref">DBUtil.DBUtil</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="DBUtil.html#module-DBUtil.DeploymentFields"><code class="xref">DBUtil.DeploymentFields</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="DBUtil.html#module-DBUtil.DeploymentRequest"><code class="xref">DBUtil.DeploymentRequest</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="DBUtil.html#module-DBUtil.DeploymentRequestGroup"><code class="xref">DBUtil.DeploymentRequestGroup</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="DBUtil.html#module-DBUtil.DeploymentUnit"><code class="xref">DBUtil.DeploymentUnit</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="DBUtil.html#module-DBUtil.DeploymentUnitApprovalStatus"><code class="xref">DBUtil.DeploymentUnitApprovalStatus</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="DBUtil.html#module-DBUtil.DeploymentUnitSet"><code class="xref">DBUtil.DeploymentUnitSet</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="DBUtil.html#module-DBUtil.DeploymentUnitType"><code class="xref">DBUtil.DeploymentUnitType</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="DBUtil.html#module-DBUtil.DistributionMachine"><code class="xref">DBUtil.DistributionMachine</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="DBUtil.html#module-DBUtil.DistributionSync"><code class="xref">DBUtil.DistributionSync</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="DBUtil.html#module-DBUtil.Documents"><code class="xref">DBUtil.Documents</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="DBUtil.html#module-DBUtil.Emails"><code class="xref">DBUtil.Emails</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="DBUtil.html#module-DBUtil.EmailTemplate"><code class="xref">DBUtil.EmailTemplate</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="DBUtil.html#module-DBUtil.InitData"><code class="xref">DBUtil.InitData</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="DBUtil.html#module-DBUtil.InitDataAccount"><code class="xref">DBUtil.InitDataAccount</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="DBUtil.html#module-DBUtil.InitDataEDpmAccount"><code class="xref">DBUtil.InitDataEDpmAccount</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="DBUtil.html#module-DBUtil.InitDataEDpmLite"><code class="xref">DBUtil.InitDataEDpmLite</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="DBUtil.html#module-DBUtil.InitDataHelper"><code class="xref">DBUtil.InitDataHelper</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="DBUtil.html#module-DBUtil.InitDataLite"><code class="xref">DBUtil.InitDataLite</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="DBUtil.html#module-DBUtil.Machine"><code class="xref">DBUtil.Machine</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="DBUtil.html#module-DBUtil.MachineGroups"><code class="xref">DBUtil.MachineGroups</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="DBUtil.html#module-DBUtil.MachineType"><code class="xref">DBUtil.MachineType</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="DBUtil.html#module-DBUtil.MediaFiles"><code class="xref">DBUtil.MediaFiles</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="DBUtil.html#module-DBUtil.PermissionGroup"><code class="xref">DBUtil.PermissionGroup</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="DBUtil.html#module-DBUtil.Permissions"><code class="xref">DBUtil.Permissions</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="DBUtil.html#module-DBUtil.Plugins"><code class="xref">DBUtil.Plugins</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="DBUtil.html#module-DBUtil.PreRequisites"><code class="xref">DBUtil.PreRequisites</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="DBUtil.html#module-DBUtil.Role"><code class="xref">DBUtil.Role</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="DBUtil.html#module-DBUtil.Routes"><code class="xref">DBUtil.Routes</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="DBUtil.html#module-DBUtil.Sync"><code class="xref">DBUtil.Sync</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="DBUtil.html#module-DBUtil.SyncRequest"><code class="xref">DBUtil.SyncRequest</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="DBUtil.html#module-DBUtil.SystemDetails"><code class="xref">DBUtil.SystemDetails</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="DBUtil.html#module-DBUtil.Tags"><code class="xref">DBUtil.Tags</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="DBUtil.html#module-DBUtil.Teams"><code class="xref">DBUtil.Teams</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="DBUtil.html#module-DBUtil.Tool"><code class="xref">DBUtil.Tool</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="DBUtil.html#module-DBUtil.ToolInstallation"><code class="xref">DBUtil.ToolInstallation</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="DBUtil.html#module-DBUtil.ToolSet"><code class="xref">DBUtil.ToolSet</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="DBUtil.html#module-DBUtil.ToolsOnMachine"><code class="xref">DBUtil.ToolsOnMachine</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="DBUtil.html#module-DBUtil.UserFavoriteMachine"><code class="xref">DBUtil.UserFavoriteMachine</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="DBUtil.html#module-DBUtil.Users"><code class="xref">DBUtil.Users</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="DBUtil.html#module-DBUtil.Versions"><code class="xref">DBUtil.Versions</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-i"><td></td><td>
+       <strong>i</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="DBUtil.html#module-InitDataHelper"><code class="xref">InitDataHelper</code></a> <em>(Unix, Windows)</em></td><td>
+       <em>Some data is required to run Deployment Manager for the first time.
+DPM is in 5 flavor dpm_lite,dpm_account,dpm_master,edpm_lite,edpm. Which flavor is installed is decided by global variable &#34;edpm_type&#34; defined in settings.py
+According to edpm_type,data from one of the following files :InitData, InitDataLite,InitDataAccount,InitDataEDpmLite,InitDataEDpmAccount is populated on collection</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-p"><td></td><td>
+       <strong>p</strong></td><td></td></tr>
+     <tr>
+       <td><img src="_static/minus.png" class="toggler"
+              id="toggle-2" style="display: none" alt="-" /></td>
+       <td>
+       <a href="Plugins.html#module-Plugins"><code class="xref">Plugins</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-2">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="Plugins.html#module-Plugins.IBasePlugin"><code class="xref">Plugins.IBasePlugin</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-2">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="Plugins.html#module-Plugins.IPostDeploymentPlugin"><code class="xref">Plugins.IPostDeploymentPlugin</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-2">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="Plugins.html#module-Plugins.IPreDeploymentPlugin"><code class="xref">Plugins.IPreDeploymentPlugin</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-s"><td></td><td>
+       <strong>s</strong></td><td></td></tr>
+     <tr>
+       <td><img src="_static/minus.png" class="toggler"
+              id="toggle-3" style="display: none" alt="-" /></td>
+       <td>
+       <a href="Services.html#module-Services"><code class="xref">Services</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-3">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="Services.html#module-Services.AppInitServices"><code class="xref">Services.AppInitServices</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-3">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="Services.html#module-Services.AppLogger"><code class="xref">Services.AppLogger</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-3">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="Services.html#module-Services.AuthServices"><code class="xref">Services.AuthServices</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-3">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="Services.html#module-Services.CleanerServices"><code class="xref">Services.CleanerServices</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-3">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="Services.html#module-Services.CloneAccountService"><code class="xref">Services.CloneAccountService</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-3">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="Services.html#module-Services.CloneRequestService"><code class="xref">Services.CloneRequestService</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-3">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="Services.html#module-Services.ContributionGitPushService"><code class="xref">Services.ContributionGitPushService</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-3">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="Services.html#module-Services.CustomExceptionHandler"><code class="xref">Services.CustomExceptionHandler</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-3">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="Services.html#module-Services.DistributionCenterService"><code class="xref">Services.DistributionCenterService</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-3">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="Services.html#module-Services.DistributionSyncServices"><code class="xref">Services.DistributionSyncServices</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-3">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="Services.html#module-Services.fabfile"><code class="xref">Services.fabfile</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-3">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="Services.html#module-Services.FileUtils"><code class="xref">Services.FileUtils</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-3">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="Services.html#module-Services.HelperServices"><code class="xref">Services.HelperServices</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-3">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="Services.html#module-Services.Mailer"><code class="xref">Services.Mailer</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-3">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="Services.html#module-Services.MailerService"><code class="xref">Services.MailerService</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-3">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="Services.html#module-Services.PasswordHelper"><code class="xref">Services.PasswordHelper</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-3">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="Services.html#module-Services.PluginsManagerService"><code class="xref">Services.PluginsManagerService</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-3">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="Services.html#module-Services.PullServices"><code class="xref">Services.PullServices</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-3">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="Services.html#module-Services.PushServices"><code class="xref">Services.PushServices</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-3">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="Services.html#module-Services.RemoteAuthenticationService"><code class="xref">Services.RemoteAuthenticationService</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-3">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="Services.html#module-Services.StreamToLogger"><code class="xref">Services.StreamToLogger</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-3">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="Services.html#module-Services.SyncServices"><code class="xref">Services.SyncServices</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-3">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="Services.html#module-Services.Utils"><code class="xref">Services.Utils</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="settings.html#module-settings"><code class="xref">settings</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td><img src="_static/minus.png" class="toggler"
+              id="toggle-4" style="display: none" alt="-" /></td>
+       <td>
+       <a href="static.html#module-static"><code class="xref">static</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-4">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="static.utilities.html#module-static.utilities"><code class="xref">static.utilities</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-4">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="static.utilities.html#module-static.utilities.backupScript"><code class="xref">static.utilities.backupScript</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-t"><td></td><td>
+       <strong>t</strong></td><td></td></tr>
+     <tr>
+       <td><img src="_static/minus.png" class="toggler"
+              id="toggle-5" style="display: none" alt="-" /></td>
+       <td>
+       <a href="Testing.html#module-Testing"><code class="xref">Testing</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-5">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="Testing.html#module-Testing.ReportForTestResults"><code class="xref">Testing.ReportForTestResults</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-5">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="Testing.TestCases.html#module-Testing.TestCases"><code class="xref">Testing.TestCases</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-5">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="Testing.TestCases.html#module-Testing.TestCases.DeploymentTest"><code class="xref">Testing.TestCases.DeploymentTest</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-5">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="Testing.TestCases.html#module-Testing.TestCases.LoadTest"><code class="xref">Testing.TestCases.LoadTest</code></a></td><td>
+       <em></em></td></tr>
+   </table>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, ilan pinto.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.9</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

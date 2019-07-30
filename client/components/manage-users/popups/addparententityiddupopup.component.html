@@ -1,0 +1,43 @@
+<!--PRE REQUISITIES EDIT POPUP COMPONENT START-->
+<div class="vp-tooldepqeditpopup vp-control">
+    <div class="vp-tooldepqeditpopup__popuptop vp-uielement__popuptop"></div>
+    <div class="vp-tooldepqeditpopup__container vp-uielement__popup pt--md pr--xl pb--xl pl--xl bg--white">
+        <div class="vp-tooldepqeditpopup__inputwrap">
+            <input type="text" class="vp-tooldepqeditpopup__input input--clear max--width text--cs03 text--regular text--lg" ng-model="searchTagKeyword">
+        </div>
+        <div class="vp-tooldepqeditpopup__optionswrap mt--lg">
+            <ul class="vp-tooldepqeditpopup__optionslist text--cs03 text--regular text--md">
+                <li class="vp-tooldepqeditpopup__optionsitem mt--md">
+                    <div class="vp-tooldepqeditpopup__iteminner text--ellipsis">
+                        <div class="vp-tooldepqeditpopup__checkbox vp-uielement__checkbox">
+                            <!--ITEM CHECKBOX-->
+                            <input type="checkbox" id="vp-deptoolsaddparententityiddupopup__c1_all" name="vp_addtool" value="{{allDUEntityObj}}" ng-click="addParentEntityIdDU(allDUEntityObj)" ng-checked="isParentEntityIdDUSelected(allDUEntityObj.name)"/>
+                            <label for="vp-deptoolsaddparententityiddupopup__c1_all"></label>
+                            <!--ITEM NAME WRAPPER-->
+                            <div class="vp-tooldepqeditpopup__itemnamewrap ml--sm inblock vertical--bottom">
+                                <label for="vp-deptoolsaddparententityiddupopup__c1_all" class="vp-tooldepqeditpopup__itemname text--ellipsis text--ellipsis--single" title="all">all</label>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <ul class="vp-tooldepqeditpopup__optionslist text--cs03 text--regular text--md" ng-repeat="duData in allDU">
+                <li class="vp-tooldepqeditpopup__optionsitem mt--md" ng-repeat="du in duData.data | filter : searchTagKeyword">
+                    <div class="vp-tooldepqeditpopup__iteminner text--ellipsis">
+                        <div class="vp-tooldepqeditpopup__checkbox vp-uielement__checkbox">
+                            <!--ITEM CHECKBOX-->
+                            <input type="checkbox" id="vp-deptoolsaddparententityiddupopup__c1_{{duData.type}}_{{$index}}" name="vp_addtool" ng-model="duDetials[$index]" value="{{du}}" ng-click="addParentEntityIdDU(du)" ng-checked="isParentEntityIdDUSelected(du.name)"/>
+                            <label for="vp-deptoolsaddparententityiddupopup__c1_{{duData.type}}_{{$index}}"></label>
+                            <!--ITEM NAME WRAPPER-->
+                            <div class="vp-tooldepqeditpopup__itemnamewrap ml--sm inblock vertical--bottom">
+                                <label for="vp-deptoolsaddparententityiddupopup__c1_{{duData.type}}_{{$index}}" class="vp-tooldepqeditpopup__itemname text--ellipsis text--ellipsis--single" title="{{du.name}}">{{du.name}}</label>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <button type="button" class="vp-uielement__button  vp-uielement__button--apply mt--xl" ng-click="closeAddParentEntityIdDU()">Apply</button>
+    </div>
+</div>
+<!--PRE REQUISITIES EDIT POPUP COMPONENT END-->

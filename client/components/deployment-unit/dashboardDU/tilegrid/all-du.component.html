@@ -1,0 +1,90 @@
+<!--TILE GRID COMPONENT START-->
+<!--(MODIFIERS: vp-tilegrid--large # vp-tilegrid--small)-->
+<div class="vp-tilegrid vp-component max--height clearfix" ng-controller="DashboardDUAllController">
+	<div class="vp-tabs__bodyheader vp-tabs__bodyheader--scrolled relative">
+			<!--MODIFIER: # vp-uielement__button--cleanenabled # vp-tabs__bodyheaderselectedtooplsbtn--show -->
+			<button type="button" class="vp-uielement__button vp-uielement__button--cleanenabled pa--none" ng-click="show = !show"><span class="vp-header__selectedcounter">{{selectedDus.length}}</span><span> Dus</span></button>
+
+			<span class="text--regular text--md">selected</span>
+			<div id="selected_tools" class="vp-tabs__bodyheaderselectedtoolspopup  absolute" ng-class="{'selectedtoolspopup--show': show, 'selectedtoolspopup--hide': !show}" ng-include="'static/components/deployment-unit/dashboardDU/selected-dus-popup/selectedduspopup.component.html'"></div>
+			<!--&lt;!&ndash;'DEPLOY SELECTED TOOLS' BUTTON VIEW (MODIFIERS: # vp-uielement__button&#45;&#45;deployselectedtoolsenabled)&ndash;&gt;-->
+			<button type="button" class="vp-tabs__bodyheaderdeploybtn vp-uielement__button vp-uielement__button--deployselectedtoolsenabled ml--xl " ng-click="selectMultipleDusForDeployment(selectedDus)">Deploy selected dus</button>
+			<!--&lt;!&ndash;'SELECT ALL' BUTTON VIEW&ndash;&gt;-->
+			<button type="button" class="vp-tabs__bodyheaderselectallbtn vp-uielement__button vp-uielement__button--cleanenabled ml--xl text--regular text--lg">Select all</button>
+
+			<div class="vp-tabs__bodyheaderfiltericonwrapper mr--xxxl text--light text--md text--cs03 pointer right">
+				<!--BODY HEADER FILTER BUTTON -->
+				<button ng-if="isallowed['/deploymentunit/new']" type="button" class="vp-tabs__duCreate_active vp-uielement__button tag_popup vp-uielement__button--cleanenabled pl--xxl text--light text--md"  ng-click="createNewDu()">
+				</button>
+				<div id="show_dashboard_filter" class="vp-tabs__bodyheaderselectedtoolspopup absolute hidden" style="margin-left: -120px;width:260px" ng-include="'static/components/deployment-unit/dashboardDU/filter/dashboardfilter.component.html'"></div>
+				<button type="button" class="vp-tabs__bodyheaderfilterbtn vp-uielement__button tag_popup vp-uielement__button--cleanenabled pl--xxl text--light text--md" ng-click="showFilter()" ng-if="isFilterApplied === false"><span>Filter</span></button>
+				<button type="button" class="vp-tabs__bodyheaderfilterbtn_active vp-uielement__button tag_popup vp-uielement__button--cleanenabled pl--xxl text--light text--md" ng-click="showFilter()" ng-if="isFilterApplied === true"><span>Filter</span></button>
+			</div>
+	</div>
+	<div class="tileGrid_scroll">
+		<div class="vp-tilegrid__listwrapper clearfix" ng-repeat="duData in applications" ng-init="mainIndex = $index">
+			<h1 class="vp-toolinfo__toolnameinput input--clear text--cs03 text--light text--xxl pl--md du__type_header">{{duData.type}}</h1>
+			<ul>
+				<li class="vp-tilegrid__tile pa--sm left" ng-repeat="du in duData.data | filter: searchDUKeyword | orderBy:'-'">
+					<!--DEPLOY TOOL "TILE" ELEMENT START-->
+					<!--( MODIFIERS: vp-tooltile__containingtoolmsg--active # vp-tooltile__deprecatedwarning--active # vp-tooltile--selected # vp-tooltile__favorite--active )-->
+					<div ng-class="{'vp-dutile--selected': selected , 'vp-dutile--not-selected': !selected  }" class="vp-dutile vp-component text--cs03 pt--md pr--md pl--md vp-dutile__containingtoolmsg--active vp-tooltile__deprecatedwarning--active vp-tooltile__favorite--active  relative" style="width:270px">
+						<div class="vp-dutile__iconswrapprer right">
+							<!--TILE ICON-->
+							<div class="vp-dutile__icon text--light text--xxxxl text--white vertical--top text--center" ng-class="setBackground(duData.type)">
+								<span class="vp-dutile_iconinner iconinner_du">
+									{{du.name.substring(0, 1)}}
+								</span>
+							</div>
+						</div>
+						<!--TOOL TILE METADATA (title, description, containig tool)-->
+
+							<div class="vp-dutile__tilemetadata left" style="width:180px">
+								<tooltip id="tooltip_{{$index}}_{{du.name}}"  tooltip-side="top" class="du_name">
+									<div class="vp-dutile__label text--regular text--ellipsis text--ellipsis--single text--xl mb--md verticall--top" tooltips="" tooltip-template="{{du.name}}" title="{{du.name}}" style="width:200px">
+										<a style="text-decoration : none !important;" href="#/deploymentunit/view/{{du._id.$oid}}">{{du.name}}</a>
+									</div>
+								</tooltip>
+								<div class="vp-dutile__containingtoolmsg text--light text--lg mt--md text--ellipsis text--ellipsis--single hidden pt--md"><span class="text--bold">B</span> <span>{{du.build_type}} {{du.build_number}}</span></div>
+								<tooltip id="tooltip_{{$index}}_new"  tooltip-side="top" class="tag_name">
+									<div class="vp-dutile__containingtoolmsg text--light text--lg mt--md text--ellipsis text--ellipsis--single hidden" tooltips=""  tooltip-template="{{du.tag.join(', ')}}" style="width: 190px;"> <span class="text--bold">T:</span>
+										<span class="vp-dutile__containingtoolname" title="{{tag}}" ng-repeat="tag in du.tag">{{tag}}<span ng-if="$index!==du.tag.length-1">,</span></span>
+									</div>
+								</tooltip>
+							</div>
+						<!--TILE ICON-->
+						<!--<div class="vp_duicon text&#45;&#45;light text&#45;&#45;xxxxl text&#45;&#45;white vertical&#45;&#45;top text&#45;&#45;center bg&#45;&#45;cs01">-->
+							<!--<span class="iconinner">-->
+								<!--{{du.name.substring(0, 1)}}-->
+							<!--</span>-->
+						<!--</div>-->
+						<!--'FAVORITE' ICON VIEW-->
+						<!--<div class="vp-tooltile__favoriticon pointer right"></div>-->
+						<!--TOOL TILE FOOTER SECRION-->
+						<div class="vp-dutile__footer absolute clearfix" style="width:240px">
+							<div class="vp-tooltile__checkbox vp-uielement__checkbox">
+								<input type="checkbox" name="selectedDus" ng-model="selectedDus" id ="select_check_{{du.name}}" value="{{du._id.$oid}}" ng-click="selectDU(du)" ng-checked="isDUSelected(du)"/>
+								<!--FIRST LABEL FOR CUSTOM CHECKBOX-->
+								<label for="select_check_{{du.name}}"></label>
+								<label class="vp-tooltile__checkboxlabel text--cs08 text--light text--md" for="select_check_{{du.name}}">Select</label>
+							</div>
+							<!--DEPLOY BUTTON VIEW (MODIFIER: vp-uielement__button--deployenabled )-->
+							<button ng-click="duSetDeploy({id:du._id.$oid,build_number: du.build_number, build_id : du.build_id})" type="button" class="vp-uielement__button vp-uielement__button--deployenabled vp-tooltile__deploybtn right">Deploy</button>
+							<!--EDIT TOOL BUTTON -->
+							<button ui-sref="editDU({id:du._id.$oid})" type="button" class="vp-uielement__button vp-uielement__button--edittool vp-tooltile__edittoolbtn mr--md right">Edit DU</button>
+
+						</div>
+
+					</div>
+				</li>
+			</ul>
+		</div>
+		<!--GRID OPTIONAL FOOTER (MODIFIERS: # vp-tilegrid__gridfooter--active)-->
+		<div class="vp-tilegrid__gridfooter mt-xxl pt--xl pb--xxl max--width text--center hidden vp-tilegrid__gridfooter--active" ng-if="isPageAvailable()" ng-hide="hideShowMoreDus === true">
+			<button type="button" class="vp-tilegrid__gridfootershowbtn vp-uielement__button vp-uielement__button--showmoretools"  ng-click="showMoreDU()" >Show more du's</button>
+		</div>
+	</div>
+</div>
+
+
+<!--TILE GRID COMPONENT END-->

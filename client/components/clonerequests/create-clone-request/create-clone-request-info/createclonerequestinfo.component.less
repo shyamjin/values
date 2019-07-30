@@ -1,0 +1,189 @@
+// VARIABLES: SECTION 54
+.vp-selectedToolform {
+    // USER SELECTED FRO THE LIST
+    &.vp-selectedToolform--active{
+        &:after{
+            content: none;
+        }
+        .vp-userform__selecteduserform{
+            .block;
+        }
+    }
+    // IF NO USER SELECTED SHOW FORM COVER
+    &:after{
+        padding: 40px;
+        content: 'Select a tool from the list';
+        .block;
+        .text--center;
+        width: @noFormCoverWidth;
+        line-height: @noFormCoverHeight;
+        .bg--cs06;
+        .text--cs08;
+        .text--light;
+        .text--xxl;
+    }
+    input[type=text] {
+        border: 1px solid @cs08;
+        &:focus {
+            border: 1px solid @cs04;
+        }
+    }
+    // SELECTED USER NAME MAX LENGTH
+    .vp-userform__selectedusernamewrap {
+        max-width: @maxNameLenth;
+    }
+    // SUSPEND CHECKBOX MARGIN TOP
+    .vp-userform__suspentbox{
+        margin-top: @suspendCheckboxMT;
+    }
+}
+
+    .vp-addToolmodalwrap {
+        z-index: 9999;
+        min-width: 100%; //@minWidth;
+        background-color: @csdarkmutted;
+        &--show {
+            .block;
+        }
+    }
+    // 'ADD A SETTING' MODAL POSITION
+    .vp-addToolmodal {
+        top: 5%;
+        left: 20%;
+        //margin-top: -@addToolHeight/2;
+        //margin-left: -@rdModalWidth/2;
+    }
+
+    .mandatory {
+    color: #c00;
+    font-size: 16px;
+    }
+    .vp_tile_toolWrapper {
+        .bg--cs06;
+        width: 780px; //1140px;
+        height: 400px;
+        overflow-y: scroll;
+        margin-left:40px;
+        margin-top:20px;
+    }
+    .vp_tile_Wrapper {
+        .bg--cs06;
+        width: 340px;
+        height: 500px;
+    }
+    .vp_tooltile {
+        width: @toolTileSmallWidth;
+        height: @toolTileSmallHeight;
+        padding: @toolTileSmallPA;
+        margin: 20px;
+    }
+    .vp_tooltile__footer {
+            width: @toolTileFooterSmallWidth;
+            bottom: @toolTileSmallPA;
+        }
+        //TOOL TILE SMALL ICON VIEW STYLE
+        .vp_tooltile__icon {
+            height: @toolTileMiniIconWidth;
+            width: @toolTileMiniIconWidth;
+            border-radius: @toolTileSmallIconWidth;
+            line-height: @toolTileSmallToolIconWidth;
+            margin-left: @toolTileSmallWidth - 80px;
+            margin-top: -5px;
+        }
+        //SMALL GRID MODIFIER THEME
+//(can toggle fron partials.html vp-toolspage)
+div.vp-tilegrid--small, div.vp-toolspage--rightactive {
+    .vp_tooltile__listwrapper {
+        .pb--md;
+        .pl--lg;
+    }
+}
+
+//BOTH THEMES STYLE ANT MODIFIERS
+.vp_tooltile {
+    .ba--solid(@cs08, 1px);
+
+    //MODIFIER TO ACTIVATE DEPRECATED NOTIFICATION
+    &.vp_tooltile_deprecatedwarning--active {
+        .vp_tooltile__deprecatedwarning {
+            .block;
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+    }
+    //FAVORITE ICON ACTIVE  STATE
+    &.vp_tooltile__favorite--active {
+        .vp_tooltile__favoriticon {
+            background: url('../assets/images/icons/fevorites_enable.png') no-repeat;
+        }
+    }
+    //MODIFIER to show "included in tool set" mesage in metadata
+    &.vp_tooltile__containingtoolmsg--active {
+        .vp_tooltile__containingtoolmsg {
+            .block;
+        }
+    }
+    //CHANGE 'Selected' LABEL COLOR WHEN TILE SELECTED
+    input[type="checkbox"]:checked ~ label {
+        .text--cs03;
+    }
+    .vp_tooltile__favoriticon {
+        width: @favoriteWidth;
+        height: @favoriteHeight;
+        background: url('../assets/images/icons/fevorites_disable.png') no-repeat;
+        background-size: contain;
+    }
+    //IE + OPERA DESCRIPTION LENTH LIMIT
+    .vp_tooltile__tilemetadata {
+        margin-left: 20px;
+        margin-top: -42px;
+        max-height: calc(~"100% - " @btnHeight);
+         overflow: hidden;
+        .vp-tooltile__label {
+            max-height: 2.09em;
+            /* exactly three lines */
+            //text-overflow: -o-ellipsis-lastline;
+        }
+    }
+}
+//GRID OPTIONAL FOOTER
+.vp-tilegrid__gridfooter{
+    &.vp-tilegrid__gridfooter--active{
+        display:block
+    }
+}
+.vp-comp {
+    width: 280px;
+    height: 150px;
+}
+.tool_list {
+    margin-top: 20px;
+}
+.tool_list_header {
+    color: #292e4c;
+}
+
+.account_list_header {
+    color: #292e4c;
+    padding-top:40px;
+}
+
+.machine_list_header {
+    color: #292e4c;
+    padding-top:40px;
+
+}
+
+.validation_msg_clone_request {
+    margin-left: 8%;
+    margin-top: 5px;
+    color: red;
+}
+.vp_edittoolsetbtn {
+    margin-top: 6%;
+    margin-right: 16%;
+}
+.vp_deploytoolset_btn {
+    margin-top: 0%;
+    margin-right: 8%;
+}

@@ -1,0 +1,40 @@
+<!--RIGHT SIDEBAR COMPONENT START-->
+<div class="vp-rightsidebar vp-control bg--cs02 max--height max--width">
+	<!--SEARCH FIELDS REGION-->
+	<div class="vp-rightsidebar__searchfieldwrapper pt--xxxl ml--xl" ng-controller="MachineController" ng-if="isallowed['/machines'] || isallowed['/editmachine/:id']">
+		<div class="vp-rightsidebar__label text--upper text--cs06 text--light text--xxl mb--xxxl">MACHINES</div>
+		<!--MACHINES SERCH BOX UI ELEMENT-->
+		<div class="vp-uielement__searchbox ma--center">
+			<div id="search_autocomplete_machines_dashbaord" class="vp-search__searchautocomplete overflow_style bg--cs06 absolute hidden" ng-include="'static/components/dashboard/search-autocomplete/searchautocomplete.component.html'"></div>
+			<form id="vp-uielement__machine_search_searchform">
+				<!--SEARCH INPUT TEXT-->
+				<input class="vp-rightsidebar__machinesearchinput vp-uielement__searchinput" name="searchMachineKeyword" ng-model="searchMachineKeyword" type="text" placeholder="Find a machine" ng-change="showSearchResults(searchMachineKeyword)"/>
+				<!--SEARCH INPUT SUBMIT BUTON-->
+				<button class="vp-rightsidebar__machinesearchbtn vp-uielementt__searchbtn" type="button" ng-if="!searchProgress" ng-click="searchMachine()"></button>
+				<div class="progress_loader" ng-if="searchProgress"></div>
+			</form>
+			<!--SEARCH HINT-->
+			<span class="vp-uielement__hint">Use the alias, IP, host</span>
+		</div>
+	</div>
+	<!--<div class="vp-rightsidebar__searchfieldwrapper pt&#45;&#45;xl ml&#45;&#45;xl">-->
+		<!--<div class="vp-rightsidebar__label text&#45;&#45;upper text&#45;&#45;cs06 text&#45;&#45;light text&#45;&#45;xxl mb&#45;&#45;xxxl">SCRIPT</div>-->
+		<!--&lt;!&ndash;MACHINES SERCH BOX UI ELEMENT&ndash;&gt;-->
+		<!--<div class="vp-uielement__searchbox ma&#45;&#45;center ">-->
+			<!--<form id="vp-uielement__searchform">-->
+				<!--&lt;!&ndash;SEARCH INPUT TEXT&ndash;&gt;-->
+				<!--<input class="vp-rightsidebar__scriptsearchinput vp-uielement__searchinput" type="text" placeholder="Find a script" />-->
+				<!--&lt;!&ndash;SEARCH INPUT SUBMIT BUTON&ndash;&gt;-->
+				<!--<button class="vp-rightsidebar__scriptsearchbtn vp-uielementt__searchbtn" type="button"></button>-->
+			<!--</form>-->
+			<!--&lt;!&ndash;SEARCH HINT&ndash;&gt;-->
+			<!--<span class="vp-uielement__hint">Use the script name, description or tag</span>-->
+		<!--</div>-->
+	<!--</div>-->
+	<!--REQUESTS TABS REGION-->
+	<div class="vp-rightsidebar__requestabswrapper pt--xl">
+		<div class="vp-rightsidebar__label text--upper text--cs06 text--light text--xxl mb--xxxl ml--xl">REQUESTS</div>
+		<div class="vp-rightsidebar__tabs" ng-include="'static/components/dashboard/tabs/request-tabs.component.html'"></div>
+	</div>
+</div>
+<!--RIGHT SIDEBAR COMPONENT END-->

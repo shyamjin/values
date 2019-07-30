@@ -1,0 +1,38 @@
+<!--TAB COMPONENT START-->
+<div class="vp-tabs vp-tabs--default vp-tabs--machines vp-control relative max--width max--height clearfix" ng-controller="ManageStatesTabsController">
+	<!--TABS HEADER NAVIGATION BAR-->
+	<div class="vp-tabs__nav max--width left">
+		<nav>
+			<ul class="vp-tabs__navlist  max--width text--center text--md text--light text--cs06 table">
+				<!--ACTIVE TAB STATE (MODIFIERS: # vp-tabs__tab--active )-->
+				<li class="vp-tabs__tab pointer pr--sm pl--sm left" ng-class="getActiveTab('/view/du/state')" ng-click="showActiveTab('/view/du/state')">
+					<a href="#/view/du/state" class="vp-tabs__tablabel vertical--top no--decor">View DU States</a>
+				</li>
+				<!--DEAFULT TAB STATE-->
+				<li class="vp-tabs__tab pointer pr--sm pl--sm left" ng-class="getActiveTab('/view/duset/state')"  ng-click="showActiveTab('/view/duset/state')">
+					<a href="#/view/duset/state" class="vp-tabs__tablabel vertical--top no--decor">View DU Package States</a>
+				</li>
+				<!--DEAFULT TAB STATE-->
+				<li class="vp-tabs__tab pointer pr--sm pl--sm left" ng-class="getActiveTab('/create/du/state')" ng-click="showActiveTab('/create/du/state')">
+					<a href="#/create/du/state" class="vp-tabs__tablabel vertical--top no--decor">Create New DU State</a>
+				</li>
+				<!--DEAFULT TAB STATE-->
+				<li class="vp-tabs__tab pointer pr--sm pl--sm left" ng-class="getActiveTab('/create/duset/state')" ng-click="showActiveTab('/create/duset/state')">
+					<a href="#/create/duset/state" class="vp-tabs__tablabel vertical--top no--decor">Create New DU Package State</a>
+				</li>
+			</ul>
+		</nav>
+	</div>
+	<!--TAB BODY WRAPPER, LOAD TEMPLATE INSIDE-->
+	<div class="vp-tabs__body overflow--auto left max--width">
+		<!--'MANAGE MACHINES' TAB CONTENT-->
+		<div ng-if="displayTab==='/view/du/state'" class="vp-tabs__mmanagecontent text--none max" ng-include="'static/components/states/manage-du-state-content/managedustatecontent.component.html'"></div>
+		<!--'CREATE A NEW MACHINE' TAB CONTENT-->
+		<div ng-if="displayTab==='/view/duset/state'" class="vp-tabs__createanewmachine max" ng-include="'static/components/states/manage-duset-state-content/managedusetstatecontent.component.html'"></div>
+		<!--CREATE SEVERAL MACHINES (BULK)-->
+		<div ng-if="displayTab==='/create/du/state'" class="vp-tabs__createmachinesbulk max" ng-include="'static/components/states/create-du-state-content/createdustatecontent.component.html'"></div>
+		<!--MANAGE MACHINES GROUP-->
+		<div ng-if="displayTab==='/create/duset/state'" class="vp-tabs__createmachinesbulk max" ng-include="'static/components/states/create-duset-state-content/createdusetstatecontent.component.html'"></div>
+		</div>
+</div>
+<!--TAB COMPONENT END-->

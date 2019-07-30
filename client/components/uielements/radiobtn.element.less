@@ -1,0 +1,27 @@
+// VARIABLES: SECTION 10 //radio button
+// COPONENT CLASS
+div.vp-uielement__radiobtn {
+    .inblock;
+    &:hover{
+        .pointer;
+    }
+    input[type="radio"] {
+        display: none;
+    }
+    //RADIO BUTTON DESIGN UNCHECKED
+    input[type="radio"] + label:after {
+        content:'';
+        display: inline-block;
+        width: @checkBoxWidth;
+        height: @checkBoxWidth;
+        margin: -1px 4px 0 0;
+        vertical-align: middle;
+        background: url('../assets/images/icons/radio_btn_empty.png') no-repeat;
+        cursor: pointer;
+    }
+    //RADIO BUTTON DESIGN CHECKED
+    input[type="radio"]:checked + label:after {
+        content:'';
+        background: url('../assets/images/icons/radio_btn_selected.png') no-repeat;
+    }
+}

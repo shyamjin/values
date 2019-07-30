@@ -1,0 +1,155 @@
+<!--ADD USER FORM COMPONENT START-->
+<div class="vp-toolinfo vp-toolinfo--new vp-control bg--white max--width" ng-controller="CreateToolSetInfoController">
+        <div class="vp-toolinfo__iconwrap pa--md inblock">
+            <div class="vp-toolinfo__icon text--white vertical--top text--center text--xxl text--light bg--cs01">
+                <span class="vp-toolinfo__iconinner">
+                    <img alt="" id="logoFile" style="width:100%;">
+                </span>
+            </div>
+        </div>
+        <!--TOOL DISPLAY NAME-->
+             <div class="vp-toolinfo__toolname inblock tooltip">
+                <input type="text" class="vp-toolinfo__toolnameinput input--clear text--cs03 text--light text--xxl pl--md " ng-model="generalToolSetData.name"  name="name" required>
+             </div>
+        <h5 class="validation_msg" ng-if="!CreateToolSetForm.name.$valid">Please enter tool name</h5>
+        <div class="vp-toolinfo__editlogobtnwrap relative">
+            <button type="button" class="vp-toolinfo__editlogobtn vp-uielement__button vp-uielement__button--cleanenabled " ng-click="showEditLogo()">Edit logo</button>
+            <div class="vp-toolinfo__editlogopopup  absolute  hidden mt--xl" id="edit_logo" ng-include="'static/components/tools/create-tools/popups/editlogo-popup.component.html'"></div>
+        </div>
+        <ul class="vp-userform__fieldslist text--cs03 pr--lg">
+             <!--'DESCRIPTION' FIELD-->
+            <li class="vp-userform__fielditem vp-userform__passworditem pt--xxl">
+                <div class="vp-userform__fielditeminner">
+                    <!--'PASSWORD' FIELD LABEL-->
+                    <div class="vp-userform__fieldlabelwrap inblock">
+                        <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Description:</label>
+                    </div>
+                    <!--'PASSWORD' FIELD CONTENT-->
+                    <div class="vp-userform__fieldcontent vp-userform__passwordcontent inblock">
+                        <textarea form="#" name="vp-teamsform___teamdescription" class="vp-userform__descriptioninput text--cs03 text--regular text--lg pa--md max--width" wrap="soft" style="width:400px;" ng-model="generalToolSetData.description">{{usergroup.description}}</textarea>
+                    </div>
+                </div>
+            </li>
+
+            <!--'EMPLOYEE ID' FIELD-->
+            <li class="vp-userform__fielditem vp-userform__emailitem pt--xxl">
+                <div class="vp-userform__fielditeminner">
+                    <!--'EMPLOYEE ID' FIELD LABEL-->
+                    <div class="vp-userform__fieldlabelwrap inblock">
+                        <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Tags:</label>
+                    </div>
+                    <!--'EMPLOYEE ID' FIELD CONTENT-->
+                    <div class="vp-userform__fieldcontent vp-userform__emailcontent inblock">
+                        <div class="vp-versionform__content inblock">
+                        <!--PRE-REQUISITES FIELD CONTENT (MODIFIERS: # vp-versionform__prerequisitescontent--filled )-->
+                        <div class="vp-versionform__prerequisitescontent--filled">
+                            <ul class="vp-versionform__prerequisiteslist clearfix">
+                                <!--ITEM EXAMPLE-->
+                                <li class="vp-versionform__prerequisitesitem mb--sm right" ng-repeat="tag in generalToolSetData.tag" style="margin-right:10px;">
+                                    <div class="vp-versionform__prerequisitesiteminner">
+                                        <span>{{tag}}</span>
+                                        <!--EDIT BUTTON WRAPPER (MODIFIERS: # vp-versionform__editprerequisitesbtnwrap--show )-->
+                                        <div class="vp-versionform__editprerequisitesbtnwrap inblock relative" style="bottom:5px;">
+                                            <button type="button" class="vp-versionform__editprerequisitesbtn vp-uielement__button vp-uielement__button--edit vertical--bottom skip_slideup" ng-click="showAddTag()"></button>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="vp-versionform__prerequisitesaddbtn mb--sm left">
+                                    <!--ADD BUTTON-->
+                                    <button type="button" class="vp-versionform__addprerequisitesbtn vp-uielement__button pa--none vp-uielement__button--cleanenabled mr--xl skip_slideup" ng-click="showAddTag()">+Add</button>
+                                     <!--ADD PREREQUISITE POPUP-->
+                                    <div id="add_tag" class="vp-versionform__addcertifieditembtnpopup tag_popup absolute skip_slideup hidden" ng-include="'static/components/tools/create-tools/popups/tag-addpopup.component.html'"></div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </li>
+            <!--'MEMBER OF' FIELD-->
+            <li class="vp-userform__fielditem vp-userform__roleitem pt--lg">
+                <div class="vp-userform__fielditeminner">
+                    <!--'MEMBER OF' FIELD LABEL-->
+                    <div class="vp-userform__fieldlabelwrap vertical--top inblock pt--md">
+                        <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Tools:</label>
+                    </div>
+                    <!--'MEMBER OF' FIELD CONTENT-->
+                    <div class="vp-userform__fieldcontent vp-userform__memberofcontent inblock">
+                        <!--TEAMS LIST-->
+                        <ul class="vp-userform__teamslist">
+                            <!--TEAM ITEM EXAMPLE-->
+                            <li class="vp-userform__teamitem vp-userform__managementteam pt--md">
+                                <div class="vp-userform__fielditeminner">
+                                    <button type="button" class="vp-versionform__adddocbtn vp-uielement__button vp-uielement__button--cleanenabled pa--none vertical--bottom" ng-click="showAddTool()"><span>+Add</span></button>
+                                    <div class="vp-addToolmodalwrap fixed max--position hidden" id="show_tools">
+                                        <div class="vp-addToolmodal absolute" ng-include="'static/components/tools/create-tool-set/popups/addtool-popup.component.html'"></div>
+                                    </div>
+                                </div>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            <li class="vp-userform__fielditem tool_list vp-userform__roleitem pt--lg" style="margin-bottom: 4%;">
+                <div class="vp-userform__fielditeminner">
+                    <!--'MEMBER OF' FIELD LABEL-->
+                    <h3 class="tool_list_header ellipsis">TOOL'S INSTALLATION</h3>
+                    <div class="vp-userform__fieldlabelwrap vertical--top inblock pt--md"style="width: 89%;">
+                        <!--USER INFO COMPONENT START (MODIFIERS: # vp-selecteduserform--active )-->
+                        <div class="vp_control max">
+                            <div class="vp_tile_toolWrapper clearfix" style="top: 20px;width: 100%;">
+                                <ul>
+                                    <li class="vp-tilegrid__tile pa--sm du_package_card left" ng-repeat="tool in toolList">
+                                        <div ng-class="{'vp-tooltile--selected': selected , 'vp-tooltile--not-selected': !selected  }" class="vp-tooltile vp-component text--cs03 pt--md pr--md pl--md vp-tooltile__containingtoolmsg--active vp-tooltile__deprecatedwarning--active vp-tooltile__favorite--active  relative" style="height: 160px; width: 330px;">
+                                            <div class="vp_tooltile__iconswrapprer right" style="display: inline-block;">
+                                                <!--TILE ICON-->
+                                                <div class="vp_tooltile__icon text--light text--xxxxl text--white vertical--top text--center bg--cs01">
+                                                    <span class="vp_tooltile_iconinner">
+                                                        {{tool.tool_name.substring(0, 1)}}
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="vp_tooltile__tilemetadata left" style="display: contents;">
+                                                <tooltip id="tooltip_{{$index}}_{{tool.tool_name}}"  class="du_name">
+                                                    <div class="vp_tooltile__label text--regular text--ellipsis text--ellipsis--two text--xl mb--md verticall--top"  tooltip-side="bottom" tooltips="" tooltip-template="{{tool.tool_name}}" title="{{tool.tool_name}}">
+                                                        <a href="#/tool/view/{{tool.tool_id}}"  class="text--ellipsis text--ellipsis--single" style="text-decoration : none !important; width: 262px;">{{tool.tool_name}}</a>
+                                                    </div>
+                                                </tooltip>
+                                                <!--DEPRECATE WARNING MESSAGE SECTION-->
+                                                <div class="vp_tooltile__deprecatedwarning text--light text--sm mt--md inblock" ng-if="tool.status==='3'">
+                                                    <img alt="" class="vp_tooltile__depreceteicon" src="static/assets/images/icons/Deprecated_icn.png">
+                                                    <span class="vp_tooltile__deprecetemsg ml--sm">Deprecated</span>
+                                                </div>
+                                                <div class="vp_tooltile__deprecatedwarning text--light text--sm mt--md inblock" ng-if="tool.status==='2'">
+                                                    <img alt="" class="vp_tooltile__depreceteicon" src="static/assets/images/icons/Deprecated_icn.png">
+                                                    <span class="vp_tooltile__deprecetemsg ml--sm">In Development</span>
+                                                </div>
+                                                <div class="vp_tooltile__deprecatedwarning text--light text--sm mt--md inblock" ng-if="tool.status==='1'">
+                                                    <img alt="" class="vp_tooltile__depreceteicon" src="static/assets/images/icons/active_icn.png">
+                                                    <span class="vp_tooltile__deprecetemsg ml--sm">Active</span>
+                                                </div>
+                                                <div class="vp_tooltile__containingtoolmsg text--light text--md mt--md text--ellipsis text--ellipsis--single hidden">Version Identifier: {{tool.version_id}}</div>
+                                                <!--<div class="vp-tooltile__description text&#45;&#45;light text&#45;&#45;md" title="Environment configuration check Environment configuration check Environment configuration check bbbeeeeee">Environment configuration check Environment configuration check Environment configuration check bbbeeeeee</div>-->
+                                                <div class="vp_tooltile__containingtoolmsg text--light text--md mt--md text--ellipsis text--ellipsis--single hidden">Version:
+                                                    <span class="vp_tooltile__containingtoolname" title="INIT">{{tool.version_name}} v{{tool.version_number}}</span>
+                                                </div>
+                                            </div>
+                                            <!--TOOL TILE FOOTER SECRION-->
+                                            <div class="vp_tooltile__footer absolute clearfix">
+                                                <!--REMOVE TOOL BUTTON -->
+                                                <button ng-click="removeToolFromToolList($index)" type="button" class="vp-uielement__button vp-uielement__button--edittool vp-tooltile__edittoolbtn mr--md right">Remove</button>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+<!--USER INFO COMPONENT END-->
+                    </div>
+                </div>
+            </li>
+            <h5 class="validation_msg_tool_set" ng-show="toolList.length<2">Please select atleast two tools to add in tool set!</h5>
+        </ul>
+</div>
+<!--ADD USER FORM COMPONENT END-->

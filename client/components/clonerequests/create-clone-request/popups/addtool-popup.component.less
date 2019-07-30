@@ -1,0 +1,219 @@
+// VARIABLES: SECTION 36
+// COPONENT CLASS
+.vp-addtoolmodal {
+    width: 100%; //@rdToolModalWidth;
+    //height: @addToolHeight;
+    overflow-x: scroll;
+    // HEADER STYLE
+    &__header {
+        height: @rdModalHeaderHeight;
+        background-image: -webkit-linear-gradient(91.5deg, transparent 0%, transparent 22%, @cs01 24%, @cs01 100%);
+        background-image: linear-gradient(-1.5deg, transparent 0%, transparent 22%, @cs01 24%, @cs01 100%);
+    }
+    &__body {
+        padding-top: @rdModalBodyPT;
+        padding-left: @rdModalBodyPL;
+    }
+    // CLOSE BUTTON
+    &__closebtn {
+        width: @rdModalBtnSize;
+        height: @rdModalBtnSize;
+        background: url('../assets/images/icons/big_x_btn.png') no-repeat;
+        background-size: contain;
+    }
+    //SECTION FIELD LABEL
+    &__fieldname {
+        min-width: @rdModalLAbelMinWidth;
+    }
+    &__titleinput, &__dropdownlist {
+        width: @titleFieldWidth;
+        height: @inputFieldHeight;
+        border: 1px solid @cs09;
+        &:focus {
+            border-color: @cs04;
+        }
+    }
+    //OPTIONS LIST ITEM WIDTH
+    .vp-addtoolmodal__optionsitem {
+        width: @titleFieldWidth;
+        &--default{
+            .vp-addtoolmodal__optionname:after{
+                content: 'Default';
+                .text--cs08;
+                .text--light;
+                .text--sm;
+                .ml--xxl;
+                .inblock;
+            }
+        }
+    }
+    // FOOTER VIEW STYLES
+    &__footer {
+        margin-bottom: @rdModalFooterHeight*1.9;
+        margin-left: @machinesSearchWidth*1.75;
+        height: @rdModalFooterHeight;
+        line-height: @rdModalFooterHeight;
+        width: 360px;
+        border-top: 1px solid @cs09;
+    }
+}
+
+// FILTER BUTTON ON BODY HEADER
+    button.vp-toolset__bodyheaderfilterbtn {
+        height: @filterBtnHeight;
+        background: url('../assets/images/icons/filter_empty.png') no-repeat;
+        .text--cs03;
+        margin-left:-10px;
+    }
+    // FILTER BUTTON CLICKED
+    // SELECTED TOOLS BUTTON CLICKED
+    button.vp-toolset__bodyheaderselectedtooplsbtn--show {
+        & ~ .vp-tabs__bodyheaderselectedtoolspopup {
+            .block;
+            left: @selectedToolsPopupLeft;
+            top: @selectedToolsPopupTop;
+            z-index: 99;
+        }
+    }
+    // VARIABLES: SECTION 10 //search field
+// ELEMENT CLASS
+// SEARCH FIELD WRAPPER
+.vp-toolsetuielement__searchbox {
+    .relative;
+    .max--width;
+    //height: @searchContainerHeight;
+    // SEARCH FIELD INPUT VIEW
+    .vp-uielement__searchinput {
+        .input--clear;
+        .ba--dark;
+        .bg--cs06;
+        .text--light;
+        .text--lg;
+        color: @cs03;
+        width: @searchFieldWidth;
+        height: @searchFieldHeight;
+        padding-right: @searchFieldPR;
+        padding-left: @searchFieldPL;
+        border-radius: @searchFieldRadius;
+    }
+    // SEARCH BUTTON VIEW
+    //SEARCH BUTTON STYLES
+    .vp-uielementt__searchbtn {
+        .btn--clear;
+        .absolute;
+        top: @searchBtnTop;
+        right: @searchBtnTop;
+        height: @searchBtnWidth;
+        width: @searchBtnWidth;
+        border-radius: (@searchBtnWidth/2);
+        background: url('../assets/images/icons/search_btn.png') no-repeat;
+        background-size: contain;
+        &:hover {
+            opacity: 0.6;
+        }
+    }
+    // HINT SEARCH ROLE VIEW
+    .vp-uielement__hint {
+        .text--cs03;
+        .text--light;
+        .text--sm;
+        padding-left: @searchFieldPL;
+    }
+    //DISABLED INPUT CHANGE COLOR
+    input[type=text]:disabled {
+        background-color: lightblue;
+        & + button {
+            opacity: 0.2;
+        }
+    }
+    .vp-addtoolmodal__findmachinewrap {
+        width: @machinesSearchWidth;
+        // ITEM STATUS ICON
+        .vp-machinessearch__statusiconwrap {
+            .inblock;
+        }
+        .vp-machinessearch__item {
+            &--selected {
+                border: 2px solid @cs07;
+            }
+        }
+    }
+}
+
+    .vp-addtoolmodal__addedtoolwrap {
+        padding:20px;
+        padding-left:20px;
+        width: 400px;
+        height:544px;
+        margin-top:-1px;
+        overflow-y: scroll;
+    }
+    .actionwrap {
+        padding-left: 20px;
+        width:  70px;
+        height: 544px;
+        padding-top: 26%;
+    }
+    .vp-addtoolmodal__addedtoolslist {
+        margin-left: 0px;
+        margin-top: 0px;
+    }
+    .vp-addedtool__fieldname {
+        min-width: @rdModalLAbelMinWidth;
+        font-size:16px;
+        font-weight:500;
+    }
+    .vp_updatebtn {
+        margin-left:-120px;
+    }
+    .vp_removetoolbtn {
+        margin-top: -12px;
+        margin-left: 30px;
+    }
+    .vp-toolset__bodyheaderfiltericonwrapper {
+        .block;
+        margin-right: 30px;
+        height: 620px;
+        .bg--cs06;
+    }
+    .openfilter_body {
+        margin-top: 20px;
+        border: 1px;
+    }
+    .move_modal {
+        width: 1250px;
+    }
+    .move_footer {
+        margin-left: 68%;
+    }
+    .move_list {
+        margin-left: 11%;
+    }
+    .vp-action__upbtn {
+        .btn--clear;
+        .absolute;
+        top: @searchBtnTop;
+        right: @searchBtnTop;
+        height: 30px;
+        width: 30px;
+        border-radius: (@searchBtnWidth/2);
+        background: url('../assets/images/icons/Button_arrow_up.png') no-repeat;
+        background-size: contain;
+        &:hover {
+            opacity: 0.6;
+        }
+    }
+    .vp-action__downbtn {
+        .btn--clear;
+        .absolute;
+        top: @searchBtnTop;
+        right: @searchBtnTop;
+        height: 30px;
+        width: 30px;
+        border-radius: (@searchBtnWidth/2);
+        background: url('../assets/images/icons/Button_arrow_down.png') no-repeat;
+        background-size: contain;
+        &:hover {
+            opacity: 0.6;
+        }
+    }

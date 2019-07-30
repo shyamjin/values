@@ -1,0 +1,19 @@
+<div class="vp-tabs vp-tabs--default vp-tabs--service vp-control relative max--width max--height clearfix">
+    <div class="vp-tabs__nav max--width left">
+        <nav>
+            <ul class="vp-tabs__navlist  max--width text--center text--md text--light text--cs06 table">
+                <li class="vp-tabs__tab pointer pr--sm pl--sm left" ng-class="getActiveTab('/view/repository')" ng-click="showActiveTab('/view/repository')" >
+                    <a href="#/view/repository"><span class="vp-tabs__tablabel vertical--top no--decor">Repository List</span></a>
+                </li>
+                <li class="vp-tabs__tab pointer pr--sm pl--sm left" ng-class="getActiveTab('/new/repository')" ng-click="showActiveTab('/new/repository')">
+                    <a href="#/new/repository"><span class="vp-tabs__tablabel vertical--top no--decor">Add New Repository</span></a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="vp-tabs__body left max--width" style="max-height: 90%;overflow-y: auto;">
+        <div  ng-if="displayTab==='/view/repository'"  class="vp-tabs__servicetabcontent" ng-include="'static/components/repository/manage-repository-content/managerepositorycontent.component.html'"></div>
+        <div  ng-if="displayTab==='/new/repository'"  class="vp-tabs__servicetabcontent" ng-include="'static/components/repository/add-new-repository/addnewrepositorycontent.component.html'"></div>
+    </div>
+</div>

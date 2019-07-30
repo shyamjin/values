@@ -1,0 +1,82 @@
+// VARIABLES: SECTION 11
+// FILTER ELEMENT STYLE
+div.vp-filterelement {
+    // BOTH THEMES BORDER VIEW
+    .vp-filterelement__filterrow {
+        .pl--lg;
+    }
+    // LEVEL ONE FIELD VIEW
+    li.vp-filterelement__filterrowlvlone {
+        min-height: @filterLvlOneHeight;
+        line-height: @filterLvlOneHeight;
+        border-bottom: 1px solid @cs09;
+        div.vp-filterelement__filterrowdata {
+            .pointer;
+        }
+        // ROW EXPAND ICON
+        span.vp-filterelement__expandicon {
+            width: @expandIconWidth;
+            height: @expandIconHeight;
+            background: url('../assets/images/icons/dropdown_closed.png') no-repeat;
+            background-size: contain;
+        }
+        li.vp-filterelement__filterrowlvltwo {
+            .mb--md;
+        }
+    }
+    // LEVEL ONE FIELD VIEW EXPANDED (LI lvl one #MODIFIER)
+    li.vp-filterelement__filterrowlvlone--expanded {
+        .pt--xl;
+        .pb--sm;
+        line-height: 1;
+        span.vp-filterelement__expandicon {
+            -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
+        }
+        // DISPLAY DROPDOWN FILTER OPTIONS
+        div.vp-filterelement__contentlvlonewrapper {
+            .block;
+            .pt--lg;
+        }
+    }
+}
+
+//THEMES STYLE
+div.vp-filter {
+    // FILTER POP UP DIALOG THEME VIEW
+    //!!!common popup styles added from uielements/popup.elements.less
+    &.vp-filter--openfilterdialog {
+        width: 100%; //@openfilterdialogWidth;
+        //OPEN FILTER BORDERS
+        .vp-filter__openfilterformwrapper {
+            border-right: 1px solid @cs09;
+            border-bottom: 1px solid @cs09;
+            border-left: 1px solid @cs09;
+        }
+        //BUTTONS MENU VIEW
+        div.vp-filter__buttonsmenu {
+            height: @filterOpenButtonsMenuHeight;
+            line-height: @filterOpenButtonsMenuHeight;
+            border-bottom: 1px solid @cs09;
+        }
+    }
+    // MAIN DASHBOARD THEME MODIFIER VIEW 
+    &.vp-filter--dashboard {
+        .ba--solid(@cs09);
+        .vp-filter__header {
+            height: @dashboardFilterHeaderHeight;
+            line-height: @dashboardFilterHeaderHeight;
+            border-bottom: 1px solid @cs09;
+        }
+        //BUTTONS MENU VIEW
+        .vp-filter__buttonsmenu {
+            height: @dashboardButtonsMenuHeight;
+            line-height: @dashboardButtonsMenuHeight;
+            border-bottom: 1px solid @cs09;
+        }
+    }
+}
+
+.move_list {
+    margin-left : 11%;
+}

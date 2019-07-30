@@ -1,0 +1,106 @@
+// VARIABLES: SECTION 27
+.vp-search {
+    // SOLID BORDER
+    .ba--solid(@cs09);
+    // SEARCHBOX HINT STYLES
+    .vp-search__hint {
+        .text--cs03;
+    }
+    // SEARCHBOX WRAPPER
+    .vp-search__searchboxwrap {
+        border: 1px solid @cs09;
+    }
+    // ACTIVE SEARCH AUTOCOMPLETE STYLE
+    .vp-search__searchbox {
+        &.vp-search__searchbox--drop {
+            .vp-search__searchautocomplete {
+                .block;
+            }
+        }
+    }
+    // AUTO COMPLETE WRAPPER STYLE
+    .vp-search__searchautocomplete {
+        width: @autoCompleteWidth;
+        top: @searchFieldHeight;
+        left: @searchFieldPL;
+        z-index: 3;
+    }
+    // TOP DECORATIVE BORDER
+    .vp-search__topborder {
+        border-top: 10px solid @cs02;
+    }
+    .vp-search__itemdescriptionwrap {
+        max-width: calc(~"100% - " @rowSelectBtnUpLength);
+    }
+    // ITEM STYLES
+    .vp-search__item {
+        min-height: @rowMinHeight;
+        border: 1px solid @cs09;
+        box-sizing: border-box;
+        // SELECTED STATE STYLES
+        &--selected {
+            border: 0.2px solid @cs07;
+        }
+        // ITEM 'PRODACTION' STATE
+        &.vp-machinessearch__item--prod {
+            .vp-machinessearch__itemdescription:after {
+                content: 'Production';
+                .block;
+                .mt--sm;
+                .text--cs05;
+            }
+        }
+        &.vp-machinessearch__item--pull {
+            .vp-machinessearch__itemdescription:after {
+                content: 'Pull';
+                .block;
+                .mt--sm;
+                .text--cs05;
+            }
+        }
+        &.vp-machinessearch__item--push {
+            .vp-machinessearch__itemdescription:after {
+                content: 'Push';
+                .block;
+                .mt--sm;
+                .text--cs05;
+            }
+        }
+        &:hover {
+            background-color: @cs06;
+            .ba--solid(@cs07);
+            .vp-machinessearch__itembtnwrap{
+                .block;
+            }
+        }
+    }
+    // ROW SELECT BUTTON
+    .vp-machinessearch__itembtn, .vp-machinessearch__itembtnwrap {
+        height: @rowMinHeight;
+        line-height: @rowMinHeight;
+        width: @rowSelectBtnDownLength;
+        z-index: 2;
+    }
+    // BUTTON EGGE DECORATION
+    .vp-machinessearch__itembtnwrap {
+        &:before {
+            content: '';
+            .block;
+            .absolute;
+            z-index: 1;
+            height: @rowMinHeight;
+            width: @rowSelectBtnDownLength;
+            background-color: @cs07;
+            transform-origin: left bottom;
+            -webkit-transform: skewx(33.7deg);
+            transform: skewx(33.7deg);
+        }
+    }
+
+    .vp-machinessearch__item--machinetype {
+        .block;
+        .mt--sm;
+        right: 80%;
+        .text--cs05;
+    }
+}

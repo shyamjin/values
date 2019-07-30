@@ -1,0 +1,424 @@
+<!--MACHINE DETAILS VERTICAL TAB CONTENT COMPONENT START-->
+<div class="vp-machdetails vp-control pt--xxxl pr--xl pb--xxxl pl--xxxl bg--white clearfix max" ng-controller="deploymentDetailContentController">
+    <ul class="vp-machdetails__fieldslist text--cs03">
+        <!--IP FIELD ROW-->
+        <div class="split-wrapper">
+            <div class="left-data split">
+                 <li class="vp-machdetails__fielditem vp-machdetails__ipitem">
+                    <div class="vp-machdetails__fielditeminner">
+                        <!--IP FIELD LABEL-->
+                        <div class="vp-machdetails__fieldlabelwrap inblock">
+                            <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">ID:</label>
+                        </div>
+                        <!--IP FIELD CONTENT-->
+                        <div class="vp-machdetails__fieldcontent inblock">
+                            <div class="vp-machdetails__fieldipwrap inblock">
+                                <span class="vp-machdetails__fieldip text--regular text--lg text--ellipsis text--ellipsis--single">{{SingleData._id.$oid}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="vp-machdetails__fielditem vp-machdetails__ipitem" ng-if="!SingleData.skipped_ind">
+                    <div class="vp-machdetails__fielditeminner">
+                        <!--IP FIELD LABEL-->
+                        <div class="vp-machdetails__fieldlabelwrap inblock">
+                            <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Status:</label>
+                        </div>
+                        <!--IP FIELD CONTENT-->
+                        <div class="vp-machdetails__fieldcontent inblock">
+                            <div class="vp-machdetails__fieldipwrap inblock">
+                                <span class="vp-machdetails__fieldip text--regular text--lg text--ellipsis text--ellipsis--single">{{SingleData.status}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="vp-machdetails__fielditem vp-machdetails__ipitem" ng-if="SingleData.skipped_ind === true">
+                    <div class="vp-machdetails__fielditeminner">
+                        <!--IP FIELD LABEL-->
+                        <div class="vp-machdetails__fieldlabelwrap inblock">
+                            <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Status:</label>
+                        </div>
+                        <!--IP FIELD CONTENT-->
+                        <div class="vp-machdetails__fieldcontent inblock">
+                            <div class="vp-machdetails__fieldipwrap inblock">
+                                <span class="vp-machdetails__fieldip text--regular text--lg text--ellipsis text--ellipsis--single">Skipped</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                 <li class="vp-machdetails__fielditem vp-machdetails__ipitem">
+                    <div class="vp-machdetails__fielditeminner">
+                        <!--IP FIELD LABEL-->
+                        <div class="vp-machdetails__fieldlabelwrap inblock">
+                            <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">End Date:</label>
+                        </div>
+                        <!--IP FIELD CONTENT-->
+                        <div class="vp-machdetails__fieldcontent inblock">
+                            <div class="vp-machdetails__fieldipwrap inblock">
+                                <span class="vp-machdetails__fieldip text--regular text--lg text--ellipsis text--ellipsis--single">{{SingleData.end_time.$date | date : "medium" }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="vp-machdetails__fielditem vp-machdetails__ipitem">
+                    <div class="vp-machdetails__fielditeminner">
+                        <!--IP FIELD LABEL-->
+                        <div class="vp-machdetails__fieldlabelwrap inblock">
+                            <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">State Name:</label>
+                        </div>
+                        <!--IP FIELD CONTENT-->
+                        <div class="vp-machdetails__fieldcontent inblock">
+                            <div class="vp-machdetails__fieldipwrap inblock">
+                                <span class="vp-machdetails__fieldip text--regular text--lg text--ellipsis text--ellipsis--single">{{SingleData.state.name}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+               
+                <li class="vp-machdetails__fielditem vp-machdetails__ipitem">
+                    <div class="vp-machdetails__fielditeminner">
+                        <!--IP FIELD LABEL-->
+                        <div class="vp-machdetails__fieldlabelwrap inblock">
+                            <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Warning Flag:</label>
+                        </div>
+                        <!--IP FIELD CONTENT-->
+                        <div class="vp-machdetails__fieldcontent inblock">
+                            <div class="vp-machdetails__fieldipwrap inblock">
+                                <span class="vp-machdetails__fieldip text--regular text--lg text--ellipsis text--ellipsis--single">{{SingleData.warning_flag}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="vp-machdetails__fielditem vp-machdetails__ipitem">
+                    <div class="vp-machdetails__fielditeminner">
+                        <!--IP FIELD LABEL-->
+                        <div class="vp-machdetails__fieldlabelwrap inblock">
+                            <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Deployment Order:</label>
+                        </div>
+                        <!--IP FIELD CONTENT-->
+                        <div class="vp-machdetails__fieldcontent inblock">
+                            <div class="vp-machdetails__fieldipwrap inblock">
+                                <span class="vp-machdetails__fieldip text--regular text--lg text--ellipsis text--ellipsis--single">{{SingleData.deployment_order}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="vp-machdetails__fielditem vp-machdetails__ipitem" ng-if="SingleData.tool_set_name">
+                    <div class="vp-machdetails__fielditeminner">
+                        <!--IP FIELD LABEL-->
+                        <div class="vp-machdetails__fieldlabelwrap inblock">
+                            <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Tool set name:</label>
+                        </div>
+                        <!--IP FIELD CONTENT-->
+                        <div class="vp-machdetails__fieldcontent inblock">
+                            <div class="vp-machdetails__fieldipwrap inblock">
+                                <span class="vp-machdetails__fieldip text--regular text--lg text--ellipsis text--ellipsis--single">{{SingleData.tool_set_name}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="vp-machdetails__fielditem vp-machdetails__ipitem" ng-if="SingleData.du_set_name">
+                    <div class="vp-machdetails__fielditeminner">
+                        <!--IP FIELD LABEL-->
+                        <div class="vp-machdetails__fieldlabelwrap inblock">
+                            <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">DU Package package:</label>
+                        </div>
+                        <!--IP FIELD CONTENT-->
+                        <div class="vp-machdetails__fieldcontent inblock">
+                            <div class="vp-machdetails__fieldipwrap inblock">
+                                <span class="vp-machdetails__fieldip text--regular text--lg text--ellipsis text--ellipsis--single">{{SingleData.du_set_name}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </div><!-- end left-data -->
+            <div class="right-data split">
+            <!--    <li class="vp-machdetails__fielditem vp-machdetails__ipitem">
+                    <div class="vp-machdetails__fielditeminner">
+                        &lt;!&ndash;IP FIELD LABEL&ndash;&gt;
+                        <div class="vp-machdetails__fieldlabelwrap inblock">
+                            <label class="vp-machdetails__fieldlabel text&#45;&#45;light text&#45;&#45;md text&#45;&#45;ellipsis text&#45;&#45;ellipsis&#45;&#45;single">Version ID:</label>
+                        </div>
+                        &lt;!&ndash;IP FIELD CONTENT&ndash;&gt;
+                        <div class="vp-machdetails__fieldcontent inblock">
+                            <div class="vp-machdetails__fieldipwrap inblock">
+                                <span class="vp-machdetails__fieldip text&#45;&#45;regular text&#45;&#45;lg text&#45;&#45;ellipsis text&#45;&#45;ellipsis&#45;&#45;single">{{SingleData.version_id}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>-->
+                <li class="vp-machdetails__fielditem vp-machdetails__ipitem" ng-if="SingleData.parent_entity_name && SingleData.deployment_type === 'toolgroup'">
+                    <div class="vp-machdetails__fielditeminner">
+                        <!--IP FIELD LABEL-->
+                        <div class="vp-machdetails__fieldlabelwrap inblock">
+                            <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Tool name:</label>
+                        </div>
+                        <!--IP FIELD CONTENT-->
+                        <div class="vp-machdetails__fieldcontent inblock">
+                            <div class="vp-machdetails__fieldipwrap inblock">
+                                <span class="vp-machdetails__fieldip text--regular text--lg text--ellipsis text--ellipsis--single">{{SingleData.parent_entity_name}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="vp-machdetails__fielditem vp-machdetails__ipitem" ng-if="SingleData.parent_entity_name && SingleData.deployment_type === 'dugroup'">
+                    <div class="vp-machdetails__fielditeminner">
+                        <!--IP FIELD LABEL-->
+                        <div class="vp-machdetails__fieldlabelwrap inblock">
+                            <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Is Dependent:</label>
+                        </div>
+                        <!--IP FIELD CONTENT-->
+                        <div class="vp-machdetails__fieldcontent inblock">
+                            <div class="vp-machdetails__fieldipwrap inblock">
+                                <span class="vp-machdetails__fieldip text--regular text--lg text--ellipsis text--ellipsis--single">{{SingleData.dependent}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="vp-machdetails__fielditem vp-machdetails__ipitem">
+                    <div class="vp-machdetails__fielditeminner">
+                        <!--IP FIELD LABEL-->
+                        <div class="vp-machdetails__fieldlabelwrap inblock">
+                            <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Build Number:</label>
+                        </div>
+                        <!--IP FIELD CONTENT-->
+                        <div class="vp-machdetails__fieldcontent inblock">
+                            <div class="vp-machdetails__fieldipwrap inblock">
+                                <span class="vp-machdetails__fieldip text--regular text--lg text--ellipsis text--ellipsis--single">{{SingleData.build_number}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="vp-machdetails__fielditem vp-machdetails__ipitem">
+                    <div class="vp-machdetails__fielditeminner">
+                        <!--IP FIELD LABEL-->
+                        <div class="vp-machdetails__fieldlabelwrap inblock">
+                            <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Retry Count:</label>
+                        </div>
+                        <!--IP FIELD CONTENT-->
+                        <div class="vp-machdetails__fieldcontent inblock">
+                            <div class="vp-machdetails__fieldipwrap inblock">
+                                <span class="vp-machdetails__fieldip text--regular text--lg text--ellipsis text--ellipsis--single">{{SingleData.retry_count}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="vp-machdetails__fielditem vp-machdetails__ipitem">
+                    <div class="vp-machdetails__fielditeminner">
+                        <!--IP FIELD LABEL-->
+                        <div class="vp-machdetails__fieldlabelwrap inblock">
+                            <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Skip Indicator:</label>
+                        </div>
+                        <!--IP FIELD CONTENT-->
+                        <div class="vp-machdetails__fieldcontent inblock">
+                            <div class="vp-machdetails__fieldipwrap inblock">
+                                <span class="vp-machdetails__fieldip text--regular text--lg text--ellipsis text--ellipsis--single">{{SingleData.skip_dep_ind}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="vp-machdetails__fielditem vp-machdetails__ipitem">
+                    <div class="vp-machdetails__fielditeminner">
+                        <!--IP FIELD LABEL-->
+                        <div class="vp-machdetails__fieldlabelwrap inblock">
+                            <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Matching Indicator:</label>
+                        </div>
+                        <!--IP FIELD CONTENT-->
+                        <div class="vp-machdetails__fieldcontent inblock">
+                            <div class="vp-machdetails__fieldipwrap inblock">
+                                <span class="vp-machdetails__fieldip text--regular text--lg text--ellipsis text--ellipsis--single">{{SingleData.check_matching_ind}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            <!--    <li class="vp-machdetails__fielditem vp-machdetails__ipitem">
+                    <div class="vp-machdetails__fielditeminner">
+                        &lt;!&ndash;IP FIELD LABEL&ndash;&gt;
+                        <div class="vp-machdetails__fieldlabelwrap inblock">
+                            <label class="vp-machdetails__fieldlabel text&#45;&#45;light text&#45;&#45;md text&#45;&#45;ellipsis text&#45;&#45;ellipsis&#45;&#45;single">Machine ID:</label>
+                        </div>
+                        &lt;!&ndash;IP FIELD CONTENT&ndash;&gt;
+                        <div class="vp-machdetails__fieldcontent inblock">
+                            <div class="vp-machdetails__fieldipwrap inblock">
+                                <span class="vp-machdetails__fieldip text&#45;&#45;regular text&#45;&#45;lg text&#45;&#45;ellipsis text&#45;&#45;ellipsis&#45;&#45;single">{{SingleData.machine_id}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>-->
+                <li class="vp-machdetails__fielditem vp-machdetails__ipitem" ng-if="SingleData.parent_entity_details.version_name && SingleData.parent_entity_details.version_number">
+                    <div class="vp-machdetails__fielditeminner">
+                        <!--IP FIELD LABEL-->
+                        <div class="vp-machdetails__fieldlabelwrap inblock">
+                            <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Version:</label>
+                        </div>
+                        <!--IP FIELD CONTENT-->
+                        <div class="vp-machdetails__fieldcontent inblock">
+                            <div class="vp-machdetails__fieldipwrap inblock">
+                                <span class="vp-machdetails__fieldip text--regular text--lg text--ellipsis text--ellipsis--single">{{SingleData.parent_entity_details.version_name}} v {{SingleData.parent_entity_details.version_number}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </div><!-- end right-data -->
+        </div><!-- end split-wrapper -->
+        <li class="vp-machdetails__fielditem vp-machdetails__ipitem">
+            <div class="vp-machdetails__fielditeminner">
+                <!--IP FIELD LABEL-->
+                <div class="vp-machdetails__fieldlabelwrap inblock">
+                    <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Message:</label>
+                </div>
+                <!--IP FIELD CONTENT-->
+                <div class="vp-machdetails__fieldcontent inblock">
+                    <div class="vp-machdetails__fieldipwrap inblock">
+                        <span class="vp-machdetails__fieldip text--regular text--lg text--ellipsis text--ellipsis--single">{{SingleData.status_message}}</span>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="vp-machdetails__fielditem vp-machdetails__ipitem">
+            <div class="vp-machdetails__fielditeminner">
+                <!--IP FIELD LABEL-->
+                <div class="vp-machdetails__fieldlabelwrap inblock">
+                    <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Entity:</label>
+                </div>
+                <!--IP FIELD CONTENT-->
+                <div class="vp-machdetails__fieldcontent inblock">
+                    <div class="vp-machdetails__fieldipwrap inblock">
+                        <span class="vp-machdetails__fieldip text--regular text--lg text--ellipsis text--ellipsis--single"><b>{{SingleData.parent_entity_name}}</b> on machine <b>{{SingleData.machine_name}}</b></span>
+                    </div>
+                </div>
+            </div>
+        </li>
+         <br><br>
+        <li class="vp-machdetails__fielditem vp-machdetails__ipitem"  ng-hide="NestedSteps === true">
+            <div class="vp-machdetails__fielditeminner">
+                <!--IP FIELD CONTENT-->
+                <div class="">
+                    <table>
+                        <tr>
+                            <th>ID</th>
+                            <th>Step Name</th>
+                            <th>Step Message</th>
+                            <th>Step Status</th>
+                            <th>Step Duration</th>
+                            <th>Step Start Time</th>
+                            <th>Step End Time</th>
+                            <th>Nested Step Detail</th>
+                        </tr>
+                        <tr ng-repeat="singleStep in SingleData.step_details">
+                            <td>{{singleStep.step_id}}</td>
+                            <td>{{singleStep.step_name}}</td>
+                            <td style="max-width:450px;word-wrap: break-word" >{{singleStep.step_message}}</td>
+                            <td>{{singleStep.step_status}}</td>
+                            <td>{{singleStep.step_duration}}</td>
+                            <td>{{singleStep.step_start_time}}</td>
+                            <td>{{singleStep.step_end_time}}</td>
+                             <td>
+                                <button  ng-if="singleStep.nested_step_details !=null" type="button" class="vp-machdetails__removemachinebtn vp-uielement__button vp-uielement__button--edittool pr--md pl--md ml--md" style="min-width:100px" ng-click="showNestedStepsDetails(SingleData._id.$oid)">View Steps</button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </li>
+        <li class="vp-machdetails__fielditem vp-machdetails__ipitem" ng-if="NestedSteps === true">
+            <div class="vp-machdetails__fielditeminner">
+                <!--IP FIELD CONTENT-->
+                <div class="">
+                    <table>
+                        <tr>
+                            <th>Step ID</th>
+                            <th>Step Name</th>
+                            <th>Step Status</th>
+                            <th>Step Message</th>
+                            <th>Step Start Time</th>
+                            <th>Step End Time</th>
+                            <th>Step Duration</th>
+                        </tr>
+                        <tr ng-repeat="toolData in NestedStepDetails">
+                            <td>{{toolData.step_id}}</td>
+                            <td>{{toolData.step_name}}</td>
+                            <td>{{toolData.step_status}}</td>
+                            <td>{{toolData.step_message}}</td>
+                            <td>{{toolData.step_start_time}}</td>
+                            <td>{{toolData.step_end_time}}</td>
+                            <td>{{toolData.step_duration}}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </li>
+          
+
+            
+        <li class="vp-machdetails__fielditem vp-machdetails__ipitem button-wrapper" ng-hide="SingleData.status=='Done'">
+            <div class="vp-machdetails__fielditeminner">
+                <!--IP FIELD CONTENT-->
+                <button  type="button" class="vp-machdetails__removemachinebtn vp-uielement__button vp-uielement__button--edittool pr--md pl--md ml--md" ng-click="retry(SingleData._id.$oid)">Retry Request</button>
+            </div>
+        </li>
+
+        <li class="vp-machdetails__fielditem vp-machdetails__ipitem button-wrapper">
+            <div class="vp-machdetails__fielditeminner">
+                <!--IP FIELD CONTENT-->
+                <button type="button" class="vp-machdetails__removemachinebtn vp-uielement__button vp-uielement__button--edittool pr--md pl--md ml--md" ng-click="showLog()">View Log</button>
+            </div>
+        </li>
+         <li class="vp-machdetails__fielditem vp-machdetails__ipitem button-wrapper" ng-if="NestedSteps===true">
+            <div class="vp-machdetails__fielditeminner">
+                <!--IP FIELD CONTENT-->
+                <button type="button" class="vp-machdetails__removemachinebtn vp-uielement__button vp-uielement__button--edittool pr--md pl--md ml--md" ng-click="showSteps()">Back</button>
+            </div>
+        </li>
+          <!--log-->
+      <li class="vp-machdetails__fielditem vp-machdetails__ipitem">
+           <!--IP FIELD LABEL-->
+           <div class="log-overlay"></div>
+           <div class="log-modal">
+               <div class="vp-addtoolmodal__header fixed" style="width: 89vw; margin-left: -50px; margin-top: -50px;">
+                   <!--TITLE-->
+                   <h1 class="vp-addtoolmodal__title text--cs06 text--xl text--light mt--xl ml--xl inblock">Logs</h1>
+                   <!--CLOSE BUTTON-->
+                   <button type="button" class="vp-addtoolmodal__closebtn btn--clear mt--md mr--xxxl right" ng-click="hideLog()"></button>
+               </div>
+               <div class="vp-machdetails__fieldlabelwrap inblock" style="margin-top: 20px;">
+                    <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Logs:</label>
+               </div>
+               <div class="vp-machdetails__fielditeminner">
+                    <!--IP FIELD CONTENT-->
+                    <table>
+                        <tr ng-repeat="singleDateLog in CurrentDeploymentlogs track by $index" style="background: inherit">
+                            <td>{{singleDateLog.dateofdeployment}}</td>
+                            <td>
+                                <table>
+                                    <tr>
+										<th class="mr--md mb--md mt--xl left" style="background-color: inherit">Pre Deployment : </th>
+									</tr>
+									<tr class="mr--md mb--md" style="background-color: inherit" ng-repeat="preDeployLogInfo in singleDateLog.logdata.pre_deployment track by $index">
+                                        <td>{{preDeployLogInfo}}</td>
+                                    </tr>
+									<tr>
+										<th class="mr--md mb--md mt--xl left" style="background-color: inherit">Deployment Process : </th>
+									</tr>
+                                    <tr class="mr--md mb--md" style="background-color: inherit" ng-repeat="deployLogInfo in singleDateLog.logdata.deploy_process track by $index">
+                                        <td>{{deployLogInfo}}</td>
+                                    </tr>
+									<tr>
+										<th class="mr--xl mb--md mt--xl left" style="background-color: inherit">Post Deployment : </th>
+									</tr>
+									<tr class="mr--md mb--md" style="background: inherit" ng-repeat="postDeployLogInfo in singleDateLog.logdata.post_deployment track by $index">
+                                        <td>{{postDeployLogInfo}}</td>
+                                    </tr>
+                                </table>
+                            </td>
+
+                        </tr>
+                    </table>
+                </div>
+
+           </div>
+            
+        </li>
+    </ul>
+</div>
+<!--MACHINE DETAILS VERTICAL TAB CONTENT COMPONENT END-->

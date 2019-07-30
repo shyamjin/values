@@ -1,0 +1,28 @@
+Fetch all Deployment Requests
+---
+tags:
+ - Deployment Requests
+parameters:
+- name: token
+  in: header
+  description: API key
+  required: false
+  type: string
+  format: string
+- name: access-token
+  in: header
+  description: API key
+  required: false
+  type: string
+  format: string 
+responses:
+  200:
+    description: Successfully fetched all Deployment Requests
+    examples:
+      result: "success"
+      message: null
+  404:
+    description: exception in fetching Deployment Requests
+    examples:
+      result: "failed"
+      message: "Throws an exception"

@@ -1,0 +1,37 @@
+<!--PERMISSIONS SELECT FORM COMPONENT START-->
+<div class="vp-permissionsselect bg--white" style="width: 600px;">
+    <!--COLUMN LABELS SECTION-->
+    <section class="vp-permissionsselect__header text--capitalize text--cs03 text--light text--md max--width">
+        <label class="vp-permissionsselect__rolecol inblock"><span class="permissionweight">Permissions |</span> <span class="rolecolor">Roles</span></label>
+        <div class="inblock text--center"   ng-repeat="role in roles.data">
+            <label class="vp-permissionsselect__rolenamecol inblock">{{role.name}}</label>
+        </div>
+        <hr class="vp-permissionsselect__separator mt--md bg--cs09 ba--clear">
+    </section>
+    <!--PERMISSIONS SELECT SECTION-->
+    <section class="vp-permissionsselect__body max--width">
+        <form action="#" name="vp-permissionsselect__form">
+            <ul class="vp-permissionsselect__list pt--xl">
+                <!--DEPLOY TOOLS PERMISSIONS-->
+                <li class="vp-permissionsselect__item vp-permissionsselect__itemdeploytools pt--xxxl max--width" ng-model="permissiongroup.selected[$index]" ng-repeat="permissiongroup in permissiongroup.data">
+                    <div class="vp-permissionsselect__iteminner">
+                        <div class="vp-permissionsselect__rolecol vertical--bottom text--regular text--lg inblock">
+                            <span class="text--ellipsis text--ellipsis--single">{{permissiongroup.groupname}}</span>
+                        </div>
+                        <div class="noselect text--center inblock"  ng-repeat="role in roles.data">
+                            <div class="vp-permissionsselect__rolenamecol inblock">
+                                <!--ADMIN CHECKBOX-->
+                                <div class="vp-permissionsselect__deploytoolsadminboxwrap vp-uielement__checkbox inblock" >
+                                    <input type="checkbox" id="vp-permissionsselect__deploytoolsadminbox_{{permissiongroup.groupname}}_{{$index}}" name="vp-permissionsselect__deploytoolsadminbox_{{permissiongroup.groupname}}_{{$index}}" ng-model="role_name.selected[$index]" ng-checked="exist(permissiongroup,role)" ng-click="toggleSelection(permissiongroup,role)" />
+                                    <!--<input type="checkbox" id="vp-permissionsselect__deploytoolsadminbox_{{permissiongroup.groupname}}_{{$index}}" name="vp-permissionsselect__deploytoolsadminbox_{{permissiongroup.groupname}}_{{$index}}" ng-model="role_name.selected[$index]" />-->
+                                    <label for="vp-permissionsselect__deploytoolsadminbox_{{permissiongroup.groupname}}_{{$index}}"></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </form>
+    </section>
+</div>
+<!--PERMISSIONS SELECT FORM COMPONENT END-->

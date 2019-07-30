@@ -1,0 +1,167 @@
+--- 
+definitions: 
+  Data: 
+    properties: 
+      data: 
+        type: string
+      message: 
+        type: string
+      result: 
+        type: string
+    type: object
+  Tool: 
+    optional: 
+      - tag
+      - description
+      - is_tool_cloneable
+      - artifacts_only
+      - allow_build_download
+      - logo
+    properties: 
+      _id: 
+        properties: 
+          oid: 
+            type: string
+        type: object
+      allow_build_download: 
+        type: string
+      artifacts_only: 
+        type: string
+      description: 
+        type: string
+      is_tool_cloneable: 
+        type: string
+      logo: 
+        type: string
+      name: 
+        type: string
+      status: 
+        type: string
+      support_details: 
+        type: string
+      tag: 
+        items: 
+          type: string
+        type: array
+      version: 
+        item: 
+          optional: 
+            - pre_requiests
+            - gitlab_repo
+            - gitlab_branch
+            - jenkins_job
+            - document
+            - release_notes
+            - mps_certified
+            - deployment_field
+            - dependent_tools
+            - deployed_on
+            - included_in
+            - build
+            - media_file
+          properties: 
+            _id: 
+              properties: 
+                oid: 
+                  type: string
+              type: object
+            repository_to_use:
+              type: string
+            backward_compatible: 
+              type: string
+            branch_tag: 
+              type: string
+            dependent_tools:
+              type: array
+              items:
+                type: object
+                required:
+                  - tool_id
+                  - version_id
+                  - is_mandatory
+                properties:
+                  tool_id:
+                    type: string
+                  version_id:
+                    type: string
+                  is_mandatory:
+                    type: boolean
+            deployed_on: 
+              items: 
+                type: string
+              type: array
+            gitlab_branch: 
+              type: string
+            gitlab_repo: 
+              type: string
+            included_in: 
+              items: 
+                type: string
+              type: array
+            jenkins_job: 
+              type: string
+            mps_certified: 
+              items: 
+                type: string
+              type: array 
+            release_notes: 
+              type: string
+            status: 
+              type: string
+            version_date: 
+              type: string
+            version_name: 
+              type: string
+            version_number: 
+              type: string
+          required: 
+            - _id
+            - version_date
+            - version_name
+            - version_number
+            - branch_tag
+            - status
+            - repository_to_use
+          optional:
+            - backward_compatible
+          type: object
+        type: array
+    required: 
+      - _id
+      - name
+      - support_details
+      - version
+      - status
+    type: object
+parameters: 
+  - 
+    description: "API key"
+    format: string
+    in: header
+    name: token
+    required: true
+    type: string
+  - 
+    description: "Tools data"
+    format: string
+    in: body
+    name: input
+    required: true
+    schema: 
+      $ref: "#/definitions/Tool"
+    type: string
+responses: 
+  200: 
+    description: "Tool was updated successfully"
+    examples: 
+      message: "Tool was updated successfully"
+      result: success
+    schema: 
+      $ref: "#/definitions/Data"
+  404: 
+    description: "exception in updating tool"
+    examples: 
+      message: "Throws an exception"
+      result: failed
+tags: 
+  - Tools

@@ -1,0 +1,33 @@
+Deleting Media File, referring by Id
+---
+tags:
+ - Media Files
+parameters:
+- name: token
+  in: header
+  description: API key
+  required: false
+  type: string
+  format: string
+- name: access-token
+  in: header
+  description: API key
+  required: false
+  type: string
+  format: string 
+- name: id
+  in: path
+  type: string
+  required: true
+  description: Delete Media File
+responses:
+  200:
+    description: Deleted Media File Successfully
+    examples:
+      result: "success"
+      message: null
+  404:
+    description: exception in deleting the Media File
+    examples:
+      result: "failed"
+      message: "Throws an exception"

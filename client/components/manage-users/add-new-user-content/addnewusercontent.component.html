@@ -1,0 +1,15 @@
+<!--'ADD NEW USER' TAB CONTENT COMPONENT START-->
+<div class="vp-addnewusercont vp-control max" ng-controller="AddNewUserController">
+    <!--ADD NEW USER FORM-->
+    <div class="vp-addnewusercont__form" ng-include="'static/components/manage-users/add-new-user-form/addnewuserform.component.html'"></div>
+    <!--TOOLBAR -->
+    <div class="vp-addnewusercont__toolbar fixed pos--bottom pos--left bg--cs06 max--width">
+        <div class="vp-addnewusercont__innerbounded clearfix">
+            <div class="vp-addnewusercont__adduserbtnwrap right">
+                <!--ADD USER BUTTON (MODIFIERS: # vp-uielement__button--deploydisabled )-->
+                <button type="button" class="vp-addnewusercont__addnewuserbtn vp-uielement__button vp-uielement__button--deployenabled pr--lg pl--lg"  ng-click="addNewUser('vp-userform__userform')">Add user</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--'ADD NEW USER' TAB CONTENT COMPONENT END-->

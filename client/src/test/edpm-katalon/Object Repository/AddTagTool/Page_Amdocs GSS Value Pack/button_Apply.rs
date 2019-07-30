@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+   <description></description>
+   <name>button_Apply</name>
+   <tag></tag>
+   <elementGuidId>1ce7b7d8-7bbe-4436-abf5-979b70a53942</elementGuidId>
+   <selectorCollection>
+      <entry>
+         <key>BASIC</key>
+         <value>//button[@type = 'button' and @ng-click = 'closeAddTag()']</value>
+      </entry>
+   </selectorCollection>
+   <selectorMethod>BASIC</selectorMethod>
+   <useRalativeImagePath>false</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>tag</name>
+      <type>Main</type>
+      <value>button</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>type</name>
+      <type>Main</type>
+      <value>button</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>class</name>
+      <type>Main</type>
+      <value>vp-certifiedaddpopup__applybtn vp-uielement__button vp-uielement__button--apply</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>ng-click</name>
+      <type>Main</type>
+      <value>closeAddTag()</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>text</name>
+      <type>Main</type>
+      <value>Apply</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath</name>
+      <type>Main</type>
+      <value>id(&quot;add_tag&quot;)/div[@class=&quot;vp-prereqeditpopup vp-control ng-scope&quot;]/div[@class=&quot;vp-prereqeditpopup__container vp-uielement__popup pt--sm pr--md pb--xl pl--md bg--white skip_slideup&quot;]/div[@class=&quot;vp-prereqeditpopup__optionswrap mt--lg&quot;]/div[@class=&quot;vp-certifiedaddpopup__buttonswrap&quot;]/button[@class=&quot;vp-certifiedaddpopup__applybtn vp-uielement__button vp-uielement__button--apply&quot;]</value>
+   </webElementProperties>
+</WebElementEntity>

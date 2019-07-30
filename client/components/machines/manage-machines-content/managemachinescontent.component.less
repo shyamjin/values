@@ -1,0 +1,67 @@
+// VARIABLES: SECTION 42
+.vp-mmanagetab {
+    // FILTER COMPONENT INSIDE TAB
+    .vp-mmanagetab__filterwrap {
+        width: @dashFilterWidth;
+        // height: calc(~"100% -" 1px);
+        // CLOSE FILTER STATE
+        &.vp-mmanagetab__filterwrap--close {
+            // CLOSE FILTER WIDTH
+            width: @machinesCloseFilterWidth;
+            .vp-filter__dashboardfilterform, .vp-filter__headericonlabel, .vp-mmanagetab__filterclosebtn {
+                .hidden;
+            }
+            // RESET BORDER
+            .vp-filter__header {
+                border: 0px;
+            }
+            // FILTER ICON
+            .vp-filter__headericon {
+                .abs-pos--center;
+            }
+        }
+    }
+    // SERCH MACHINES AND VERTICAL TAB SECTION
+    .vp-mmanagetab__machinesectionwrap {
+        width: 1000px;
+    }
+    .vp-mmanagetab__syncsectionwrap {
+        width: @syncVerticalTabWidth;
+    }
+    // FILTER CLOSE ARROW BUTTON
+    .vp-mmanagetab__filterclosebtn {
+        top: @machinesFilterCloseBtnTop;
+        right: @machinesFilterCloseBtnRight*2;
+        -webkit-transform: rotate(180deg);
+        transform: rotate(180deg);
+        z-index: 5;
+    }
+    .vp-uielement__searchinput {
+        border: 0px;
+    }
+    // MACHINES SEARCH COLUMN (FIND MACHINE)
+    .vp-mmanagetab__findmachinewrap {
+        width: @machinesSearchWidth;
+        // ITEM STATUS ICON
+        .vp-machinessearch__statusiconwrap {
+            .inblock;
+        }
+        .vp-machinessearch__item {
+            &--selected {
+                border: 2px solid @cs07;
+            }
+        }
+    }
+}
+.set_margin_rad {
+    margin-right: 20px;
+}
+.left_space {
+    margin-right: 13%;
+}
+.list_spacing {
+    margin-bottom: 20px;
+}
+.field_label_spacing {
+    margin-right: 20px;
+}

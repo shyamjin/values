@@ -1,0 +1,33 @@
+install the Plugin by name.
+---
+tags:
+  - Plugin
+parameters:
+- name: token
+  in: header
+  description: API key
+  required: false
+  type: string
+  format: string
+- name: access-token
+  in: header
+  description: API key
+  required: false
+  type: string
+  format: string 
+- name: token
+  in: header
+  description: API key
+  required: true
+  type: string
+  format: string
+
+
+responses:
+  200:
+    description: A list of Plugin
+    schema:
+        $ref: "#/definitions/Data"     # <---------
+    examples:
+      result: "success"
+      message: ""

@@ -1,0 +1,169 @@
+<div class="vp-machdetails vp-control pt--xxxl pr--xl pb--xxxl pl--xxxl bg--white clearfix" ng-controller="ViewSyncRequestDataController">
+    <ul class="vp-machdetails__fieldslist text--cs03">
+        <div class="split-wrapper" style="width: 76%;">
+            <div class="vp-tabs__bodyheader--scrolled relative">
+                <div class="vp-tabs__bodyheaderfiltericonwrapper mr--xxxl text--light text--md text--cs03 pointer right">
+                    <div class="vp-tabs__bodyheaderselectedtoolspopup absolute hidden" id="show_sync_filter" style="margin-left: -161px; margin-top: 52px;" ng-include="'static/components/synchronization-services/filters/syncfilter.component.html'"></div>
+                    <button type="button" class="vp-tabs__bodyheaderfilterbtn vp-uielement__button tag_popup vp-uielement__button--cleanenabled pl--xxl text--light text--md" ng-click="showFilter()" ng-if="isFilterApplied === false" style="margin: 14px;"><span>Filter</span></button>
+                    <button type="button" class="vp-tabs__bodyheaderfilterbtn_active vp-uielement__button tag_popup vp-uielement__button--cleanenabled pl--xxl text--light text--md" ng-click="showFilter()" ng-if="isFilterApplied === true" style="margin: 14px;"><span>Filter</span></button>
+                </div>
+            </div>
+            <div class="left-data split">
+            <li class="vp-machdetails__fielditem vp-machdetails__ipitem" ng-if="!SingleData.skipped_ind">
+                    <div class="vp-machdetails__fielditeminner">
+                        <!--IP FIELD LABEL-->
+                        <div class="vp-machdetails__fieldlabelwrap inblock">
+                            <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single text--semibold" style="line-height: 2;">Total:</label>
+                        </div>
+                        <!--IP FIELD CONTENT-->
+                        <div class="vp-machdetails__fieldcontent inblock">
+                            <div class="vp-machdetails__fieldipwrap inblock">
+                                <span class="vp-machdetails__fieldip text--regular text--lg text--ellipsis text--ellipsis--single" style="line-height: 2;">{{request_counts.total}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="vp-machdetails__fielditem vp-machdetails__ipitem">
+                    <div class="vp-machdetails__fielditeminner">
+                        <!--IP FIELD LABEL-->
+                        <div class="vp-machdetails__fieldlabelwrap inblock">
+                            <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single text--semibold" style="line-height: 2;">Success:</label>
+                        </div>
+                        <!--IP FIELD CONTENT-->
+                        <div class="vp-machdetails__fieldcontent inblock">
+                            <div class="vp-machdetails__fieldipwrap inblock">
+                                <span class="vp-machdetails__fieldip text--regular text--lg text--ellipsis text--ellipsis--single" style="line-height: 2;">{{request_counts.success}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="vp-machdetails__fielditem vp-machdetails__ipitem" ng-if="!SingleData.skipped_ind">
+                    <div class="vp-machdetails__fielditeminner">
+                        <!--IP FIELD LABEL-->
+                        <div class="vp-machdetails__fieldlabelwrap inblock">
+                            <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single text--semibold" style="line-height: 2;">New:</label>
+                        </div>
+                        <!--IP FIELD CONTENT-->
+                        <div class="vp-machdetails__fieldcontent inblock">
+                            <div class="vp-machdetails__fieldipwrap inblock">
+                                <span class="vp-machdetails__fieldip text--regular text--lg text--ellipsis text--ellipsis--single" style="line-height: 2;">{{request_counts.new}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="vp-machdetails__fielditem vp-machdetails__ipitem" ng-if="!SingleData.skipped_ind">
+                    <div class="vp-machdetails__fielditeminner">
+                        <!--IP FIELD LABEL-->
+                        <div class="vp-machdetails__fieldlabelwrap inblock">
+                            <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single text--semibold" style="line-height: 2;">Skipped:</label>
+                        </div>
+                        <!--IP FIELD CONTENT-->
+                        <div class="vp-machdetails__fieldcontent inblock">
+                            <div class="vp-machdetails__fieldipwrap inblock">
+                                <span class="vp-machdetails__fieldip text--regular text--lg text--ellipsis text--ellipsis--single" style="line-height: 2;">{{request_counts.skipped}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>                
+            </div>
+            <div class="right-data split">
+                <li class="vp-machdetails__fielditem vp-machdetails__ipitem">
+                    <div class="vp-machdetails__fielditeminner">
+                        <!--IP FIELD LABEL-->
+                        <div class="vp-machdetails__fieldlabelwrap inblock">
+                            <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single text--semibold" style="line-height: 2;">Failed:</label>
+                        </div>
+                        <!--IP FIELD CONTENT-->
+                        <div class="vp-machdetails__fieldcontent inblock">
+                            <div class="vp-machdetails__fieldipwrap inblock">
+                                <span class="vp-machdetails__fieldip text--regular text--lg text--ellipsis text--ellipsis--single" style="line-height: 2;">{{request_counts.failed}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="vp-machdetails__fielditem vp-machdetails__ipitem">
+                    <div class="vp-machdetails__fielditeminner">
+                        <!--IP FIELD LABEL-->
+                        <div class="vp-machdetails__fieldlabelwrap inblock">
+                            <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single text--semibold" style="line-height: 2;">Retry:</label>
+                        </div>
+                        <!--IP FIELD CONTENT-->
+                        <div class="vp-machdetails__fieldcontent inblock">
+                            <div class="vp-machdetails__fieldipwrap inblock">
+                                <span class="vp-machdetails__fieldip text--regular text--lg text--ellipsis text--ellipsis--single" style="line-height: 2;">{{request_counts.retry}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="vp-machdetails__fielditem vp-machdetails__ipitem">
+                    <div class="vp-machdetails__fielditeminner">
+                        <!--IP FIELD LABEL-->
+                        <div class="vp-machdetails__fieldlabelwrap inblock">
+                            <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single text--semibold" style="line-height: 2;">Compared:</label>
+                        </div>
+                        <!--IP FIELD CONTENT-->
+                        <div class="vp-machdetails__fieldcontent inblock">
+                            <div class="vp-machdetails__fieldipwrap inblock">
+                                <span class="vp-machdetails__fieldip text--regular text--lg text--ellipsis text--ellipsis--single" style="line-height: 2;">{{request_counts.compared}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </div>
+        </div>
+        <li class="vp-machdetails__fielditem vp-machdetails__ipitem">
+            <div class="vp-machdetails__fielditeminner">
+                <div class="vp-machdetails__fieldlabelwrap inblock" style="width: 100%; line-height: 2.0">
+                    <table class="vp-machdetails__fieldlabel text--light text--md">
+                        <tr>
+                            <th class="pa--md bg--cs01 text--white">Sr.</th>
+                            <th class="pa--md bg--cs01 text--white">Status</th>
+                            <th class="pa--md bg--cs01 text--white">Source Creation Time</th>
+                            <th class="pa--md bg--cs01 text--white">Source Host</th>
+                            <th class="pa--md bg--cs01 text--white">Operation</th>
+                            <th class="pa--md bg--cs01 text--white">Status Message</th>
+                        </tr>
+                        <tr ng-repeat="rec in SyncData.data">
+                            <td class="pa--md">{{$index+1+add_count}}</td>
+                            <td class="pa--md">{{rec.status}}</td>
+                            <td class="pa--md">{{rec.source_created_time}}</td>
+                            <td class="pa--md">{{rec.source_host}}</td>
+                            <td class="pa--md">{{rec.operation}}</td>
+                            <td class="pa--md text--ellipsis--two">
+                                <span ng-if="rec.status_message.length<=40">{{rec.status_message}}</span>
+                                <span ng-if="rec.status_message.length>40" title="{{rec.status_message}}">{{rec.status_message.substring(0, 40)}}...</span>
+                            </td>
+                            <!--<td class="pa&#45;&#45;md text&#45;&#45;ellipsis&#45;&#45;two">-->
+                                <!--<span ng-if="rec.warning_message.length<=40">{{rec.warning_message}}</span>-->
+                                <!--<span ng-if="rec.warning_message.length>40" title="{{rec.warning_message}}">{{rec.warning_message.substring(0, 40)}}...</span>-->
+                            <!--</td>-->
+                            <td>
+                                <button  ng-if="rec.status=== 'failed'" type="button" class="vp-machdetails__removemachinebtn vp-uielement__button vp-uielement__button--edittool pr--md pl--md ml--md" style="min-width:100px" ng-click="retryFailedSyncForEntity(rec._id)">Retry</button>
+                            </td>
+                        </tr>
+                    </table>
+                    <div class="vp-machdetails__fieldlabel text--light text--md" style="margin-left: 27%;">
+                        <div style="line-height: 4;">
+                            <div>
+                                <button ng-if="currentInnerPage>5" id="get_previous_page_{{$index}}" type="button" class="vp-versionform__screenshotsbrowsleftbtn vp-uielement__button vp-uielement__button--browseleft vertical--middle" ng-click="showPreviousPage()" style="height: 27px; margin-bottom: 6px;"></button>
+                                <button ng-if="currentInnerPage>5" type="button" class="vp-machdetails__removemachinebtn vp-uielement__button vp-uielement__button--edittool pr--md pl--md ml--md mr--md" style="min-width: 33px" ng-click="showThisPage(page)">1</button>
+                                <span ng-if="currentInnerPage>5">...</span>
+                            </div>
+                            <div>
+                                <span ng-repeat="page in pageTotal">
+                                    <button ng-if="currentInnerPage !== page" type="button" class="vp-machdetails__removemachinebtn vp-uielement__button vp-uielement__button--edittool pr--md pl--md ml--md mr--md" style="min-width: 33px;" ng-click="showThisPage(page)">{{page}}</button>
+                                    <button ng-if="currentInnerPage === page" type="button" class="vp-machdetails__removemachinebtn vp-uielement__button vp-uielement__button--edittool pr--md pl--md ml--md mr--md" style="min-width: 33px; border-width: 2px;" ng-click="showThisPage(page)"><u>{{page}}</u></button>
+                                </span>
+                            </div>
+                            <div>
+                                <span ng-if="currentInnerPage< 5 && pageTotal>5">...</span>
+                                <button ng-if="currentInnerPage<5 && pageTotal>5" type="button" class="vp-machdetails__removemachinebtn vp-uielement__button vp-uielement__button--edittool pr--md pl--md ml--md mr--md" style="min-width: 33px" ng-click="showThisPage(page)">{{pageTotal.length}}</button>
+                                <button ng-if="currentInnerPage<5 && pageTotal>5"id="get_next_page_{{$index}}" type="button" class="vp-versionform__screenshotsbrowsrightbtn vp-uielement__button vp-uielement__button--browseright vertical--middle" ng-click="showNextPage()" style="height: 27px; margin-bottom: 6px;"></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>

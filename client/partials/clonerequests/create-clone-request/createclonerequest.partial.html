@@ -1,0 +1,19 @@
+<!--EDIT TOOLS PARTIALS ASSEMBLY START (MODIFIERS: # vp-edittools--scroled)-->
+<div class="vp-edittools vp-control max--width" ng-controller="CreateAccountController">
+    <form name="CreateCloneRequestForm">
+        <!--SIDE NAVBAR SECTION-->
+        <div class="vp-edittools__navaside fixed pos--top pos--bottom" ng-include="'static/components/dashboard/navaside/navaside.component.html'"></div>
+        <!-- HEADER MESSAGE SECTION-->
+        <div class="vp-toolspage__headnotification" id="header_message" ng-include="'static/components/dashboard/header-message/headermessage.component.html'"></div>
+        <!--HEADER SECTION-->
+        <div class="vp-edittools__header pos--top pos--right pos--left" ng-include="'static/components/tools/deploy-tools/header/header.component.html'"></div>
+        <div class="vp-edittools__content bg--white max--height relative">
+            <div class="vp-edittools__contentbounded pr--xxxl">
+                <!--TOO INFORMATION SECTION-->
+                <div class="vp-edittools__toolinfo" ng-include="'static/components/clonerequests/create-clone-request/create-clone-request-info/createclonerequestinfo.component.html'"></div>
+            </div>
+        </div>
+        <!--BOTTOM TOOLBAR SECTION-->
+        <div class="vp-edittools__toolbar fixed pos--right pos--bottom pos--left" ng-include="'static/components/clonerequests/create-clone-request/toolbar/toolbar.component.html'"></div>
+    </form>
+</div>

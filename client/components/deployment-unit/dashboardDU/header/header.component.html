@@ -1,0 +1,19 @@
+<!--HEADER COMPONENT START-->
+<div class="vp-header vp-control max--width">
+	<div class="vp-header__wrapper pt--xl  max--width">
+		<h1 class="vp-header__title inblock text--upper vertical--top ml--xl mt--sm text--cs06 text--light text--xxl">DU</h1>
+		<!--SEARCH FIELD ELEMENT-->
+		<div class="vp-header__searchbox inblock ml--xxl">
+			<div class="vp-uielement__searchbox">
+				<form id="vp-uielement__searchform">
+					<!--SEARCH INPUT TEXT and BUTTON-->
+					<input class="vp-header__headsearchinput vp-uielement__searchinput" ng-model="searchDUKeyword" type="text" placeholder="Search by name" ng-keyup="$event.keyCode == 13 ? searchDUWithName(searchDUKeyword) : null"  ng-change="searchDU($event, searchDUKeyword)"/>
+					<button class="vp-header__headsearchbtn vp-uielementt__searchbtn" type="button" ng-if="!searchProgress" ng-click="searchDUWithName(searchDUKeyword)"></button>
+					<div class="progress_loader" ng-if="searchProgress"></div>
+				</form>				
+				
+			</div>
+		</div>
+	</div>
+</div>
+<!--HEADER COMPONENT END-->

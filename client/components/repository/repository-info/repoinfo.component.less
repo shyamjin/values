@@ -1,0 +1,38 @@
+// VARIABLES: SECTION 54
+.vp-selectedrepoform {
+    // USER SELECTED FRO THE LIST 
+    &.vp-selectedrepoform--active{
+        &:after{
+            content: none;
+        }
+        .vp-userform__selectedrepoform{
+            .block;
+        }
+    }
+    // IF NO USER SELECTED SHOW FORM COVER
+    &:after{
+        content: 'Select a Repo from the list';
+        .block;
+        .text--center;
+        width: @noFormCoverWidth;
+        line-height: @noFormCoverWidth;
+        .bg--cs06;
+        .text--cs08;
+        .text--light;
+        .text--xxl;
+    }
+    input[type=text] {
+        border: 1px solid @cs08;
+        &:focus {
+            border: 1px solid @cs04;
+        }
+    }
+    // SELECTED USER NAME MAX LENGTH
+    .vp-userform__selectedusernamewrap {
+        max-width: @maxNameLenth;
+    }
+    // SUSPEND CHECKBOX MARGIN TOP
+    .vp-userform__suspentbox{
+        margin-top: @suspendCheckboxMT;
+    }
+}

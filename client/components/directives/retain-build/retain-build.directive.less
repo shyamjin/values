@@ -1,0 +1,165 @@
+// VARIABLES: SECTION 36
+// COPONENT CLASS
+.vp-updatetoolversionbuildmarkup {
+    width: 700px;
+    height: 460px;
+    top: 20%;
+    left: 25%;
+}
+
+.vp-toolversionbuildmarkup {
+    width: @rdModalWidth;
+    height: 100%;
+    // HEADER STYLE
+    &__header {
+        height: @rdModalHeaderHeight;
+        background-image: -webkit-linear-gradient(91.5deg, transparent 0%, transparent 22%, @cs01 24%, @cs01 100%);
+        background-image: linear-gradient(-1.5deg, transparent 0%, transparent 22%, @cs01 24%, @cs01 100%);
+    }
+    &__body {
+        padding-top: @rdModalBodyPT;
+        padding-left: @rdModalBodyPL;
+       // height: 100%;
+        //overflow-y: scroll;
+    }
+    // CLOSE BUTTON
+    &__closebtn {
+        width: @rdModalBtnSize;
+        height: @rdModalBtnSize;
+        background: url('../assets/images/icons/big_x_btn.png') no-repeat;
+        background-size: contain;
+    }
+    //SECTION FIELD LABEL
+    &__fieldname {
+        min-width: @rdModalLAbelMinWidth;
+    }
+    &__titleinput, &__dropdownlist {
+        width: @titleFieldWidth;
+        height: @inputFieldHeight;
+        border: 1px solid @cs09;
+        &:focus {
+            border-color: @cs04;
+        }
+    }
+    //OPTIONS LIST ITEM WIDTH
+    .vp-addsettingmodal__optionsitem {
+        width: @titleFieldWidth;
+        &--default{
+            .vp-addsettingmodal__optionname:after{
+                content: 'Default';
+                .text--cs08;
+                .text--light;
+                .text--sm;
+                .ml--xxl;
+                .inblock;
+            }
+        }
+    }
+    &__virsionlist {
+
+    width: 30%;
+    float:left;
+
+        ul{
+        border:0;
+            li{
+            padding:0;
+               width: 100%;
+                height: 50px;
+                line-height: 50px;
+                border: 1px solid #e1e9eb;
+                border-right: 0px;
+                background: #f5f5f5;
+
+
+            }
+        }
+
+        .innerdiv{
+            table-layout: fixed;
+        }
+    }
+
+    &__buildlist {
+
+        width: 70%;
+        float:left;
+        height: 100%;
+       // background-color: red;
+        overflow-y: auto;
+        border: 1px solid #e1e9eb;
+        //border-top: 1px solid #e1e9eb;
+        //border-right: 1px solid #e1e9eb;
+
+        ul{
+        border:0;
+            li{
+               width: 100%;
+                height: 40px;
+                padding-left:40px;
+                line-height: 40px;
+
+               // border: 1px solid #e1e9eb;
+
+                .active{
+                    background: white;
+                    border-right: 0;
+                    cursor: default;
+                    position: relative;
+
+                    z-index: 1;
+                    line-height: 50px;
+                    border-left: 1px solid #e1e9eb;
+                    border-bottom: 1px solid #e1e9eb;
+                }
+
+            }
+
+            li:hover{
+            border-right:0;
+            background-color: white;
+
+            }
+        }
+
+        .innerdiv{
+            table-layout: fixed;
+        }
+        .buildcheckbox{
+        width:20px;
+        height:20px;
+        border: 1px solid;
+        }
+    }
+
+    // FOOTER VIEW STYLES
+    &__footer {
+        padding-left: @rdModalBodyPL;
+        padding-right: @rdModalBodyPL;
+        height: @rdModalFooterHeight;
+        line-height: @rdModalFooterHeight;
+        width: @rdModalWidth;
+        border-top: 1px solid @cs09;
+    }
+}
+
+
+
+.vp-toolversionbuildmarkup__body{
+    width:100%;
+    float:left;
+    overflow-y:auto;
+    height:75%;
+
+}
+
+.vp-toolversion_active{
+
+    background: white !important;
+    border-right: 0 !important;
+    cursor: default;
+    position: relative;
+    width: calc(100% + 1px) !important;
+    z-index: 1;
+    line-height: 50px;
+}

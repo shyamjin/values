@@ -1,0 +1,49 @@
+<!--SCHEDULED POPUP COMPONENT START-->
+<div class="vp-scheduledpopup vp-control lh--normal" id="deployment_scheduler">
+	<form name="scheduleDeploymentForm">
+	<div class="vp-scheduledpopup__container text--md text--cs03 text--regular pa--md bg--white relative">
+		<!--LABEL-->
+		<label class="vp-scheduledpopup__popuplabel ">Schedule deployment to: </label>
+		<!--CLOSE BUTTON-->
+		<button type="button" class="vp-scheduledpopu__closebtn vp-uielement__button vp-uielement__button--smallclose right" ng-click="closeDeploymentScheduler()"></button>
+		<div class="vp-scheduledpopup__deploycontainer">
+			<ul>
+				<!--RADIO BUTTOP 'DEPLOY NOW'-->
+                <li>
+                    <label class="vp-scheduledpopup__popuplabel ">Current Server time: {{currentServerTime.CurrentTime | date : "MM/d/y h:mma"}}</label>
+                </li>
+				<li class="vp-scheduledpopup__schedulerow mt--md">
+					<div class="vp-uielement__radiobtn vp-scheduledpopup__radiobtn">
+						<input type="radio" class="vp-scheduledpopup__deploynowradiobtn" id="vp-scheduledpopup__deploynowradiobtn" name="deploy_at_time" ng-model="deploy_at" value="now" checked ng-click="setScheduleType('now')">
+						<label for="vp-scheduledpopup__deploynowradiobtn"></label>
+						<label>Deploy now</label>
+					</div>
+				</li>
+				<!--RADIO BUTTOP 'DEPLOY AT'-->
+				<li class="vp-scheduledpopup__schedulerow mt--md">
+					<div class="vp-uielement__radiobtn vp-scheduledpopup__radiobtn vertical--top">
+						<input type="radio" class="vp-scheduledpopup__deployatradiobtn" id="vp-scheduledpopup__deployatradiobtn" name="deploy_at_time" ng-model="deploy_at" value="later" ng-click="setScheduleType('later')">
+						<label for="vp-scheduledpopup__deployatradiobtn"></label>
+					</div>
+					<label class="vp-scheduledpopup__daployatlabel vertical--top">Deploy at:</label>
+					<!--SCHEDULE TIME WRAPPER-->
+					<div class="vp-scheduledpopup__timewrapper inblock">
+						<input class="vp-scheduledpopup__scheduletime input--clear text--light text--sm block" type="datetime-local" name="scheduled_date_time" ng-model="scheduled_timestamp" />
+						<span class="vp-scheduledpopup_hint text--light text--cs08 text--sm">MM/DD/YYYY HH:MM</span>
+					</div>
+					<!--SCHEDULE DATE WRAPPER-->
+					<!--<div class="vp-scheduledpopup__datewrapper ml&#45;&#45;md inblock">-->
+						<!--<input class="vp-scheduledpopup__scheduledate input&#45;&#45;clear text&#45;&#45;light text&#45;&#45;sm block" name="vp-scheduledpopup__scheduledate"-->
+							<!--size="8" maxlength="8" type="text" />-->
+						<!--<span class="vp-scheduledpopup_hint text&#45;&#45;light text&#45;&#45;cs08 text&#45;&#45;sm">MM/DD/YY</span>-->
+					<!--</div>-->
+				</li>
+			</ul>
+			<!--UPDATE BUTTON (MODIFIERS: # vp-uielement__button--updateenabled)-->
+			<button type="button" class="vp-scheduledpopup__update vp-uielement__button vp-uielement__button--updatedisabled mt--md" ng-click="scheduleDeployment(scheduled_timestamp)">Update</button>
+		</div>
+	</div>
+	<div class="vp-scheduledpopup__popuparrow"></div>
+	</form>
+</div>
+<!--SCHEDULED POPUP COMPONENT END-->

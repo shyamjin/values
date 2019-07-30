@@ -1,0 +1,24 @@
+<div class="vp-rdmodal vp-control bg--white relative" style="overflow: auto;">
+	<div class="vp-rdmodal__header">
+		<!--TITLE-->
+		<h1 class="vp-rdmodal__title text--cs06 text--xl text--light mt--xl ml--xl inblock">{{pluginData.plugin_name}} Contents</h1>
+		<!--CLOSE BUTTON-->
+		<button type="button" class="vp-rdmodal__closebtn btn--clear mt--md mr--lg right" ng-click="closePluginDetailsModal()"></button>
+	</div>
+	<!--MODAL BODY-->
+	<div class="vp-rdmodal__body">
+        <div class="vp-rdmodal__status">
+            <div class="vp-machdetails__fielditeminner">
+                <table>
+                    <tr class="mr--md mb--md" style="background-color:inherit" ng-repeat="line in pluginData.file_contents track by $index">
+                        <td>
+                            <pre>
+                                <code ng-class="setInitClass(line)"> {{line}} </code>
+                            </pre>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

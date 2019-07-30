@@ -1,0 +1,136 @@
+// VARIABLES: SECTION 43 
+.vp-machdetails {
+    // FIELD LABEL STYLES
+    .vp-machdetails__fieldlabelwrap {
+        width: @detailLabelWidth;
+        line-height: 1.1;
+    }
+    .vp-remotesourcelocation__fieldlabelwrap {
+        width: @detailLabelWidth+30px;
+        line-height: 1.1;
+    }
+    .vp-distributionlist__fieldlabelwrap {
+        width: @detailLabelWidth+32px;
+        line-height: 1.1;
+    }
+    // FIELD CONTENT STYLES
+    .vp-machdetails__fieldcontent {
+        width: calc(~"100% -" @detailLabelWidth + 4px);
+    }
+    // IP SECTION CONTENT WIDTH
+    .vp-machdetails__fieldipbtnswrap {
+        width: @detailsIpBtnsBlockWidth;
+    }
+    .vp-machdetails__fieldipwrap {
+        max-width: calc(~"100% - " @detailsIpBtnsBlockWidth + 4px);
+    }
+    .vp-machdetails__editablewrap {
+        max-width: calc(~"100% - " @editBtnWidth + 14px);
+    }
+    .vp-machdetails__tunnelingcolumn {
+        &:not(:last-of-type) {
+            width: 13%;
+        }
+        &:last-of-type {
+            width: 12.5%;
+        }
+    }
+    // TUNNELING SEPARATOR
+    .vp-machdetails__tunnelingseparator {
+        height: 1px;
+    }
+    // TUNNELING INPUTS
+    .vp-machdetails__tunnelingitem {
+        input {
+            border: 1px solid @cs08;
+            .text--cs03;
+            .text--regular;
+            .text--lg;
+            padding: 2px 0px;
+        }
+    }
+    // SAVE AND CHECK BUTTON
+    .vp-machdetails__savecheckbtn {
+        width: @saveCheckBtnWidth;
+        line-height: 0.9;
+    }
+    // CONNECTION TEST STATES
+    .vp-machdetails__teststatusnotification {
+        &--success{
+            .text--cs04;
+        }
+        &--fail{
+            .text--cs05;
+        }
+    }
+}
+.dropdown_auth_type {
+    height: 26px;
+}
+.users_block {
+    margin-left : 30px;
+    margin-top : -4px;
+}
+.teams_block {
+    margin-left : 30px;
+    margin-top : -4px;
+}
+.vp-deployedtool_table_col {
+    width: 250px;
+    color: #292e4c;
+    font-weight: bold;
+    font-size: 14px;
+}
+.vp-deployedtool_history_table_col {
+    width: 180px;
+    color: #292e4c;
+    font-weight: bold;
+    font-size: 14px;
+}
+.vp-deployedtool_table_col_ver {
+    width: 100px;
+    color: #292e4c;
+    font-weight: bold;
+    font-size: 14px;
+}
+.deployedtool_table_col_build {
+    width: 100px;;
+    color: #292e4c;
+    font-weight: bold;
+    font-size: 14px;
+}
+.vp-deployedtool_toolname_col {
+    width: 250px;
+    line-height: 1.1;
+}
+.vp-deployedtool_history_col {
+    width: 180px;
+    line-height: 1.1;
+}
+
+.vp-deployedtool_version_col {
+    width: 150px;
+    line-height: 1.1;
+}
+.vp-deployedtool_build_col {
+    width: 120px;
+    line-height: 1.1;
+}
+.vp-deployedtool_latest_version_col {
+    width: 250px;
+    line-height: 1.1;
+}
+.vp-deployedtool_actions_col {
+    width: 100px;
+    line-height: 1.1;
+}
+.vp-machine_favoritnotselectedicon {
+    background: url('../assets/images/icons/fevorites_enable.png') no-repeat;
+    width: 40px;
+    height: 40px;
+}
+.vp-machine_favoritselectedicon {
+    background: url('../assets/images/icons/fevorites_selected.png') no-repeat;
+    width: 40px;
+    height: 40px;
+}

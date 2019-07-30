@@ -1,0 +1,175 @@
+<!--MACHINE DETAILS VERTICAL TAB CONTENT COMPONENT START-->
+<div class="vp-machdetails vp-control pt--xxxl pr--xl pb--xxxl pl--xxxl bg--white clearfix max">
+    <ul class="vp-machdetails__fieldslist text--cs03">
+        <!--IP FIELD ROW-->
+
+        <div class="split-wrapper">
+            <div class="left-data split">
+                <li class="vp-machdetails__fielditem vp-machdetails__ipitem">
+                    <div class="vp-machdetails__fielditeminner">
+                        <!--IP FIELD LABEL-->
+                        <div class="vp-machdetails__fieldlabelwrap inblock">
+                            <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Exported Count:</label>
+                        </div>
+                        <!--IP FIELD CONTENT-->
+                        <div class="vp-machdetails__fieldcontent inblock">
+                            <div class="vp-machdetails__fieldipwrap inblock">
+                                <span class="vp-machdetails__fieldip text--regular text--lg text--ellipsis text--ellipsis--single">{{saveExportsData.no_of_exported}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="vp-machdetails__fielditem vp-machdetails__ipitem" ng-if="saveExportsData.no_of_not_exported">
+                    <div class="vp-machdetails__fielditeminner">
+                        <!--IP FIELD LABEL-->
+                        <div class="vp-machdetails__fieldlabelwrap inblock">
+                            <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Not Exported Count:</label>
+                        </div>
+                        <!--IP FIELD CONTENT-->
+                        <div class="vp-machdetails__fieldcontent inblock">
+                            <div class="vp-machdetails__fieldipwrap inblock">
+                                <span class="vp-machdetails__fieldip text--regular text--lg text--ellipsis text--ellipsis--single">{{saveExportsData.no_of_not_exported}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="vp-machdetails__fielditem vp-machdetails__ipitem" ng-if="saveExportsData.filters_to_apply">
+                    <div class="vp-machdetails__fielditeminner">
+                        <!--IP FIELD LABEL-->
+                        <div class="vp-machdetails__fieldlabelwrap inblock">
+                            <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Applied Filter:</label>
+                        </div>
+                        <!--IP FIELD CONTENT-->
+                      <ul class="vp-createnewmachform__connectionsublist pl--xxl" style="padding-top:10px">
+                        <li class="vp-machdetails__fielditem vp-machdetails__ipitem" ng-if="saveExportsData.filters_to_apply.time_after">
+                            <div class="vp-machdetails__fielditeminner">
+                                <!--IP FIELD LABEL-->
+                                <div class="vp-machdetails__fieldlabelwrap inblock">
+                                    <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Time After:</label>
+                                </div>
+                                <!--IP FIELD CONTENT-->
+                                <div class="vp-machdetails__fieldcontent inblock">
+                                    <div class="vp-machdetails__fieldipwrap inblock">
+                                        <span class="vp-machdetails__fieldip text--regular text--lg text--ellipsis text--ellipsis--single">{{saveExportsData.filters_to_apply.time_after.$date | date : "M/d/y h:mma"}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="vp-machdetails__fielditem vp-machdetails__ipitem" ng-if="saveExportsData.filters_to_apply.type">
+                            <div class="vp-machdetails__fielditeminner">
+                                <!--IP FIELD LABEL-->
+                                <div class="vp-machdetails__fieldlabelwrap inblock">
+                                    <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Entity Type:</label>
+                                </div>
+                                <!--IP FIELD CONTENT-->
+                                <div class="vp-machdetails__fieldcontent inblock">
+                                    <div class="vp-machdetails__fieldipwrap inblock">
+                                        <span class="vp-machdetails__fieldip text--regular text--lg text--ellipsis text--ellipsis--single">{{saveExportsData.filters_to_apply.type}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="vp-machdetails__fielditem vp-machdetails__ipitem" ng-if="saveExportsData.filters_to_apply.tags">
+                            <div class="vp-machdetails__fielditeminner">
+                                <!--IP FIELD LABEL-->
+                                <div class="vp-machdetails__fieldlabelwrap inblock">
+                                    <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Tags:</label>
+                                </div>
+                                <!--IP FIELD CONTENT-->
+                                <div class="vp-machdetails__fieldcontent inblock">
+                                    <div class="vp-machdetails__fieldipwrap inblock">
+                                        <span class="vp-machdetails__fieldip text--regular text--lg text--ellipsis text--ellipsis--single">{{saveExportsData.filters_to_apply.tags.toString()}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                      </ul>
+                    </div>
+               </li>
+               <li class="vp-machdetails__fielditem vp-machdetails__ipitem">
+                    <div class="vp-machdetails__fielditeminner">
+                        <!--IP FIELD LABEL-->
+                        <div class="vp-machdetails__fielditeminner">
+                           <button type="button" class="vp-machdetails__removemachinebtn vp-uielement__button vp-uielement__button--edittool pr--md pl--md ml--md" ng-click="showToolExported()">Show Exported</button>
+                            <div class="vp-deploymentrequestmodalwrap fixed max--position hidden" id="show_tools_exported_modal">
+						        <div class="vp-running_deplopment_request absolute" ng-include="'static/components/import-export/popups/exportedtool.html'"></div>
+					        </div>
+                        </div>
+
+                    </div>
+                </li>
+            </div><!-- end left-data -->
+            <div class="right-data split">
+
+                <li class="vp-machdetails__fielditem vp-machdetails__ipitem">
+                    <div class="vp-machdetails__fielditeminner">
+                        <!--IP FIELD LABEL-->
+                        <div class="vp-machdetails__fieldlabelwrap inblock">
+                            <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Exported At:</label>
+                        </div>
+                        <!--IP FIELD CONTENT-->
+                        <div class="vp-machdetails__fieldcontent inblock">
+                            <div class="vp-machdetails__fieldipwrap inblock">
+                                <span class="vp-machdetails__fieldip text--regular text--lg text--ellipsis text--ellipsis--single">{{saveExportsData.export_date.$date | date : "M/d/y h:mma"}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="vp-machdetails__fielditem vp-machdetails__ipitem">
+                    <div class="vp-machdetails__fielditeminner">
+                        <!--IP FIELD LABEL-->
+                        <div class="vp-machdetails__fieldlabelwrap inblock">
+                            <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Size:</label>
+                        </div>
+                        <!--IP FIELD CONTENT-->
+                        <div class="vp-machdetails__fieldcontent inblock">
+                            <div class="vp-machdetails__fieldipwrap inblock">
+                                <span class="vp-machdetails__fieldip text--regular text--lg text--ellipsis text--ellipsis--single">{{saveExportsData.export_size}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="vp-machdetails__fielditem vp-machdetails__ipitem">
+                    <div class="vp-machdetails__fielditeminner">
+                        <!--IP FIELD LABEL-->
+                        <div class="vp-machdetails__fieldlabelwrap inblock">
+                            <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Author:</label>
+                        </div>
+                        <!--IP FIELD CONTENT-->
+                        <div class="vp-machdetails__fieldcontent inblock">
+                            <div class="vp-machdetails__fieldipwrap inblock">
+                                <span class="vp-machdetails__fieldip text--regular text--lg text--ellipsis text--ellipsis--single">{{saveExportsData.user}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="vp-machdetails__fielditem vp-machdetails__ipitem">
+                    <div class="vp-machdetails__fielditeminner">
+                        <!--IP FIELD LABEL-->
+                        <div class="vp-machdetails__fieldlabelwrap inblock">
+                            <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">File:</label>
+                        </div>
+                        <!--IP FIELD CONTENT-->
+                        <div class="vp-machdetails__fieldcontent inblock">
+                            <div class="vp-machdetails__fieldipwrap inblock">
+                               <a ng-href="{{saveExportsData.file_path}}" target="_blank" class="vp-versionform__documentlink no--decor text--cs07 text--regular text--lg pt--sm text--ellipsis text--ellipsis--single">{{saveExportsData.file_name}}</a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="vp-machdetails__fielditem vp-machdetails__ipitem" ng-if="saveExportsData.not_exported">
+                    <div class="vp-machdetails__fielditeminner">
+                        <!--IP FIELD LABEL-->
+                        <div class="vp-machdetails__fielditeminner">
+                           <button type="button" class="vp-machdetails__removemachinebtn vp-uielement__button vp-uielement__button--edittool pr--md pl--md ml--md" ng-click="showToolNotExported()">Show Not Exported</button>
+                            <div class="vp-deploymentrequestmodalwrap fixed max--position hidden" id="show_tools_not_exported_modal">
+						        <div class="vp-running_deplopment_request absolute" ng-include="'static/components/import-export/popups/toolnotexported.html'"></div>
+					        </div>
+                        </div>
+
+                    </div>
+                </li>
+            </div><!-- end right-data -->
+        </div><!-- end split-wrapper -->
+    </ul>
+</div>

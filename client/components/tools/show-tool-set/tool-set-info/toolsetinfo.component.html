@@ -1,0 +1,91 @@
+<!--TOOL INFO COMPONENT START-->
+<div class="vp-sttoolinfo vp-control bg--white max--width relative" ng-controller="ShowToolSetInfoController">
+    <div class="vp-sttoolinfo__editbtnwrap">
+        <button ng-click="selectToolSet(generalToolSetData.toolset_id)" type="button" class="vp-uielement__button vp_deploytoolset_btn vp-uielement__button--deployenabled vp-tooltile__deploybtn right mt--md">Deploy</button>
+        <button type="button" class="vp-uielement__button vp-uielement__button--edittool absolute pos--right pos--top mt--md" ui-sref="editToolSet({id:generalToolSetData.toolset_id})">edit</button>
+    </div>
+
+    <!--CONTENT SECTION-->
+    <div class="vp-sttoolinfo__innercontent">
+        <form action="#" name="vp-sttoolinfo__form" class="vp-sttoolinfo__form text--regular text--lg">
+            <!--DESCRIPTION FIELD-->
+            <div class="vp-sttoolinfo__descriptionwrap mt--md">
+                <label class="vp-sttoolinfo__label vp-sttoolinfo__descriptionlabel text--cs03 text--light text--md vertical--top inblock">Description:</label>
+                <div class="vp-sttoolinfo__content vp-sttoolinfo__descriptioncontent ml--xxl inblock">
+                    <p id="release_notes_tool" class="vp-sttoolinfo__descriptioncontentinner text--ellipsis text--ellipsis--two" style="width:700px; height: auto">
+                        {{generalToolSetData.description}}
+                    </p>
+                </div>
+                <div style="margin-left: 104px;">
+                    <button ng-if="generalToolSetData.description.length>120 && showLessToolReleaseNotes === true" type="button" class="vp-versionform__notesshowallbtn vp-uielement__button vp-uielement__button--cleanenabled mt--sm pa--none" ng-click="showLessToolReleaseNotesContent()">Show Less</button>
+                    <button ng-if="generalToolSetData.description.length>120 && showAllToolReleaseNotes === true" type="button" class="vp-versionform__notesshowallbtn vp-uielement__button vp-uielement__button--cleanenabled mt--sm pa--none" ng-click="showMoreToolReleaseNotesContent()">Show all</button>
+                </div>
+            </div>
+            <div class="vp-sttoolinfo__tagswrap mt--md">
+                <label class="vp-sttoolinfo__label vp-sttoolinfo__tagslabel text--cs03 text--light text--md vertical--top inblock">Tags:</label>
+                <!--TAGS SECTION-->
+                <div class="vp-sttoolinfo__content vp-sttoolinfo__tagsinputwrap ml--xxl inblock">
+                    <div class="vp-sttoolinfo__tagsinputwrapinner inblock">
+                        <input type="text" class="vp-sttoolinfo__tagsinput text--cs03 text--regular text--lg input--clear pl--md" ng-model="generalToolSetData.tag"readonly>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <ul class="vp-userform__fieldslist text--cs03 pr--lg">
+                    <li class="vp-userform__fielditem tool_list vp-userform__roleitem pt--lg">
+                        <div class="vp-userform__fielditeminner">
+                            <h3 class="tool_list_header ellipsis">TOOL'S INSTALLATION</h3>
+                            <div class="vp-userform__fieldlabelwrap vertical--top inblock pt--md" style="width: 89%;">
+                                <div class="vp_control max">
+                                    <div class="vp_tile_toolWrapper clearfix" style="width: 100%;">
+                                        <ul>
+                                            <li class="vp-tilegrid__tile pa--sm du_package_card left" ng-repeat="tool in toolList track by $index">
+                                                <div ng-class="{'vp-tooltile--selected': selected , 'vp-tooltile--not-selected': !selected  }" class="vp-tooltile vp-component text--cs03 pt--md pr--md pl--md vp-tooltile__containingtoolmsg--active vp-tooltile__deprecatedwarning--active vp-tooltile__favorite--active du_package_inner relative">
+                                                    <div class="vp-tilegrid__tile pa--sm left inblock">
+                                                        <!--TILE ICON-->
+                                                        <div class="vp_tooltile__icon text--light text--xxxxl text--white vertical--top text--center bg--cs01">
+                                                            <span class="vp_tooltile_iconinner">
+                                                                {{tool.tool_name.substring(0, 1)}}
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="vp_tooltile__tilemetadata left inContent">
+                                                        <tooltip id="tooltip_{{$index}}_{{tool.tool_name}}"  class="du_name">
+                                                            <div class="vp_tooltile__label text--regular text--ellipsis text--ellipsis--two text--xl mb--md verticall--top" tooltip-side="bottom" tooltips="" tooltip-template="{{tool.tool_name}}" title="{{tool.tool_name}}">
+                                                                <a href="#/tool/view/{{tool.tool_id}}" style="text-decoration : none !important;">{{tool.tool_name}}</a>
+                                                            </div>
+                                                        </tooltip>
+                                                        <!--DEPRECATE WARNING MESSAGE SECTION-->
+                                                        <div class="vp_tooltile__deprecatedwarning text--light text--sm mt--md inblock" ng-if="tool.status==='3'">
+                                                            <img alt="" class="vp_tooltile__depreceteicon" src="static/assets/images/icons/Deprecated_icn.png">
+                                                            <span class="vp_tooltile__deprecetemsg ml--sm">Deprecated</span>
+                                                        </div>
+                                                        <div class="vp_tooltile__deprecatedwarning text--light text--sm mt--md inblock" ng-if="tool.status==='2'">
+                                                            <img alt="" class="vp_tooltile__depreceteicon" src="static/assets/images/icons/Deprecated_icn.png">
+                                                            <span class="vp_tooltile__deprecetemsg ml--sm">In Development</span>
+                                                        </div>
+                                                        <div class="vp_tooltile__deprecatedwarning text--light text--sm mt--md inblock" ng-if="tool.status==='1'">
+                                                            <img alt="" class="vp_tooltile__depreceteicon" src="static/assets/images/icons/active_icn.png">
+                                                            <span class="vp_tooltile__deprecetemsg ml--sm">Active</span>
+                                                        </div>
+                                                        <div class="vp_tooltile__containingtoolmsg text--light text--md mt--md text--ellipsis text--ellipsis--single hidden">Version Identifier: {{tool.version_id}}</div>
+                                                        <!--<div class="vp-tooltile__description text&#45;&#45;light text&#45;&#45;md" title="Environment configuration check Environment configuration check Environment configuration check bbbeeeeee">Environment configuration check Environment configuration check Environment configuration check bbbeeeeee</div>-->
+                                                        <div class="vp_tooltile__containingtoolmsg text--light text--md mt--md text--ellipsis text--ellipsis--single hidden">Version:
+                                                            <span class="vp_tooltile__containingtoolname" title="INIT">{{tool.version_name}} {{tool.version_number}}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+        <!--USER INFO COMPONENT END-->
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </form>
+    </div>
+</div>
+<!--TOOL SET INFO COMPONENT END-->

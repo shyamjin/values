@@ -1,0 +1,17 @@
+<!--ADD TOOLS POPUP COMPONENT START-->
+<div class="vp-addtoolspopup vp-control">
+	<!--TRIANGLE ARROW-->
+	<div class="vp-addtoolspopup__topborder vp-uielement__popuptop"></div>
+	<!--SELECTED TOOLS LIST CONTAINER-->
+	<div class="vp-addtoolspopup__container vp-uielement__popup max--width pa--xl bg--white" ng-repeat="tool in allVersions" ng-if="tool.tool_name===toolsSelectedToDeploy[0].tool_name">
+			<input type="text" class="vp-addtoolspopup__toolname input--clear text--cs03 text--regular text--lg" ng-model="searchVersionKeyword" name="searchVersionKeyword">
+			<!--RADIO BUTTON-->
+			<div class="vp-uielement__radiobtn vp-addtoolspopup__radiobtn vp-addtoolspopup__radiobtn1 mt--xl">
+				<input type="radio" id="vp-addtoolspopup__radiobtn1_{{$index}}" name="vp-addtoolspopup__version" value="{{version}}" ng-click="selectVersion(tool.tool_name, version._id.$oid, version.version_name, version.version_number)">
+				<label for="vp-addtoolspopup__radiobtn1_{{$index}}"></label>
+				<span class="vp-addtoolspopup__version">{{version.version_name}} {{version.version_number}}</span>
+			</div>
+			<button type="button" class="vp-uielement__button  vp-uielement__button--apply mt--xl" ng-click="showMoreToolsToAdd()">Apply</button>
+	</div>
+</div>
+<!--ADD TOOLS POPUP COMPONENT END-->

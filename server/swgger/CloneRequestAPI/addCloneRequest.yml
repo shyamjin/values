@@ -1,0 +1,84 @@
+Create new clone request
+---
+tags:
+   - Clone Request
+parameters:
+- name: token
+  in: header
+  description: API key
+  required: false
+  type: string
+  format: string
+- name: access-token
+  in: header
+  description: API key
+  required: false
+  type: string
+  format: string 
+- name: input
+  in: body
+  description: Clone Request data
+  required: true
+  type: string
+  format: string
+  schema:
+    $ref: "#/definitions/Clone"     # <---------
+
+
+responses:
+  200:
+    description: New clone request has been added successfully
+    schema:
+        $ref: "#/definitions/Data"     # <---------
+    examples:
+      result: "success"
+      message: "New clone request has been added successfully"
+  404:
+    description: exception in adding Clone Request
+    examples:
+      result: "failed"
+      message: "Throws an exception"
+
+
+definitions:
+  Clone:           # <----------
+    type: object
+    required:
+      - tool_list
+      - requested_by
+      - distribution_list
+      - account_id
+      - account_name
+      - machine_id
+    properties:
+      tool_list:
+        type: array
+        items:
+          type: object
+          required:
+            - status
+            - version_id
+          properties:
+            status:
+              type: string
+            version_id:
+              type: string
+      requested_by:
+        type: string
+      distribution_list:
+        type: string
+      account_id:
+        type: string
+      account_name:
+        type: string
+      machine_id:
+        type: string
+  Data:
+    type: object
+    properties:
+        data:
+          type: string
+        result:
+          type: string
+        message:
+           type: string

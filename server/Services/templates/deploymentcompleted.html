@@ -1,0 +1,51 @@
+<span class="span_data">Dear {{ data.name }},</span>
+<br>
+<span class="span_data"> Your Request has <b>{{ data.status }}</b>  </span>
+Details are as below:
+<br>
+<span class="span_data">
+<table style="width:50%" border="2">
+	<tr>
+    <td>Request Id</td>
+    <td>{{ data.request_id }}</td> 
+  </tr>
+  <tr>
+    <td>Request Type</td>
+    <td>{{ data.type }}</td> 
+  </tr>
+  <tr>
+    <td>Tool Name</td>
+    <td>{{ data.toolName }}</td> 
+  </tr>
+ 
+  <tr>
+    <td>Version Name</td>
+    <td>{{ data.version_name }}</td> 
+  </tr>
+  <tr>
+    <td>Version Number</td>
+    <td>{{ data.version_number }}</td> 
+  </tr>
+   <tr>
+    <td>Build Number</td>
+    <td>{{ data.build_number }}</td> 
+  </tr>
+   <tr>
+    <td>Machine Name</td>
+    <td>{{ data.machine_name }}</td> 
+  </tr>
+  <tr>
+    <td>Machine Host</td>
+    <td>{{ data.machine_host }}</td> 
+  </tr>
+  <tr>
+    <td>Start Time</td>
+    <td>{{ data.start_time }}</td> 
+  </tr>
+  <tr>
+    <td>End Time</td>
+    <td>{{ data.end_time }}</td> 
+  </tr>
+  
+</table>
+</span>

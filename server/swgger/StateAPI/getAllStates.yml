@@ -1,0 +1,77 @@
+Get all states
+---
+tags:
+  - States
+
+parameters:
+- name: token
+  in: header
+  description: API key
+  required: false
+  type: string
+  format: string
+- name: access-token
+  in: header
+  description: API key
+  required: false
+  type: string
+  format: string
+- name: type
+  in: query
+  description: state type (Values are comma separated)
+  required: false
+  type: string
+  format: string
+- name: build_id
+  in: query
+  description: build_id (Values are comma separated)
+  required: false
+  type: string
+  format: string
+- name: approval_status
+  in: query
+  description: approval status (Values are comma separated)
+  required: false
+  type: string
+  format: string
+- name: parent_entity_id
+  in: query
+  description: parent entity id (Values are comma separated)
+  required: false
+  type: string
+  format: string
+- name: du_id
+  in: query
+  description: du id (Values are comma separated)
+  required: false
+  type: string 
+  format: string
+- name: name
+  in: query
+  description: state name (Values are comma separated)
+  required: false
+  type: string
+  format: string
+- name: page
+  in: query
+  description: page number
+  required: false
+  type: string
+  format: string
+- name: perpage
+  in: query
+  description: per page states count
+  required: false
+  type: string
+  format: string
+responses:
+    200:
+      description: Get all states successfully
+      examples:
+        result: "success"
+        message: null
+    404:
+      description: exception in fetching states
+      examples:
+        result: "failed"
+        message: "Throws an exception"

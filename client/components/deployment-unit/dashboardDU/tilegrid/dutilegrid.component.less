@@ -1,0 +1,181 @@
+// VARIABLES: SECTION 13
+//LARGE GRID MODIFIER THEME
+//(can toggle fron partials.html vp-toolspage)
+div.vp-tilegrid--large, div.vp-toolspage--default {
+    .vp-tilegrid__listwrapper {
+        .pb--lg;
+        .pl--lg;
+    }
+    .vp-dutile {
+        //TILE METADATA INFO
+        .vp-dutile__tilemetadata {
+            width: @duTileLargeGridMetadataWidth;
+            .ml--md;
+            top: -27px;
+        }
+        //TEXT MAXIMUM LONG RESTRICTION
+        .vp-dutile__description {
+            .text--ellipsis;
+            .text--ellipsis--two;
+            max-height: 2.09em;
+        }
+        width: @duTileSmallWidth;
+        height: @duTileSmallHeight;
+        padding: @duTileSmallPA;
+        //FOOTER, THAT CONTAINS BUTTONS AND SELECT CHECKBOX, VIEW 
+        div.vp-dutile__footer {
+            width: @duTileFooterSmallWidth;
+            top: 125px;
+            bottom: @duTileSmallPA;
+        }
+        //TOOL TILE SMALL ICON VIEW STYLE
+        div.vp-dutile__icon {
+            margin-top: -6px;
+            height: @duTileSmallIconWidth;
+            width: @duTileSmallIconWidth;
+            border-radius: @duTileSmallIconWidth;
+            line-height: 23px;
+        }
+    }
+}
+
+//SMALL GRID MODIFIER THEME
+//(can toggle fron partials.html vp-toolspage)
+div.vp-tilegrid--small, div.vp-toolspage--rightactive {
+    .vp-tilegrid__listwrapper {
+        .pb--md;
+        .pl--lg;
+    }
+    .vp-dutile {
+        //TILE METADATA INFO
+        .vp-dutile__tilemetadata {
+            width: @duTileSmallGridMetadataWidth;
+            .ml--md;
+        }
+        .vp-dutile__description {
+            .text--ellipsis;
+            .text--ellipsis--three;
+            max-height: 3.09em;
+        }
+        width: @duTileLargeWidth;
+        height: @duTileLargeHeight;
+        padding: @duTileLargePA;
+        div.vp-dutile__icon {
+            margin-top: -6px;
+            height: @duTileLargeIconWidth;
+            width: @duTileLargeIconWidth;
+            border-radius: @duTileLargeIconWidth;
+            line-height: 23px;
+        }
+        //FOOTER, THAT CONTAINS BUTTONS AND SELECT CHECKBOX, VIEW 
+        div.vp-dutile__footer {
+            width: @duTileFooterLargeWidth;
+            top: 125px;
+            bottom: @duTileSmallPA;
+        }
+    }
+}
+
+//BOTH THEMES STYLE ANT MODIFIERS
+div.vp-dutile {
+    .ba--solid(@cs08, 1px);
+     transition :  box-shadow 0.25s ;
+    //CHANGE BORDER WHEN TILE SELECTED
+    &.vp-dutile.vp-dutile--selected {
+        .ba--solid(@cs03, 2px);
+         box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    }
+
+     &.vp-dutile.vp-dutile--not-selected {
+        .ba--solid(@cs03, 1px);
+    }
+
+    &.vp-dutile:hover {
+        transition: box-shadow .25s;
+    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+
+    //MODIFIER TO ACTIVATE DEPRECATED NOTIFICATION
+    &.vp-dutile__deprecatedwarning--active {
+        .vp-dutile__deprecatedwarning {
+            .block;
+        }
+    }
+    //FAVORITE ICON ACTIVE  STATE
+    &.vp-dutile__favorite--active {
+        .vp-dutile__favoriticon {
+            background: url('../assets/images/icons/fevorites_enable.png') no-repeat;
+        }
+    }
+    //MODIFIER to show "included in tool set" mesage in metadata
+    &.vp-dutile__containingtoolmsg--active {
+        .vp-dutile__containingtoolmsg {
+            .block;
+        }
+    }
+    //CHANGE 'Selected' LABEL COLOR WHEN TILE SELECTED
+    input[type="checkbox"]:checked ~ label {
+        .text--cs03;
+    }
+    div.vp-dutile__favoriticon {
+        width: @favoriteWidth;
+        height: @favoriteHeight;
+        background: url('../assets/images/icons/fevorites_disable.png') no-repeat;
+        background-size: contain;
+    }
+    //IE + OPERA DESCRIPTION LENTH LIMIT
+    div.vp-dutile__tilemetadata {
+        max-height: calc(~"100% - " @btnHeight);
+         overflow: hidden;
+        .vp-dutile__label {
+            top: 20px;
+            max-height: 2.09em;
+            /* exactly three lines */
+            //text-overflow: -o-ellipsis-lastline;
+        }
+    }
+}
+
+//GRID OPTIONAL FOOTER
+div.vp-tilegrid__gridfooter{
+    &.vp-tilegrid__gridfooter--active{
+        display:block
+    }    
+}
+
+.iconinner_du {
+    font-size: 27px;
+    line-height: 23px;
+}
+.set_footer {
+    top: 123px;
+    left: 30px;
+}
+.set_long_footer {
+    top: 143px;
+    left: 30px;
+}
+dutile_icn {
+    margin-top: -6px;
+    height: @duTileSmallIconWidth;
+    width: @duTileSmallIconWidth;
+    border-radius: @duTileSmallIconWidth;
+    line-height: 23px;
+}
+
+.manage_order {
+    margin-top: -90px;
+    margin-right: -30px;
+}
+.change_order {
+    padding-bottom: 25px;
+}
+.arrange_order {
+    margin-right: 90px;
+    margin-top: 10px;
+}
+.change_order_edit {
+    padding-bottom: 25px;
+    padding-right: 25px;
+}

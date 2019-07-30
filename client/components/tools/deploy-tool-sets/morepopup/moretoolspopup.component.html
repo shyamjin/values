@@ -1,0 +1,54 @@
+<!--SHOW MORE TOOLS POPUP COMPONENT START-->
+<div class="vp-moretoolspopup vp-control">
+	<!--TRIANGLE ARROW-->
+	<div class="vp-moretoolspopup__topborder vp-uielement__popuptop"></div>
+	<!--SELECTED TOOLS LIST CONTAINER-->
+	<div class="vp-moretoolspopup__container vp-uielement__popup bg--white">
+		<div class="vp-moretoolspopup__searchboxwrapper pt--sm pr--lg pb--sm pl--lg">
+			<!--SEARCH FIELD -->
+			<div class="vp-moretoolspopup__searchbox vp-uielement__searchbox">
+				<form id="vp-moretoolspopup__searchform vp-uielement__searchform">
+					<!--SEARCH INPUT TEXT-->
+					<input class="vp-moretoolspopup__searchinput vp-uielement__searchinput text--light text--lg text--cs08 bg--cs06" type="text" ng-model="searchToolKeyword" placeholder="Find a tool"
+						name="" />
+					<!--SEARCH INPUT SUBMIT BUTON-->
+					<button type="button" class="vp-moretoolspopup__searchbtn vp-uielementt__searchbtn"></button>
+				</form>
+			</div>
+		</div>
+		<ul>
+			<!--TOOL EXAMPLE (MODIFIERS: # vp-uielement__toolitem--unknown # vp-uielement__toolitem--ready # vp-uielement__toolitem--error)-->
+			<li class="vp-moretoolspopup__toolitem vp-uielement__toolitem--ready pl--md" ng-repeat="tool in toolsInToolSet">
+				<!--TOOL STATE ICON-->
+				<div class="vp-moretoolspopup__toolitemstate vp-uielement__itemstateicon vertical--middle mt--lg left"></div>
+				<!--TOOL NAME-->
+				<span class="vp-moretoolspopup__toolname word--break pl--md text--regular text--md text--cs03 inblock" ng-click="getSelectedTool($index, tool.version_number)">{{tool.tool_name}} {{tool.version_name}} v{{tool.version_number}}</span>
+				<!--REMOVE BUTTON-->
+				<div class="vp-moretoolspopup__removebtnwrapper right">
+					<!--<button type="button" class="vp-moretoolspopup__removebtn vp-uielement__button vp-uielement__button&#45;&#45;smallclose mr&#45;&#45;lg vertical&#45;&#45;middle" ng-click="removeToolSet($index)"></button>-->
+				</div>
+			</li>
+			<!--&lt;!&ndash;TOOL EXAMPLE (MODIFIERS: # vp-uielement__toolitem&#45;&#45;unknown # vp-uielement__toolitem&#45;&#45;ready # vp-uielement__toolitem&#45;&#45;error)&ndash;&gt;-->
+			<!--<li class="vp-moretoolspopup__toolitem vp-uielement__toolitem&#45;&#45;unknown pl&#45;&#45;md">-->
+				<!--&lt;!&ndash;TOOL STATE ICON&ndash;&gt;-->
+				<!--<div class="vp-moretoolspopup__toolitemstate vp-uielement__itemstateicon vertical&#45;&#45;middle mt&#45;&#45;lg left"></div>-->
+				<!--<span class="vp-moretoolspopup__toolname word&#45;&#45;break pl&#45;&#45;md text&#45;&#45;regular text&#45;&#45;md text&#45;&#45;cs03 inblock">SpyStudio V1.1</span>-->
+				<!--&lt;!&ndash;REMOVE BUTTON&ndash;&gt;-->
+				<!--<div class="vp-moretoolspopup__removebtnwrapper right">-->
+					<!--<button type="button" class="vp-moretoolspopup__removebtn vp-uielement__button vp-uielement__button&#45;&#45;smallclose mr&#45;&#45;lg  vertical&#45;&#45;middle"></button>-->
+				<!--</div>-->
+			<!--</li>-->
+			<!--&lt;!&ndash;TOOL EXAMPLE (MODIFIERS: # vp-uielement__toolitem&#45;&#45;unknown # vp-uielement__toolitem&#45;&#45;ready # vp-uielement__toolitem&#45;&#45;error)&ndash;&gt;-->
+			<!--<li class="vp-moretoolspopup__toolitem vp-uielement__toolitem&#45;&#45;error pl&#45;&#45;md">-->
+				<!--&lt;!&ndash;TOOL STATE ICON&ndash;&gt;-->
+				<!--<div class="vp-moretoolspopup__toolitemstate vp-uielement__itemstateicon vertical&#45;&#45;middle mt&#45;&#45;lg left"></div>-->
+				<!--<span class="vp-moretoolspopup__toolname word&#45;&#45;break pl&#45;&#45;md text&#45;&#45;regular text&#45;&#45;md text&#45;&#45;cs03 inblock">Demo Debugee app for jTrace tool</span>-->
+				<!--&lt;!&ndash;REMOVE BUTTON&ndash;&gt;-->
+				<!--<div class="vp-moretoolspopup__removebtnwrapper right">-->
+					<!--<button type="button" class="vp-moretoolspopup__removebtn vp-uielement__button vp-uielement__button&#45;&#45;smallclose  mr&#45;&#45;lg vertical&#45;&#45;middle"></button>-->
+				<!--</div>-->
+			<!--</li>-->
+		</ul>
+	</div>
+</div>
+<!--SHOW MORE TOOLS POPUP COMPONENT END-->

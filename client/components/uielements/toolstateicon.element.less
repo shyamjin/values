@@ -1,0 +1,29 @@
+// VARIABLES: SECTION 10 //toolstateicon
+//GLOBAL TOOL ITEM ICON STYLE
+div.vp-uielement__itemstateicon {
+    width: @toolsStateIconSize;
+    height: @toolsStateIconSize;
+}
+//'UNKNOWN' STATE ACTIVE
+.vp-uielement__toolitem--unknown {
+    .vp-uielement__itemstateicon {
+        background: url('../assets/images/icons/unknown_icn.png') no-repeat;
+        background-size: contain;
+    }
+}
+
+//'READY' STATE ACTIVE
+.vp-uielement__toolitem--ready {
+    .vp-uielement__itemstateicon {
+        background: url('../assets/images/icons/ready_icn.png') no-repeat;
+        background-size: contain;
+    }
+}
+
+//'FAIL' STATE ACTIVE
+.vp-uielement__toolitem--error {
+    .vp-uielement__itemstateicon {
+        background: url('../assets/images/icons/error_icn.png') no-repeat;
+        background-size: contain;
+    }
+}

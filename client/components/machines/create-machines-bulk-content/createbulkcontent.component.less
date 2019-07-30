@@ -1,0 +1,13 @@
+// VARIABLES: SECTION 47
+.vp-createmachbulk {
+    // LOAD FILE FORM
+    .vp-createmachbulk__loadform {
+        padding-top: @machinesLoadFilePT;
+        padding-bottom: @toolbarHeight;
+        padding-left: @machinesLoadFilePL;
+    }
+    // TOOLBAR STYLES (EXTEND FROM EDIT TOOLS TOOLBAR)
+    .vp-createmachbulk__toolbar:extend(.vp-ettoolbar) {
+        .vp-createmachbulk__innerbounded:extend(.vp-ettoolbar .vp-ettoolbar__innerbounded) {}
+    }
+}

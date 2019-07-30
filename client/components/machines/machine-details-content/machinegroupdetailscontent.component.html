@@ -1,0 +1,53 @@
+<!--MACHINE DETAILS VERTICAL TAB CONTENT COMPONENT START-->
+<div class="vp-machdetails vp-control pt--xxxl pr--xl pb--xxxl pl--xxxl bg--white clearfix max">
+    <ul class="vp-machdetails__fieldslist text--cs03" style="min-height: 700px">
+        <!--IP FIELD ROW-->
+               <!--FIELD ROW TEAMS-->
+            <li class="vp-createnewmachform__fielditem vp-createnewmachform__teamsitem mt--xxl">
+                <div class="vp-createnewmachform__fielditeminner max--width">
+                    <!--TEAMS FIELD LABEL-->
+                    <div class="vp-createnewmachform__fieldlabelwrap vertical--top mt--sm inblock">
+                        <label class="vp-createnewmachform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Machine Group:</label>
+                    </div>
+                    <!--TEAMS FIELD CONTENT-->
+                    <div class="vp-createnewmachform__fieldcontent vp-createnewmachform__teamscontent inblock teams_block">
+                        <ul class="vp-createnewmachform__teamslist clearfix">
+                            <!--TEAMS ROW EXAMPLE-->
+                            <li class="vp-createnewmachform__teamitem mt--sm mr--md left" ng-repeat="group in includedIn track by $index">
+                                <div class="vp-createnewmachform__teamiteminner text--regular text--lg text--cs03 nowrap">
+                                    <div class="vp-createnewmachform__teaminfowrap inblock">
+                                        <span class="vp-createnewmachform__teaminfo text--ellipsis text--ellipsis--single"><a href ng-click="selectMachineGroupToView(group._id.$oid)">{{group.group_name}}</a></span>
+                                    </div>
+                                    <div class="vp-createnewmachform__teamremovebtnwrap vertical--top inblock">
+                                        <button type="button" class="vp-createnewmachform__teamremovebtn vp-uielement__button vp-uielement__button--smallclose vertical--middle pa--none ml--sm" ng-click="removeFromMachineGroup(group)"></button>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="vp-createnewmachform__addteamsbuttonitem mt--sm mr--md pa--none left">
+                                <div class="vp-createnewmachform__addteamsbuttoniteminner inblock">
+                                    <button type="button" class="vp-uielement__button vp-uielement__button--cleanenabled" ng-click="showMachineGroups()"><span class="vertical--middle">+Add machine Group</span></button>
+                                </div>
+                                <div id="add_machine_groups" class="vp-versionform__addcertifieditembtnpopup absolute hidden" ng-include="'static/components/machines/machine-details-content/addmachinegroupspopup.component.html'"></div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            </ul>
+        </li>
+    </ul>
+    <div class="vp-machdetails__btnssectionblock mt--xxl mr--md right">
+        <div class="vp-machinetoolbar__createbtnwrap right">
+            <!--CREATE MACHINE BUTTON (MODIFIERS: # vp-uielement__button--deploydisabled )-->
+            <button type="button" class="vp-machinetoolbar__createbtn vp-uielement__button vp-uielement__button--deployenabled pr--lg pl--lg" ng-click="editMachine(EditMachineForm)">Save changes</button>
+        </div>
+        <!--DISCARD CHANCHES BUTTON-->
+        <div class="vp-machinetoolbar__discardbtnwrap mr--xxxl right">
+            <button type="button" class="vp-machinetoolbar__discardbtn vp-uielement__button vp-uielement__button--cleanenabled" ng-click="discardMachineChanges()">Discard</button>
+        </div>
+    </div>
+    <!--<div class="vp-machdetails__btnssectionblock mt&#45;&#45;xxl mr&#45;&#45;md right">-->
+        <!--<button type="button" class="vp-machdetails__clearallbtn vp-uielement__button vp-uielement__button&#45;&#45;clearalldata pr&#45;&#45;md pl&#45;&#45;md" ng-click="clearAllData()">Clear all data</button>-->
+    <!--</div>-->
+</div>
+<!--MACHINE DETAILS VERTICAL TAB CONTENT COMPONENT END-->

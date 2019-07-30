@@ -1,0 +1,21 @@
+// VARIABLES: SECTION 35
+.vp-certifiedaddpopup {
+    .vp-certifiedaddpopup__input {
+        border: 1px solid @cs09;
+        box-sizing: border-box;
+    }
+    .vp-certifiedaddpopup__buttonswrap {
+        bottom: 20px;
+    }
+    // POPUP TOP ARROW POSITION
+    .vp-certifiedaddpopup__popuptop{
+        &:before{
+            left: @addCertifiedTopArrowLeft;
+        }
+    }
+    .vp-certifiedaddpopup__container{
+        min-height: @certifiedAddPopupHeight;
+    }
+    .vp-certifiedaddpopup__itemnamewrap:extend(.vp-prereqeditpopup .vp-prereqeditpopup__itemnamewrap){}
+    .vp-certifiedaddpopup__iteminner:extend(.vp-prereqeditpopup .vp-prereqeditpopup__iteminner){}
+}

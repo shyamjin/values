@@ -1,0 +1,58 @@
+<!--TOOL INFO COMPONENT START-->
+<div class="vp-sttoolinfo vp-control bg--white max--width relative" ng-controller="ToolInfoController">
+    <div class="vp-sttoolinfo__editbtnwrap">
+        <button id="edit_tool_btn_{{toolData.tool_id}}" type="button" class="vp-uielement__button vp-uielement__button--edittool absolute pos--right pos--top mr--xxl mt--md" ui-sref="editTool({id:toolData.tool_id})">edit tool</button>
+    </div>
+    <!--Tool Popup-->
+     <div class="vp-sttoolinfo__editbtnwrap">
+        <button id="popup_tool_btn_{{toolData.tool_id}}" type="button" class="vp-uielement__button vp-uielement__button--edittool absolute pos--right pos--top mr--xxl mt--md retainbuild" ng-click="showRetainBuild({id:toolData.tool_id})">Retain Build</button>
+    </div>
+    <!--CONTENT SECTION-->
+    <div class="vp-sttoolinfo__innercontent max--width">
+        <form action="#" name="vp-sttoolinfo__form" class="vp-sttoolinfo__form text--regular text--lg">
+            <!--CERTIFIED SECTION-->
+            <!--<div class="vp-sttoolinfo__certifiedwrap">-->
+                <!--<label class="vp-sttoolinfo__label vp-sttoolinfo__certifiedlabel text&#45;&#45;cs03 text&#45;&#45;light text&#45;&#45;md vertical&#45;&#45;top inblock">ID:</label>-->
+                <!--<div class="vp-sttoolinfo__content vp-sttoolinfo__certifiedcontent ml&#45;&#45;xxl inblock">-->
+                    <!--<span class="text&#45;&#45;ellipsis text&#45;&#45;ellipsis&#45;&#45;single">{{toolData._id.$oid}}</span>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--DESCRIPTION FIELD-->
+            <div class="vp-sttoolinfo__descriptionwrap mt--md">
+                <label class="vp-sttoolinfo__label vp-sttoolinfo__descriptionlabel text--cs03 text--light text--md vertical--top inblock">Description:</label>
+                <div class="vp-sttoolinfo__content vp-sttoolinfo__descriptioncontent ml--xxl inblock">
+                    <p id="release_notes_tool" class="vp-sttoolinfo__descriptioncontentinner text--ellipsis text--ellipsis--two" style="width:700px; height: auto">
+                        {{toolData.description}}
+                    </p>
+                </div>
+                <div style="margin-left: 104px;">
+                    <button id="show_less_desc_{{toolData.tool_id}}" ng-if="toolData.description.length>120 && showLessToolReleaseNotes === true" type="button" class="vp-versionform__notesshowallbtn vp-uielement__button vp-uielement__button--cleanenabled mt--sm pa--none" ng-click="showLessToolReleaseNotesContent()">Show Less</button>
+                    <button id="show_more_desc_{{toolData.tool_id}}" ng-if="toolData.description.length>120 && showAllToolReleaseNotes === true" type="button" class="vp-versionform__notesshowallbtn vp-uielement__button vp-uielement__button--cleanenabled mt--sm pa--none" ng-click="showMoreToolReleaseNotesContent()">Show all</button>
+                </div>
+            </div>
+            <div class="vp-sttoolinfo__tagswrap mt--md">
+                <label class="vp-sttoolinfo__label vp-sttoolinfo__tagslabel text--cs03 text--light text--md vertical--top inblock">Tags:</label>
+                <!--TAGS SECTION-->
+                <div class="vp-sttoolinfo__content vp-sttoolinfo__tagsinputwrap ml--xxl inblock">
+                    <div class="vp-sttoolinfo__tagsinputwrapinner inblock">
+                        <input type="text" class="vp-sttoolinfo__tagsinput text--cs03 text--regular text--lg input--clear pl--md" ng-model="toolData.tag"readonly>
+                    </div>
+                </div>
+                <!--SUPPORT SECTION-->
+                <div class="vp-sttoolinfo__supportwrap mt--sm">
+                    <label class="vp-sttoolinfo__label vp-sttoolinfo__supportlabel text--cs03 text--light text--md vertical--top inblock">Support Email:</label>
+                    <div class="vp-sttoolinfo__content vp-sttoolinfo__supportwrapinner inblock">
+                        <a id="go_to_mail_{{toolData.tool_id}}" href="mailto:{{toolData.support_details}}" class="text--cs03 text--regular text--lg text--cs07 ml--xxl no--decor text--ellipsis text--ellipsis--single">{{toolData.support_details}}</a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+	<!--TOOL POPUP START-->
+	<div class="vp-userform__addsettingmodalwrap fixed max--position hidden" id="retain_build_popup_screen">
+				<retain-build class="vp-updatetoolversionbuildmarkup absolute" tool-version-data="toolVersionData" tool-version-selected-build="toolVersionSelectedBuild" toolId={{selectedToolId}} on-at-load="closeRetainBuild()"  on-build-submit="addBuildAsMarkup(toolVersionSelectedBuild)"></retain-build>
+			</div>
+	<!--TOOL POPUP END-->
+</div>
+<!--TOOL INFO COMPONENT END-->

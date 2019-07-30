@@ -1,0 +1,48 @@
+// VARIABLES: SECTION 16
+// COPONENT CLASS
+.vp-scheduledpopup {
+    width: @scheduledPopupWidth;
+    height: @scheduledPopupHeight;
+    //INPUTS COMMON STYLES
+    .vp-scheduledpopup__scheduledate, .vp-scheduledpopup__scheduletime {
+        padding-right: @inputPR;
+        padding-left: @inputPL;
+        height: @scheduleInputHeight;
+        border: 1px solid @cs08;
+    }
+    .vp-scheduledpopup_hint {
+        margin-left: @inputPL;
+    }
+    //SCHEDULE TIME INPUT WIDTH
+    .vp-scheduledpopup__scheduletime, .vp-scheduledpopup__timewrapper {
+        width: @scheduleTimeWidth;
+    }
+    //SCHEDULE DATE INPUT WIDTH
+    .vp-scheduledpopup__scheduledate, .vp-scheduledpopup__datewrapper {
+        width: @scheduleDateWidth;
+    }
+    //INPUT DISABLED STYLE
+    .vp-scheduledpopup__scheduledate, .vp-scheduledpopup__scheduletime {
+        &:disabled {
+            background-color: @cs09;
+        }
+    }
+    //POPUP BOTTOM ARRON
+    div.vp-scheduledpopup__container {
+        box-shadow: 0px 0px 79px -10px rgba(0, 0, 0, 0.14);
+        border-radius: @scheduleBorderRadiuse;
+        border: 1px solid @cs09;
+        &:after {
+            content: "";
+            width: 0;
+            height: 0;
+            border-top: @popupOpenTopArrowHeight solid @cswhite;
+            border-left: @popupOpenTopArrowHeight solid transparent;
+            border-right: @popupOpenTopArrowHeight solid transparent;
+            display: block;
+            position: absolute;
+            left: @scheduleBottomArrowLeft;
+            bottom: -@popupOpenTopArrowHeight;
+        }
+    }
+}

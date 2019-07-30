@@ -1,0 +1,36 @@
+<!--PRE REQUISITIES EDIT POPUP COMPONENT START-->
+<div class="vp-tooldepqeditpopup vp-control">
+    <div class="vp-tooldepqeditpopup__popuptop vp-uielement__popuptop"></div>
+    <div class="vp-tooldepqeditpopup__container vp-uielement__popup pt--md pr--xl pb--xl pl--xl bg--white" style="height:250px;overflow-x: hidden;overflow-y: auto;">
+        <div class="vp-tooldepqeditpopup__inputwrap">
+            <input type="text" class="vp-tooldepqeditpopup__input input--clear max--width text--cs03 text--regular text--lg" ng-model="searchTagKeyword">
+        </div>
+        <div class="vp-tooldepqeditpopup__optionswrap mt--lg" style="height:150px;">
+            <!--VERSION OPTIONS LIST-->
+            <ul class="vp-tooldepqeditpopup__optionslist text--cs03 text--regular text--md">
+                <li class="vp-tooldepqeditpopup__optionsitem mt--md" ng-repeat="tag in allTags | filter : searchTagKeyword">
+                    <div class="vp-tooldepqeditpopup__iteminner text--ellipsis">
+                        <div class="vp-tooldepqeditpopup__checkbox vp-uielement__checkbox">
+                            <!--ITEM CHECKBOX-->
+                            <input type="checkbox" id="vp-deptoolsaddtagpopup__c1_{{$index}}" name="vp_addtag" ng-model="tagDetials[$index]" value="{{tag}}" ng-click="selectTag(tag)" ng-checked="isTagSelected(tag.name)"/>
+                            <label for="vp-deptoolsaddtagpopup__c1_{{$index}}"></label>
+                            <!--ITEM NAME WRAPPER-->
+                            <div class="vp-tooldepqeditpopup__itemnamewrap ml--sm inblock vertical--bottom">
+                                <label for="vp-deptoolsaddtagpopup__c1_{{$index}}" class="vp-tooldepqeditpopup__itemname text--ellipsis text--ellipsis--single" title="{{tag.name}}">{{tag.name}}</label>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="vp-prereqeditpopup__container vp-uielement__popup pt--sm pr--md pb--xl pl--md bg--white skip_slideup">
+        <div class="vp-prereqeditpopup__optionswrap mt--lg">
+             <div class="vp-certifiedaddpopup__buttonswrap">
+                <!--APPLY BUTTON-->
+                <button type="button" class="vp-certifiedaddpopup__applybtn vp-uielement__button vp-uielement__button--apply" ng-click="closeAddTag()">Apply</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--PRE REQUISITIES EDIT POPUP COMPONENT END-->

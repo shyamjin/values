@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalVariableEntities>
+   <description></description>
+   <tag></tag>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'http://localhost:8000'</initValue>
+      <name>envUrl</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'C:\\git\\edpm\\Katalon_Studio_Windows_64-5.3.1\\configuration\\resources\\drivers\\chromedriver_win32\\chromedriver.exe'</initValue>
+      <name>chromeWebdriverPath</name>
+   </GlobalVariableEntity>
+</GlobalVariableEntities>

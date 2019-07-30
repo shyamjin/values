@@ -1,0 +1,21 @@
+<!--USERS TAB COMPONENT START-->
+<div class="vp-settingscont max relative">
+    <!--settings SEARCH COLUMN-->
+    <div class="vp-settingscont__settingssearch vertical--top inblock" ng-include="'static/components/settings/settings-list-search/settingslistsearch.component.html'"></div>
+    <!--USER INFO COLUMN-->
+    <div class="vp-settingscont__userinfo ml--xxxl vertical--to inblock"  ng-include="'static/components/settings/settings-info/settingsinfo.component.html'"></div>
+    <!--TOOLBAR-->
+    <div class="vp-settingscont__toolbar bg&#45;&#45;cs06 max&#45;&#45;width fixed pos&#45;&#45;bottom pos&#45;&#45;left" ng-if="settings_fields">
+        <div class="vp-settingscont__innerbounded clearfix">
+            <div class="vp-settingscont__updatebtnwrap right">
+                <!--&lt;!&ndash;UPDATE BUTTON (MODIFIERS: # vp-uielement__button&#45;&#45;deploydisabled )&ndash;&gt;-->
+                <button type="button" class="vp-settingscont__updatebtn vp-uielement__button vp-uielement__button&#45;&#45;deployenabled pr&#45;&#45;lg pl&#45;&#45;lg" ng-click="updateConfig(settings_fields._id.$oid,true)">Save</button>
+            </div>
+            <!--&lt;!&ndash;DISCARD CHANCHES BUTTON&ndash;&gt;-->
+            <div class="vp-settingscont__discardbtnwrap mr&#45;&#45;xxxl right">
+                <button type="button" class="vp-settingscont__discardbtn vp-uielement__button vp-uielement__button&#45;&#45;cleanenabled" ng-click="discardChanges()">Discard</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--settings TAB COMPONENT END-->

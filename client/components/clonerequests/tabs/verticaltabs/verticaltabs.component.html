@@ -1,0 +1,32 @@
+<!--TAB COMPONENT START-->
+<div class="vp-machdetails vp-tabsvertical vp-control max--width max--height clearfix">
+    <!--TABS HEADER NAVIGATION BAR-->
+<!--     <div class="vp-tabsvertical__nav max--width left">
+        <nav>
+            <ul class="vp-tabsvertical__navlist text--center table">
+                TAB ACTIVE 'VERSION' STATE ( MODIFIERS: # vp-tabsvertical__tab--active )
+                <li class="vp-tabsvertical__tab   pointer left" ng-class="($index==selectedIndex) ? 'vp-tabsvertical__tab--active' : 'vp-tabsvertical__tab--nolabel'">
+                    <div class="vp-tabsvertical__tabinner max--height max--width intable">
+                        <div class="pl--sm lh--font inblock table--cell vertical--middle" ng-click="selectCloneRequest($index)" >
+                            <a class="vp-tabsvertical__tabversion text--cs03 text--light text--md text--ellipsis text--ellipsis--single block">Details</a>
+                        </div>
+                    </div>
+                </li>
+                DEFAULT INACTIVE 'VERSION' TAB WITHOUT LABEL STATE ( MODIFIERS: # vp-tabsvertical__tab--active)
+                <li class="vp-tabsvertical__tab vp-tabsvertical__tab--active pointer left">
+                    <div class="vp-tabsvertical__tabinner max--height max--width intable">
+                        <div class="vp-tabsvertical__labelwrap pl--sm lh--font inblock table--cell vertical--middle">
+                            <a class="vp-tabsvertical__tabversion text--cs03 text--light text--md text--ellipsis text--ellipsis--single block">Deployed tools</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </div> -->
+    <!--TAB BODY WRAPPER, LOAD TEMPLATE INSIDE-->
+    <div class="vp-tabsvertical__body bg--white left max--height relative">
+        <!--MACHINE DETAILS TAB CONTENT-->
+        <div class="vp-tabsvertical__bodycontent max" ng-if="SingleData" ng-include="'static/components/clonerequests/clone-requests-details-content/clonerequestdetailscontent.component.html'"></div>
+    </div>
+</div>
+<!--TAB COMPONENT END-->

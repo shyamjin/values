@@ -1,0 +1,67 @@
+<!--'ADD A SETTING' MODAL COMPONENT START-->
+<div class="vp-addsettingmodal vp-control bg--white relative">
+	<div class="vp-addsettingmodal__header">
+		<!--TITLE-->
+		<h1 class="vp-addsettingmodal__title text--cs06 text--xl text--light mt--xl ml--xl inblock">{{title}}</h1>
+		<!--CLOSE BUTTON-->
+		<button type="button" class="vp-addsettingmodal__closebtn btn--clear mt--md mr--lg right" ng-click="closeAddDocument(vIndex, docIndex)"></button>
+	</div>
+
+	<!--MODAL BODY-->
+	<div class="vp-addsettingmodal__body">
+		<!--DOCUMENT NAME SECTION-->
+		<section class="vp-addsettingmodal__title">
+			<label class="vp-addsettingmodal__fieldname text--cs03 text--light text--md inblock">Name :</label>
+			<div class="vp-addsettingmodal__fieldcontent inblock">
+				<input type="text" class="vp-addsettingmodal__titleinput input--clear text--cs03 text--regular text--lg" name="document_name" ng-model="versionData[vIndex].document.documents[docIndex].name">
+			</div>
+		</section>
+        <h5 class="validation_msg_document" ng-if="version_errors.document_errors.name">{{version_errors.document_errors.name}}</h5>
+		<h5 class="validation_msg_document" ng-if="versionData[vIndex].document.documents[docIndex].name === '' || versionData[vIndex].document.documents[docIndex].name === null || versionData[vIndex].document.documents[docIndex].name === undefined">Please enter document name</h5>
+		<!--DOCUMENT URL SECTION-->
+		<section class="vp-addsettingmodal__type mt--xl">
+			<label class="vp-addsettingmodal__fieldname text--cs03 text--light text--md inblock" for="DOC_URL">URL : </label>
+			<div class="vp-addsettingmodal__fieldcontent inblock">
+                <div class="vp-addsettingmodal__fieldcontent inblock">
+				    <input type="text" class="vp-addsettingmodal__titleinput input--clear text--cs03 text--regular text--lg" name="document_url" ng-model="versionData[vIndex].document.documents[docIndex].url" id="DOC_URL">
+			    </div>
+			</div>
+            <h5 class="validation_msg_document" ng-if="version_errors.document_errors.url">{{version_errors.document_errors.url}}</h5>
+			<h5 class="validation_msg_document" ng-if="versionData[vIndex].document.documents[docIndex].url === '' || versionData[vIndex].document.documents[docIndex].url === null || versionData[vIndex].document.documents[docIndex].url === undefined">Please enter document url</h5>
+		</section>
+		<!--DOCUMENT TYPE SECTION-->
+		<section class="vp-addsettingmodal__type mt--xl">
+			<label class="vp-addsettingmodal__fieldname text--cs03 text--light text--md inblock" for="DOC_TYPE">Type : </label>
+            <div class="vp-addsettingmodal__fieldcontent inblock">
+                <div class="vp-addsettingmodal__fieldcontent inblock">
+				    <input type="text" class="vp-addsettingmodal__titleinput input--clear text--cs03 text--regular text--lg" name="document_type" ng-model="versionData[vIndex].document.documents[docIndex].type" id="DOC_TYPE">
+                </div>
+			</div>
+		</section>
+        <h5 class="validation_msg_document" ng-if="version_errors.document_errors.type">{{version_errors.document_errors.type}}</h5>
+		<h5 class="validation_msg_document" ng-if="versionData[vIndex].document.documents[docIndex].type === '' || versionData[vIndex].document.documents[docIndex].type === null || versionData[vIndex].document.documents[docIndex].type === undefined">Please enter document type</h5>
+		<!--DOCUMENT DESCRIPTION SECTION-->
+		<section class="vp-addsettingmodal__type mt--xl">
+			<label class="vp-addsettingmodal__fieldname text--cs03 text--light text--md inblock" for="DOC_DESC">Description : </label>
+            <div class="vp-addsettingmodal__fieldcontent inblock">
+                <div class="vp-addsettingmodal__fieldcontent inblock">
+				    <input type="text" class="vp-addsettingmodal__titleinput input--clear text--cs03 text--regular text--lg" name="document_description" ng-model="versionData[vIndex].document.documents[docIndex].description" id="DOC_DESC" length="50">
+                </div>
+			</div>
+		</section>
+        <h5 class="validation_msg_document" ng-if="version_errors.document_errors.description">{{version_errors.document_errors.description}}</h5>
+		</div>
+
+		<!--MODAL FOOTER-->
+		<div class="vp-addsettingmodal__footer absolute pos--bottom">
+			<!--CLOSE BUTTON-->
+			<div class="vp-addsettingmodal__closebtnwrap inblock">
+				<button type="button" class="vp-addsettingmodal__footerclosebtn vp-uielement__button vp-uielement__button--close" ng-click="closeAddDocument(vIndex, docIndex)">Close</button>
+			</div>
+			<!--DISCARD BUTTON-->
+			<div class="vp-rdmodal__discardbtnwrap right">
+				<button class="vp-addsettingmodal__donebtn vp-uielement__button vp-uielement__button--deployenabled" ng-click="closeDocument(vIndex)">Done</button>
+			</div>
+		</div>
+	</div>
+	<!--'ADD A SETTING' MODAL COMPONENT END-->

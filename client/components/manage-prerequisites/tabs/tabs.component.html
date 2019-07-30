@@ -1,0 +1,24 @@
+<!--TAB COMPONENT START-->
+<div class="vp-tabs vp-tabs--default vp-tabs--service vp-control relative max--width max--height clearfix">
+    <!--TABS HEADER NAVIGATION BAR-->
+    <div class="vp-tabs__nav max--width left">
+        <nav>
+            <ul class="vp-tabs__navlist  max--width text--center text--md text--light text--cs06 table">
+                <!--ACTIVE TAB STATE (MODIFIERS: # vp-tabs__tab--active   )-->
+                <li class="vp-tabs__tab pointer pr--sm pl--sm left" ng-class="getActiveTab('/manage/prerequisites')" ng-click="showActiveTab('/manage/prerequisites')" >
+                    <a href="#/manage/prerequisites"><span class="vp-tabs__tablabel vertical--top no--decor">Prerequisites List</span></a>
+                </li>
+                <li class="vp-tabs__tab pointer pr--sm pl--sm left" ng-class="getActiveTab('/add/new/prerequisite')" ng-click="showActiveTab('/add/new/prerequisite')">
+                    <a href="#/add/new/prerequisite"><span class="vp-tabs__tablabel vertical--top no--decor">Add New Prerequisite</span></a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <!--TAB BODY WRAPPER, LOAD TEMPLATE INSIDE-->
+    <div class="vp-tabs__body overflow--auto left max--width">
+        <div  ng-if="displayTab==='/manage/prerequisites'"  class="vp-tabs__servicetabcontent" ng-include="'static/components/manage-prerequisites/manage-prerequisites-content/manageprerequisitescontent.component.html'"></div>
+        <div  ng-if="displayTab==='/add/new/prerequisite'"  class="vp-tabs__servicetabcontent" ng-include="'static/components/manage-prerequisites/add-new-prerequisite-content/addnewprerequisitecontent.component.html'"></div>
+    </div>
+</div>
+<!--TAB COMPONENT END-->

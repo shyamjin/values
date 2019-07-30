@@ -1,0 +1,30 @@
+<!--PRE REQUISITIES EDIT POPUP COMPONENT START-->
+<div class="vp-tooldepqeditpopup vp-control">
+    <div class="vp-tooldepqeditpopup__popuptop vp-uielement__popuptop"></div>
+    <div class="vp-tooldepqeditpopup__container vp-uielement__popup pt--md pr--xl pb--xl pl--xl bg--white">
+        <div class="vp-tooldepqeditpopup__inputwrap">
+            <input type="text" class="vp-tooldepqeditpopup__input input--clear max--width text--cs03 text--regular text--lg" ng-model="searchTagKeyword">
+        </div>
+        <div class="vp-tooldepqeditpopup__optionswrap mt--lg">
+            <!--VERSION OPTIONS LIST-->
+            <ul class="vp-tooldepqeditpopup__optionslist text--cs03 text--regular text--md">
+                <!--VERSION ITEM EXAMPLE-->
+                <li class="vp-tooldepqeditpopup__optionsitem mt--md" ng-repeat="tag in allTags | filter : searchTagKeyword">
+                    <div class="vp-tooldepqeditpopup__iteminner text--ellipsis">
+                        <div class="vp-tooldepqeditpopup__checkbox vp-uielement__checkbox">
+                            <!--ITEM CHECKBOX-->
+                            <input type="checkbox" id="vp-deptoolsaddparententitytagpopup__c1_{{$index}}" name="vp_addtag" ng-model="tagDetials[$index]" value="{{tag}}" ng-click="addParentEntityTag(tag)" ng-checked="isParentEntityTagSelected(tag.name)"/>
+                            <label for="vp-deptoolsaddparententitytagpopup__c1_{{$index}}"></label>
+                            <!--ITEM NAME WRAPPER-->
+                            <div class="vp-tooldepqeditpopup__itemnamewrap ml--sm inblock vertical--bottom">
+                                <label for="vp-deptoolsaddparententitytagpopup__c1_{{$index}}" class="vp-tooldepqeditpopup__itemname text--ellipsis text--ellipsis--single" title="{{tag.name}}">{{tag.name}}</label>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <button type="button" class="vp-uielement__button  vp-uielement__button--apply mt--xl" ng-click="closeAddParentEntityTag()">Apply</button>
+    </div>
+</div>
+<!--PRE REQUISITIES EDIT POPUP COMPONENT END-->

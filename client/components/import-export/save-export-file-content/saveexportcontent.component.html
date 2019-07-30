@@ -1,0 +1,39 @@
+<div class="vp-mmanagetab vp-control text--none max inblock nowrap" ng-controller="SaveExportController">
+   <section class="vp-mmanagetab__content vertical--top inblock">
+        <!--plugin SEARCH-->
+        <div class="vp-mmanagetab__findmachinewrap vertical--top mt--md ml--md left">
+            <div class="vp-mmanagetab__findmachine max--height">
+                <!--Plugin-SEARCH COLUMN COMPONENT START-->
+                <div class="vp-machinessearch bg--white max--width">
+                    <span class="vp-machinessearch__topborder block"></span>
+                    <div class="vp-machinessearch__listwrapper max--width">
+                        <ul class="vp-machinessearch__list max--width">
+
+                            <!--ITEM EXAMPLE (MODIFIERS: # vp-machinessearch__item--test # vp-Plugin--prod)-->
+                            <li class="vp-machinessearch__item vp-machinessearch__item--prod outer" ng-repeat="save in saveExports.data">
+                                <div class="vp-machinessearch__iteminner vp-machinessearch__item--test pl--xxxl text--regular text--md clearfix">
+                                    <div class="vp-machinessearch__itemdescriptionwrap pt--sm pb--sm word--break left">
+                                        <span >{{save.target_host}} - {{save.export_date.$date | date}} </span>
+                                    </div>
+                                    <div class="vp-machinessearch__itembtnwrap pointer relative right hidden">
+                                        <span class="vp-machinessearch__itembtn bg--cs07 text--center text--cs06 text--regular text--md absolute" ng-click="selectSaveExports(save._id.$oid)">Select</span>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+      <div class="vp-mmanagetab__machinesectionwrap mt--xxl ml--md inblock"ng-if="saveExportsData">
+            <div class="vp-mmanagetab__machinesectionheader text--cs03 pl--md">
+                <label class="vp-mmanagetab__machinesectionlabel text--light text--xxl"> {{saveExportsData.target_host}}</label>
+                <div class="vp-mmanagetab__machinetatewrap mr--md right">
+                    <span class="vp-mmanagetab__machinestatemsg vertical--middle ml--md text--cs03 text--light text--md"></span>
+                </div>
+            </div>
+            <div class="vp-mmanagetab__verticaltabs mt--xl max--height" ng-include="'static/components/import-export/tabs/verticaltabs/verticaltabs.component.html'"></div>
+      </div>
+</section>
+
+</div>

@@ -1,0 +1,19 @@
+<!--MACHINES PARTIALS ASSEMBLY START-->
+<div class="vp-machines max" ng-controller="ManageSynchronizationServiceController">
+    <!--SIDE NAVBAR-->
+    <div class="vp-machines__navaside fixed pos--top pos--bottom" ng-include="'static/components/dashboard/navaside/navaside.component.html'"></div>
+    <div class="vp-toolspage__headnotificationwrap" id="header_message">
+		<div class="vp-toolspage__headnotification" ng-include="'static/components/dashboard/header-message/headermessage.component.html'"></div>
+	</div>
+    <div class="vp-machines__content max--height">
+        <!--MACHINES HEADER COMPONENT-->
+        <div class="vp-machines__header" ng-include="'static/components/synchronization-services/header/header.component.html'"></div>
+        <!--REQUEST PROCESSING POPUP COMPONENT-->
+        <div class="vp-deploymentrequestmodalwrap fixed max--position hidden" id="show_request_progress_modal">
+            <div class="vp-running_deplopment_request absolute" ng-include="'static/components/dashboard/request-details-modal/request-processing-popup.component.html'"></div>
+        </div>
+        <!--MACHINES TABS COMPONENT-->
+        <div class="vp-machines__tabs left max--width" ng-include="'static/components/synchronization-services/tabs/tabs.component.html'"></div>
+    </div>
+</div>
+<!--MACHINES PARTIALS ASSEMBLY END-->

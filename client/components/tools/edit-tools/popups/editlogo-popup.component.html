@@ -1,0 +1,25 @@
+<!--LOGO EDIT POPUP COMPONENT START-->
+<div class="vp-eteditlogo vp-control mt--sm">
+    <div class="vp-eteditlogo__popuptop vp-uielement__popuptop"></div>
+    <div class="vp-eteditlogo__container vp-uielement__popup pt--md pr--xl pb--xl pl--xl bg--white skip_slideup">
+        <div class="vp-eteditlogo__searchbox vp-uielement__searchbox skip_slideup">
+            <form id="vp-eteditlogo__searchform vp-uielement__searchform">
+                <!--SEARCH FILE INPUT TEXT-->
+                <input class="vp-eteditlogo__searchfileinput hidden skip_slideup" id="vp-eteditlogo__searchfileinput" type="file" file-model="logo"/>
+                <label class="vp-eteditlogo__searchfileinputcustomlabel inblock skip_slideup" for="vp-eteditlogo__searchfileinput">
+                    <span class="vp-eteditlogo__inputfilename text--ellipsis text--ellipsis--single skip_slideup">File:   {{logoFileSelected}}</span>
+                </label>
+                <h5 class="validation_msg_document" ng-if="toolDataError.logo">{{toolDataError.logo}}</h5>
+                <!--SEARCH FILE INPUT SUBMIT BUTON-->
+                <!--<button type="button" class="vp-eteditlogo__searchbtn vp-uielementt__searchbtn" type=""></button>-->
+            </form>
+        </div>
+        <div class="vp-eteditlogo__buttonswrapper mt--xl skip_slideup">
+            <!--CANCEL BUTTON-->
+            <button type="button" class="vp-uielement__button  vp-uielement__button--cleanenabled skip_slideup" ng-click="closeEditLogo()">Cancel</button>
+            <!--LOAD IMAGE BUTTON-->
+            <button type="button" class="vp-uielement__button  vp-uielement__button--apply pr--lg pl--lg ml--xl skip_slideup" ng-click="loadEditLogo(logo)">Load logo image</button>
+        </div>
+    </div>
+</div>
+<!--LOGO EDIT POPUP COMPONENT END-->

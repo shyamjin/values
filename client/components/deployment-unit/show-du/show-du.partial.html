@@ -1,0 +1,19 @@
+<!--SHOW TOOL PARTIALS ASSEMBLY START-->
+<div class="vp-showtool  max" ng-controller="ViewDUController">
+    <!--SIDE NAVBAR SECTION-->
+    <div class="vp-showtool__navaside fixed pos--top pos--bottom" ng-include="'static/components/dashboard/navaside/navaside.component.html'"></div>
+    <div class="vp-showtool__content bg--white max--height relative">
+        <!--HEADER SECTION-->
+        <div class="vp-toolspage__headnotification" id="header_message" ng-include="'static/components/dashboard/header-message/headermessage.component.html'"></div>
+        <div class="vp-edittools__header  pos--top pos--right pos--left" ng-include="'static/components/deployment-unit/show-du/header/header.component.html'"></div>
+        <div class="content_height">
+            <div class="vp-edittools__content bg--white max--height tool_scroll relative">
+                <div class="vp-showtool__contentbounded" style="width:100%" >
+                    <!--TOOL INFORMATION SECTION-->
+                    <div class="vp-showtool__toolinfo" ng-include="'static/components/deployment-unit/show-du/du-details-modal/du-details-modal.component.html'"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--SHOW TOOL PARTIALS ASSEMBLY END-->

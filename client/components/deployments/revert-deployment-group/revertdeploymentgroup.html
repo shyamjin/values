@@ -1,0 +1,116 @@
+<!--ADD USER FORM COMPONENT START-->
+<div class="vp-tabsvertical vp-control max--width max--height clearfix" ng-controller="RevertDeploymentGroupController">
+    <div class="vp-tabsvertical__body bg--white left max--height relative">
+        <div class="vp-tabsvertical__bodycontent pl--xxxl">
+            <ul class="vp-userform__fieldslist text--cs03 pr--lg">
+                <li class="vp-userform__fielditem vp-userform__nameitem pt--xxl">
+                    <div class="vp-userform__fielditeminner">
+                        <div class="vp-userform__fieldlabelwrap inblock" style="width: 200px;height:26px;">
+                            <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Revert Type:<span class="mandatory">*</span></label>
+                        </div>
+                        <span class="vp-createnewmachform__fieldcontent vp-createnewmachform__hostcontent inblock">
+                            <select id="entity_type" name="vp-userform__dropdownlist_entity_type" class="vp-userform__dropdownlist vp-uielement__select" ng-model="deploymentTypeToSelect.type" style=" height:26px; width: 180px;" ng-change="setDUDeployType(deploymentTypeToSelect.type)">
+                                <option value="">--please select input--</option>
+                                <option value="PackageState">Specified Package State</option>
+                            </select>
+                        </span>
+                    </div>
+                </li>
+                <li class="vp-userform__fielditem vp-userform__nameitem pt--xxl"  ng-if="PackageStateFlag === true">
+                    <div class="vp-userform__fielditeminner">
+                        <!--'NAME' FIELD LABEL-->
+                        <div class="vp-userform__fieldlabelwrap inblock" style="width: 200px">
+                            <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Package Name:</label>
+                        </div>
+                        <!--'NAME' FIELD CONTENT-->
+                        <div class="vp-userform__fieldcontent vp-userform__namecontent inblock">
+                            <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">{{deploymentsGroupData.data.name}} </label>
+                        </div>
+                    </div>
+                </li>
+                <li class="vp-userform__fielditem vp-userform__nameitem pt--xxl" ng-if="PackageStateFlag === true">
+                    <div class="vp-userform__fielditeminner">
+                        <!--'NAME' FIELD LABEL-->
+                        <div class="vp-userform__fieldlabelwrap inblock" style="width: 200px">
+                            <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Package State Name:<span class="mandatory">*</span> </label>
+                        </div>
+                        <!--'NAME' FIELD CONTENT-->
+                        <div class="vp-versionform__content inblock">
+                            <div class="vp-versionform__content inblock">
+                                <div class="vp-versionform__statusselectwrap">
+                                    <select name="vp-versionform__dropdownlist2" id="state"  ng-model="selectedState" name="selectedState" class="vp-versionform__dropdownlist vp-versionform__dropdownlist2 vp-uielement__select max--width"  style="height:26px; width: 180px;" ng-change="showStateDetails(selectedState)">
+                                        <option ng-repeat="state in deploymentsGroupData.data.state" value="{{state}}">{{state.name}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="vp-userform__fielditem tool_list vp-userform__roleitem pt--lg">
+                    <div class="vp-userform__fielditeminner">
+                    <!--'MEMBER OF' FIELD LABEL-->
+                    <h3 class="tool_list_header ellipsis">DU'S INSTALLATION</h3>
+                        <div class="vp-userform__fieldlabelwrap vertical--top inblock pt--md">
+                            <!--USER INFO COMPONENT START (MODIFIERS: # vp-selecteduserform--active )-->
+                            <div class="vp_control max">
+                                <div class="vp_tile_toolWrapper clearfix" style="top: 20px;">
+                                    <ul>
+                                        <li class="vp-tilegrid__tile pa--sm left" ng-repeat="du in deploymentsGroupData.data.du_set_details" style="margin-top: 16px; margin-left: 20px;width: 330px; height: 180px">
+                                            <div ng-class="{'vp-dutile--selected': selected , 'vp-dutile--not-selected': !selected  }" class="vp-dutile vp-component text--cs03 pt--md pr--md pl--md vp-dutile__containingtoolmsg--active vp-tooltile__deprecatedwarning--active vp-tooltile__favorite--active  relative" style="width: 330px; height: 180px; margin-top: 6px; margin-left: 6px">
+                                                <div class="vp-dutile__iconswrapprer right">
+                                                    <!--TILE ICON-->
+                                                    <div class="vp-dutile__icon text--light text--xxxxl text--white vertical--top text--center bg--cs17" ng-class="setBackground(du.type)" style="margin-top: -6px; height: 30px; width: 30px; border-radius: 28px; line-height: 23px;">
+                                                        <span class="vp-dutile_iconinner iconinner_du">
+                                                            {{du.type.substring(0, 1)}}
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <!--TOOL TILE METADATA (title, description, containig tool)-->
+                                                <div class="vp-dutile__tilemetadata left">
+                                                    <div class="vp-dutile__label text--regular text--ellipsis text--ellipsis--two text--xl mb--md verticall--top" title="{{du.name}}"><a style="text-decoration : none !important;" href="#/deploymentunit/view/{{du._id.$oid}}">{{du.name}}</a></div>
+                                                    <div class="vp-dutile__containingtoolmsg text--light text--md mt--md text--ellipsis text--ellipsis--single hidden" ng-if="du.old_deployment_details.old_state_id"> <span class="text--bold">Deployed State:</span>
+                                                        <span>{{du.old_deployment_details.old_state_name}}</span>
+                                                    </div>
+                                                     <div class="vp-dutile__containingtoolmsg text--light text--md mt--md text--ellipsis text--ellipsis--single hidden" ng-if="du.old_deployment_details.old_build_number"> <span class="text--bold">Deployed Build:</span>
+                                                        <span>{{du.old_deployment_details.old_build_number}}</span>
+                                                    </div>
+                                                    <div class="vp-dutile__containingtoolmsg text--light text--md mt--md text--ellipsis text--ellipsis--single hidden" ng-if="PackageStateFlag === true">
+                                                       <div ng-if="du.state_details" >
+                                                            <span class="text--bold">State:<span class="mandatory">*</span></span>
+                                                            <span class="vp-createnewmachform__fieldcontent vp-createnewmachform__hostcontent inblock" >
+                                                                    <span name="vp-userform__dropdownlist_entity_type" class="vp-userform__dropdownlist"  id="select_pakcage_state_{{$index}}"style="color"  required>
+                                                                       {{du.state_details.state_name}}- {{du.state_details.build_number}}
+                                                                    </span>
+                                                            </span>
+                                                       </div>
+                                                        <span class="vp-createnewmachform__fieldcontent vp-createnewmachform__hostcontent vp-edittools inblock" ng-if="du.state_details_error === true">
+                                                                <label name="vp-userform__dropdownlist_entity_type" class="validation_msg ng-scope" style="font-size:12px;margin-left:0px" required>
+                                                                   Will not be reverted as no state was found for this du
+                                                                </label>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+    <!--USER INFO COMPONENT END-->
+                        </div>
+                    </div>
+                </li>
+                <div class="vp-machdetails__btnssectionblock mt--xxl mb--xl right">
+                    <div class="vp-machinetoolbar__createbtnwrap right">
+                        <button type="button" class="vp-machinetoolbar__createbtn vp-uielement__button vp-uielement__button--deployenabled pr--lg pl--lg" ng-click="revertDeploymentGroup()">Revert Deployment Group</button>
+                    </div>
+                    <!--DISCARD CHANCHES BUTTON-->
+                    <div class="vp-machinetoolbar__discardbtnwrap mr--xxxl left">
+                        <button type="button" class="vp-machinetoolbar__discardbtn vp-uielement__button vp-uielement__button--cleanenabled" ng-click="discardRevertChanges()">Discard</button>
+                    </div>
+                </div>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!--ADD USER FORM COMPONENT END-->

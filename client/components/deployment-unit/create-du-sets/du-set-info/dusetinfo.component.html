@@ -1,0 +1,253 @@
+<!--ADD USER FORM COMPONENT START-->
+<div class="vp-toolinfo vp-toolinfo--new vp-control bg--white max--width">
+    <div class="vp-userform vp-userformnewuser vp-control max">
+        <ul class="vp-userform__fieldslist text--cs03 pr--lg">
+            <!--'NAME' FIELD-->
+
+                <div class="vp-toolinfo__iconwrap pa--md inblock">
+
+                    <div class="vp-toolinfo__icon text--white vertical--top text--center text--xxl text--light bg--cs01">
+                        <span class="vp-toolinfo__iconinner">
+                            <img alt="" id="logoFile" style="width:100%;">
+                        </span>
+                    </div>
+                </div>
+                <div class="vp-toolinfo__toolname inblock">
+                     <input type="text" class="vp-toolinfo__toolnameinput input--clear text--cs03 text--light text--xxl pl--md " name="name" ng-model="application.data.name" required>
+                </div>
+                <h5 class="validation_msg" ng-if="application.data.name ==='' || application.data.name === undefined || application.data.name === null">Please enter du package name</h5>
+
+                    <div class="vp-toolinfo__editlogobtnwrap relative">
+                        <button type="button" class="vp-toolinfo__editlogobtn vp-uielement__button vp-uielement__button--cleanenabled" ng-click="showEditLogo()">Edit logo</button>
+                        <div class="vp-toolinfo__editlogopopup absolute hidden mt--xl" id="edit_logo" ng-include="'static/components/tools/create-tools/popups/editlogo-popup.component.html'"></div>
+                    </div>
+            <li class="vp-userform__fielditem vp-userform__passworditem pt--xxl">
+                <div class="vp-userform__fielditeminner">
+                    <!--'PASSWORD' FIELD LABEL-->
+                    <div class="vp-userform__fieldlabelwrap inblock">
+                        <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Release Notes:</label>
+                    </div>
+                    <!--'PASSWORD' FIELD CONTENT-->
+                    <div class="vp-userform__fieldcontent vp-userform__passwordcontent inblock">
+                        <textarea form="#" name="vp-teamsform___teamdescription" class="vp-userform__descriptioninput text--cs03 text--regular text--lg pa--md max--width" wrap="soft" style="width:400px;" ng-model="application.data.release_notes">{{usergroup.description}}</textarea>
+                    </div>
+                </div>
+            </li>
+            <!--'EMPLOYEE ID' FIELD-->
+           <section class="vp-versionform__certified mt--xl">
+            <li class="vp-userform__fielditem vp-userform__emailitem pt--xxl">
+                <div class="vp-userform__fielditeminner">
+                    <!--'EMPLOYEE ID' FIELD LABEL-->
+                    <div class="vp-userform__fieldlabelwrap inblock">
+                        <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Tags:</label>
+                    </div>
+                    <!--'EMPLOYEE ID' FIELD CONTENT-->
+                    <div class="vp-userform__fieldcontent vp-userform__emailcontent inblock">
+                        <div class="vp-versionform__content inblock">
+                        <!--PRE-REQUISITES FIELD CONTENT (MODIFIERS: # vp-versionform__prerequisitescontent--filled )-->
+                        <div class="vp-versionform__prerequisitescontent--filled">
+                            <ul class="vp-versionform__prerequisiteslist clearfix">
+                                <!--ITEM EXAMPLE-->
+                                <li class="vp-versionform__prerequisitesitem mb--sm right" ng-repeat="tag in application.data.tag" style="margin-right:10px;">
+                                    <div class="vp-versionform__prerequisitesiteminner">
+                                        <span>{{tag}}</span>
+                                        <!--EDIT BUTTON WRAPPER (MODIFIERS: # vp-versionform__editprerequisitesbtnwrap--show )-->
+                                        <div class="vp-versionform__editprerequisitesbtnwrap inblock relative" style="bottom:5px;">
+                                            <button type="button" class="vp-versionform__editprerequisitesbtn vp-uielement__button vp-uielement__button--edit vertical--bottom skip_slideup" ng-click="showAddTag()"></button>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="vp-versionform__prerequisitesaddbtn mb--sm left">
+                                    <!--ADD BUTTON-->
+                                    <button type="button" class="vp-versionform__addprerequisitesbtn vp-uielement__button pa--none vp-uielement__button--cleanenabled mr--xl skip_slideup" ng-click="showAddTag()">+Add</button>
+                                     <!--ADD PREREQUISITE POPUP-->
+                                    <div id="add_tag" class="vp-versionform__addcertifieditembtnpopup tag_popup absolute skip_slideup hidden" ng-include="'static/components/tools/create-tools/popups/tag-addpopup.component.html'"></div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </li>
+            <h5 class="validation_msg_tool_set" ng-show="CreateNewDUSetForm.tags.$error.required">Please enter tags!</h5>
+           </section>
+            <!--'MEMBER OF' FIELD-->
+           <section class="vp-versionform__prerequisites mt--xl">
+            <li class="vp-userform__fielditem vp-userform__roleitem pt--lg">
+                <div class="vp-userform__fielditeminner">
+                    <!--'EMPLOYEE ID' FIELD LABEL-->
+                    <div class="vp-userform__fieldlabelwrap inblock">
+                        <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Pre-requisites:</label>
+                    </div>
+                    <!--'EMPLOYEE ID' FIELD CONTENT-->
+                    <div class="vp-versionform__content inblock">
+                        <div class="vp-versionform__prerequisitescontent--filled">
+                            <ul class="vp-versionform__prerequisiteslist clearfix">
+                                <!--ITEM EXAMPLE-->
+                                <li class="vp-versionform__prerequisitesitem mb--sm right" ng-repeat="prerequisite in application.data.pre_requiests">
+                                    <div class="vp-versionform__prerequisitesiteminner">
+                                        <span>{{prerequisite.name}} {{prerequisite.version}}</span>
+                                        <!--EDIT BUTTON WRAPPER (MODIFIERS: # vp-versionform__editprerequisitesbtnwrap--show )-->
+                                        <div class="vp-versionform__editprerequisitesbtnwrap inblock relative">
+                                            <button type="button" class="vp-versionform__editprerequisitesbtn vp-uielement__button vp-uielement__button--edit vertical--bottom skip_slideup" ng-click="showEditPrerequisites($index)"></button>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="vp-versionform__prerequisitesaddbtn mb--sm left">
+                                    <!--ADD BUTTON-->
+                                    <button type="button" class="vp-versionform__addprerequisitesbtn vp-uielement__button pa--none vp-uielement__button--cleanenabled mr--xl skip_slideup" ng-click="showEditPrerequisites($index)">+Add</button>
+                                     <!--ADD PREREQUISITE POPUP-->
+                                    <div id="edit_prerequisite" class="vp-versionform__addcertifieditembtnpopup tag_popup absolute skip_slideup hidden" ng-include="'static/components/deployment-unit/edit-du-set/popups/prerequisities-editpopup.component.html'"></div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </li>
+           </section>
+            <li class="vp-userform__fielditem vp-userform__roleitem pt--lg">
+                <div class="vp-userform__fielditeminner">
+                    <!--'MEMBER OF' FIELD LABEL-->
+                    <div class="vp-userform__fieldlabelwrap vertical--top inblock pt--md">
+                        <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">DU's:</label>
+                    </div>
+                    <!--'MEMBER OF' FIELD CONTENT-->
+                    <div class="vp-userform__fieldcontent vp-userform__memberofcontent inblock">
+                        <!--TEAMS LIST-->
+                        <ul class="vp-userform__teamslist">
+                            <!--TEAM ITEM EXAMPLE-->
+                            <li class="vp-userform__teamitem vp-userform__managementteam pt--md">
+                                <div class="vp-userform__fielditeminner">
+                                    <button type="button" class="vp-versionform__adddocbtn vp-uielement__button vp-uielement__button--cleanenabled pa--none vertical--bottom" ng-click="showAddDU()"><span>+Add</span></button>
+                                    <div class="vp-addToolmodalwrap fixed max--position hidden" id="show_du_list">
+                                        <div class=" vp-addToolmodal absolute" ng-include="'static/components/deployment-unit/edit-du-set/popups/adddu-popup.component.html'"></div>
+                                    </div>
+                                </div>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            <li class="vp-userform__fielditem tool_list vp-userform__roleitem pt--lg  relative" style="margin-bottom: 4%;">
+                <div class="vp-userform__fielditeminner">
+                    <!--'MEMBER OF' FIELD LABEL-->
+                    <h3 class="tool_list_header ellipsis">DU'S INSTALLATION</h3>
+                    <div style="margin-left: 85%;">
+                        <button type="button" class="vp-versionform__editdeploydetails vp-uielement__button vp-uielement__button--edit" ng-click="showDUOrderModal()" ></button>
+                        <label for="vp-userform__suspendusercheckbox" class="ml--sm  vertical--bottom">Arrange Installation</label>
+                    </div>
+                    <h5 class="validation_msg_tool_set" ng-if="arranegDUOrderMessage===true">Please arrange the newly added DU to see it on this dashboard</h5>
+                    <div class="vp-addToolmodalwrap fixed max--position hidden" id="show_du_arrangement">
+                        <div class=" absolute" style="height: 794px;padding-left: 20%;padding-top: 5%;"ng-include="'static/components/deployment-unit/edit-du-set/popups/arrangedu-installation-popup.component.html'"></div>
+                    </div>
+                    <div class="vp-userform__fieldlabelwrap vertical--top inblock pt--md" style="width: 89%;">
+                        <!--USER INFO COMPONENT START (MODIFIERS: # vp-selecteduserform--active )-->
+                        <div class="vp_control max">
+                            <div class="vp_tile_toolWrapper clearfix" style="width: 89%; margin-bottom: 5%;">
+                                <ul>
+                                    <li class="vp-tilegrid__tile pa--sm left" ng-repeat="du in duList track by $index" style="margin-top: 16px; margin-left: 20px;width: 330px; height: 180px" ng-class="setMargin($index)">
+                                        <!--DEPLOY TOOL "TILE" ELEMENT START-->
+                                        <!--( MODIFIERS: vp-tooltile__containingtoolmsg--active # vp-tooltile__deprecatedwarning--active # vp-tooltile--selected # vp-tooltile__favorite--active )-->
+                                        <div ng-class="{'vp-dutile--selected': selected , 'vp-dutile--not-selected': !selected  }" class="vp-dutile vp-component text--cs03 pt--md pr--md pl--md vp-dutile__containingtoolmsg--active vp-tooltile__deprecatedwarning--active vp-tooltile__favorite--active  relative" style="width: 330px; height: 180px; margin-top: 6px; margin-left: 6px">
+                                            <div class="vp-dutile__iconswrapprer right">
+                                                <!--TILE ICON-->
+                                                <div class="vp-dutile__icon text--light text--xxxxl text--white vertical--top text--center" ng-class="setBackground(du.type)" style="margin-top: -6px; height: 30px; width: 30px; border-radius: 28px; line-height: 23px;">
+                                                    <span class="vp-dutile_iconinner iconinner_du">
+                                                        {{du.type.substring(0, 1)}}
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <!--TOOL TILE METADATA (title, description, containig tool)-->
+                                            <div class="vp-dutile__tilemetadata left" style="display: contents;">
+                                                <tooltip id="tooltip_{{$index}}_{{du.name}}"  tooltip-side="top">
+                                                    <div class="vp-dutile__label text--regular text--ellipsis text--ellipsis--two text--xl mb--md verticall--top" tooltips="" tooltip-template="{{du.name}}" title="{{du.name}}">
+                                                        <a style="text-decoration : none !important;" href="#/deploymentunit/view/{{du._id.$oid}}">{{du.name}}</a>
+                                                    </div>
+                                                </tooltip>
+                                                <!-- <div class="vp-dutile__deprecatedwarning text--light text--lg mt--md" ng-if="du.approval_status==='Certified'">
+                                                    <img alt="" class="vp-dutile__depreceteicon" src="static/assets/images/icons/active_icn.png">
+                                                    <span class="vp-dutile__deprecetemsg ml--sm">{{du.approval_status}}</span>
+                                                </div>
+                                                <div class="vp-dutile__deprecatedwarning text--light text--lg mt--md" ng-if="du.approval_status==='Created'">
+                                                    <img alt="" class="vp-dutile__depreceteicon" src="static/assets/images/icons/Deprecated_icn.png">
+                                                    <span class="vp-dutile__deprecetemsg ml--sm">{{du.approval_status}}</span>
+                                                </div>
+                                                <div class="vp-dutile__deprecatedwarning text--light text--lg mt--md" ng-if="du.approval_status==='Tested'">
+                                                    <img alt="" class="vp-dutile__depreceteicon" src="static/assets/images/icons/DU_status_yellow.png">
+                                                    <span class="vp-dutile__deprecetemsg ml--sm">{{du.approval_status}}</span>
+                                                </div> -->
+                                                <div class="vp-dutile__containingtoolmsg text--light text--lg mt--md text--ellipsis text--ellipsis--single hidden pt--md"><span class="text--bold">B:</span> <span>{{du.build_number}}</span></div>
+                                                <tooltip id="tooltip_{{$index}}_new"  tooltip-side="top" class="tag_name">
+                                                    <div class="vp-dutile__containingtoolmsg text--light text--lg mt--md text--ellipsis text--ellipsis--single hidden" tooltips=""  tooltip-template="{{du.tag.join(', ')}}"  style="width:300px;"> <span class="text--bold">T:</span>
+                                                        <span class="vp-dutile__containingtoolname" title="{{tag}}" ng-repeat="tag in du.tag">{{tag}}<span ng-if="$index!==du.tag.length-1">,</span></span>
+                                                     <!--<span>{{du.build_type}}</span>-->
+                                                    </div>
+                                                </tooltip>
+                                                <div class="vp-dutile__deprecatedwarning text--light text--lg mt--md" ng-if="du.dependent===true || du.dependent==='true'">
+                                                    <img alt="" class="vp-dutile__depreceteicon" src="static/assets/images/icons/Dependency_icon.png">
+                                                    <span class="vp-dutile__deprecetemsg ml--sm mr--md">Dependency</span>
+                                                </div>
+                                            </div>
+                                            <!--TOOL TILE FOOTER SECRION-->
+                                            <div class="vp-dutile__footer absolute clearfix set_long_footer" style="left:200px">
+                                                <button ng-click="removeDU(du)" type="button" class="vp-uielement__button vp-uielement__button--edittool vp-tooltile__edittoolbtn mr--md right">Remove</button>
+                                            </div>
+                                        </div>
+                                        <div class="manage_order" ng-if="$index!==selectedDU.length-1" style="margin-right:-33px">
+                                            <button type="button" id="move_ahead_{{$index}}" class="vp-uielement__button vp-uielement__button--pushahead change_order right" ng-click="moveForward($index)"></button>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+<!--USER INFO COMPONENT END-->
+                    </div>
+                </div>
+            </li>
+            <h5 class="validation_msg_tool_set" ng-show="duList.length<1" style="margin-top: -6%;">Please select atleast one DU to add in DU Package!</h5>
+            <!--<li class="vp-userform__fielditem vp-userform__roleitem pt&#45;&#45;lg">
+                <div class="vp-userform__fielditeminner">
+                    &lt;!&ndash;'EMPLOYEE ID' FIELD LABEL&ndash;&gt;
+                    <div class="vp-userform__fieldlabelwrap inblock">
+                        <label class="vp-userform__fieldlabel text&#45;&#45;light text&#45;&#45;md text&#45;&#45;ellipsis text&#45;&#45;ellipsis&#45;&#45;single">Approvals:</label>
+                    </div>
+                </div>
+            </li>
+            <li class="vp-userform__fielditem vp-userform__nameitem pt&#45;&#45;xxl" ng-repeat="approval in application.data.approval_list">
+                <div class="vp-userform__fielditeminner">
+                    &lt;!&ndash;'NAME' FIELD LABEL&ndash;&gt;
+                    <div class="vp-userform__fieldlabelwrap inblock">
+                        <label class="vp-userform__fieldlabel text&#45;&#45;light text&#45;&#45;md text&#45;&#45;ellipsis text&#45;&#45;ellipsis&#45;&#45;single">{{approval.approval_status}} </label>
+                    </div>
+                    &lt;!&ndash;'NAME' FIELD CONTENT&ndash;&gt;
+                    <div class="vp-versionform__content inblock">
+                    <div class="vp-userform__fieldlabelwrap inblock">
+                        <label class="vp-userform__fieldlabel text&#45;&#45;light text&#45;&#45;md text&#45;&#45;ellipsis text&#45;&#45;ellipsis&#45;&#45;single">{{approval.approved_by}}</label>
+                    </div>
+                    <div class="vp-userform__fieldlabelwrap inblock">
+                        <label class="vp-userform__fieldlabel text&#45;&#45;light text&#45;&#45;md text&#45;&#45;ellipsis text&#45;&#45;ellipsis&#45;&#45;single">{{approval.approved_date | date : "MMM d, y h:mm a"}}</label>
+                    </div>
+                </div>
+                </div>
+            </li>
+            <li class="vp-userform__fielditem vp-userform__nameitem pt&#45;&#45;xxl">
+                <div class="vp-userform__fielditeminner">
+                    &lt;!&ndash;'NAME' FIELD LABEL&ndash;&gt;
+                    <div class="vp-userform__fieldlabelwrap inblock">
+                        <label class="vp-userform__fieldlabel text&#45;&#45;light text&#45;&#45;md text&#45;&#45;ellipsis text&#45;&#45;ellipsis&#45;&#45;single">Add Approvals<span class="mandatory">*</span> </label>
+                    </div>
+                    &lt;!&ndash;'NAME' FIELD CONTENT&ndash;&gt;
+                    <div class="vp-versionform__content inblock">
+                    <div class="vp-versionform__statusselectwrap">
+                        <select name="approval_status" id="approval_status_create_du" ng-model="application.data.approval_status" class="vp-versionform__dropdownlist vp-versionform__dropdownlist2 vp-uielement__select max&#45;&#45;width"  style="height:26px; width: 120px;" ng-change="addApproval(application.data.approval_status)">
+                            <option ng-repeat="status in approvalStatusAll" value="{{status}}">{{status.name}}</option>
+                        </select>
+                    </div>
+                </div>
+                </div>
+            </li>-->
+        </ul>
+    </div>
+</div>
+<!--ADD USER FORM COMPONENT END-->

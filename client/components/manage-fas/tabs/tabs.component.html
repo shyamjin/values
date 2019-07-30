@@ -1,0 +1,19 @@
+<div class="vp-tabs vp-tabs--default vp-tabs--service vp-control relative max--width max--height clearfix" ng-controller="ManageFlexAttributesController">
+    <div class="vp-tabs__nav max--width left">
+        <nav>
+            <ul class="vp-tabs__navlist  max--width text--center text--md text--light text--cs06 table">
+                <li class="vp-tabs__tab pointer pr--sm pl--sm left" ng-class="getActiveTab('/manage/flexibleattributes')" ng-click="showActiveTab('/manage/flexibleattributes')" >
+                    <a href="#/manage/flexibleattributes"><span class="vp-tabs__tablabel vertical--top no--decor">Flexible Attributes List</span></a>
+                </li>
+                <li class="vp-tabs__tab pointer pr--sm pl--sm left" ng-class="getActiveTab('/new/flexibleattributes')" ng-click="showActiveTab('/new/flexibleattributes')">
+                    <a href="#/new/flexibleattributes"><span class="vp-tabs__tablabel vertical--top no--decor">Add New Flexible Attribute</span></a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="vp-tabs__body overflow--auto left max--width">
+        <div  ng-if="displayTab==='/manage/flexibleattributes'"  class="vp-tabs__servicetabcontent" ng-include="'static/components/manage-fas/manage-fas-content/managefascontent.component.html'"></div>
+        <div  ng-if="displayTab==='/new/flexibleattributes'"  class="vp-tabs__servicetabcontent" ng-include="'static/components/manage-fas/add-new-fa/addnewfascontent.component.html'"></div>
+    </div>
+</div>

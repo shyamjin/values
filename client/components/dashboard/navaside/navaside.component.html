@@ -1,0 +1,116 @@
+<!--ASIDE COMPONENT START
+(MODIFIERS: # vp-navaside__nav--active )-->
+<div class="vp-navaside vp-control max--height" ng-Controller="NavsideController">
+	<!--TOOLBAR ELEMENT-->
+	<div class="vp-navaside__toolbar text--center bg--cs03 max--height button_toggle">
+
+		<!--TOGGLE BUTTON WRAPPER-->
+		<div class="vp-navaside__togglewrapper">
+			<!--TOGGLE NAVASIDE NAV MENU-->
+			<button class="vp-navaside__togglebtn btn--clear mt--lg button_toggle" ng-click="toggleSideNav()"></button>
+		</div>
+		<!--DM LOGO-->
+		<div class="vp-navaside__dmlogowrapper btn--clear mt--md">
+			<img alt="" src="static/assets/images/icons/dm_logo.png" alt="DM icon"  ng-click="defaultRoute()">
+		</div>
+		<!--ACCOUNT LOGO-->
+		<div class="vp-navaside__dmlogowrapper mt--md" ng-if="AccountLogo.account_logo!==''">
+			<img alt="" src="{{AccountLogo.account_logo}}" alt="Account Logo" style="width: 100%;">
+		</div>
+		<!--VALUEPACK LOGO-->
+		<div class="vp-navaside__vplogowrapper absolute pos--bottom pos--left mb--lg ml--md">
+			<img alt="" src="static/assets/images/icons/valuepack_logo.png" alt="VP icon">
+		</div>
+	</div>
+	<!--NAVIGATION MENU ACTIVE SIDEBAR -->
+	<div id="side-nav-toggle" class="vp-navaside__nav bg--cs11 absolute max--height pos--top side-nav ">
+		<!--PERSONAL/ADMIN INFORMATION-->
+		<div class="vp-navaside__admininfowrapper mt--xxl ml--xxxl">
+			<!--ADMIN ICON-->
+			<div class="vp-navaside__adminlogowrapper vertical--middle inblock" ng-if="userProfile.userData.rolename==='SuperAdmin'">
+				<img alt="" src="static/assets/images/icons/super_admin_icn.png" alt="SuperAdmin icon">
+			</div>
+			<div class="vp-navaside__adminlogowrapper vertical--middle inblock" ng-if="userProfile.userData.rolename==='Admin'">
+				<img alt="" src="static/assets/images/icons/admin_icn.png" alt="Admin icon">
+			</div>
+			<div class="vp-navaside__adminlogowrapper vertical--middle inblock" ng-if="userProfile.userData.rolename==='Operator' || userProfile.userData.rolename==='Guest'">
+				<img alt="" src="static/assets/images/icons/oparator_icn.png" alt="Operator icon">
+			</div>
+			<!--ADMIN NAME and ROLE-->
+			<div class="vp-navaside__admininfo vertical--middle lh--md ml--lg inblock">
+				<div class="vp-navaside__personinfo text--cs06 text--light text--lg">{{userProfile.userData.full_name? userProfile.userData.full_name : userProfile.userData.user}}</div>
+				<div class="vp-navaside__personrole text--cs06 text--light text--lg">{{userProfile.userData.rolename}}</div>
+			</div>
+		</div>
+		<!--ADMINS MAIN MENU OPTIONS-->
+		<nav class="vp-navaside__adminnavigation">
+			<div class="vp-navaside__mainnavwrapper">
+				<ul class="vp-navaside__mainmenulist text--cs06 text--light text--lg">
+					<li class="vp-navaside__navoption" ng-if="isallowed['/dashboard']"><a href="#/dashboard">Tool Dashboard</a></li>
+					<li class="vp-navaside__navoption" ng-if="isallowed['/dashboard/du']"><a href="#/dashboard/du">DU Dashboard</a></li>
+					<li class="vp-navaside__navoption" ng-if="isallowed['/tool/new']"><a href="#/tool/new">New tool </a></li>
+					<li class="vp-navaside__navoption" ng-if="isallowed['/toolset/new']"><a href="#/toolset/new">New tool set</a></li>
+					<li class="vp-navaside__navaccountoption" ng-if="isallowed['/deploymentunit/new']"><a href="#/deploymentunit/new">New DU</a></li>
+					<li class="vp-navaside__navaccountoption" ng-if="isallowed['/deploymentunitset/new']"><a href="#/deploymentunitset/new">New DU Package</a></li>
+					<li class="vp-navaside__navoption"><a href="#/propose/tool">Propose New tool </a></li>
+					<!--NAV MENU SEPARATOR-->
+					<!--NAV MENU SEPARATOR admin oprations-->
+		        	<div class="vp-navaside__navseparator bg--cs03 mt--xxxxl mb--xl inblock"></div>
+					<li class="vp-navaside__navoption" ng-if="isallowed['/deploymentrequests']"><a href="#/deploymentrequests">Deployments</a></li>
+					<li class="vp-navaside__navoption" ng-if="isallowed['/machines']"><a href="#/machines">Manage machines</a></li>
+					<li class="vp-navaside__navoption" ng-if="isallowed['/users']"><a href="#/users">Manage users & teams</a></li>
+					<li class="vp-navaside__navoption" ng-if="isallowed['/manage/tags'] && isallowed['/tag/update']"><a href="#/manage/tags">Manage tags</a></li>
+					<li class="vp-navaside__navoption" ng-if="isallowed['/manage/prerequisites']"><a href="#/manage/prerequisites">Manage prerequisites</a></li>
+					<li class="vp-navaside__navoption" ng-if="isallowed['/distribution']"><a href="#/distribution">Distribution</a></li>
+					<li class="vp-navaside__navoption" ng-if="isallowed['/importexport']"><a href="#/importexport">Import/Export</a></li>
+					<li class="vp-navaside__navoption" ng-if="isallowed['/manage/synchronization/services']"><a href="#/manage/synchronization/services">Synchrnozation Services</a></li>
+					<li class="vp-navaside__navoption" ng-if="isallowed['/createclone']"><a href="#/createclone">Create Clone Request</a></li>
+					<li class="vp-navaside__navoption" ng-if="isallowed['/clonerequests']"><a href="#/clonerequests">Clone requests</a></li>
+					<li class="vp-navaside__navoption" ng-if="isallowed['/view/du/state']"><a href="#/view/du/state">Manage states</a></li>
+					<li class="vp-navaside__navoption" ng-if="isallowed['/manage/flexibleattributes']"><a href="#/manage/flexibleattributes">Manage FA</a></li>
+					<li class="vp-navaside__navoption" ng-if="isallowed['/view/repository']"><a href="#/view/repository">Repository</a></li>
+					<!--NAV MENU SEPARATOR-->
+					<!--NAV MENU SEPARATOR admin oprations-->
+				</ul>
+			</div>
+			<!--NAV MENU SEPARATOR-->
+			<div class="vp-navaside__navseparator bg--cs03 mt--xxxxl mb--xl inblock"></div>
+			<!--ADMIN ACCOUNT OPTIONS-->
+			<div class="vp-navaside__accountmenuwrapper">
+				<ul class="vp-navaside__accountmenulist text--cs06 text--light text--lg">
+					<li class="vp-navaside__navoption" ng-if="isallowed['/settings']"><a href="#/settings">Settings</a></li>
+					<li class="vp-navaside__navaccountoption" ng-if="isallowed['/view/reports']"><a href="#/view/reports">Reports</a></li>
+					<li class="vp-navaside__navaccountoption" ng-if="isallowed['/view/monitoring']"><a class="button_toggle" ng-click="showMonitoringSection()">Monitoring</a></li>
+					<li class="vp-navaside__navaccountoption ml--xxl hidden" id="monitoring_section">
+						<ul>
+							<li class="vp-navaside__navoption" ng-if="isallowed['/view/monitoring/runningservices']"><a href="#/view/monitoring/runningservices">Running Services</a></li>
+						</ul>
+					</li>
+					<li class="vp-navaside__navoption"><a class="button_toggle" ng-if="isallowed['/plugin']" ng-click="showPluginsSection()">Plugin</a></li>
+					<li class="vp-navaside__navaccountoption ml--xxl hidden" id="plugins_section">
+						<ul>
+							<li class="vp-navaside__navoption"><a href="#/plugin">Base Plugins</a></li>
+							<li class="vp-navaside__navoption"><a href="#/manage/plugins/deployment">External Plugins</a></li>
+						</ul>
+					</li>
+					<li class="vp-navaside__navaccountoption" ng-if="isallowed['/view/audits']"><a href="#/view/audits">Auditing</a></li>
+					<li class="vp-navaside__navoption"><a href="http://{{host}}:8086" target="_blank" >Help</a></li>
+					<li class="vp-navaside__navoption" ng-if="isallowed['/systemdata']"><a href="#/systemdata">About DPM</a></li>
+					<li class="vp-navaside__navoption" ng-click="showEditPassword()"><a href="">Change Password</a></li>
+					<li class="vp-navaside__navaccountoption" ng-click="logout()"><a href="#">Log out</a></li>
+				</ul>
+			</div>
+			<!--NAV MENU SEPARATOR-->
+			<div class="vp-userform__addsettingmodalwrap fixed max--position hidden" id="update_password_screen">
+				<change-password class="vp-changepasswordmodal absolute" at-password-value-map="atPasswordId" on-at-load="closePassword()"></change-password>
+			</div>
+			<div class="vp-navaside__navseparator bg--cs03 mt--xxxxl mb--xl inblock"></div>
+			<div class="vp-navaside__accountmenuwrapper">
+				<ul class="vp-navaside__accountmenulist text--cs06 text--light text--lg">
+
+				</ul>
+			</div>
+		</nav>
+	</div>
+</div>
+<!--ASIDE COMPONENT END-->

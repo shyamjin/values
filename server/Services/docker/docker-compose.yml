@@ -1,0 +1,161 @@
+# in order to support IPV4 you must set HOSTNAME_EXTERNAL_IP
+
+  mongo_sec:
+    restart: always
+    image: illin4489.corp.amdocs.com:10005/mongo_ee:sec_v4.0.3
+    ports:
+      - "${HOSTNAME_EXTERNAL_IP}:27018:64254"
+    volumes:
+      - ./mongo_sec:/data/db
+
+  nexus:
+    restart: always
+    image: illin4489.corp.amdocs.com:10005/vp_nexus:nexus_version # Default is 2.14.2_01  GETS REPLACED IN CLONE SERVICES 'copy_docker_yml_file'
+    ports:
+     - "${HOSTNAME_EXTERNAL_IP}:8081:8081"
+     - "${HOSTNAME_EXTERNAL_IP}:10005:10005"
+     - "${HOSTNAME_EXTERNAL_IP}:10060:10060"
+     - "${HOSTNAME_EXTERNAL_IP}:8443:8443"
+     - "${HOSTNAME_EXTERNAL_IP}:10050:10050"
+     - "${HOSTNAME_EXTERNAL_IP}:10004:10004"
+    volumes:
+      - ./nexus:/sonatype-work # FOR NEXUS2
+      - ./nexus3:/nexus-data  # FOR NEXUS3
+      - ./git:/var/git
+
+  dpm:
+    restart: always
+    image: illin4489.corp.amdocs.com:10005/dpm:latest # GETS REPLACED IN GITLAB CI
+    ports:
+      - "${HOSTNAME_EXTERNAL_IP}:8000:8000"
+    volumes:
+      - ./dpm/static/files/logos:/home/dpm/server/static/files/logos
+      - ./dpm/static/files/media_files:/home/dpm/server/static/files/media_files
+      - ./dpm/utilities/ProposedTools:/home/dpm/server/utilities/ProposedTools/scheduler
+      - ./dpm/static/DPMDataUpdates:/home/dpm/server/static/DPMDataUpdates      
+      - ./dpm/static/DPMDistributionCenter:/home/dpm/server/static/DPMDistributionCenter
+      - ./dpm/plugins/deploymentPlugins:/home/dpm/server/Plugins/deploymentPlugins
+      - ./dpm/plugins/syncPlugins:/home/dpm/server/Plugins/syncPlugins
+      - ./dpm/plugins/repositoryPlugins:/home/dpm/server/Plugins/repositoryPlugins
+      - ./dpm/archives:/home/dpm/server/archives
+      - ./jenkins/jobs/:/home/valuepack/jenkins/jobs
+      - ./nexus:/home/valuepack/nexus
+      - ./git:/home/valuepack/git
+      - ./dpm/ssl:/home/dpm/server/ssl
+      - /etc/localtime:/etc/localtime # TO SYNC TIME BETWEEN GUI AND SERVER
+      - ${HOME}/.ssh:/home/dpm/.ssh # FOR PASSWORDLESS CONECTIVITY
+      - /etc/yum.repos.d:/etc/yum.repos.d  # FOR YUM REPOSITORY
+      - ./wiki/DeploymentManger.wiki:/home/dpm/gollum  # FOR GOLLUM Wiki
+      - ./dpm/static/temp_files:/home/dpm/server/static/temp_files
+      - ./dpm/logs:/home/dpm/server/logs
+      - ${HOME}/.docker:/root/.docker
+      - /var/run/docker.sock:/var/run/docker.sock      
+
+    links:
+      - mongo_sec:mongo_sec
+      - nexus:vp_nexus
+      - slamdata:slamdata
+    environment:
+      - USE_SSL=true
+      - DPM_TYPE=dpm_account
+      #- DPM_BASE_PATH=${PWD}/ # default is ./
+      #- DPM_REMOTE_BASE_PATH=${PWD}/   # default is ./
+      #- HOSTNAME=illin4489
+      #- DPM_PORT=8000
+      #- WEBSERVER=nginx  # default usage gunicorn  # Valid values :,nginx
+
+  jenkins_server:
+    restart: always
+    image: illin4489.corp.amdocs.com:10005/vp_jenkins:jenkins_version # Default is 1.651.3  GETS REPLACED IN CLONE SERVICES 'copy_docker_yml_file' && old vp_jenkins1_6 == vp_jenkins:1.651.3
+    ports:
+      - "${HOSTNAME_EXTERNAL_IP}:8080:8080"
+      - "50000:50000"
+      - "2222:22"
+    volumes:
+      - ./jenkins:/var/jenkins_home
+      - ./git:/git
+      - ${HOME}/.ssh:/root/.ssh
+      - ${HOME}/.docker:/root/.docker
+      - /var/run/docker.sock:/var/run/docker.sock      
+    links:
+      - nexus:vp_nexus
+      - dpm:vp_dpm
+    environment:
+      - no_proxy=localhost,127.0.0.1,.corp.amdocs.com,vp_dpm,vp_nexus
+      - NO_PROXY=localhost,127.0.0.1,.corp.amdocs.com,vp_dpm,vp_nexus    
+      - MAVEN_OPTS=-Dhttps.protocols=TLSv1,TLSv1.1,TLSv1.2   
+      
+  slamdata:
+    image: illin4489.corp.amdocs.com:10005/slamdata:4.1
+    environment:
+      - CONNECTION_NAME=DPM
+      - CONNECTION_URI=mongodb://reports:reports@mongo:64254/DeploymentManager
+    volumes: 
+      - ./slamdata:/root/.config/quasar
+    ports:
+      - "${HOSTNAME_EXTERNAL_IP}:8085:8080"
+    links:
+      - mongo_sec:mongo
+
+  #wiki    
+  gullom:
+    image: illin4489.corp.amdocs.com:10005/gollum:first
+    links:
+      - dpm:vp_dpm # Need this to restart this container whenever DPM is reloaded
+    volumes: 
+      - ./wiki/DeploymentManger.wiki:/wiki
+    ports:
+      - "${HOSTNAME_EXTERNAL_IP}:8086:80"         
+      
+#  jenkins_slave1:
+#    image: illin4489.corp.amdocs.com:10005/jenkins_generic_slave:1
+#    links:
+#        - jenkins_server:jenkins_master     #MANDATORY keep like this
+#        - nexus:vp_nexus
+#        - dpm:vp_dpm
+#    volumes:
+#      - /var/run/docker.sock:/var/run/docker.sock
+#      - ./jenkins_slave:/home/slave_data
+#      - ./git:/git
+#      - ${HOME}/.ssh:/root/.ssh
+#
+#    environment:
+#      - SLAVE_NAME=docker_slave1  #MANDATORY
+
+#  sonarqube:
+#    image: sonarqube:latest
+#    command: -Dsonar.ce.javaOpts=-Xmx2048m -Dsonar.web.javaOpts=-Xmx2048m
+#    links:
+#     - postgresql:db
+#    environment:
+#     - DB_USER=sonar
+#     - DB_PASS=xaexohquaetiesoo
+#     - DB_NAME=sonar
+#    ports:
+#     - "9000:9000"
+#     - "443"
+#    volumes:
+#     - ./sonar/plugins:/opt/sonarqube/extensions/plugins
+
+#  postgresql:
+#   image: orchardup/postgresql:latest
+#   environment:
+#     - POSTGRESQL_USER=sonar
+#     - POSTGRESQL_PASS=xaexohquaetiesoo
+#     - POSTGRESQL_DB=sonar
+#   volumes:
+#     - /opt/db/sonarqube/:/var/lib/postgresql
+#   ports:
+#     - "5432:5432"
+
+#  jenkins_ionic_slave:
+#    image: illin4489.corp.amdocs.com:10005/jenkins_ionic_slave:2
+#    environment:
+#      - SLAVE_NAME=jenkins_ionic_slave
+#    links:
+#      - jenkins_server:jenkins_master
+#    volumes:
+#      - /var/run/docker.sock:/var/run/docker.sock
+#      - ./jenkins_slave:/home/slave_data
+#      - ./git:/git
+#      - ./jenkins/ssh:/root/.ssh

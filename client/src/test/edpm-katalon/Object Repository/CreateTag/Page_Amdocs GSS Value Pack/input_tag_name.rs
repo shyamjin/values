@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+   <description></description>
+   <name>input_tag_name</name>
+   <tag></tag>
+   <elementGuidId>508e4388-c0d8-49ae-865f-ca8396d68889</elementGuidId>
+   <selectorMethod>BASIC</selectorMethod>
+   <useRalativeImagePath>false</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>tag</name>
+      <type>Main</type>
+      <value>input</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>type</name>
+      <type>Main</type>
+      <value>text</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>class</name>
+      <type>Main</type>
+      <value>vp-machdetails__tunnelinghost input--clear max--width bl--primary br--primary bt--primary bb--primary ng-untouched ng-not-empty ng-dirty ng-valid-parse ng-valid ng-valid-required</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>name</name>
+      <type>Main</type>
+      <value>tag_name</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>ng-model</name>
+      <type>Main</type>
+      <value>tagData.name</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath</name>
+      <type>Main</type>
+      <value>/html[@class=&quot;ng-scope&quot;]/body[1]/div[@class=&quot;vp-app__deploytoolspage deployments-page max--height ng-scope&quot;]/div[@class=&quot;vp-distribution vp-deploytools max--height max--width ng-scope&quot;]/div[@class=&quot;vp-distribution__content max--height&quot;]/div[@class=&quot;vp-distribution__tabs left max--width ng-scope&quot;]/div[@class=&quot;vp-tabs vp-tabs--default vp-tabs--service vp-control relative max--width max--height clearfix ng-scope&quot;]/div[@class=&quot;vp-tabs__body overflow--hidden left max--width&quot;]/div[@class=&quot;vp-tabs__servicetabcontent ng-scope&quot;]/div[@class=&quot;vp-addnewmachinecont vp-control max ng-scope&quot;]/div[@class=&quot;vp-addnewmachinecont__form ng-scope&quot;]/div[@class=&quot;vp-addnewmachineform vp-addnewmachineformnewmachine vp-control max ng-scope&quot;]/form[@class=&quot;vp-addnewmachineform__addnewmachineform max ng-dirty ng-valid-parse ng-valid ng-valid-required&quot;]/table[@class=&quot;vp-addnewmachineform__fieldslist text--cs03 pr--lg&quot;]/tbody[1]/tr[1]/td[@class=&quot;vp-addnewmachineform__fielditem vp-addnewmachineform__roleitem pt--xxl&quot;]/div[@class=&quot;vp-addnewmachineform__fielditeminner&quot;]/div[@class=&quot;vp-addnewmachineform__fieldcontent vp-machineform__rolecontent inblock&quot;]/div[@class=&quot;vp-createnewmachform__fieldcontent vp-createnewmachform__aliascontent inblock&quot;]/input[@class=&quot;vp-machdetails__tunnelinghost input--clear max--width bl--primary br--primary bt--primary bb--primary ng-untouched ng-not-empty ng-dirty ng-valid-parse ng-valid ng-valid-required&quot;]</value>
+   </webElementProperties>
+</WebElementEntity>

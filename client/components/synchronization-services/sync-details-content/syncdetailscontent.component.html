@@ -1,0 +1,21 @@
+<!--'CREATE A NEW MACHINE' TAB CONTENT COMPONENT START-->
+<!--CREATE A NEW MACHINE TAB CONTENT COMPONENT START-->
+<div class="vp-createanewmach max">
+    <form name="EditDataSynchronizationForm" class="vp-createnewmachform__createanewmachine max--width">
+        <div class="vp-createanewmach__newmachineinfo pr--xl" ng-include="'static/components/synchronization-services/edit-sync-service/editsyncservice.component.html'"></div>
+        <!--TOOLBAR-->
+        <div class="vp-createanewmach__toolbar bg--cs06 max--width fixed pos--bottom pos-left" style="right: -3%; padding-right: 10%">
+            <div class="vp-createanewmach__innerbounded clearfix">
+                <div class="vp-createanewmach__savechangesbtnwrap right">
+                    <!--CREATE MACHINE BUTTON (MODIFIERS: # vp-uielement__button--deploydisabled )-->
+                    <button type="button" class="vp-createanewmach__createnewmachinebtn vp-uielement__button vp-uielement__button--deployenabled pr--lg pl--lg" ng-click="getSynchronizationData(EditDataSynchronizationForm)">Edit Sync Request</button>
+                </div>
+                <!--DISCARD CHANCHES BUTTON-->
+                <div class="vp-createanewmach__discardbtnwrap mr--xxxl right">
+                    <button type="button" class="vp-createanewmach__discardbtn vp-uielement__button vp-uielement__button--cleanenabled" ng-click="discardSyncChanges()">Discard</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<!--CREATE A NEW MACHINE TAB CONTENT COMPONENT END-->

@@ -1,0 +1,154 @@
+<div class="vp-userform vp-userformnewuser vp-control max" style="padding-left:5%">
+   <form name="CreateNewFasForm">
+    <ul class="vp-userform__fieldslist text--cs03 pr--lg">
+        <!--'NAME' FIELD-->
+        <li class="vp-userform__fielditem vp-userform__nameitem pt--xxl">
+            <div class="vp-userform__fielditeminner">
+                <!--'NAME' FIELD LABEL-->
+                <div class="vp-userform__fieldlabelwrap inblock">
+                    <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Entity:<span class="mandatory">*</span> </label>
+                </div>
+                <!--'NAME' FIELD CONTENT-->
+                <div class="vp-versionform__content inblock">
+                    <div class="vp-versionform__statusselectwrap">
+                        <select name="fas_entity" id="fas_entity"  ng-model="application.data.entity" class="vp-versionform__dropdownlist vp-versionform__dropdownlist2 vp-uielement__select max--width"  style="height:26px; width: 216px;">
+                             <option ng-repeat="entity in FasEntity" value="{{entity}}">{{entity}}</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="vp-userform__fielditem vp-userform__nameitem pt--xxl">
+            <div class="vp-userform__fielditeminner">
+                <!--'NAME' FIELD LABEL-->
+                <div class="vp-userform__fieldlabelwrap inblock">
+                    <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Name:<span class="mandatory">*</span> </label>
+                </div>
+                <!--'NAME' FIELD CONTENT-->
+                <div class="vp-userform__fieldcontent vp-userform__namecontent inblock">
+                    <input type="text" class="vp-userform__nameinput input--clear" name="fasename" ng-model="application.data.name" required />
+                </div>
+            </div>
+        </li>
+        <h5 class="validation_msg_tool_set" ng-show="CreateNewFasForm.name.$error.required">Please enter Flexible Attribute name</h5>
+        <li class="vp-userform__fielditem vp-userform__nameitem pt--xxl">
+            <div class="vp-userform__fielditeminner">
+                <!--'NAME' FIELD LABEL-->
+                <div class="vp-userform__fieldlabelwrap inblock">
+                    <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Title:<span class="mandatory">*</span> </label>
+                </div>
+                <!--'NAME' FIELD CONTENT-->
+                <div class="vp-userform__fieldcontent vp-userform__namecontent inblock">
+                    <input type="text" class="vp-userform__nameinput input--clear" name="titleename" ng-model="application.data.title" required />
+                </div>
+            </div>
+        </li>
+        <li class="vp-userform__fielditem vp-userform__nameitem pt--xxl">
+            <div class="vp-userform__fielditeminner">
+                <!--'NAME' FIELD LABEL-->
+                <div class="vp-userform__fieldlabelwrap inblock">
+                    <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Description:</label>
+                </div>
+                <!--'NAME' FIELD CONTENT-->
+                <div class="vp-userform__fieldcontent vp-userform__namecontent inblock">
+                    <textarea ng-model="application.data.description" name="fas_description" id="DESC" length="500" class="vp-toolinfo__descriptioninput text--cs03 text--regular text--lg" required style="width:211px"></textarea>
+                </div>
+            </div>
+        </li>
+        <li class="vp-userform__fielditem vp-userform__nameitem pt--xxl">
+            <div class="vp-userform__fielditeminner">
+                <!--'NAME' FIELD LABEL-->
+                <div class="vp-userform__fieldlabelwrap inblock">
+                    <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Type:<span class="mandatory">*</span></label>
+                </div>
+                <!--'NAME' FIELD CONTENT-->
+                <div class="vp-versionform__content inblock">
+                    <div class="vp-versionform__statusselectwrap">
+                        <select name="fas_type" id="fas_type"  ng-model="application.data.type" class="vp-versionform__dropdownlist vp-versionform__dropdownlist2 vp-uielement__select max--width"  style="height:26px; width: 216px;">
+                             <option ng-repeat="type in FasTypes" value="{{type.name}}">{{type.title}}</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="vp-userform__fielditem vp-userform__roleitem pt--lg" style="margin-top: 40px;">
+            <div class="vp-versionform vp-component bg--white max--width">
+                <div class="vp-userform__fielditeminner">
+                    <!--'EMPLOYEE ID' FIELD LABEL-->
+                    <div class="vertical--top inblock">
+                        <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Valid Values:</label>
+                    </div>
+                    <!--'EMPLOYEE ID' FIELD CONTENT-->
+                    <div class="vp-versionform__content inblock" style="padding-left: 3%">
+                        <section class="vp-versionform__deploymentdetails">
+                            <!--DEPLOYMENT DETAILS LIST (MODIFIERS: # vp-versionform__deployitemlistwrap--filled )-->
+                            <div class="vp-versionform__deployitemlistwrap--filled">
+                                <ul>
+                                    <!--TEXT INPUT ITEM EXAMPLE-->
+                                    <li class="vp-versionform__deploydetailsitem" ng-repeat="values in application.data.valid_values track by $index">
+                                       <div class="vp-versionform__deployiteminner bg--cs06 clearfix" style="width:400px">
+                                            <div class="vp-versionform__deployiteminputwrap left">
+                                                <input id="values_{{$index}}" type="text" class="vp-versionform__detailinput input--clear bg--white text--cs03 text--regular text--lg max--width" name="values_{{$index}}" focus-if ng-model="application.data.valid_values[$index]" required style="height:26px; width: 200px;margin-left:20px"/>
+                                            </div>
+                                           <div class="vp-versionform__optionspanelcontainer clearfix right">
+                                                <div class="vp-versionform__removescreenshotbtnwrap mr--xxxl right">
+                                                    <button type="button" class="vp-versionform__removescreenshotbtn vp-uielement__button vp-uielement__button--removeenabled pl--xxl" ng-click="removeValues($index)">Remove</button>
+                                                </div>
+                                           </div>
+                                       </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="vp-versionform__adddeployitem bg--cs06">
+                                <button type="button" class="vp-versionform__adddeploymentdetail vp-uielement__button vp-uielement__button--cleanenabled text--left" style="width:400px" ng-click="addFasValidValues()"><span class="ml--lg"> Add Valid Values</span></button>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="vp-userform__fielditem vp-userform__nameitem pt--xxl">
+            <div class="vp-userform__fielditeminner">
+                <!--'NAME' FIELD LABEL-->
+                <div class="vp-userform__fieldlabelwrap inblock">
+                    <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Default Value:</label>
+                </div>
+                <!--'NAME' FIELD CONTENT-->
+                <div class="vp-userform__fieldcontent vp-userform__namecontent inblock">
+                    <input type="text" class="vp-userform__nameinput input--clear" name="title_default_value" ng-model="application.data.default_value" required />
+                </div>
+            </div>
+        </li>
+        <li class="vp-userform__fielditem vp-userform__nameitem pt--xxl">
+            <div class="vp-userform__fielditeminner">
+                <!--'NAME' FIELD LABEL-->
+                <div class="vp-userform__fieldlabelwrap inblock">
+                    <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Is Active:</label>
+                </div>
+                <!--'NAME' FIELD CONTENT-->
+                <div class="vp-userform__fieldcontent vp-userform__namecontent inblock">
+                    <div class="vp-uielement__checkbox">
+                        <input id="input_check_is_active" type="checkbox" name="is_active" ng-model="application.data.is_active" />
+                        <label for="input_check_is_active"></label>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="vp-userform__fielditem vp-userform__nameitem pt--xxl">
+            <div class="vp-userform__fielditeminner">
+                <!--'NAME' FIELD LABEL-->
+                <div class="vp-userform__fieldlabelwrap inblock">
+                    <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Is Mandatory:</label>
+                </div>
+                <!--'NAME' FIELD CONTENT-->
+                <div class="vp-userform__fieldcontent vp-userform__namecontent inblock">
+                    <div class="vp-uielement__checkbox">
+                        <input id="input_check_is_mandatory" type="checkbox" name="is_mandatory" ng-model="application.data.is_mandatory" />
+                        <label for="input_check_is_mandatory"></label>
+                    </div>
+                </div>
+            </div>
+        </li>
+     </ul>
+   </form>
+</div>

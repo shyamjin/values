@@ -1,0 +1,66 @@
+<!--TOOLS-SECTION COMPONENT START-->
+<div class="vp-toolssection vp-control pt--xl pl--xxxl bg--white max--width clearfix">
+	<!--LABEL SECTION (MODIFIERS: # vp-toolssection__notification--active)-->
+	<div class="vp-toolssection__labelwrap vp-toolssection__notification--active relative left">
+		<label class="vp-toolssection__label text--ellipsis text--ellipsis--single text--cs01 pt--sm text--light text--lg inblock">DU's (<span class="vp-toolssection__toolscount">{{duSelectedToDeploy.length}}</span>):</label>
+		<!--LABEL NOTIFICATION-->
+		<div class="vp-toolssection__labelnotification text--cs05 text--light text--sm absolute pos--bottom"  ng-if="selectedDU.validate===false">
+			<div class="vp-toolssection__notificationicon vertical--middle inblock"></div>
+			<div class="vp-toolssection__notificationmsg inblock">
+				<span class="vp-toolssection__notificationcounter vertical--middle">2</span>
+				<span class="vp-toolssection__notificationmsg vertical--middle">DU's have errors</span>
+			</div>
+		</div>
+	</div>
+	<!--TOOLS (MODIFIERS: # vp-toolssection__toolswrap--manytools)-->
+	<div class="vp-toolssection__toolswrap vp-toolssection__toolswrap--manytools left">
+		<!--TOOL TEMPLATE (MODIFIERS: # vp-toolssection__toolnotification--active
+		# vp-uielement__toolitem--unknown # vp-uielement__toolitem--ready # vp-uielement__toolitem--error) -->
+		<div class="vp-toolssection__tool relative" ng-class="getDUValidated(selectedDU.du_name, selectedMachine)">
+			<div class="vp-toolssection__stateicon vp-uielement__itemstateicon inblock"></div>
+			<span class="vp-toolssection__toolname text--cs03 text--light text--xxl">{{selectedDU.du_name}} {{selectedDU.build_number}}</span>
+			<!--  <span class="vp-toolssection__toolversion text--cs03 text--light text--xxl ml--xxl">{{selectedDU.version_number}}</span>  -->
+			<!--FIND TOOLS BUTTON (MODIFIERS: # vp-toolssection__moretoolsbtn--show)-->
+			<div class="vp-toolssection__moretoolsbtnwrapper ml--md relative inblock">
+				<button type="button" class="vp-toolssection__moretoolsbtn vp-uielement__button vp-uielement__button--dropdownarrow vertical--top skip_slideup" ng-click="showMoreDU()"></button>
+				<div id="more_du_popup_include" class="vp-toolssection__moretoolspopup tag_popup absolute hidden" ng-include="'static/components/deployment-unit/deploy-du/morepopup/moredupopup.component.html'"></div>
+			</div>
+			<!--ADD TOOLS BUTTON (MODIFIERS: # vp-toolssection__addtoolsbtn--show)-->
+			<div class="vp-toolssection__addtoolsbtnwrapper relative inblock" ng-show ="request_type==='deploy'">
+				<button type="button" class="vp-toolssection__addtoolsbtn vp-uielement__button vp-uielement__button--cleanenabled pa--none ml--md relative" ng-click="showMoreDUToAdd()"><span class="skip_slideup">+Add DU's</span></button>
+				<div id="more_du_add_popup" class="vp-toolssection__addtoolspopup tag_popup absolute hidden"  ng-include="'static/components/deployment-unit/deploy-du/adddupopup/adddupopup.component.html'"></div>
+			</div>
+			<!-- <div class="vp-toolssection__toolnotification absolute pos--bottom ">
+				<span class="vp-toolssection__toolnotificationmsg text--cs05 text--light text--sm hidden">This version has not been certified for MPS 2.0 and many may not deploy smoothly</span>
+			</div> -->
+		</div>
+	</div>
+	<div class="vp-toolssection__toolswrap vp-toolssection__toolswrap--manytools" style="margin-left:45%">
+		<label  class="ml--md">Global Settings:</label>
+		<div class="vp-machinesform__fieldinputwrap  vertical--top pl--md inblock">
+			 <div class="vp-machdetails__fielditeminner">
+				 <div class="vp-machdetails__fieldlabelwrap inblock">
+					 <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Skip Deployment:</label>
+				 </div>
+				 <div class="vp-machdetails__fieldcontent inblock">
+					 <div class="vp-machdetails__fieldipwrap inblock">
+						 <span class="vp-machdetails__fieldip text--regular text--lg text--ellipsis text--ellipsis--single">{{skip_deployment}}</span>
+					 </div>
+				 </div>
+			 </div>
+		</div>
+		<div class="vp-machinesform__fieldinputwrap  vertical--top pl--md inblock">
+			 <div class="vp-machdetails__fielditeminner">
+				 <div class="vp-machdetails__fieldlabelwrap inblock">
+					 <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Machine Matching:</label>
+				 </div>
+				 <div class="vp-machdetails__fieldcontent inblock">
+					 <div class="vp-machdetails__fieldipwrap inblock">
+						 <span class="vp-machdetails__fieldip text--regular text--lg text--ellipsis text--ellipsis--single">{{machine_matching_ind}}</span>
+					 </div>
+				 </div>
+			 </div>
+		</div>
+	</div>
+</div>
+<!--TOOLS-SECTION COMPONENT END-->

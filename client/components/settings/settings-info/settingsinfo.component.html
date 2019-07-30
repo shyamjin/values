@@ -1,0 +1,121 @@
+    <div ng-class="getSettingFormClass()" ng-if="settings_fields" style="width: 800px;">
+        <form name="configForm_{{selectedCategory._id.$oid}}" id="{{selectedCategory.name}}" name="vp-settingform__selectedsettingform" class="vp-settingform__selectedsettingform max pl--xl" ng-submit="updateConfig(selectedId)" role="form">
+            <ul ng-class="getSettingsUlClass()">
+                <li class="vp-settingform__fielditem vp-settingform__nameitem pt--sm">
+                    <div class="vp-settingform__fielditeminner">
+                        <!--'NAME' FIELD LABEL-->
+                        <div  class="vp-settingform__selectedsettingnamewrap vertical--middle inblock" ng-click="resetReadOnly()">
+                            <label  class="vp-settingform__selectedsettingname vp-settingform__fieldlabel text--xxl text--light text--ellipsis text--ellipsis--single">{{settings_fields.name}} </label>
+                        </div>
+                    </div>
+                </li>
+                <li class="vp-settingform__fielditem vp-settingform__nameitem pt--sm mt--xl mb-xl" ng-if="settings_fields.start_time || settings_fields.end_time || settings_fields.run_message || settings_fields.run_status">
+                    <div class="split-wrapper">
+                        <div class="left-data split">
+                            <ul>
+                                <li class="vp-machdetails__fielditem vp-machdetails__ipitem list_spacing" ng-if="settings_fields.start_time">
+                                    <div class="vp-machdetails__fielditeminner">
+                                        <!--IP FIELD LABEL-->
+                                        <div class="vp-machdetails__fieldlabelwrap inblock field_label_spacing">
+                                            <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Start time:</label>
+                                        </div>
+                                        <!--IP FIELD CONTENT-->
+                                        <div class="vp-machdetails__fieldcontent inblock">
+                                            <div class="vp-machdetails__fieldipwrap inblock">
+                                                <span class="vp-machdetails__fieldip text--regular text--lg text--ellipsis text--ellipsis--single">{{settings_fields.start_time.$date | date : "MM/d/y h:mma"}}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="vp-machdetails__fielditem vp-machdetails__ipitem list_spacing" ng-if="settings_fields.end_time">
+                                    <div class="vp-machdetails__fielditeminner">
+                                        <!--IP FIELD LABEL-->
+                                        <div class="vp-machdetails__fieldlabelwrap inblock field_label_spacing">
+                                            <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">End time:</label>
+                                        </div>
+                                        <!--IP FIELD CONTENT-->
+                                        <div class="vp-machdetails__fieldcontent inblock">
+                                            <div class="vp-machdetails__fieldipwrap inblock">
+                                                <span class="vp-machdetails__fieldip text--regular text--lg text--ellipsis text--ellipsis--single">{{settings_fields.end_time.$date | date : "MM/d/y h:mma"}}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="right-data split absolute">
+                            <ul>
+                                <li class="vp-machdetails__fielditem vp-machdetails__ipitem list_spacing" ng-if="settings_fields.run_message">
+                                    <div class="vp-machdetails__fielditeminner">
+                                        <!--IP FIELD LABEL-->
+                                        <div class="vp-machdetails__fieldlabelwrap inblock field_label_spacing">
+                                            <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Run message:</label>
+                                        </div>
+                                        <!--IP FIELD CONTENT-->
+                                        <div class="vp-machdetails__fieldcontent inblock">
+                                            <div class="vp-machdetails__fieldipwrap inblock">
+                                                <span class="vp-machdetails__fieldip text--regular text--lg text--ellipsis text--ellipsis--single">{{settings_fields.run_message}}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="vp-machdetails__fielditem vp-machdetails__ipitem list_spacing" ng-if="settings_fields.run_status">
+                                    <div class="vp-machdetails__fielditeminner">
+                                        <!--IP FIELD LABEL-->
+                                        <div class="vp-machdetails__fieldlabelwrap inblock field_label_spacing">
+                                            <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Run status:</label>
+                                        </div>
+                                        <!--IP FIELD CONTENT-->
+                                        <div class="vp-machdetails__fieldcontent inblock">
+                                            <div class="vp-machdetails__fieldipwrap inblock">
+                                                <span class="vp-machdetails__fieldip text--regular text--lg text--ellipsis text--ellipsis--single">{{settings_fields.run_status}}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li ng-repeat="field in settings_fields.field_types track by $index" style="margin-top: 25px;">
+                    <div class="vp-settingform__fielditeminner">
+                        <div class="vp-settingform__fieldlabelwrap inblock" ng-click="resetReadOnly()">
+                            <label  class="vp-settingform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single" style="width: 250px;">{{field.name}} </label>
+                        </div>
+                        <div ng-if="field.type==='textbox' || field.type==='number' || field.type==='password' || field.type==='date' || field.type==='email'" class="vp-settingform__fieldcontent vp-settingform__emailcontent inblock" ng-click="resetReadOnly()">
+                            <input type="{{field.type}}" id="{{field.name}}_{{$index}}" class="vp-settingform__emailinput settinginput--clear" name="{{field.name}}" ng-model="field.value" length="80" style="width: 330px;"/>
+                        </div>
+                        <div ng-if="field.type==='radio'" class="vp-settingform__fieldcontent vp-settingform__emailcontent inblock" ng-click="resetReadOnly()">
+                            <div class="vp-versionform__deployiteminner bg--cs06 clearfix" style="height: initial;">
+                                <div class="vp-versionform__deployiteminputwrap left">
+                                    <div class="vp-uielement__radiobtn" ng-repeat="value in field.available_values">
+                                        <input type="radio" id="vp-versionform__deploymentsdetailsyes1_{{$index}}_valid" ng-model="field.value" name="{{field.name}}" checked>
+                                        <label for="vp-versionform__deploymentsdetailsyes1_{{$index}}_valid"></label>
+                                        <label for="vp-versionform__deploymentsdetailsyes1_{{$index}}_valid">{{value}}</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div ng-if="field.type==='dropdown'" class="vp-settingform__fieldcontent vp-settingform__emailcontent inblock" ng-click="resetReadOnly()">
+                            <div class="vp-versionform__deployiteminputwrap left">
+                                <select id="dropdown_{{$index}}" class="vp-versionform__dropdownlist vp-versionform__dropdownlist1 vp-uielement__select max--width" ng-model="field.value" name="{{field.name}}" style="width: 330px;">
+                                    <option data-ng-repeat="value in field.available_values" value="{{value}}">{{value}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div ng-if="field.type==='checkbox'" class="vp-settingform__fieldcontent vp-settingform__emailcontent inblock" style="display: inline-flex">
+                            <div class="vp-versionform__deployiteminner clearfix" style="height: initial;">
+                                <div class="vp-versionform__deployiteminputwrap left" style="display: grid">
+                                    <div class="vp-uielement__checkbox" ng-repeat="value in field.available_values track by $index">
+                                         <input type="checkbox" id="vp-versionform__deploymentsdetailsyes1_{{$index}}_{{value}}" name="{{$index}}_{{value}}" ng-model="field.value[$index]" ngTrueValue="true" ng-false-value="false"/>
+                                         <label for="vp-versionform__deploymentsdetailsyes1_{{$index}}_{{value}}"></label>
+                                         <label for="vp-versionform__deploymentsdetailsyes1_{{$index}}_{{value}}">{{value}}</label>
+                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </form>
+    </div>

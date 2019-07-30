@@ -1,0 +1,6 @@
+.vp-tabs.vp-tabs--machines .vp-tabs__navlist {
+  padding-left: 100px;
+}
+.vp-tabs.vp-tabs--machines li.vp-tabs__tab {
+  width: 500px;
+}

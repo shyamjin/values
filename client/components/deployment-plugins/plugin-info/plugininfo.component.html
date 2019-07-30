@@ -1,0 +1,22 @@
+<!--USER INFO COMPONENT START (MODIFIERS: # vp-selecteduserform--active )-->
+<div ng-class="getUserFormClass()" >
+    <form action="#" name="EditTagForm" class="vp-distributionform__selecteddistributionform max pl--xl" >
+        <ul ng-class="getUserUlClass()">
+            <!--'Machine Name' FIELD-->
+            <li class="vp-distributionform__fielditem vp-distributionform__emailitem pt--xxl">
+                <div class="vp-distributionform__fielditeminner">
+                    <!--'NAME' FIELD LABEL-->
+                    <div class="vp-distributionform__fieldlabelwrap inblock">
+                        <label class="vp-distributionform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single"><span class="fontSizeClass">Tag Name :</span></label>
+                    </div>
+                    <!--'NAME' FIELD CONTENT-->
+                    <div class="vp-distributionform__fieldcontent vp-distributionform__emailcontent inblock">
+                        <div class="vp-createnewmachform__fieldcontent vp-createnewmachform__aliascontent inblock">
+                            <input type="text" class="vp-machdetails__tunnelinghost input--clear max--width bl--primary br--primary bt--primary bb--primary" name="tag_name" ng-model="tagData.data.name" required style="margin-left:20px; width: 140px; height: 23px;" />
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </form>
+</div>

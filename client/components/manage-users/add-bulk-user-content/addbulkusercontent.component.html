@@ -1,0 +1,140 @@
+<!-- FILE FORM COMPONENT START-->
+<div class="vp-machfileload vp-control bg--white max" ng-controller="AddBulkUsersController">
+    <div class="vp-machfileload__fieldinner">
+        <!--'FILE' FIELD LABEL-->
+        <div class="vp-machfileload__fieldlabelwrap vertical--top inblock">
+            <label class="vp-machfileload__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">File:</label>
+        </div>
+        <!--'FILE' FIELD CONTENT-->
+        <div class="vp-machfileload__fieldcontent vp-machfileload__ipcontent inblock">
+            <!--TOP INPUT SECTION-->
+            <section class="vp-machfileload__fileinputsection">
+                <form name="bulkUserUploadForm"  enctype = "multipart/form-data">
+                    <input type="text" class="vp-machfileload__filenameinput input--clear" ng-model="bulkUserFileSelected" name="bulkUserSelectedToUpload" readonly/>
+                    <input type="file" id="vp-machfileload__browseinput" class="vp-machfileload__browseinput hidden" bulk-user-model="bulkUserToUplaod"/>
+                    <label for="vp-machfileload__browseinput" class="vp-machfileload__browselabel vertical--top text--center vp-uielement__button vp-uielement__button--edittool ml--md inblock"><span>Browse</span></label>
+                    <button type="button" class="vp-machfileload__loadbtn vp-uielement__button vp-uielement__button--apply pr--md pl--md mt--xxl block" ng-click="bulkUsersUpload(bulkUserToUplaod)">Create users</button>
+                </form>
+            </section>
+           <!-- PROCESSING SECTION-->
+            <section class="vp-exportfileload__processingsection" style="margin-left:33%;" ng-if="preLoader">
+                <div class="loader mb--sm" style="margin-left: 60px;"></div>
+                <span class="vp-exportfileload__processingmsg text--cs03 text--light text--xxl">Loading & processing...</span>
+            </section>
+            <!--BULK FILE REPORT SECTION (MODIFIERS: # vp-exportfileload__bulkreportsection--show )-->
+            <section class="vp-exportfileload__bulkreportsection vp-exportfileload__bulkreportsection--show text--cs03 mt--xxl" ng-if="resultPane">
+                    <div class="vp-exportfileload__createdmachineslistwrap mt--xl">
+                        <h13 style="text-align:center;font-weight: bold;"> Result</h13><br><br><br><br>
+                        <ul class="vp-exportfileload__createdmachineslist">
+                            <li class="vp-exportfileload__createdmachineitem mt--sm">Message : {{importResult.message}}</li>
+                            <li class="vp-exportfileload__createdmachineitem mt--sm" ng-if="importResult.data">Users :</li>
+                            <div class="vp-exportfileload__createdmachineitem mt--sm" ng-if="importResult.data" ng-repeat="row in importResult.data track by $index">
+                                {{$index+1}} - {{row}}
+                            </div>
+                        </ul>
+                    </div>
+            </section>
+        </div>
+        <div class="vp-machdetails vp-control pt--xxxl pr--xl pb--xxxl pl--xxxl bg--white  clearfix max" ng-hide="preLoader || resultPane ">
+                <ul class="vp-machdetails__fieldslist text--cs03 split-wrapper" style="width:70%">
+                    <li class="vp-machdetails__fielditem vp-machdetails__ipitem">
+                        <div class="vp-machdetails__fielditeminner">
+                            <!--IP FIELD LABEL-->
+                            <div class="vp-machdetails__fieldlabelwrap inblock">
+                                <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Sample Document : </label>
+                            </div>
+                            <!--IP FIELD CONTENT-->
+                            <div class="vp-machdetails__fieldcontent inblock">
+                                <div class="vp-machdetails__fieldipwrap inblock">
+                                  <a ng-href="static/files/templates/bulk_upload_user_template.csv" target="_blank"><button  type="button" class="vp-machdetails__removemachinebtn vp-uielement__button vp-uielement__button--edittool pr--md pl--md ml--md">Download Sample</button></a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="vp-machfileload__fieldlabelwrap vertical--top inblock">
+                            <label class="vp-machfileload__fieldlabel text--light text--md text--ellipsis text--ellipsis--single vp-machdetails__fieldlabel">Example:</label>
+                        </div>
+                    </li>
+                    <li class="vp-machdetails__fielditem vp-machdetails__ipitem">
+                        <div class="vp-machdetails__fielditeminner">
+                            <!--IP FIELD CONTENT-->
+                            <div class="">
+                                <table>
+                                    <tr>
+                                        <th>User Name</th>
+                                        <th>Password</th>
+                                        <th>Employee ID</th>
+                                        <th>Role</th>
+                                        <th>Email</th>
+                                        <th>Account Name</th>
+                                    </tr>
+                                    <tr>
+                                        <td>Testing</td>
+                                        <td>Test1234</td>
+                                        <td>123456</td>
+                                        <td>Guest</td>
+                                        <td>test@amdocs.com</td>
+                                        <td>TESTCOM</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="vp-machfileload__fieldlabelwrap vertical--top vp-machdetails__ipitem inblock">
+                            <label class="vp-machfileload__fieldlabel text--light text--md text--ellipsis text--ellipsis--single vp-machdetails__fieldlabel">Valid Values:</label>
+                        </div>
+                    </li>
+                    <div class="vp-machdetails__fielditem vp-machdetails__ipitem">
+                        <div class="split-wrapper">
+                            <ul class="vp-machdetails__fieldslist text--cs03">
+                                <li class="vp-machdetails__fielditem vp-machdetails__ipitem">
+                                    <div class="vp-machdetails__fielditeminner">
+                                        <div class="vp-machdetails__fieldcontent inblock">
+                                            <div class="vp-machdetails__fieldipwrap inblock">
+                                                <span class="vp-machdetails__fieldip text--bold text--md">Account Name</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="vp-machdetails__fielditem vp-machdetails__ipitem">
+                                    <div class="vp-machdetails__fielditeminner">
+                                        <div class="vp-machdetails__fieldcontent inblock">
+                                            <div class="inblock">
+                                                <span class="vp-machdetails__fieldip text--regular text--md">{{sampleUserData.accountData.join(', ')}}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="split-wrapper">
+                            <ul class="vp-machdetails__fieldslist text--cs03">
+                                <li class="vp-machdetails__fielditem vp-machdetails__ipitem">
+                                    <div class="vp-machdetails__fielditeminner">
+                                        <div class="vp-machdetails__fieldcontent inblock">
+                                            <div class="vp-machdetails__fieldipwrap inblock">
+                                                <span class="vp-machdetails__fieldip text--bold text--md">Role Name</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="vp-machdetails__fielditem vp-machdetails__ipitem">
+                                    <div class="vp-machdetails__fielditeminner">
+                                        <div class="vp-machdetails__fieldcontent inblock">
+                                            <div class="inblock">
+                                                <span class="vp-machdetails__fieldip text--regular text--md">{{sampleUserData.Roles.join(', ')}}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    </li>
+                </ul>
+            </div>
+    </div>
+</div>
+<!-- FILE FORM COMPONENT END-->

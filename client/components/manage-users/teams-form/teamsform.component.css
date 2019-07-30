@@ -1,0 +1,15 @@
+.vp-teamsform__teamsnamecol {
+  width: 40%;
+}
+.vp-teamsform__descriptioncol {
+  width: 60%;
+}
+.vp-teamsform__headseparator {
+  height: 1px;
+}
+.vp-teamsform .vp-teamsform__namebtnswrap {
+  width: 90px;
+}
+.vp-teamsform .vp-teamsform__namewrap {
+  width: calc(100% -  80px);
+}

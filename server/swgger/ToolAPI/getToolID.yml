@@ -1,0 +1,33 @@
+Getting tool by Id
+---
+tags:
+ - Tools
+parameters:
+- name: token
+  in: header
+  description: API key
+  required: false
+  type: string
+  format: string
+- name: access-token
+  in: header
+  description: API key
+  required: false
+  type: string
+  format: string 
+- name: tool_id
+  in: path
+  type: string
+  required: true
+  description: Tools collection object Id
+responses:
+  200:
+    description: Successfully gets Tool
+    examples:
+      result: "success"
+      message: null
+  404:
+    description: exception in fetching Tool
+    examples:
+      result: "failed"
+      message: "Throws an exception"

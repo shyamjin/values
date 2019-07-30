@@ -1,0 +1,11 @@
+---
+- hosts: vp_test
+  remote_user: root
+  tasks:
+  - name: refresh docker
+    raw : cd /home/valuepack && docker-compose up -d
+
+  - name: refresh golumm
+    git: repo=http://illin4467.corp.amdocs.com/GSSPSO/DeploymentManger.wiki.git dest=/home/valuepack/wiki/DeploymentManger.wiki update=yes
+
+#gen shpinx

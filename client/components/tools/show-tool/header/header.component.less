@@ -1,0 +1,25 @@
+// VARIABLES: SECTION 38
+.vp-showtoolheader {
+    margin-left:60px;
+    height: @stHeaderHeight;
+    background-image: -webkit-linear-gradient(91deg, transparent 0%, transparent 29%, @cs01 31%, @cs01 100%);
+    background-image: linear-gradient(-1deg, transparent 0%, transparent 29%, @cs01 31%, @cs01 100%);
+    //TITLE STYLE
+    .vp-showtoolheader__titlewrap {
+        max-width: @titleMaxWidth;
+    }
+    // ICON STYLES
+    .vp-showtoolheader__icon {
+        width: @toolIconSize;
+        height: @toolIconSize;
+        border-radius: @toolIconSize;
+        line-height: @toolIconSize;
+    }
+    .vp-showtoolheader__favbutton {
+        width: @favoriteIconWidth;
+        height: @favoriteIconHeight;
+        background: url('../assets/images/icons/fevorites_icn.png') no-repeat;
+        background-size: contain;
+        width: @favBtnWidth;
+    }
+}

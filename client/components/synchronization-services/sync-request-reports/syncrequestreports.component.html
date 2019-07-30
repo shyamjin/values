@@ -1,0 +1,62 @@
+<!--MANAGE MACHINES TAB CONTENT COMPONENT START-->
+<div class="vp-mmanagetab vp-control text--none max inblock nowrap max--height clearfix" ng-controller="SyncRequestReportsController">
+    <!--CONTENT (WITHOUT FILTER) SECTION-->
+    <section class="vp-mmanagetab__content vertical--top inblock">
+        <!--Request SEARCH--->
+        <div class="vp-mmanagetab__findmachinewrap vertical--top mt--md ml--md left" style="height: 100%;">
+            <div class="vp-mmanagetab__findmachine max--height">
+                <!--MACHINES-SEARCH COLUMN COMPONENT START-->
+                <div class="vp-machinessearch bg--white max--width"> 
+                    <span class="vp-search__topborder block"></span>
+                    <div class="vp-search__searchboxwrap_dep pt--md pr--md pl--md pb--lg">
+                        <!--SEARCH FIELD (MODIFIERS: # vp-search__searchbox--drop)-->
+                        <div class="vp-search__searchbox vp-uielement__searchbox relative"></div>
+                    </div>
+                    <div class="vp-machinessearch__listwrapper max--width">
+                        <ul class="vp-machinessearch__list max--width">
+                            <li class="vp-machinessearch__item vp-machinessearch__item outer" ng-repeat="request in syncRequests">
+                                <div class="vp-machinessearch__iteminner vp-machinessearch__item--test pl--xxxl text--regular text--md clearfix">
+                                    <div class="sync_services_request_report pt--sm pb--sm word--break left">
+                                        <span ng-if="request.status!=='failed'" class="status-ind Done"></span>
+                                        <span ng-if="request.status==='failed'" class="status-ind Failed"></span>
+                                        <span>{{request.sync_id}}</span>
+                                    </div>
+                                    <div class="vp-machinessearch__item--machinetype mt--xl ml--xl text--cs05 left">
+                                        <span class="vp-search__statusicon inblock text--capitalize">{{request.date | date}}</span>
+                                    </div>
+                                    <div class="vp-machinessearch__itembtnwrap pointer right hidden">
+                                        <span class="vp-machinessearch__itembtn bg--cs07 text--center text--cs06 text--regular text--md absolute" ng-click="viewSyncRequest(request.sync_id)">Select</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="vp-machinessearch__item vp-machinessearch__item--prod outer" ng-if="SyncData.length === totalCount">
+                                <div class="vp-machinessearch__iteminner vp-machinessearch__item--test pl--xxxl text--regular text--md clearfix">
+                                    <div class="vp-machinessearch__itemdescriptionwrap pt--sm pb--sm word--break left">
+                                        <span class="{{dep.status}}">Show more requests</span>
+                                    </div>
+                                    <div class="vp-machinessearch__itembtnwrap pointer relative right hidden">
+                                        <span class="vp-machinessearch__itembtn bg--cs07 text--center text--cs06 text--regular text--md absolute" ng-click="showMoreRequests()">Show more</span>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--VERTICAL TAB AREA-->
+        <div class="vp-mmanagetab__machinesectionwrap mt--xxl ml--md inblock"  ng-if="SyncData.data" style="width: 100%;">
+            <div class="vp-mmanagetab__machinesectionheader text--cs03 pl--md">
+                <label class="vp-mmanagetab__machinesectionlabel text--light text--xxl"> {{selectedSyncID}}
+                    <button ng-if="status === 'failed'" type="button" class="vp-machdetails__removemachinebtn vp-uielement__button vp-uielement__button--edittool pr--md pl--md ml--md" ng-click="retryFailedSync(selectedSyncID)">Retry</button>
+                </label>
+                <div class="vp-mmanagetab__machinetatewrap mr--md right">
+                    <span ng-if="status==='success'" class="status-ind Done"></span>
+                    <span ng-if="status==='failed'" class="status-ind Failed"></span>
+                    <span class="vp-mmanagetab__machinestatemsg vertical--middle ml--md text--cs03 text--light text--md"></span>
+                </div>
+            </div>
+            <div class="vp-mmanagetab__verticaltabs mt--xl max--height" ng-include="'static/components/synchronization-services/tabs/verticaltabs/verticaltabs.component.html'"></div>
+        </div>
+    </section>
+</div>

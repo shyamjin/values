@@ -1,0 +1,115 @@
+Update Deployment Unit
+---
+tags:
+   - Deployment Unit
+parameters:
+- name: token
+  in: header
+  description: API key
+  required: false
+  type: string
+  format: string
+- name: access-token
+  in: header
+  description: API key
+  required: false
+  type: string
+  format: string 
+- name: input
+  in: body
+  description: Deployment Unit data
+  required: true
+  type: string
+  format: string
+  schema:
+    $ref: "#/definitions/DeploymentUnitUpdate"     # <---------
+
+
+responses:
+  200:
+    description: Update Deployment Unit has been added successfully
+    schema:
+        $ref: "#/definitions/Data"     # <---------
+    examples:
+      result: "success"
+      message: "The deploymentUnit is updated successfully"
+  404:
+    description: exception in adding Deployment Unit
+    examples:
+      result: "failed"
+      message: "Throws an exception"
+
+
+definitions:
+  DeploymentUnitUpdate:           # <----------
+    type: object
+    required:
+      - _id
+      - name 
+      - type
+      - tag
+      - release_notes
+      - branch
+      - pre_requiests
+      - deployment_field
+      - approval_status
+      - approval_list      
+    properties:
+      _id:
+        type: object
+        required:
+          - oid
+        properties:
+          oid:
+            type: string
+      name:
+        type: string 
+      type:
+        type: string
+      tag:
+        type: array
+        items:
+          type:string
+      release_notes:
+        type: string
+      branch:
+        type: string 
+      pre_requiests:
+        type: array
+        items:
+          type:string
+      deployment_field:
+        type: object
+        required:
+          - fields
+        properties:
+          fields:
+            type: array
+            items:
+              type: object
+      approval_status:
+        type: string
+      approval_list:
+        type: array
+        items:
+          type: object
+          required:
+            - approval_status
+            - approved_by
+            - approved_date
+          properties:
+            approval_status:
+              type: string
+            approved_by:
+              type: string
+            approved_date:
+              type: string
+  Data:
+    type: object
+    properties:
+        data:
+          type: string
+        result:
+          type: string
+        message:
+           type: string

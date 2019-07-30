@@ -1,0 +1,116 @@
+// VARIABLES: SECTION 44
+.vp-createnewmachform {
+    // LABEL WRAPPER STYLE
+    .vp-createnewmachform__fieldlabelwrap {
+        width: @detailLabelWidth;
+        line-height: 1.1;
+    }
+    // FIELD CONTENT STYLES
+    .vp-createnewmachform__fieldcontent {
+        width: calc(~"100% -" @detailLabelWidth + 4px);
+        .text--regular;
+        .text--lg;
+        .text--cs03;
+    }
+    &__fielditem {
+        .max--width;
+    }
+    // INPUT FIELD STYLES
+    .vp-createnewmachform__fieldcontent {
+        input {
+            border: 1px solid @cs08;
+            .text--cs03;
+            .text--regular;
+            .text--lg;
+            padding: 1px 0px;
+            width: @newFieldcontentInputWidth;
+            &:focus {
+                border: 1px solid @cs04;
+            }
+        }
+    }
+    &__fieldrequire {
+        color: @cs05;
+    }
+    &__connectbtn {
+        width: @checkConnectionBtnWidth;
+    }
+    &__connectioncheckblock {
+        margin-left: calc( @detailLabelWidth + 25px);
+    }
+    // CONNECTION TEST STATES
+    .vp-createnewmachform__teststatusnotification {
+        &--success {
+            .text--cs04;
+        }
+        &--fail {
+            .text--cs05;
+        }
+    }
+    // USERS AND TEAMS TAGS STYLES
+    &__useriteminner, &__teamiteminner {
+        border: 1px solid @cs08;
+        padding: 3px 5px;
+    }
+    &__useritem, &__teamitem {
+        max-width: 100%;
+    }
+    // RAG WRAPPER AURO CALC WIDTH
+    &__userinfowrap, &__teaminfowrap {
+        width: calc(~"100% - " 22px);
+    }
+    &__userremovebtnwrap, &__teamremovebtnwrap {
+        width: @smallCloseBtnSize + 10px;
+    }
+}
+.inp_host_mac {
+    width: 120px;
+    margin-left: 75px;
+    border: 1px solid @cs08;
+    .text--cs03;
+    .text--regular;
+    .text--lg;
+    padding: 1px 0px;
+}
+.inp_user_mac {
+    width: 120px;
+    margin-left: 80px;
+    border: 1px solid @cs08;
+    .text--cs03;
+    .text--regular;
+    .text--lg;
+    padding: 1px 0px;
+}
+.inp_port_new_mac {
+    border: 1px solid @cs08;
+    .text--cs03;
+    .text--regular;
+    .text--lg;
+    padding: 1px 0px;
+    margin-left: 32px;
+    width:70px;
+}
+.inp_password_new_mac {
+    border: 1px solid @cs08;
+    .text--cs03;
+    .text--regular;
+    .text--lg;
+    padding: 1px 0px;
+    margin-left:37px;
+}
+.span_mark {
+    padding-left: 140px;
+}
+.remove_btn_mac {
+    margin-right: 40%;
+    margin-top: -3px;
+}
+.label_div {
+    margin-top: -30px;
+    margin-left: 11px;
+}
+.validation_msg_machine {
+    margin-left: 8%;
+    margin-top: 5px;
+    color: red;
+}

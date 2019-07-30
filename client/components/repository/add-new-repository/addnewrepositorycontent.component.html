@@ -1,0 +1,16 @@
+<div class="vp-createanewmach max" ng-controller="AddNewRepositoryController">
+    <div class="vp-createanewmach__newmachineinfo pr--xl" ng-include="'static/components/repository/add-new-repository/addnewrepositoryform.component.html'"></div>
+    <!--TOOLBAR-->
+    <div class="vp-createanewmach__toolbar bg--cs06 max--width fixed pos--bottom pos-left">
+        <div class="vp-createanewmach__innerbounded clearfix" style="width:80%">
+            <div class="vp-createanewmach__savechangesbtnwrap right">
+                <!--CREATE MACHINE BUTTON (MODIFIERS: # vp-uielement__button--deploydisabled )-->
+                <button type="button" class="vp-createanewmach__createnewmachinebtn vp-uielement__button vp-uielement__button--deployenabled pr--lg pl--lg" ng-click="addNewRepository()">Add New Repository</button>
+            </div>
+            <!--DISCARD CHANCHES BUTTON-->
+            <div class="vp-createanewmach__discardbtnwrap mr--xxxl right">
+                <button type="button" class="vp-createanewmach__discardbtn vp-uielement__button vp-uielement__button--cleanenabled" ng-click="discardNewRepoChanges()">Discard</button>
+            </div>
+        </div>
+    </div>
+</div>

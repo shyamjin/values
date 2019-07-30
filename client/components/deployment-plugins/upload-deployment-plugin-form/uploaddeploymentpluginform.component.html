@@ -1,0 +1,131 @@
+<!-- FILE FORM COMPONENT START-->
+<div class="vp-createanewmach vp-createnewmachform vp-control bg--white max" style="padding-left:5%" ng-controller="UploadDeploymentPluginsFormController">
+    <form name="uploadDeploymentPluginForm" class="vp-createnewmachform__createanewmachine max--width">
+        <ul class="vp-createnewmachform__fieldslist text--cs03 max--width">
+            <!--FIELD ROW 'TYPES'-->
+            <li class="vp-createnewmachform__fielditem vp-createnewmachform__typesitem mt--lg">
+                <div class="vp-createnewmachform__fielditeminner">
+                    <!--TYPES FIELD LABEL-->
+                    <div class="vp-createnewmachform__fieldlabelwrap inblock">
+                        <label class="vp-createnewmachform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Plugin Type<span class="vp-createnewmachform__fieldrequire">*</span>:</label>
+                    </div>
+                    <!--TYPES FIELD CONTENT-->
+                    <div class="vp-createnewmachform__fieldcontent vp-createnewmachform__typescontent inblock">
+                        <div class="vp-machdetails__tunnelinglabelinputwrap vp-machdetails__tunnelingcolumn pr--md left">
+                            <select name="type" id="dropdown_{{$index}}" ng-model="pluginData.type" class="vp-userform__dropdownlist dropdown_auth_type vp-uielement__select" style="width: 200px;" required ng-disabled="pluginOperation==='update'">
+                                <option value="deployment">Deployment</option>
+                                <option value="sync">Sync</option>
+                                 <option value="repository">Repository</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <h5 class="validation_msg_machine" ng-show="uploadDeploymentPluginForm.type.$error.required && pluginOperation==='new'">Please select plugin type</h5>
+            <h5 class="validation_msg_machine" ng-show="uploadDeploymentPluginForm.type.$error.required && pluginOperation==='update'" style="margin-left: 14%;">Please select plugin type</h5>
+            <li class="vp-createnewmachform__fielditem vp-createnewmachform__aliasitem pt--lg" ng-if="pluginData.type==='sync'">
+                <div class="vp-createnewmachform__fielditeminner">
+                    <!--ALIAS FIELD LABEL-->
+                    <div class="vp-createnewmachform__fieldlabelwrap inblock">
+                        <label class="vp-createnewmachform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Repo Provider:</label>
+                    </div>
+                    <!--ALIAS FIELD CONTENT-->
+                    <div class="vp-createnewmachform__fieldcontent vp-createnewmachform__aliascontent inblock">
+                        <input type="text" class="vp-createnewmachform__aliasinput input--clear" name="repo_provider" ng-model="pluginData.repo_provider" required>
+                    </div>
+                </div>
+            </li>
+            <h5 class="validation_msg_machine" ng-show="uploadDeploymentPluginForm.repo_provider.$error.required && pluginOperation==='new'">Please enter repo provider</h5>
+            <h5 class="validation_msg_machine" ng-show="uploadDeploymentPluginForm.repo_provider.$error.required && pluginOperation==='update'" style="margin-left: 14%;">Please enter repo provider</h5>
+            <li class="vp-createnewmachform__fielditem vp-createnewmachform__aliaseitem mt--lg" ng-if="pluginData.type==='sync'">
+                <div class="vp-createnewmachform__fielditeminner">
+                    <ul class="vp-createnewmachform__connectionsublist">
+                        <li class="vp-machdetails__connectionfielditem vp-machdetails__connectiontunneling mt--xl max--width">
+                            <div class="vp-machdetails__fieldlabelwrap inblock" style="width: 140px;">
+                                <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis--single">Additional parameters:</label>
+                            </div>
+                            <!--TUNNELING FIELD CONTENT-->
+                            <div class="vp-machdetails__tunnelingcontent max--width mt--xl">
+                                <!--COLUMN LABELS-->
+                                <div class="vp-machdetails__tunnelinglabelwrap text--light text--md clearfix">
+                                    <span class="vp-machdetails__tunnelingcolumn pl--md left" style="width: 85px;">Key</span>
+                                    <span class="vp-machdetails__tunnelingcolumn pl--md left">Value</span>
+                                </div>
+                                <hr class="vp-machdetails__tunnelingseparator ba--clear bg--cs09 mt--sm">
+                                <!--TUNNELING INPUTS-->
+                                <div class="vp-machdetails__tunnelinginputswrap mt--sm">
+                                    <ul class="vp-machdetails__tunnelinginputslist">
+                                        <!--TUNNELING INPUTS ROW EXAMPLE-->
+                                        <li class="vp-machdetails__tunnelingitem mt--lg clearfix" ng-repeat="parameter in pluginData.additional_parameters track by $index">
+                                                <!--TUNNELING LABEL INPUT-->
+                                                <div class="vp-machdetails__tunnelinglabelinputwrap vp-machdetails__tunnelingcolumn pr--md left">
+                                                    <input id="key_{{$index}}" type="text" class="vp-machdetails__tunnelinghost input--clear max--width bl--primary br--primary bt--primary bb--primary" name="key" ng-model="parameter.key" required style=" width: 80px; height: 23px;"/>
+                                                </div>
+                                                <!--TUNNELING HOST INPUT-->
+                                                <div class="vp-machdetails__tunnelinghostinputwrap vp-machdetails__tunnelingcolumn pr--md left">
+                                                    <input id="auth_host_{{$index}}" type="text" class="vp-machdetails__tunnelinghost input--clear max--width bl--primary br--primary bt--primary bb--primary" name="value" ng-model="parameter.value" required style=" width: 80px; height: 23px;"/>
+                                                </div>
+                                                <!--REMOVE BUTTON-->
+                                                <button type="button" class="vp-machdetails__removebtn remove_btn_mac vp-uielement__button vp-uielement__button--removeenabled left" style="margin-right: 13%;" ng-click="removeParameter($index)"></button>
+                                                <!--SAVE AND CHECK BUTTON-->
+                                                <button type="button" class="vp-machdetails__savecheckbtn vp-uielement__button vp-uielement__button--cleanenabled vertical--top right"></button>
+                                        </li>
+                                    </ul>
+                                    <div>
+                                        <button type="button" class="vp-machdetails__addhostbtn vp-uielement__button vp-uielement__button--cleanenabled mt--sm pa--none" ng-click="addParameter()">+ Add a parameter</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="vp-userform__fielditem vp-userform__roleitem pt--lg" style="margin-top: 40px;">
+                <div class="vp-machinesform__content max--width max--height">
+                     <div class="vp-machinesform__formwrap max--width max--height">
+                        <ul class="vp-machinesform__fieldslist">
+                            <li class="vp-machinesform__field">
+                                 <div class="vp-machinesform__fieldinner overflow--hidden">
+                                     <div class="vp-machinesform__fieldinputwrap vertical--top pl--md inblock">
+                                         <button class="file-upload">
+                                            <input type="file" class="file-input" accept=".py"  plugin-file-model="pluginFileToUpload"/>File
+                                         </button>
+                                         <input type="text" class="vp-importfileload__browsebtn vp-uielement__button vp-uielement__button--edittool ml--md" style="min-width: 270px;text-align: center;"  ng-model="pluginFileSelected" name="deploymentPluginToUpload"  ng-disabled="true" />
+                                     </div>
+                                 </div>
+                            </li>
+                        </ul>
+                     </div>
+                </div>
+                <!--PROCESSING SECTION-->
+                <section class="vp-exportfileload__processingsection" style="margin-left:33%;" ng-show="preLoader === true">
+                    <div class="loader mb--sm" style="margin-left: 60px;"></div>
+                    <span class="vp-exportfileload__processingmsg text--cs03 text--light text--xxl">Loading & processing...</span>
+                </section>
+                <!--BULK FILE REPORT SECTION (MODIFIERS: # vp-exportfileload__bulkreportsection--show )-->
+                <section class="vp-exportfileload__bulkreportsection vp-exportfileload__bulkreportsection--show text--cs03 mt--xxl" ng-show="resultPane === true">
+                    <div class="vp-exportfileload__createdmachineslistwrap mt--xl">
+                        <h13 style="text-align:center;font-weight: bold;">Result</h13><br><br><br><br>
+                        <ul class="vp-exportfileload__createdmachineslist">
+                            <li class="vp-exportfileload__createdmachineitem mt--sm">Message : {{response.message}}</li>
+                            <li class="vp-exportfileload__createdmachineitem mt--sm">Status : {{response.result}}</li>
+                        </ul>
+                    </div>
+                </section>
+            </li>
+        </ul>
+        <!--TOOLBAR-->
+        <div class="vp-createanewmach__toolbar bg--cs06 max--width fixed pos--bottom pos-left" style="right: 0%;">
+            <div class="vp-createanewmach__innerbounded clearfix">
+                <div class="vp-createanewmach__savechangesbtnwrap right">
+                    <!--CREATE MACHINE BUTTON (MODIFIERS: # vp-uielement__button--deploydisabled )-->
+                    <button type="button" class="vp-createanewmach__createnewmachinebtn vp-uielement__button vp-uielement__button--deployenabled pr--lg pl--lg" ng-click="uploadDeploymentPlugin(pluginFileToUpload)">Save and Upload</button>
+                </div>
+                <!--DISCARD CHANCHES BUTTON-->
+                <div class="vp-createanewmach__discardbtnwrap mr--xxxl right">
+                    <button type="button" class="vp-createanewmach__discardbtn vp-uielement__button vp-uielement__button--cleanenabled" ng-click="discardPluginChanges()">Discard</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,192 @@
+// VARIABLES: SECTION 14
+div.vp-treeview {
+    //EXPAND ICON VIEW STYLES
+    .vp-treeview__expandicon {
+        width: @treeviewExpandIconWidth;
+        height: @treeviewExpandIconWidth;
+        margin-left: @treeviewML;
+        background: url('../assets/images/icons/requests_date_closed.png') no-repeat;
+        background-size: contain;
+    }
+    //EXPANDED DATE ROW VIEW CHANGES MODIFIER
+    li.vp-treeview__dateitem--expanded {
+        .vp-treeview__expandicon {
+            background: url('../assets/images/icons/requests_date_open.png') no-repeat;
+            transition : min-height linear 0.5s;
+            overflow:hidden;
+
+        }
+        //SHOW INNER REQUEST LIST WHEN ROW EXPANDED
+        .vp-treeview__requestlist {
+            .block;
+            transition : height linear 0.5s;
+            overflow:hidden;
+            height :100% ;
+            height :100% ;
+
+        }
+    }
+    //ROW MARGIN TOP
+    .vp-treeview__requestlist {
+        .vp-treeview__requestitem:not(:first-child) {
+            .mt--md;
+            transition : height linear 0.5s;
+           height :0% ;
+            overflow:hidden;
+        }
+    }
+    //DATE ITEM 'FAILED' ICON SHOW MODIFIER
+    li.vp-treeview__dateitem--failed {
+        img.vp-treeview__datefailedicon {
+            display: inline-block;
+        }
+    }
+    .vp-treeview__requestiteminner {
+        line-height: 1.2;
+        border-left: 2px solid @cs04;
+    }
+    //TREE VIEW ANY ROW HEIGHT
+    li.vp-treeview__dateitem {
+        //making tha expandicons higher than connector-line
+        position: relative;
+        z-index: 20;
+        min-height: @treeviewRowHeight;
+        line-height: @treeviewRowHeight;
+        cursor: pointer;
+            transition : min-height linear 0.5s;
+            overflow:hidden;
+    }
+    //REQUEST ROW HEIGHT
+    li.vp-treeview__requestitem {
+        padding-left: @treeviewRequestItemPL;
+        min-height: @treeviewRowHeight;
+        z-index: 15;
+        transition : all 0.5s;
+        &:hover {
+            .text--cs07;
+            background-color: rgba(57, 96, 139, 0.40)
+        }
+    }
+    //ADDI THE "CONNECTIG LINE" BETWEEN EXPAND ICONS 
+    .vp-treeview__datelist:before {
+        content: "";
+        position: absolute;
+        top: (@treeviewRowHeight/2);
+        left: (@treeviewExpandIconWidth/2) - (@treeviewMainBorderSize/2) + @treeviewML;
+        bottom: (@treeviewRowHeight/2);
+        border-left: @treeviewMainBorderSize solid;
+        color: @cs04;
+        z-index: 10;
+    }
+    //SAVED REQUEST TAB ACTIVE, VIEW TREE MODIFIER
+    &.vp-treeview--savedrequests {
+        .vp-treeview__requestiteminner {
+            width: calc(~"100% - " ( @srDiscardBtnMR + @srResumeBtnMR + 2*@srBtnSize + 10px ))
+        }
+        .vp-treeview__srresumebtn {
+            width: @srBtnSize;
+            height: @srBtnSize;
+            background: url('../assets/images/icons/resume_btn.png') no-repeat;
+            background-size: contain;
+            margin-right: @srResumeBtnMR;
+        }
+        .vp-treeview__srdiscardbtn {
+            width: @srBtnSize;
+            height: @srBtnSize;
+            background: url('../assets/images/icons/discard_btn.png') no-repeat;
+            background-size: contain;
+            margin-right: @srDiscardBtnMR;
+        }
+    }
+    //RECENT REQUEST TAB ACTIVE, VIEW TREE MODIFIER
+    &.vp-treeview--recentrequests {
+        .vp-treeview__recentrequestsactionwrapper {
+            width: @rrBtnsSectionWidth;
+        }
+        .vp-treeview__requestiteminner {
+            //max width for breaking long lines
+            width: calc(~"100% - " ( @srDiscardBtnMR + @srResumeBtnMR + 2*@srBtnSize + @rrItemStateIconML));
+            word-wrap: break-word;
+        }
+        //'IN PROGRESS' ITEM STATE STYLE
+        .vp-treeview__iteminprogress {
+            height: @treeviewRowHeight;
+            line-height: 1.2;
+            .vp-treeview__rrinprogresstime {
+                margin-left: @rrInprogressTimeML;
+            }
+            .vp-treeview__rrinprogressicon {
+                height: 30px;
+                width: 30px;
+                background: url('../assets/images/icons/in_progress_icn.gif') no-repeat 30%;
+                margin-right: (@rrItemStateIconMR + @rrItemBtnMR + @rrBtnsSize);
+            }
+        }
+        //'FAILED' ITEM STATE STYLE
+        .vp-treeview__itemfailed {
+            height: @treeviewRowHeight;
+            .vp-treeview__rrfailedicon {
+                background: url('../assets/images/icons/failed_icn.png') no-repeat;
+            }
+            .vp-treeview__rrsubmitagainbtn {
+                background: url('../assets/images/icons/submit_again_btn.png') no-repeat;
+            }
+        }
+        //'COMPLETED' ITEM STATE STYLE
+        .vp-treeview__itemcompleted {
+            .vp-treeview__rrcompletedicon {
+                background: url('../assets/images/icons/completed_icn.png') no-repeat;
+            }
+            .vp-treeview__rrduplicatbtn {
+                background: url('../assets/images/icons/duplicat_btn.png') no-repeat;
+            }
+        }
+        //'SCHEDULED' ITEM STATE STYLE
+        .vp-treeview__itemscheduled {
+            height: @treeviewRowHeight;
+            line-height: 1.2;
+            .vp-treeview__rrscheduledate {
+                margin-left: @rrScheduleDateML;
+            }
+            .vp-treeview__rrscheduledicon {
+                background: url('../assets/images/icons/schedualed_icn.png') no-repeat;
+            }
+            .vp-treeview__rrschedulebtn {
+                background: url('../assets/images/icons/schedualed_btn.png') no-repeat;
+            }
+        }
+        //RR COMMON ICONS STYLES
+        .vp-treeview__rrfailedicon, .vp-treeview__rrcompletedicon, .vp-treeview__rrscheduledicon {
+            height: @rrIconsSize;
+            width: @rrIconsSize;
+            margin-right: @rrItemStateIconMR;
+        }
+        //RR COMMON BUTTONS STYLES
+        .vp-treeview__rrsubmitagainbtn, .vp-treeview__rrduplicatbtn, .vp-treeview__rrschedulebtn {
+            width: @rrBtnsSize;
+            height: @rrBtnsSize;
+            background-size: contain;
+        }
+        .vp-treeview__rrschedulebtnwrap, .vp-treeview__rrsubmitagainbtn, .vp-treeview__rrduplicatbtn {
+            margin-right: @rrItemBtnMR;
+        }
+        //SCHEDULE POPUP POSITION
+        .vp-treeview__scheduledpopup {
+            bottom: @rrScheduledPopupBottom;
+            right: @scheduledPopupRight;
+            z-index: 1;
+        }
+        //SCHEDULE POPUP ACTIVE
+        .vp-treeview__rrschedulebtnwrap {
+            &.vp-treeview__rrschedulebtnwrap--show {
+                .vp-treeview__scheduledpopup {
+                    .block;
+                }
+            }
+        }
+    }
+}
+
+.vp-treeview__requesttitle_toolname {
+color: @cs05
+}

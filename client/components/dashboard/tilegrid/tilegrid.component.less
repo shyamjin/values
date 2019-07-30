@@ -1,0 +1,153 @@
+// VARIABLES: SECTION 13
+//LARGE GRID MODIFIER THEME
+//(can toggle fron partials.html vp-toolspage)
+div.vp-tilegrid--large, div.vp-toolspage--default {
+    .vp-tilegrid__listwrapper {
+        .pb--lg;
+        .pl--lg;
+    }
+    .vp-tooltile {
+        //TILE METADATA INFO
+        .vp-tooltile__tilemetadata {
+            width: @toolTileLargeGridMetadataWidth;
+            .ml--md;
+        }
+        //TEXT MAXIMUM LONG RESTRICTION
+        .vp-tooltile__description {
+            .text--ellipsis;
+            .text--ellipsis--two;
+            max-height: 2.09em;
+        }
+        width: @toolTileSmallWidth;
+        height: @toolTileSmallHeight;
+        padding: @toolTileSmallPA;
+        //FOOTER, THAT CONTAINS BUTTONS AND SELECT CHECKBOX, VIEW 
+        div.vp-tooltile__footer {
+            width: @toolTileFooterSmallWidth;
+            bottom: @toolTileSmallPA;
+        }
+        //TOOL TILE SMALL ICON VIEW STYLE
+        div.vp-tooltile__icon {
+            height: @toolTileSmallIconWidth;
+            width: @toolTileSmallIconWidth;
+            border-radius: @toolTileSmallIconWidth;
+            line-height: @toolTileSmallIconWidth;
+        }
+    }
+}
+
+//SMALL GRID MODIFIER THEME
+//(can toggle fron partials.html vp-toolspage)
+div.vp-tilegrid--small, div.vp-toolspage--rightactive {
+    .vp-tilegrid__listwrapper {
+        .pb--md;
+        .pl--lg;
+    }
+    .vp-tooltile {
+        //TILE METADATA INFO
+        .vp-tooltile__tilemetadata {
+            width: @toolTileSmallGridMetadataWidth;
+            .ml--xl;
+        }
+        .vp-tooltile__description {
+            .text--ellipsis;
+            .text--ellipsis--three;
+            max-height: 3.09em;
+        }
+        width: @toolTileLargeWidth;
+        height: @toolTileLargeHeight;
+        padding: @toolTileLargePA;
+        div.vp-tooltile__icon {
+            height: @toolTileLargeIconWidth;
+            width: @toolTileLargeIconWidth;
+            border-radius: @toolTileLargeIconWidth;
+            line-height: @toolTileLargeIconWidth;
+        }
+        //FOOTER, THAT CONTAINS BUTTONS AND SELECT CHECKBOX, VIEW 
+        div.vp-tooltile__footer {
+            width: @toolTileFooterLargeWidth;
+            bottom: @toolTileSmallPA;
+        }
+    }
+}
+
+//BOTH THEMES STYLE ANT MODIFIERS
+div.vp-tooltile {
+    .ba--solid(@cs08, 1px);
+     transition :  box-shadow 0.25s ;
+    //CHANGE BORDER WHEN TILE SELECTED
+    &.vp-tooltile.vp-tooltile--selected {
+        .ba--solid(@cs03, 2px);
+         box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    }
+
+     &.vp-tooltile.vp-tooltile--not-selected {
+        .ba--solid(@cs03, 1px);
+    }
+
+    &.vp-tooltile:hover {
+        transition: box-shadow .25s;
+    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+
+    //MODIFIER TO ACTIVATE DEPRECATED NOTIFICATION
+    &.vp-tooltile__deprecatedwarning--active {
+        .vp-tooltile__deprecatedwarning {
+            .block;
+        }
+    }
+    //FAVORITE ICON ACTIVE  STATE
+    &.vp-tooltile__favorite--active {
+        .vp-tooltile__favoriticon {
+            background: url('../assets/images/icons/fevorites_enable.png') no-repeat;
+        }
+    }
+    //MODIFIER to show "included in tool set" mesage in metadata
+    &.vp-tooltile__containingtoolmsg--active {
+        .vp-tooltile__containingtoolmsg {
+            .block;
+        }
+    }
+    //CHANGE 'Selected' LABEL COLOR WHEN TILE SELECTED
+    input[type="checkbox"]:checked ~ label {
+        .text--cs03;
+    }
+    div.vp-tooltile__favoriticon {
+        width: @favoriteWidth;
+        height: @favoriteHeight;
+        background: url('../assets/images/icons/fevorites_disable.png') no-repeat;
+        background-size: contain;
+    }
+    //IE + OPERA DESCRIPTION LENTH LIMIT
+    div.vp-tooltile__tilemetadata {
+        max-height: calc(~"100% - " @btnHeight);
+         overflow: hidden;
+        .vp-tooltile__label {
+            max-height: 2.09em;
+            /* exactly three lines */
+            //text-overflow: -o-ellipsis-lastline;
+        }
+    }
+}
+
+
+
+
+//GRID OPTIONAL FOOTER
+div.vp-tilegrid__gridfooter{
+    &.vp-tilegrid__gridfooter--active{
+        display:block
+    }    
+}
+div.vp_duicon{
+    height: 40px;
+    width: 44px;
+    border-radius: 0px;
+    line-height: @toolTileSmallIconWidth;
+    margin-left: 314px;
+
+}
+.iconinner {
+    padding-top: -20px;
+}

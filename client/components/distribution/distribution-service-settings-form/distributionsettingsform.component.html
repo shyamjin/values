@@ -1,0 +1,68 @@
+<!--ADD service FORM COMPONENT START-->
+<!--<div class="vp-serviceform vp-serviceformnewservice vp-control max" style="border-radius: 25px;border: 2px solid #39608B;padding: 20px; margin-bottom:20px;width:40%"><h11>Service</h11>-->
+    <div class="vp-distributionsettingsform vp-serviceformnewdistributionsettings vp-control max">
+    <form action="#" name="vp-distributionsettingsform__distributionsettingsform" class="vp-distributionsettingsform__distributionsettingsform max">
+        <ul class="vp-distributionsettingsform__fieldslist text--cs03 pr--lg">
+            <!--'ACTIVE CHECKBOX' FIELD-->
+               <li class="vp-distributionsettingsform__fielditem vp-distributionsettingsform__suspentbox pt--xxl">
+                <div class="vp-uielement__checkbox">
+                    <input type="checkbox" id="vp-distributionsettingsform__suspenddistributionsettingscheckbox" name="vp-distributionsettingsform__suspenddistributionsettingscheckbox"  id="enable_{{$index}}" ng-model="enable.selected" ng-checked="exist()" ng-click="toggleSelection()" />
+                    <label for="vp-distributionsettingsform__suspenddistributionsettingscheckbox"></label>
+                    <label for="vp-distributionsettingsform__suspenddistributionsettingscheckbox" class="ml--sm  vertical--bottom">Active</label>
+                     <h5 class="mandatory" ng-if="distributionsettingsadd_errors.enable">{{distributionsettingsadd_errors.enable}}</h5>
+                </div>
+            </li>
+
+            <!--'REQUEST TYPE' FIELD-->
+            <li class="vp-distributionsettingsform__fielditem vp-distributionsettingsform__roleitem pt--xxl">
+                <div class="vp-distributionsettingsform__fielditeminner">
+                    <!--'REQUEST TYPE' FIELD LABEL-->
+                    <div class="vp-distributionsettingsform__fieldlabelwrap inblock">
+                        <label class="vp-distributionsettingsform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Request Type<span class="mandatory">*</span></label>
+                    </div>
+                    <!--'REQUEST TYPE' FIELD CONTENT-->
+                    <div class="vp-distributionsettingsform__fieldcontent vp-distributionsettingsform__rolecontent inblock">
+                        <select name="vp-distributionsettingsform__dropdownlist" class="vp-distributionsettingsform__dropdownlist vp-uielement__select" ng-model="requesttype.selected" name="requesttype">
+                           <!-- <option value="">&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;  Request Type  &#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;</option>-->
+                            <option  name="vp-distributionsettingsform__requesttype_dropdownlistoption_{{$index}}" ng-selected="type==requesttype.selected" ng-repeat="type in requestType">{{type}}</option>
+                      </select>
+                        <h5 class="mandatory" ng-if="distributionsettingsadd_errors.requesttype">{{distributionsettingsadd_errors.requesttype}}</h5>
+                    </div>
+                </div>
+            </li>
+
+
+            <li class="vp-distributionsettingsform__fielditem vp-distributionsettingsform__roleitem pt--xxl">
+                <div class="vp-distributionsettingsform__fielditeminner" ng-if="requesttype.selected==='interval'">
+                        <div class="vp-distributionsettingsform__fieldlabelwrap inblock">
+                            <label class="vp-distributionsettingsform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single" style="font-size:95%;">Interval in minutes </label>
+                        </div>
+                        <div class="vp-distributionsettingsform__fieldlabelwrap inblock">
+                            <input type="number" id="interval_min" name="intervalGiven" value="{{configSchedule.data[0].intervalGiven}}" style="width:213px;height:21px"/>
+                        </div>
+                    <h5 class="mandatory" ng-if="distributionsettingsadd_errors.intervalGiven" style="margin-left: 132px;">{{distributionsettingsadd_errors.intervalGiven}}</h5>
+                </div>
+
+                <div class="vp-distributionsettingsform__fielditeminner" ng-if="requesttype.selected==='scheduled'">
+                        <div class="vp-distributionsettingsform__selecteddistributionsettingsnamewrap vertical--middle inblock">
+                            <label class="vp-distributionsettingsform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single" style="width:40px;">Hours </label>
+                        </div>
+                        <div class="vp-distributionsettingsform__selecteddistributionsettingsnamewrap vertical--middle inblock">
+                            <input type="number" id="hrs" name="hrs" value="{{configSchedule.data[0].hrs}}" style="height:21px;color:black;width:200px;"/>
+                            <h5 class="mandatory" ng-if="distributionsettingsadd_errors.hrs">{{distributionsettingsadd_errors.hrs}}</h5>
+                        </div>
+                        <div class="vp-distributionsettingsform__selecteddistributionsettingsnamewrap vertical--middle inblock">
+                            <label class="vp-distributionsettingsform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single" style="width:48px;margin-left:10px;">Minutes </label>
+                        </div>
+                        <div class="vp-distributionsettingsform__selecteddistributionsettingsnamewrap vertical--middle inblock">
+                            <input type="number" id="min" name="min" value="{{configSchedule.data[0].min}}" style="height:21px;color:black;width:200px;" />
+                            <h5 class="mandatory" ng-if="distributionsettingsadd_errors.min">{{distributionsettingsadd_errors.min}}</h5>
+                        </div>
+                     </div>
+
+            </li>
+
+        </ul>
+    </form>
+</div>
+<!--ADD distributionsettings FORM COMPONENT END-->

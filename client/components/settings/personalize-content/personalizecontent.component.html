@@ -1,0 +1,25 @@
+<!-- FILE FORM COMPONENT START-->
+<div class="vp-importfileload vp-control bg--white max" style="padding-top: 10px;padding-left: 40px">
+    <div class="vp-importfileload__fieldinner pt--sm">
+        <div class="vp-importfileload__fieldcontent vp-importfileload__ipcontent inblock">
+          <label class="vp-mmanagetab__machinesectionlabel text--light text--xxl">Upload Account Logo </label>
+        </div>
+    </div>
+
+    <div class="vp-importfileload__fieldinner" style="padding-top: 30px">
+        <div class="vp-importfileload__fieldcontent vp-importfileload__ipcontent inblock">
+            <!--TOP INPUT SECTION-->
+            <section class="vp-importfileload__fileinputsection">
+                <form name="uploadLogoForm" ng-controller="PersonalizeController"  enctype = "multipart/form-data" ng-submit="uploadAccountLogo(uploadLogoForm)">
+                    <!--<input type="text" class="vp-importfileload__filenameinput input&#45;&#45;clear" name="vp-importfileload__aliasinput">-->
+                    <button class="file-upload">
+                        <input type="file" class="file-input" accountlogo-model="logoFileUpload"/>File
+                    </button>
+                    <input type="text" class="vp-importfileload__browsebtn vp-uielement__button vp-uielement__button--edittool ml--md" style="min-width: 270px;text-align: center;"  ng-model="personalizeFileSelected" name="importFile"  ng-disabled=true />
+                    <input type="submit" value="Upload" class="vp-importfileload__loadbtn vp-uielement__button vp-uielement__button--apply pr--md pl--md mt--xxl block" style="border-style: solid;border-width: 1px;border-color: #254b75;background-color: #254b75;color: #f5f5f5;margin-top: 85px;margin-left: 290px;" />
+                </form>
+            </section>
+        </div>
+    </div>
+</div>
+<!-- FILE FORM COMPONENT END-->

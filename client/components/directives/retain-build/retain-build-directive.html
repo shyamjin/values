@@ -1,0 +1,80 @@
+<!--'TOOL POPUP' MODAL COMPONENT START-->
+<div class="vp-toolversionbuildmarkup vp-control bg--white relative">
+	<div class="vp-toolversionbuildmarkup__header">
+		<!--TITLE-->
+		<h1 class="vp-toolversionbuildmarkup__title text--cs06 text--xl text--light mt--xl ml--xl inblock">Retain Build Markup</h1>
+		<!--CLOSE BUTTON-->
+		<button type="button" class="vp-toolversionbuildmarkup__closebtn btn--clear mt--md mr--lg right" ng-click="closeRetainBuild()"></button>
+	</div>
+
+	<!--MODAL BODY-->
+	<div class="vp-toolversionbuildmarkup__body">
+	<section class="vp-toolversionbuildmarkup__title"  style=" height:100% ;">
+			<div class="vp-toolversionbuildmarkup__virsionlist bg--white  max--height relative">
+				<ul class="vp-tabsvertical__navlist text--center table">
+					<li class=" pointer left ng-scope" ng-repeat="version in toolVersionDataDetails" ng-click="showVersionDetailsTab($index)" ng-class="getActiveTab($index)" ng-if="version.status > 0">
+						<div calss=" innerdiv max--height max--width intable">
+							<div class="text--right  lh--font inblock vertical--middle">
+									<label class="text--cs03 text--light text--md text--ellipsis text--ellipsis--single block ng-binding">Ver.{{version.version_number}}v</label>
+							<label class=" text--cs08 text---light text--sm text--ellipsis text--ellipsis--single block ng-binding">{{version.version_name}}</label>
+							</div>
+							<div>
+							</div>
+						</div>
+
+
+					</li>
+				</ul>
+
+			</div>
+			<div class="vp-toolversionbuildmarkup__buildlist bg--white  max--height relative">
+				<ul class="vp-tabsvertical__navlist text--center table"  ng-if="toolVersionDataDetails.length > 0">
+					<!--<li class=" pointer left ng-scope" ng-repeat="build in toolVersionDataDetails[selectedVersionIndex].build">-->
+						<!--<div class=" innerdiv max&#45;&#45;height max&#45;&#45;width intable">-->
+							<!--<div class="text&#45;&#45;right  lh&#45;&#45;font inblock vertical&#45;&#45;middle">-->
+									<!--&lt;!&ndash;<label class="text&#45;&#45;cs03 text&#45;&#45;light text&#45;&#45;md text&#45;&#45;ellipsis text&#45;&#45;ellipsis&#45;&#45;single block ng-binding">&ndash;&gt;-->
+
+										<!--<input class="buildcheckbox" type="checkbox"  value="{{build.build_number}}"-->
+ 											   <!--ng-checked="selectedBuildId.indexOf(build.build_number) > -1"-->
+											   <!--ng-click="toggleSelection(build.build_number)"-->
+  										<!--/>-->
+										 <!--<label for="vp-versionform__mandatory2_0"   ng-click="toggleSelection(build.build_number)"></label>-->
+                                    <!--<label for="vp-versionform__mandatory2_0"   ng-click="toggleSelection(build.build_number)" class="ml&#45;&#45;sm">{{build.build_number}}</label>-->
+									<!--&lt;!&ndash;</label>&ndash;&gt;-->
+									<!--<label class=" text&#45;&#45;cs08 text-&#45;&#45;light text&#45;&#45;sm text&#45;&#45;ellipsis text&#45;&#45;ellipsis&#45;&#45;single block ng-binding">GA</label>-->
+							<!--</div>-->
+							<!--<div>-->
+
+							<!--</div>-->
+						<!--</div>-->
+
+<!-- ng-checked="selectedBuildId.indexOf(build._id.$oid) > -1"-->
+					<!--</li>-->
+					<li class=" pointer active left ng-scope" ng-repeat="build in toolVersionDataDetails[selectedVersionIndex].build">
+						<div class="vp-versionform__mandatorywrap vp-uielement__checkbox mr--xxxl initial">
+							<input type="checkbox" id="vp-versionform__mandatory_{{$index}}_{{build._id.$oid}}" value="{{build._id.$oid}}" name="{{build._id.$oid}}_{{$index}}"  ng-checked="build.retain_build_indicator === true"
+								   ng-click="toggleSelection(selectedVersionIndex,$index)" >
+							<label for="vp-versionform__mandatory_{{$index}}_{{build._id.$oid}}"  ></label>
+							<label for="vp-versionform__mandatory_{{$index}}_{{build._id.$oid}}"  class="ml--sm">{{build.build_number}}</label>
+						</div>
+					</li>
+				</ul>
+
+			</div>
+
+
+		</section>
+		</div>
+		<!--MODAL FOOTER-->
+		<div class="vp-toolversionbuildmarkup__footer absolute pos--bottom">
+			<!--CLOSE BUTTON-->
+			<div class="vp-toolversionbuildmarkup__closebtnwrap inblock">
+				<button type="button" class="vp-toolversionbuildmarkup__footerclosebtn vp-uielement__button vp-uielement__button--close" ng-click="closeRetainBuild()">Close</button>
+			</div>
+			<!--DISCARD BUTTON-->
+			<div class="vp-rdmodal__discardbtnwrap right">
+				<button type="button" ng-disabled="EditToolForm.input_type.$error.required" class="vp-toolversionbuildmarkup__donebtn vp-uielement__button vp-uielement__button--deployenabled" ng-click="updateToolVersionBuild()">Done</button>
+			</div>
+		</div>
+	</div>
+	<!--'ADD A SETTING' MODAL COMPONENT END-->

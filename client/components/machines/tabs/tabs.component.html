@@ -1,0 +1,44 @@
+<!--TAB COMPONENT START-->
+<div class="vp-tabs vp-tabs--default vp-tabs--machines vp-control relative max--width max--height clearfix" ng-controller="ManageMachineTabController">
+	<!--TABS HEADER NAVIGATION BAR-->
+	<div class="vp-tabs__nav max--width left">
+		<nav>
+			<ul class="vp-tabs__navlist  max--width text--center text--md text--light text--cs06 table">
+				<!--ACTIVE TAB STATE (MODIFIERS: # vp-tabs__tab--active )-->
+				<li class="vp-tabs__tab pointer pr--sm pl--sm left" ng-class="getActiveMachineTab('/machines')" id="manage_machine_1" ng-click="showActiveMachineTab('/machines')">
+					<a href="#/machines" class="vp-tabs__tablabel vertical--top no--decor">Manage machines</a>
+				</li>
+				<!--DEAFULT TAB STATE-->
+				<li class="vp-tabs__tab pointer pr--sm pl--sm left" ng-class="getActiveMachineTab('/AddNewMachine')" id="create_machine_1" ng-click="showActiveMachineTab('/AddNewMachine')">
+					<a href="#/AddNewMachine" class="vp-tabs__tablabel vertical--top no--decor">Create a new machine</a>
+				</li>
+				<!--DEAFULT TAB STATE-->
+				<li class="vp-tabs__tab pointer pr--sm pl--sm left" ng-class="getActiveMachineTab('/bulk/machines')" id="create_bulk_machine_1" ng-click="showActiveMachineTab('/bulk/machines')">
+					<a href="#/bulk/machines" class="vp-tabs__tablabel vertical--top no--decor">Create several machines (bulk)</a>
+				</li>
+				<!--DEAFULT TAB STATE-->
+				<li class="vp-tabs__tab pointer pr--sm pl--sm left" ng-class="getActiveMachineTab('/manage/machine/groups')" id="manage_machine_group_1" ng-click="showActiveMachineTab('/manage/machine/groups')">
+					<a href="#/manage/machine/groups" class="vp-tabs__tablabel vertical--top no--decor">Manage machine groups</a>
+				</li>
+				<!--DEAFULT TAB STATE-->
+				<li class="vp-tabs__tab pointer pr--sm pl--sm left" ng-class="getActiveMachineTab('/add/machine/group')" id="create_machine_group_1" ng-click="showActiveMachineTab('/add/machine/group')">
+					<a href="#/add/machine/group" class="vp-tabs__tablabel vertical--top no--decor">Create new machine group</a>
+				</li>
+			</ul>
+		</nav>
+	</div>
+	<!--TAB BODY WRAPPER, LOAD TEMPLATE INSIDE-->
+	<div class="vp-tabs__body overflow--auto left max--width">
+		<!--'MANAGE MACHINES' TAB CONTENT-->
+		<div ng-if="displayTab==='/machines'" class="vp-tabs__mmanagecontent max" ng-include="'static/components/machines/manage-machines-content/managemachinescontent.component.html'"></div>
+		<!--'CREATE A NEW MACHINE' TAB CONTENT-->
+		<div ng-if="displayTab==='/AddNewMachine'" class="vp-tabs__createanewmachine max" ng-include="'static/components/machines/create-anew-machine-content/createanewmachinecontent.component.html'"></div>
+		<!--CREATE SEVERAL MACHINES (BULK)-->
+		<div ng-if="displayTab==='/bulk/machines'" class="vp-tabs__createmachinesbulk max" ng-include="'static/components/machines/create-machines-bulk-content/createbulkcontent.component.html'"></div>
+		<!--MANAGE MACHINES GROUP-->
+		<div ng-if="displayTab==='/manage/machine/groups'" class="vp-tabs__createmachinesbulk max" ng-include="'static/components/machines/manage-machine-groups-content/managemachinegroupscontent.component.html'"></div>
+		<!--CREATE MACHINE GROUP-->
+		<div ng-if="displayTab==='/add/machine/group'" class="vp-tabs__createmachinesbulk max" ng-include="'static/components/machines/create-anew-machine-group-content/createanewmachinegroupcontent.component.html'"></div>
+	</div>
+</div>
+<!--TAB COMPONENT END-->

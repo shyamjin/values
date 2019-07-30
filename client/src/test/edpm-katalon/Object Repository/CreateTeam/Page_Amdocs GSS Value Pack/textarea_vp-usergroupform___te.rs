@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+   <description></description>
+   <name>textarea_vp-usergroupform___te</name>
+   <tag></tag>
+   <elementGuidId>e636f7ff-fe3d-4e7b-9eb9-a3095282a599</elementGuidId>
+   <selectorMethod>BASIC</selectorMethod>
+   <useRalativeImagePath>false</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>tag</name>
+      <type>Main</type>
+      <value>textarea</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>form</name>
+      <type>Main</type>
+      <value>#</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>name</name>
+      <type>Main</type>
+      <value>vp-usergroupform___teamdescription</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>class</name>
+      <type>Main</type>
+      <value>vp-teamsform___teamdescriptiontextarea text--cs03 text--regular text--lg pa--md max--width ng-untouched ng-valid ng-not-empty ng-dirty ng-valid-parse</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>wrap</name>
+      <type>Main</type>
+      <value>soft</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>ng-model</name>
+      <type>Main</type>
+      <value>newUserGroupData.description</value>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath</name>
+      <type>Main</type>
+      <value>/html[@class=&quot;ng-scope&quot;]/body[1]/div[@class=&quot;vp-app__deploytoolspage deployments-page max--height ng-scope&quot;]/div[@class=&quot;vp-manageusers max ng-scope&quot;]/div[@class=&quot;vp-manageusers__content max--height&quot;]/div[@class=&quot;vp-manageusers__tabs left max--width ng-scope&quot;]/div[@class=&quot;vp-tabs vp-tabs--default vp-tabs--usermanage vp-control relative max--width max--height clearfix ng-scope&quot;]/div[@class=&quot;vp-tabs__body overflow--auto left max--width&quot;]/div[@class=&quot;vp-tabs__addnewusertabcontent ng-scope&quot;]/div[@class=&quot;vp-addnewusercont vp-control max ng-scope&quot;]/div[@class=&quot;vp-addnewusercont__form ng-scope&quot;]/div[@class=&quot;vp-userform vp-userformnewuser vp-control max ng-scope&quot;]/form[@class=&quot;vp-userform__userform max ng-invalid ng-invalid-required ng-valid-email ng-dirty ng-valid-parse&quot;]/ul[@class=&quot;vp-userform__fieldslist text--cs03 pr--lg&quot;]/li[@class=&quot;vp-userform__fielditem vp-userform__passworditem pt--xxl&quot;]/tooltip[@class=&quot;tooltips _right _steady _multiline _ready active&quot;]/tip-cont[1]/tooltip[@id=&quot;tooltip_&quot;]/div[@class=&quot;vp-userform__fielditeminner&quot;]/div[@class=&quot;vp-teamsform__descriptioncol pr--xl inblock&quot;]/textarea[@class=&quot;vp-teamsform___teamdescriptiontextarea text--cs03 text--regular text--lg pa--md max--width ng-untouched ng-valid ng-not-empty ng-dirty ng-valid-parse&quot;]</value>
+   </webElementProperties>
+</WebElementEntity>

@@ -1,0 +1,436 @@
+<!--ADD USER FORM COMPONENT START-->
+<div class="vp-userform vp-userformnewuser vp-control max">
+    <form action="#" name="vp-usergroupform__usergroupform" class="vp-userform__userform max">
+        <ul class="vp-userform__fieldslist text--cs03 pr--lg">
+            <!--'TEAM NAME' FIELD-->
+            <li class="vp-userform__fielditem vp-userform__nameitem pt--xxl">
+                <div class="vp-userform__fielditeminner">
+                    <!--'TEAM NAME' FIELD LABEL-->
+                    <div class="vp-userform__fieldlabelwrap inblock">
+                        <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Team Name<span class="mandatory">*</span></label>
+                    </div>
+                    <!--'TEAM NAME' FIELD CONTENT-->
+                    <div class="vp-userform__fieldcontent vp-userform__namecontent inblock">
+                        <input type="text" class="vp-userform__nameinput input--clear" name="vp-userform__nameinput" ng-model="userGroupData.team_name" required>
+                        <h5 class="mandatory" ng-if="usergroupadd_errors.team_name">{{usergroupadd_errors.team_name}}</h5>
+                    </div>
+                </div>
+            </li>
+            <!--'DESCRIPTION' FIELD-->
+            <li class="vp-userform__fielditem vp-userform__passworditem pt--xxl">
+                <div class="vp-userform__fielditeminner">
+                    <!--'DESCRIPTION' FIELD LABEL-->
+                    <div class="vp-userform__fieldlabelwrap inblock">
+                        <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Description</label>
+                    </div>
+                    <!--'DESCRIPTION' FIELD CONTENT-->
+                    <div class="vp-teamsform__descriptioncol pr--xl inblock">
+                        <textarea form="#" name="vp-usergroupform___teamdescription" class="vp-teamsform___teamdescriptiontextarea text--cs03 text--regular text--lg pa--md max--width" wrap="soft" ng-model="userGroupData.description"></textarea>
+                    </div>
+                </div>
+            </li>
+            <!--'DISTRIBUTION LIST-->
+            <li class="vp-userform__fielditem vp-userform__nameitem pt--xxl">
+                <div class="vp-userform__fielditeminner">
+                    <!--'TEAM NAME' FIELD LABEL-->
+                    <div class="vp-userform__fieldlabelwrap inblock">
+                        <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Distribution List<span class="mandatory">*</span></label>
+                    </div>
+                    <!--'TEAM NAME' FIELD CONTENT-->
+                    <div class="vp-userform__fieldcontent vp-userform__namecontent inblock">
+                        <input type="email" class="vp-userform__nameinput input--clear" name="vp-userform__distributionlistinput" ng-model="userGroupData.distribution_list" required>
+                        <h5 class="mandatory" ng-if="usergroupadd_errors.distribution_list">{{usergroupadd_errors.distribution_list}}</h5>
+                    </div>
+                </div>
+            </li>
+            <!--'DEFAULT HOME' FIELD-->
+            <li class="vp-userform__fielditem vp-userform__roleitem pt--xxl">
+                <div class="vp-userform__fielditeminner">
+                    <div class="vp-userform__fieldlabelwrap inblock">
+                        <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Default home page</label>
+                    </div>
+                    <!--'ACCOUNT' FIELD CONTENT-->
+                    <div class="vp-userform__fieldcontent vp-userform__rolecontent inblock">
+                        <select name="vp-userform__dropdownlist_default_home_page" class="vp-userform__dropdownlist vp-uielement__select" ng-model="userGroupData.homepage">
+                            <option value="">--- Select default home ---</option>
+                            <option  name="vp-userform__account_dropdownlistoption_home_tool" value="Tool Dashboard">Tool Dashboard</option>
+                            <option  name="vp-userform__account_dropdownlistoption_home_du" value="DU Dashboard">DU Dashboard</option>
+                      </select>
+                    </div>
+                </div>
+            </li>
+            <!--'ADD USERS TO GROUP' FIELD-->
+            <li class="vp-userform__fielditem vp-userform__roleitem pt--lg">
+                <div class="vp-userform__fielditeminner">
+                    <!--'ADD USERS TO GROUP' FIELD LABEL-->
+                    <div class="vp-userform__fieldlabelwrap vertical--top inblock pt--md">
+                        <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Add users to group</label>
+                    </div>
+                    <!--'ADD USERS TO GROUP' FIELD CONTENT-->
+                    <div class="vp-userform__fieldcontent vp-userform__memberofcontent inblock">
+                        <div class="vp-machdetails__fieldcontent inblock">
+                            <div class="vp-machdetails__fieldtypewrap vp-machdetails__editablewrap inblock set_margin_rad">
+                                <div class="vp-createnewmachform__fieldcontent vp-createnewmachform__userscontent inblock">
+                                    <ul class="vp-createnewmachform__userslist clearfix">
+                                        <!--USER ROW EXAMPLE-->
+                                        <li class="vp-createnewmachform__useritem mt--sm mr--md left" ng-repeat="user in userGroupData.users_id_list track by $index">
+                                            <div class="vp-createnewmachform__useriteminner text--regular text--lg text--cs03 nowrap">
+                                                <div class="vp-createnewmachform__userinfowrap inblock">
+                                                    <span class="vp-createnewmachform__userinfo text--ellipsis text--ellipsis--single">{{user.user}}</span>
+                                                </div>
+                                                <div class="vp-createnewmachform__userremovebtnwrap vertical--top inblock">
+                                                    <button type="button" class="vp-createnewmachform__userremovebtn vp-uielement__button vp-uielement__button--smallclose vertical--middle pa--none ml--sm" ng-click="removeUser(user)"></button>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="vp-createnewmachform__addusersbuttonitem mt--sm mr--md pa--none left">
+                                            <div class="vp-createnewmachform__addusersbuttoniteminner inblock">
+                                                <button type="button" class="vp-uielement__button vp-uielement__button--cleanenabled"><span class="vertical--middle" ng-click="showAddUser()">+Add users</span></button>
+                                            </div>
+                                            <div id="add_user" class="vp-versionform__addcertifieditembtnpopup hidden" ng-include="'static/components/machines/machine-details-content/adduserspopup.component.html'"></div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <h5 class="mandatory" ng-if="usergroupadd_errors.user">{{usergroupadd_errors.user}}</h5>
+                </div>
+            </li>
+            <!--'ADD TAGS' FIELD-->
+            <li class="vp-userform__fielditem vp-userform__roleitem pt--lg">
+                <div class="vp-userform__fielditeminner">
+                    <!--'ADD USERS TO GROUP' FIELD LABEL-->
+                    <div class="vp-userform__fieldlabelwrap vertical--top inblock pt--md">
+                        <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Tags</label>
+                    </div>
+                    <!--'ADD USERS TO GROUP' FIELD CONTENT-->
+                    <div class="vp-userform__fieldcontent vp-userform__memberofcontent inblock">
+                        <div class="vp-machdetails__fieldcontent inblock">
+                            <div class="vp-machdetails__fieldtypewrap vp-machdetails__editablewrap inblock set_margin_rad">
+                                <div class="vp-createnewmachform__fieldcontent vp-createnewmachform__userscontent inblock">
+                                    <ul class="vp-createnewmachform__userslist clearfix">
+                                        <!--USER ROW EXAMPLE-->
+                                        <li class="vp-createnewmachform__useritem mt--sm mr--md left" ng-repeat="tag in userGroupData.tag track by $index">
+                                            <div class="vp-createnewmachform__useriteminner text--regular text--lg text--cs03 nowrap">
+                                                <div class="vp-createnewmachform__userinfowrap inblock">
+                                                    <span class="vp-createnewmachform__userinfo text--ellipsis text--ellipsis--single">{{tag.name}}</span>
+                                                </div>
+                                                <div class="vp-createnewmachform__userremovebtnwrap vertical--top inblock">
+                                                    <button type="button" class="vp-createnewmachform__userremovebtn vp-uielement__button vp-uielement__button--smallclose vertical--middle pa--none ml--sm" ng-click="selectTag(tag)"></button>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="vp-createnewmachform__addusersbuttonitem mt--sm mr--md pa--none left">
+                                            <div class="vp-createnewmachform__addusersbuttoniteminner inblock">
+                                                <button type="button" class="vp-uielement__button vp-uielement__button--cleanenabled"><span class="vertical--middle" ng-click="showAddTag()">+Add tags</span></button>
+                                            </div>
+                                            <div id="add_tag" class="vp-versionform__addcertifieditembtnpopup hidden" ng-include="'static/components/machines/machine-details-content/addtagspopup.component.html'"></div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <!--'ADD PARENT ENTITY TAGS' FIELD-->
+            <li class="vp-userform__fielditem vp-userform__roleitem pt--lg">
+                <div class="vp-userform__fielditeminner">
+                    <!--'ADD USERS TO GROUP' FIELD LABEL-->
+                    <div class="vp-userform__fieldlabelwrap vertical--top inblock pt--md">
+                        <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Tool/DU Tags</label>
+                    </div>
+                    <!--'ADD USERS TO GROUP' FIELD CONTENT-->
+                    <div class="vp-userform__fieldcontent vp-userform__memberofcontent inblock">
+                        <div class="vp-machdetails__fieldcontent inblock">
+                            <div class="vp-machdetails__fieldtypewrap vp-machdetails__editablewrap inblock set_margin_rad">
+                                <div class="vp-createnewmachform__fieldcontent vp-createnewmachform__userscontent inblock">
+                                    <ul class="vp-createnewmachform__userslist clearfix">
+                                        <!--USER ROW EXAMPLE-->
+                                        <li class="vp-createnewmachform__useritem mt--sm mr--md left" ng-repeat="tag in userGroupData.parent_entity_tag_list track by $index">
+                                            <div class="vp-createnewmachform__useriteminner text--regular text--lg text--cs03 nowrap">
+                                                <div class="vp-createnewmachform__userinfowrap inblock">
+                                                    <span class="vp-createnewmachform__userinfo text--ellipsis text--ellipsis--single">{{tag.name}}</span>
+                                                </div>
+                                                <div class="vp-createnewmachform__userremovebtnwrap vertical--top inblock">
+                                                    <button type="button" class="vp-createnewmachform__userremovebtn vp-uielement__button vp-uielement__button--smallclose vertical--middle pa--none ml--sm" ng-click="addParentEntityTag(tag)"></button>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="vp-createnewmachform__addusersbuttonitem mt--sm mr--md pa--none left">
+                                            <div class="vp-createnewmachform__addusersbuttoniteminner inblock">
+                                                <button type="button" class="vp-uielement__button vp-uielement__button--cleanenabled"><span class="vertical--middle" ng-click="showAddParentEntityTag()">+Add tags</span></button>
+                                            </div>
+                                            <div id="add_parent_entity_tag" class="vp-versionform__addcertifieditembtnpopup hidden" ng-include="'static/components/manage-users/popups/addparententitytagspopup.component.html'"></div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <!--'ADD PARENT ENTITY SET TAGS' FIELD-->
+            <li class="vp-userform__fielditem vp-userform__roleitem pt--lg">
+                <div class="vp-userform__fielditeminner">
+                    <!--'ADD USERS TO GROUP' FIELD LABEL-->
+                    <div class="vp-userform__fieldlabelwrap vertical--top inblock pt--md">
+                        <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Tool Set/ DU Package Tags</label>
+                    </div>
+                    <!--'ADD USERS TO GROUP' FIELD CONTENT-->
+                    <div class="vp-userform__fieldcontent vp-userform__memberofcontent inblock">
+                        <div class="vp-machdetails__fieldcontent inblock">
+                            <div class="vp-machdetails__fieldtypewrap vp-machdetails__editablewrap inblock set_margin_rad">
+                                <div class="vp-createnewmachform__fieldcontent vp-createnewmachform__userscontent inblock">
+                                    <ul class="vp-createnewmachform__userslist clearfix">
+                                        <!--USER ROW EXAMPLE-->
+                                        <li class="vp-createnewmachform__useritem mt--sm mr--md left" ng-repeat="tag in userGroupData.parent_entity_set_tag_list track by $index">
+                                            <div class="vp-createnewmachform__useriteminner text--regular text--lg text--cs03 nowrap">
+                                                <div class="vp-createnewmachform__userinfowrap inblock">
+                                                    <span class="vp-createnewmachform__userinfo text--ellipsis text--ellipsis--single">{{tag.name}}</span>
+                                                </div>
+                                                <div class="vp-createnewmachform__userremovebtnwrap vertical--top inblock">
+                                                    <button type="button" class="vp-createnewmachform__userremovebtn vp-uielement__button vp-uielement__button--smallclose vertical--middle pa--none ml--sm" ng-click="addParentEntitySetTag(tag)"></button>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="vp-createnewmachform__addusersbuttonitem mt--sm mr--md pa--none left">
+                                            <div class="vp-createnewmachform__addusersbuttoniteminner inblock">
+                                                <button type="button" class="vp-uielement__button vp-uielement__button--cleanenabled"><span class="vertical--middle" ng-click="showAddParentEntitySetTag()">+Add tags</span></button>
+                                            </div>
+                                            <div id="add_parent_entity_set_tag" class="vp-versionform__addcertifieditembtnpopup hidden" ng-include="'static/components/manage-users/popups/addparententitysettagspopup.component.html'"></div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <!--'ADD PARENT ENTITY TOOLS'' FIELD-->
+            <li class="vp-userform__fielditem vp-userform__roleitem pt--lg">
+                <div class="vp-userform__fielditeminner">
+                    <!--'ADD USERS TO GROUP' FIELD LABEL-->
+                    <div class="vp-userform__fieldlabelwrap vertical--top inblock pt--md">
+                        <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Tools</label>
+                    </div>
+                    <!--'ADD USERS TO GROUP' FIELD CONTENT-->
+                    <div class="vp-userform__fieldcontent vp-userform__memberofcontent inblock">
+                        <div class="vp-machdetails__fieldcontent inblock">
+                            <div class="vp-machdetails__fieldtypewrap vp-machdetails__editablewrap inblock set_margin_rad">
+                                <div class="vp-createnewmachform__fieldcontent vp-createnewmachform__userscontent inblock">
+                                    <ul class="vp-createnewmachform__userslist clearfix">
+                                        <!--USER ROW EXAMPLE-->
+                                        <li class="vp-createnewmachform__useritem mt--sm mr--md left" ng-repeat="tool in userGroupData.parent_entity_id_tool_list track by $index">
+                                            <div class="vp-createnewmachform__useriteminner text--regular text--lg text--cs03 nowrap">
+                                                <div class="vp-createnewmachform__userinfowrap inblock">
+                                                    <span class="vp-createnewmachform__userinfo text--ellipsis text--ellipsis--single">{{tool.name}}</span>
+                                                </div>
+                                                <div class="vp-createnewmachform__userremovebtnwrap vertical--top inblock">
+                                                    <button type="button" class="vp-createnewmachform__userremovebtn vp-uielement__button vp-uielement__button--smallclose vertical--middle pa--none ml--sm" ng-click="addParentEntityIdTool(tool)"></button>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="vp-createnewmachform__addusersbuttonitem mt--sm mr--md pa--none left">
+                                            <div class="vp-createnewmachform__addusersbuttoniteminner inblock">
+                                                <button type="button" class="vp-uielement__button vp-uielement__button--cleanenabled"><span class="vertical--middle" ng-click="showAddParentEntityIdTool()">+Add tools</span></button>
+                                            </div>
+                                            <div id="add_parent_entity_tool" class="vp-versionform__addcertifieditembtnpopup hidden" ng-include="'static/components/manage-users/popups/addparententityidtoolpopup.component.html'"></div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <!--'ADD PARENT ENTITY DU'' FIELD-->
+            <li class="vp-userform__fielditem vp-userform__roleitem pt--lg">
+                <div class="vp-userform__fielditeminner">
+                    <!--'ADD USERS TO GROUP' FIELD LABEL-->
+                    <div class="vp-userform__fieldlabelwrap vertical--top inblock pt--md">
+                        <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">DU's</label>
+                    </div>
+                    <!--'ADD USERS TO GROUP' FIELD CONTENT-->
+                    <div class="vp-userform__fieldcontent vp-userform__memberofcontent inblock">
+                        <div class="vp-machdetails__fieldcontent inblock">
+                            <div class="vp-machdetails__fieldtypewrap vp-machdetails__editablewrap inblock set_margin_rad">
+                                <div class="vp-createnewmachform__fieldcontent vp-createnewmachform__userscontent inblock">
+                                    <ul class="vp-createnewmachform__userslist clearfix">
+                                        <!--USER ROW EXAMPLE-->
+                                        <li class="vp-createnewmachform__useritem mt--sm mr--md left" ng-repeat="du in userGroupData.parent_entity_id_du_list track by $index">
+                                            <div class="vp-createnewmachform__useriteminner text--regular text--lg text--cs03 nowrap">
+                                                <div class="vp-createnewmachform__userinfowrap inblock">
+                                                    <span class="vp-createnewmachform__userinfo text--ellipsis text--ellipsis--single">{{du.name}}</span>
+                                                </div>
+                                                <div class="vp-createnewmachform__userremovebtnwrap vertical--top inblock">
+                                                    <button type="button" class="vp-createnewmachform__userremovebtn vp-uielement__button vp-uielement__button--smallclose vertical--middle pa--none ml--sm" ng-click="addParentEntityIdDU(du)"></button>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="vp-createnewmachform__addusersbuttonitem mt--sm mr--md pa--none left">
+                                            <div class="vp-createnewmachform__addusersbuttoniteminner inblock">
+                                                <button type="button" class="vp-uielement__button vp-uielement__button--cleanenabled"><span class="vertical--middle" ng-click="showAddParentEntityIdDU()">+Add DU's</span></button>
+                                            </div>
+                                            <div id="add_parent_entity_du" class="vp-versionform__addcertifieditembtnpopup hidden" ng-include="'static/components/manage-users/popups/addparententityiddupopup.component.html'"></div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <!--'ADD PARENT ENTITY SET TOOL'' FIELD-->
+            <li class="vp-userform__fielditem vp-userform__roleitem pt--lg">
+                <div class="vp-userform__fielditeminner">
+                    <!--'ADD USERS TO GROUP' FIELD LABEL-->
+                    <div class="vp-userform__fieldlabelwrap vertical--top inblock pt--md">
+                        <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Tool Set</label>
+                    </div>
+                    <!--'ADD USERS TO GROUP' FIELD CONTENT-->
+                    <div class="vp-userform__fieldcontent vp-userform__memberofcontent inblock">
+                        <div class="vp-machdetails__fieldcontent inblock">
+                            <div class="vp-machdetails__fieldtypewrap vp-machdetails__editablewrap inblock set_margin_rad">
+                                <div class="vp-createnewmachform__fieldcontent vp-createnewmachform__userscontent inblock">
+                                    <ul class="vp-createnewmachform__userslist clearfix">
+                                        <!--USER ROW EXAMPLE-->
+                                        <li class="vp-createnewmachform__useritem mt--sm mr--md left" ng-repeat="toolSet in userGroupData.parent_entity_set_id_tool_list track by $index">
+                                            <div class="vp-createnewmachform__useriteminner text--regular text--lg text--cs03 nowrap">
+                                                <div class="vp-createnewmachform__userinfowrap inblock">
+                                                    <span class="vp-createnewmachform__userinfo text--ellipsis text--ellipsis--single">{{toolSet.name}}</span>
+                                                </div>
+                                                <div class="vp-createnewmachform__userremovebtnwrap vertical--top inblock">
+                                                    <button type="button" class="vp-createnewmachform__userremovebtn vp-uielement__button vp-uielement__button--smallclose vertical--middle pa--none ml--sm" ng-click="addParentEntityIdToolSet(toolSet)"></button>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="vp-createnewmachform__addusersbuttonitem mt--sm mr--md pa--none left">
+                                            <div class="vp-createnewmachform__addusersbuttoniteminner inblock">
+                                                <button type="button" class="vp-uielement__button vp-uielement__button--cleanenabled"><span class="vertical--middle" ng-click="showAddParentEntityIdToolSet()">+Add tool sets</span></button>
+                                            </div>
+                                            <div id="add_parent_entity_set_tool" class="vp-versionform__addcertifieditembtnpopup hidden" ng-include="'static/components/manage-users/popups/addparententityidtoolsetpopup.component.html'"></div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <!--'ADD PARENT ENTITY SET DU'' FIELD-->
+            <li class="vp-userform__fielditem vp-userform__roleitem pt--lg">
+                <div class="vp-userform__fielditeminner">
+                    <!--'ADD USERS TO GROUP' FIELD LABEL-->
+                    <div class="vp-userform__fieldlabelwrap vertical--top inblock pt--md">
+                        <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">DU's Set</label>
+                    </div>
+                    <!--'ADD USERS TO GROUP' FIELD CONTENT-->
+                    <div class="vp-userform__fieldcontent vp-userform__memberofcontent inblock">
+                        <div class="vp-machdetails__fieldcontent inblock">
+                            <div class="vp-machdetails__fieldtypewrap vp-machdetails__editablewrap inblock set_margin_rad">
+                                <div class="vp-createnewmachform__fieldcontent vp-createnewmachform__userscontent inblock">
+                                    <ul class="vp-createnewmachform__userslist clearfix">
+                                        <!--USER ROW EXAMPLE-->
+                                        <li class="vp-createnewmachform__useritem mt--sm mr--md left" ng-repeat="duSet in userGroupData.parent_entity_set_id_du_list track by $index">
+                                            <div class="vp-createnewmachform__useriteminner text--regular text--lg text--cs03 nowrap">
+                                                <div class="vp-createnewmachform__userinfowrap inblock">
+                                                    <span class="vp-createnewmachform__userinfo text--ellipsis text--ellipsis--single">{{duSet.name}}</span>
+                                                </div>
+                                                <div class="vp-createnewmachform__userremovebtnwrap vertical--top inblock">
+                                                    <button type="button" class="vp-createnewmachform__userremovebtn vp-uielement__button vp-uielement__button--smallclose vertical--middle pa--none ml--sm" ng-click="addParentEntityIdDUSet(duSet)"></button>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="vp-createnewmachform__addusersbuttonitem mt--sm mr--md pa--none left">
+                                            <div class="vp-createnewmachform__addusersbuttoniteminner inblock">
+                                                <button type="button" class="vp-uielement__button vp-uielement__button--cleanenabled"><span class="vertical--middle" ng-click="showAddParentEntityIdDUSet()">+Add DU sets</span></button>
+                                            </div>
+                                            <div id="add_parent_entity_set_du" class="vp-versionform__addcertifieditembtnpopup hidden" ng-include="'static/components/manage-users/popups/addparententityiddusetpopup.component.html'"></div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <!--'ADD MACHINE'' FIELD-->
+            <li class="vp-userform__fielditem vp-userform__roleitem pt--lg">
+                <div class="vp-userform__fielditeminner">
+                    <!--'ADD USERS TO GROUP' FIELD LABEL-->
+                    <div class="vp-userform__fieldlabelwrap vertical--top inblock pt--md">
+                        <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Machine's</label>
+                    </div>
+                    <!--'ADD USERS TO GROUP' FIELD CONTENT-->
+                    <div class="vp-userform__fieldcontent vp-userform__memberofcontent inblock">
+                        <div class="vp-machdetails__fieldcontent inblock">
+                            <div class="vp-machdetails__fieldtypewrap vp-machdetails__editablewrap inblock set_margin_rad">
+                                <div class="vp-createnewmachform__fieldcontent vp-createnewmachform__userscontent inblock">
+                                    <ul class="vp-createnewmachform__userslist clearfix">
+                                        <!--USER ROW EXAMPLE-->
+                                        <li class="vp-createnewmachform__useritem mt--sm mr--md left" ng-repeat="machine in userGroupData.machine_id_list track by $index">
+                                            <div class="vp-createnewmachform__useriteminner text--regular text--lg text--cs03 nowrap">
+                                                <div class="vp-createnewmachform__userinfowrap inblock">
+                                                    <span class="vp-createnewmachform__userinfo text--ellipsis text--ellipsis--single">{{machine.machine_name}}</span>
+                                                </div>
+                                                <div class="vp-createnewmachform__userremovebtnwrap vertical--top inblock">
+                                                    <button type="button" class="vp-createnewmachform__userremovebtn vp-uielement__button vp-uielement__button--smallclose vertical--middle pa--none ml--sm" ng-click="addMachine(machine)"></button>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="vp-createnewmachform__addusersbuttonitem mt--sm mr--md pa--none left">
+                                            <div class="vp-createnewmachform__addusersbuttoniteminner inblock">
+                                                <button type="button" class="vp-uielement__button vp-uielement__button--cleanenabled"><span class="vertical--middle" ng-click="showAddMachine()">+Add Machine's</span></button>
+                                            </div>
+                                            <div id="add_machine" class="vp-versionform__addcertifieditembtnpopup hidden" ng-include="'static/components/manage-users/popups/addmachinespopup.component.html'"></div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <!--'ADD MACHINE GROUP'' FIELD-->
+            <li class="vp-userform__fielditem vp-userform__roleitem pt--lg">
+                <div class="vp-userform__fielditeminner">
+                    <!--'ADD USERS TO GROUP' FIELD LABEL-->
+                    <div class="vp-userform__fieldlabelwrap vertical--top inblock pt--md">
+                        <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Machine Group's</label>
+                    </div>
+                    <!--'ADD USERS TO GROUP' FIELD CONTENT-->
+                    <div class="vp-userform__fieldcontent vp-userform__memberofcontent inblock">
+                        <div class="vp-machdetails__fieldcontent inblock">
+                            <div class="vp-machdetails__fieldtypewrap vp-machdetails__editablewrap inblock set_margin_rad">
+                                <div class="vp-createnewmachform__fieldcontent vp-createnewmachform__userscontent inblock">
+                                    <ul class="vp-createnewmachform__userslist clearfix">
+                                        <!--USER ROW EXAMPLE-->
+                                        <li class="vp-createnewmachform__useritem mt--sm mr--md left" ng-repeat="machineGroup in userGroupData.machine_group_id_list track by $index">
+                                            <div class="vp-createnewmachform__useriteminner text--regular text--lg text--cs03 nowrap">
+                                                <div class="vp-createnewmachform__userinfowrap inblock">
+                                                    <span class="vp-createnewmachform__userinfo text--ellipsis text--ellipsis--single">{{machineGroup.group_name}}</span>
+                                                </div>
+                                                <div class="vp-createnewmachform__userremovebtnwrap vertical--top inblock">
+                                                    <button type="button" class="vp-createnewmachform__userremovebtn vp-uielement__button vp-uielement__button--smallclose vertical--middle pa--none ml--sm" ng-click="addMachineGroup(machineGroup)"></button>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="vp-createnewmachform__addusersbuttonitem mt--sm mr--md pa--none left">
+                                            <div class="vp-createnewmachform__addusersbuttoniteminner inblock">
+                                                <button type="button" class="vp-uielement__button vp-uielement__button--cleanenabled"><span class="vertical--middle" ng-click="showAddMachineGroup()">+Add Machine Group's</span></button>
+                                            </div>
+                                            <div id="add_machine_group" class="vp-versionform__addcertifieditembtnpopup hidden" ng-include="'static/components/manage-users/popups/addmachinegroupspopup.component.html'"></div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </form>
+</div>
+<!--ADD USER FORM COMPONENT END-->

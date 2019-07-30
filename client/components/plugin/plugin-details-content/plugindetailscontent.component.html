@@ -1,0 +1,115 @@
+<!--MACHINE DETAILS VERTICAL TAB CONTENT COMPONENT START-->
+<div class="vp-machdetails vp-control pt--xxxl pr--xl pb--xxxl pl--xxxl bg--white clearfix max">
+    <ul class="vp-machdetails__fieldslist text--cs03">
+        <!--IP FIELD ROW-->
+
+        <div class="split-wrapper">
+            <div class="left-data split">
+                <li class="vp-machdetails__fielditem vp-machdetails__ipitem">
+                    <div class="vp-machdetails__fielditeminner">
+                        <!--IP FIELD LABEL-->
+                        <div class="vp-machdetails__fieldlabelwrap inblock">
+                            <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">ID:</label>
+                        </div>
+                        <!--IP FIELD CONTENT-->
+                        <div class="vp-machdetails__fieldcontent inblock">
+                            <div class="vp-machdetails__fieldipwrap inblock">
+                                <span class="vp-machdetails__fieldip text--regular text--lg text--ellipsis text--ellipsis--single">{{PluginData._id.$oid}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="vp-machdetails__fielditem vp-machdetails__ipitem">
+                    <div class="vp-machdetails__fielditeminner">
+                        <!--IP FIELD LABEL-->
+                        <div class="vp-machdetails__fieldlabelwrap inblock">
+                            <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Status:</label>
+                        </div>
+                        <!--IP FIELD CONTENT-->
+                        <div class="vp-machdetails__fieldcontent inblock">
+                            <div class="vp-machdetails__fieldipwrap inblock">
+                                <span class="vp-machdetails__fieldip text--regular text--lg text--ellipsis text--ellipsis--single">{{PluginData.status}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="vp-machdetails__fielditem vp-machdetails__ipitem">
+                    <div class="vp-machdetails__fielditeminner">
+                        <!--IP FIELD LABEL-->
+                        <div class="vp-machdetails__fieldlabelwrap inblock">
+                            <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Description:</label>
+                        </div>
+                        <!--IP FIELD CONTENT-->
+                        <div class="vp-machdetails__fieldcontent inblock">
+                            <div class="vp-machdetails__fieldipwrap inblock">
+                                <span class="vp-machdetails__fieldip text--regular text--lg text--ellipsis text--ellipsis--single">{{PluginData.description}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </div><!-- end left-data -->
+            <div class="right-data split">
+                <li class="vp-machdetails__fielditem vp-machdetails__ipitem">
+                    <div class="vp-machdetails__fielditeminner">
+                        <!--IP FIELD LABEL-->
+                        <div class="vp-machdetails__fieldlabelwrap inblock">
+                            <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Version ID:</label>
+                        </div>
+                        <!--IP FIELD CONTENT-->
+                        <div class="vp-machdetails__fieldcontent inblock">
+                            <div class="vp-machdetails__fieldipwrap inblock">
+                                <span class="vp-machdetails__fieldip text--regular text--lg text--ellipsis text--ellipsis--single">{{PluginData.version}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="vp-machdetails__fielditem vp-machdetails__ipitem">
+                    <div class="vp-machdetails__fielditeminner">
+                        <!--IP FIELD LABEL-->
+                        <div class="vp-machdetails__fieldlabelwrap inblock">
+                            <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Author:</label>
+                        </div>
+                        <!--IP FIELD CONTENT-->
+                        <div class="vp-machdetails__fieldcontent inblock">
+                            <div class="vp-machdetails__fieldipwrap inblock">
+                                <span class="vp-machdetails__fieldip text--regular text--lg text--ellipsis text--ellipsis--single">{{PluginData.author}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+            </div><!-- end right-data -->
+        </div><!-- end split-wrapper -->
+
+         <br><br>
+
+        <li class="vp-machdetails__fielditem vp-machdetails__ipitem button-wrapper"  ><!-- ng-hide="SingleData.status=='Completed'"-->
+            <div class="vp-machdetails__fielditeminner">
+                <!--IP FIELD CONTENT-->
+                <button type="button" class="vp-machdetails__removemachinebtn vp-uielement__button vp-uielement__button--edittool pr--md pl--md ml--md" ng-click="install(PluginData.name)">Install</button>
+            </div>
+        </li>
+
+        <li class="vp-machdetails__fielditem vp-machdetails__ipitem button-wrapper" ><!-- ng-hide="SingleData.status=='Completed'"-->
+            <div class="vp-machdetails__fielditeminner">
+                <!--IP FIELD CONTENT-->
+                <button type="button" class="vp-machdetails__removemachinebtn vp-uielement__button vp-uielement__button--edittool pr--md pl--md ml--md" ng-click="uninstall(PluginData.name)">UnInstall</button>
+            </div>
+        </li>
+        <li class="vp-machdetails__fielditem vp-machdetails__ipitem button-wrapper" ng-if="PluginData.status === 'active'"  ><!-- ng-hide="SingleData.status=='Completed'"-->
+            <div class="vp-machdetails__fielditeminner">
+                <!--IP FIELD CONTENT-->
+                <button type="button" class="vp-machdetails__removemachinebtn vp-uielement__button vp-uielement__button--edittool pr--md pl--md ml--md" ng-click="inactive(PluginData.name)">Inactive</button>
+            </div>
+        </li>
+            <li class="vp-machdetails__fielditem vp-machdetails__ipitem button-wrapper" ng-if="PluginData.status === 'inactive'"><!-- ng-hide="SingleData.status=='Completed'"-->
+            <div class="vp-machdetails__fielditeminner">
+                <!--IP FIELD CONTENT-->
+                <button type="button" class="vp-machdetails__removemachinebtn vp-uielement__button vp-uielement__button--edittool pr--md pl--md ml--md" ng-click="active(PluginData.name)">Active</button>
+            </div>
+        </li>
+          <!--log-->
+
+    </ul>
+</div>
+<!--MACHINE DETAILS VERTICAL TAB CONTENT COMPONENT END-->

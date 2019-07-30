@@ -1,0 +1,106 @@
+<!--MACHINE DETAILS VERTICAL TAB CONTENT COMPONENT START-->
+<div class="vp-machdetails vp-control pt--xxxl pr--xl pb--xxxl pl--xxxl bg--white clearfix max">
+    <form name="editMachineForm">
+    <ul class="vp-machdetails__fieldslist text--cs03" style="min-height: 700px;">
+        <!--ID FIELD ROW-->
+        <li class="vp-machdetails__fielditem vp-machdetails__ipitem">
+            <div class="vp-machdetails__fielditeminner">
+                <!--IP FIELD LABEL-->
+                <div class="vp-machdetails__fieldlabelwrap inblock">
+                    <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Group ID<span class="vp-createnewmachform__fieldrequire">*</span>:</label>
+                </div>
+                <!--IP FIELD CONTENT-->
+                <div class="vp-machdetails__fieldcontent inblock">
+                    <label for="machine_group_id" class="text--regular text--lg">{{machineGroupData.group_id}}</label>
+                </div>
+            </div>
+            <h5 class="validation_msg_machine" ng-show="newMachineGroupErrors.group_name">Please enter group name</h5>
+        </li>
+        <!--NAME FIELD ROW-->
+        <li class="vp-machdetails__fielditem vp-machdetails__ipitem">
+            <div class="vp-machdetails__fielditeminner">
+                <!--IP FIELD LABEL-->
+                <div class="vp-machdetails__fieldlabelwrap inblock">
+                    <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Group Name<span class="vp-createnewmachform__fieldrequire">*</span>:</label>
+                </div>
+                <!--IP FIELD CONTENT-->
+                <div class="vp-machdetails__fieldcontent inblock">
+                    <div class="vp-machdetails__fieldipwrap inblock">
+                        <input type="text" id="machine_group_name" class="vp-machdetails__fieldip text--regular text--lg text--ellipsis text--ellipsis--single" ng-model="machineGroupData.group_name" name="group_name" style="border: 1px solid #969898;" required >
+                    </div>
+                </div>
+            </div>
+            <h5 class="validation_msg_machine" ng-show="newMachineGroupErrors.group_name">Please enter group name</h5>
+        </li>
+        <li class="vp-machdetails__fielditem vp-machdetails__ipitem mt--xl">
+            <div class="vp-machdetails__fielditeminner">
+                <!--IP FIELD LABEL-->
+                <div class="vp-machdetails__fieldlabelwrap inblock">
+                    <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Description:</label>
+                </div>
+                <!--IP FIELD CONTENT-->
+                <div class="vp-machdetails__fieldcontent inblock">
+                    <div class="vp-machdetails__fieldipwrap inblock">
+                        <textarea ng-model="machineGroupData.description" name="group_description" id="DESC" length="500" class="vp-toolinfo__descriptioninput input--clear text--cs03 text--regular text--lg pl--md" style="width: 220px; height: 80px; border: 1px solid #969898;" required></textarea>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="vp-machdetails__fielditem vp-machdetails__connectionitem mt--xl max--width">
+            <div class="vp-machdetails__fieldlabelwrap vertical--top inblock">
+                <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Machine's:</label>
+            </div>
+            <div class="vp-machdetails__fieldcontent inblock">
+                <div class="vp-machdetails__fieldtypewrap vp-machdetails__editablewrap inblock set_margin_rad">
+                    <div class="vp-createnewmachform__fieldcontent vp-createnewmachform__userscontent inblock">
+                        <ul class="vp-createnewmachform__userslist clearfix">
+                            <!--USER ROW EXAMPLE-->
+                            <li class="vp-createnewmachform__useritem mt--sm mr--md left" ng-repeat="machine in machineGroupData.machine_id_list track by $index">
+                                <div class="vp-createnewmachform__useriteminner text--regular text--lg text--cs03 nowrap">
+                                    <div class="vp-createnewmachform__userinfowrap inblock">
+                                        <span class="vp-createnewmachform__userinfo text--ellipsis text--ellipsis--single"><a href ng-click="selectMachineToView(machine._id.$oid)">{{machine.machine_name}}</a></span>
+                                    </div>
+                                    <div class="vp-createnewmachform__userremovebtnwrap vertical--top inblock">
+                                        <button type="button" class="vp-createnewmachform__userremovebtn vp-uielement__button vp-uielement__button--smallclose vertical--middle pa--none ml--sm" ng-click="addMachine(machine)"></button>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="vp-createnewmachform__addusersbuttonitem mt--sm mr--md pa--none left">
+                                <div class="vp-createnewmachform__addusersbuttoniteminner inblock">
+                                    <button type="button" class="vp-uielement__button vp-uielement__button--cleanenabled"><span class="vertical--middle" ng-click="showAddMachine()">+Add machine's</span></button>
+                                </div>
+                                <div id="add_machine" class="vp-versionform__addcertifieditembtnpopup hidden" ng-include="'static/components/machines/popups/addmachinespopup.component.html'"></div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="vp-userform__fielditem vp-userform__roleitem pt--lg" style="margin-top: 40px;">
+            <div class="vp-versionform vp-component bg--white max--width">
+                <div class="vp-userform__fielditeminner">
+                    <div class="vertical--top inblock">
+                        <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Flexible Attributes:</label>
+                    </div>
+                    <flexible-attributes entity="MachineGroup" fa-name-value-map="faNameValueMap" on-fa-load="faDefLoaded(faDef)"/>
+                </div>
+            </div>
+        </li>
+    </ul>
+    <div class="vp-machdetails__btnssectionblock mt--xxl right">
+        <div class="vp-machinetoolbar__createbtnwrap right">
+            <!--CREATE MACHINE BUTTON (MODIFIERS: # vp-uielement__button--deploydisabled )-->
+            <button type="button" class="vp-machinetoolbar__createbtn vp-uielement__button vp-uielement__button--deployenabled pr--lg pl--lg" ng-click="editMachineGroup(EditMachineGroupForm)">Save changes</button>
+        </div>
+        <!--DISCARD CHANCHES BUTTON-->
+        <div class="vp-machinetoolbar__discardbtnwrap mr--xxxl left">
+            <button type="button" class="vp-machinetoolbar__discardbtn vp-uielement__button vp-uielement__button--cleanenabled" ng-click="discardMachineGroupChanges()">Discard</button>
+            <button type="button" class="vp-machdetails__removemachinebtn vp-uielement__button vp-uielement__button--edittool pr--md pl--md ml--md" ng-if="isallowed['/delete/machine/group/:id']" ng-click="removeThisMachineGroup(machineGroupData.group_id)">Remove this machine group</button>
+        </div>
+    </div>
+    <div class="vp-userform__addsettingmodalwrap fixed max--position hidden" id="update_password">
+        <div class="vp-userform__addsettingmodal absolute" ng-include="'static/components/machines/popups/updatepassword-popup.component.html'"></div>
+    </div>
+    </form>
+</div>
+<!--MACHINE DETAILS VERTICAL TAB CONTENT COMPONENT END-->

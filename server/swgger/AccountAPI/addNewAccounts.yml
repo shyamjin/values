@@ -1,0 +1,62 @@
+provide user name and password in order to get token for using other API
+---
+tags:
+   - Accounts
+parameters:
+- name: token
+  in: header
+  description: API key
+  required: false
+  type: string
+  format: string
+- name: access-token
+  in: header
+  description: API key
+  required: false
+  type: string
+  format: string 
+- name: input
+  in: body
+  description: Accounts Data
+  required: true
+  type: string
+  format: string
+  schema:
+    $ref: "#/definitions/Accounts"     # <---------
+
+
+responses:
+  200:
+    description: The account is saved successfully
+    schema:
+        $ref: "#/definitions/Data"     # <---------
+    examples:
+      result: "success"
+      message: "The account is saved successfully"
+  404:
+    description: exception in adding an account
+    examples:
+      result: "failed"
+      message: "Throws an exception"
+
+
+definitions:
+  Accounts:           # <----------
+    type: object
+    required:
+      - name
+      - mps_version
+    properties:
+      name:
+        type: string
+      mps_version:
+        type: number
+  Data:
+    type: object
+    properties:
+        data:
+          type: string
+        result:
+          type: string
+        message:
+           type: string

@@ -1,0 +1,15 @@
+<!--'ADD NEW SERVICE' TAB CONTENT COMPONENT START-->
+<div class="vp-addnewmachinecont vp-control max" ng-controller="CreateNewTagController">
+    <!--ADD NEW SERVICE FORM-->
+    <div class="vp-addnewmachinecont__form" ng-include="'static/components/manage-tags/add-new-tag/add-new-tag-component.html'"></div>
+    <!--TOOLBAR -->
+    <div class="vp-addnewmachinecont__toolbar fixed pos--bottom pos--left bg--cs06 max--width">
+        <div class="vp-addnewmachinecont__innerbounded clearfix">
+            <div class="vp-addnewmachinecont__addmachinebtnwrap right">
+                <!--ADD SERVICE BUTTON (MODIFIERS: # vp-uielement__button--deploydisabled )-->
+                <button type="button" class="vp-addnewmachinecont__addnewmachinebtn vp-uielement__button vp-uielement__button--deployenabled pr--lg pl--lg"  ng-click="createNewTag()">Add Tag To List</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--'ADD NEW SERVICE' TAB CONTENT COMPONENT END-->

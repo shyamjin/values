@@ -1,0 +1,19 @@
+<!--SELECTED TOOLS POPUP COMPONENT START-->
+<div class="vp-selectedtoolspopup vp-control">
+	<!--TRIANGLE ARROW-->
+	<div class="vp-selectedtoolspopup__topborder vp-uielement__popuptop"></div>
+	<!--SELECTED TOOLS LIST CONTAINER-->
+	<div class="vp-selectedtoolspopup__container vp-uielement__popup bg--cs06">
+		<ul>
+			<!--SELECTED ITEN EXAMPLE -->
+			<li class="vp-selectedtoolspopup__toolitem" ng-repeat="tool in selectedToolsList">
+				<span class="vp-selectedtoolspopup__toolname pl--lg text--regular text--md text--cs03 inblock">{{tool}}</span>
+				<!--REMOVE BUTTON-->
+				<div class="vp-selectedtoolspopup__removebtnwrapper right">
+					<button type="button" class="vp-selectedtoolspopup__removebtn vp-uielement__button vp-uielement__button--smallclose mr--lg vertical--middle" ng-click="removeTool(tool)"></button>
+				</div>
+			</li>
+		</ul>
+	</div>
+</div>
+<!--SELECTED TOOLS POPUP COMPONENT END-->

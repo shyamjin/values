@@ -1,0 +1,6 @@
+.vp-autocomplete {
+  box-shadow: 0 4px 2px -2px gray;
+}
+.vp-autocomplete .vp-autocomplete__iteminner {
+  line-height: 1.5;
+}

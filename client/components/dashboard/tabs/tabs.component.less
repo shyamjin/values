@@ -1,0 +1,230 @@
+// VARIABLES: SECTION 6
+// COPONENT CLASS
+// DEFAULT THEME MODIFIER 
+div.vp-tabs.vp-tabs--default {
+    // DEFAULT LI SIZE
+    li.vp-tabs__tab {
+        width: @defaultTabWidth;
+        height: @defaultTabHeight;
+        line-height: @defaultTabHeight;
+        // ACTIVE TAB VIEW
+        &.vp-tabs__tab--active {
+            // ACTIVE TAB SOLID BORDER MIXIN
+            .activeTabBorder(@tabBorderWidth, @cs09, @defaultTabHeight, @cswhite);
+            .bg--white;
+            .text--cs03;
+            // ACTIVE 'FAVORITE' TAB ICON ,IMAGE CHANGE
+            div.vp-tabs__tabiconfavorites {
+                background: url('../assets/images/icons/fevorites_selected.png') no-repeat;
+                background-size: contain;
+            }
+            // ACTIVE 'NEW TOOL' TAB ICON ,IMAGE CHANGE
+            div.vp-tabs__tabiconnewtools {
+                background: url('../assets/images/icons/new_selected_icn.png') no-repeat;
+                background-size: contain;
+            }
+            // ACTIVE 'TOOL UPDATES' TAB ICON ,IMAGE CHANGE
+            div.vp-tabs__tabicontoolupdates {
+                background: url('../assets/images/icons/updates_selected_icn.png') no-repeat;
+                background-size: contain;
+            }
+            // ACTIVE 'RECENTLY VIEWED' TAB ICON ,IMAGE CHANGE
+            div.vp-tabs__tabiconrecentlyviewed {
+                background: url('../assets/images/icons/recently_viewed_selected_icn.png') no-repeat;
+                background-size: contain;
+            }
+            div.vp-tabs__tabicontoolsets {
+                // MISSING ACTIVE 'TOOL SETS' ICON
+                // background: url('../assets/images/icons/recently_viewed_icn.png') no-repeat;
+                background-size: contain;
+            }
+        }
+    }
+    // FILTER BUTTON ON BODY HEADER
+    button.vp-tabs__bodyheaderfilterbtn {
+        height: @filterBtnHeight;
+        background: url('../assets/images/icons/filter_empty.png') no-repeat;
+        .text--cs03;
+    }
+    button.vp-tabs__bodyheaderfilterbtn_active {
+        height: @filterBtnHeight;
+        background: url('../assets/images/icons/filter_active.png') no-repeat;
+        .text--cs03;
+    }
+    button.vp-tabs__duCreate_active {
+        padding-bottom: 5px;
+        height: 22px;
+        background: url('../assets/images/icons/plus.png') no-repeat;
+        .text--cs03;
+    }
+
+    // FILTER BUTTON CLICKED
+    // SELECTED TOOLS BUTTON CLICKED
+    button.vp-tabs__bodyheaderselectedtooplsbtn--show {
+        & ~ .vp-tabs__bodyheaderselectedtoolspopup {
+            .block;
+            left: @selectedToolsPopupLeft;
+            top: @selectedToolsPopupTop;
+            z-index: 99;
+        }
+    }
+    // SOLID BOTTOM BORDER FOR NAVIGATION LINE
+    ul.vp-tabs__navlist {
+        border-bottom: @tabBorderWidth solid @cs09;
+    }
+    div.vp-tabs__alltoolsbtnwrapper {
+        right: 15px;
+        top: 5px;
+        button.vp-tabs__alltoolsbtn {
+            width: @allToolsBtnWidth;
+        }
+    }
+    // DEFAULT BODY BACKGROUNG COLOR
+    div.vp-tabs__body {
+        .bg--white;
+        height: @defaultTabsBodyHeight;
+    }
+    // TABS BODY UPPER HEADER WITH BUTTONS VIEW
+    div.vp-tabs__bodyheader {
+        height: @defaultTabsBodyHeaderHeight;
+        line-height: @defaultTabsBodyHeaderHeight;
+        padding-left: @tabsBodyHeaderPL;
+        z-index: 10;
+        // MIDIFIER,ACTIVE WHEN TOOLS GRID SCROLLED 
+        &.vp-tabs__bodyheader--scrolled {
+            border-bottom: 1px solid @cs08;
+            box-shadow: 0px 5px 10px -2px @cs08;
+        }
+    }
+    div.vp-tabs__bodyheaderselectedtoolspopup {
+        box-shadow: 0px 0px 79px -4px rgba(0, 0, 0, 0.14);
+    }
+    // TILE GRID HEIGHT IN THE TAB BODY
+    div.vp-tabs__tilegrid {
+        height: calc(~"100% - " @defaultTabsBodyHeaderHeight);
+    }
+    // TAB COUNTER NOTIFICATION VIEW
+    .vp-tabs__tabcountnotification--active {
+        span.vp-tabs__tabcountnotification {
+            display: inline-block;
+            margin-left: @tabCounterML;
+        }
+    }
+    // 'FAVORITE' TAB ICON
+    div.vp-tabs__tabiconfavorites {
+        width: @favoriteIconWidth;
+        height: @favoriteIconHeight;
+        background: url('../assets/images/icons/fevorites_icn.png') no-repeat;
+        background-size: contain;
+    }
+    // 'NEW TOOL' TAB ICON
+    div.vp-tabs__tabiconnewtools {
+        width: @newtoolsIconSize;
+        height: @newtoolsIconSize;
+        background: url('../assets/images/icons/new_icn.png') no-repeat;
+        background-size: contain;
+    }
+    // 'TOOL UPDATES' TAB ICON
+    div.vp-tabs__tabicontoolupdates {
+        width: @toolupdatesIconSize;
+        height: @toolupdatesIconSize;
+        background: url('../assets/images/icons/updates_icn.png') no-repeat;
+        background-size: contain;
+    }
+    // 'RECENTLY VIRWED' TAB ICON
+    div.vp-tabs__tabiconrecentlyviewed {
+        width: @recentlyIconWidth;
+        height: @recentlyIconHeight;
+        background: url('../assets/images/icons/recently_viewed_icn.png') no-repeat;
+        background-size: contain;
+    }
+    // 'TOOL SETS' TAB ICON
+    div.vp-tabs__tabicontoolsets {
+        width: 0;
+        height: 0;
+        // MISSING 'TOOL SETS' ICON
+        // background: url('../assets/images/icons/recently_viewed_icn.png') no-repeat;
+        background-size: contain;
+    }
+}
+
+// RIGHT SIDE OPTIONAL HIDE THEME
+div.vp-tabs.vp-tabs--sideopen {
+    li.vp-tabs__tab--optionalhide {
+        display: none;
+    }
+}
+
+// TRANSPARENT THEME MODIFIER
+div.vp-tabs.vp-tabs--transparent {
+    // SOLID BOTTOM BORDER FOR NAVIGATION LINE
+    ul.vp-tabs__navlist {
+        border-bottom: 2px solid @cs01;
+    }
+    // TRANSPARENT LI TAB VIEW
+    li.vp-tabs__tab {
+        width: @transparentTabWidth;
+        height: @transparentTabHeight;
+        line-height: @transparentTabHeight;
+        // ACTIVE LI TAB VIEW
+        &.vp-tabs__tab--active {
+            .text--cs06;
+            .text--light;
+            // ACTIVE TAB BORDER MIXIN
+            .activeTabBorder(@transparentActiveTabBorderSize, @cs01, @transparentTabHeight, @cs02);
+        }
+    }
+    // 'RECENT REQUEST' TAB BODY HEADER
+    div.vp-tabs__recentrequestsheader {
+        height: @transparentHeaderHeight;
+        line-height: @transparentHeaderHeight;
+    }
+    .vp-tabs__bodyheaderfailedwrapper {
+        margin-left: @treeviewML;
+    }
+    // BODY HEADER NOTIFICATIONS SEPARATOR/BORDER
+    span.vp-tabs__bodyheaderinprogressnotif {
+        border-left: 1px solid;
+    }
+    // TRANSPARENT THEMES TABS COMPONENT HEIGHT
+    div.vp-tabs__bodytreeview {
+        height: calc(~"100% - " @transparentHeaderHeight);
+    }
+    // RECENT REQUEST TAB FOOTER
+    div.vp-recentrequestfooter {
+        .vp-tabs__recentrequestsfootermsg {
+            width: 60%; //77%
+        }
+        height: @recentRequestsTabFooterHeight;
+        z-index: 30;
+        background-image: -webkit-linear-gradient(92.5deg, rgba(41, 46, 76, 0.75) 0%, rgba(41, 46, 76, 0.75) 60%, transparent 62%, transparent 100%);
+        background-image: linear-gradient(-2.5deg, rgba(41, 46, 76, 0.75) 0%, rgba(41, 46, 76, 0.75) 60%, transparent 62%, transparent 100%);
+    }
+    // SET TAB BODY BACKGROUND TRANSPARENT 
+    div.vp-tabs__body {
+        height: calc(~"100% - " (@transparentTabHeight + @transparentActiveTabBorderSize));
+    }
+}
+
+// TAB ITEMS COUNT DEAFULTS
+span.vp-tabs__tabcountnotification {
+    height: @tabCountNotificationRadius;
+    width: @tabCountNotificationRadius;
+    border-radius: @tabCountNotificationRadius;
+    line-height: @tabCountNotificationRadius;
+}
+
+// /(optional... also can be triggered from outside of this file)
+// IF RIGHT SIDEBAR MODIFIER TOGGLED TO vp-toolspage , CHANGING STYLE
+div.vp-toolspage--rightactive {
+    // CLOSE OPTIONAL LI TABS 
+    div.vp-tabs--default {
+        li.vp-tabs__tab--optionalhide {
+            display: none;
+        }
+    }
+    // SHOW "ALL TOOLS" and "FILTER" BUTTON WHEN RIGHT SIDEBAR OPEN
+    div.vp-tabs__alltoolsbtnwrapper, div.vp-tabs__bodyheaderfiltericonwrapper {
+        .block;
+    }
+}

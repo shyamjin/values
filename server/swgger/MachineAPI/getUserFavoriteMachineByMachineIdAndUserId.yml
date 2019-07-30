@@ -1,0 +1,38 @@
+Getting User Favorite Machine, Referring By Machine Id And User Id
+---
+tags:
+ - Machine
+parameters:
+- name: token
+  in: header
+  description: API key
+  required: false
+  type: string
+  format: string
+- name: access-token
+  in: header
+  description: API key
+  required: false
+  type: string
+  format: string 
+- name: machineId
+  in: path
+  type: string
+  required: true
+  description: Get User Favorite Machine by Machine Id
+- name: userId
+  in: path
+  type: string
+  required: true
+  description: Get User Favorite Machine by User Id
+responses:
+  200:
+    description: Getting User Favorite Machine Successfully
+    examples:
+      result: "success"
+      message: null
+  404:
+    description: exception in Getting User Favorite Machine
+    examples:
+      result: "failed"
+      message: "Throws an exception"

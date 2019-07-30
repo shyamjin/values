@@ -1,0 +1,29 @@
+<!--HEADER MESSAGE COMPONENT START-->
+<!--(MODIFIERS: vp-headermsg--notification # vp-headermsg--warning # vp-headermsg--error # vp-headermsg--success)-->
+<div ng-controller="HeaderMessageComponentController">
+	<div class="vp-headermsg vp-headermsg--success vp-control bg--cs10 text--center text--regular text--cs03 text--xl" ng-if="success_message">
+		<!--HEADER MESSAGE-->
+		<span class="vp-headermsg__message">{{success_message}}</span>
+		<!--CLOSE BUTTON-->
+		<div class="vp-headermsg__btnwrapper mr--lg right">
+			<button type="button" class="vp-headermsg__closebtn vp-uielement__button vp-uielement__button--smallclose" ng-click="closeHeaderMessage()"></button>
+		</div>
+	</div>
+	<div class="vp-headermsg vp-headermsg--error vp-control bg--cs10 text--center text--regular text--cs03 text--xl" ng-if="error_message">
+		<!--HEADER MESSAGE-->
+		<span class="vp-headermsg__message">{{error_message}}</span>
+		<!--CLOSE BUTTON-->
+		<div class="vp-headermsg__btnwrapper mr--lg right">
+			<button type="button" class="vp-headermsg__closebtn vp-uielement__button vp-uielement__button--smallclose" ng-click="closeHeaderMessage()"></button>
+		</div>
+	</div>
+	<div class="vp-headermsg vp-headermsg--warning vp-control bg--cs10 text--center text--regular text--cs03 text--xl" ng-if="warning_message">
+		<!--HEADER MESSAGE-->
+		<span class="vp-headermsg__message">{{warning_message}}</span>
+		<!--CLOSE BUTTON-->
+		<div class="vp-headermsg__btnwrapper mr--lg right">
+			<button type="button" class="vp-headermsg__closebtn vp-uielement__button vp-uielement__button--smallclose" ng-click="closeHeaderMessage()"></button>
+		</div>
+	</div>
+</div>
+<!--HEADER MESSAGE COMPONENT END-->

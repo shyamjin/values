@@ -1,0 +1,49 @@
+<!--TOOL INFO COMPONENT START-->
+<div class="vp-sttoolinfo vp-control bg--white max--width relative" ng-controller="ShowUpdatedToolInfoController">
+    <div class="vp-sttoolinfo__editbtnwrap">
+        <button ng-if="!toolData.master_clone_request_id" type="button" class="vp-uielement__button vp-uielement__button--edittool absolute pos--right pos--top mr--xxl mt--md" ng-click="updateTool(toolData.tool_id)">Update tool</button>
+        <!--DEPLOY BUTTON VIEW (MODIFIER: vp-uielement__button--deployenabled )-->
+        <button ng-if="toolData.master_clone_request_id" type="button" class="vp-uielement__button vp-uielement__button--edittool absolute pos--right pos--top mr--xxl mt--md" >Requested for update</button>
+    </div>
+
+    <!--CONTENT SECTION-->
+    <div class="vp-sttoolinfo__innercontent max--width">
+        <form action="#" name="vp-sttoolinfo__form" class="vp-sttoolinfo__form text--regular text--lg">
+            <!--CERTIFIED SECTION-->
+            <!--<div class="vp-sttoolinfo__certifiedwrap">-->
+                <!--<label class="vp-sttoolinfo__label vp-sttoolinfo__certifiedlabel text&#45;&#45;cs03 text&#45;&#45;light text&#45;&#45;md vertical&#45;&#45;top inblock">Certified:</label>-->
+                <!--<div class="vp-sttoolinfo__content vp-sttoolinfo__certifiedcontent ml&#45;&#45;xxl inblock">-->
+                    <!--<span class="text&#45;&#45;ellipsis text&#45;&#45;ellipsis&#45;&#45;single">MPS 3.1</span>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--DESCRIPTION FIELD-->
+            <div class="vp-sttoolinfo__descriptionwrap mt--md">
+                <label class="vp-sttoolinfo__label vp-sttoolinfo__descriptionlabel text--cs03 text--light text--md vertical--top inblock">Description:</label>
+                <div class="vp-sttoolinfo__content vp-sttoolinfo__descriptioncontent ml--xxl inblock">
+                    <p class="vp-sttoolinfo__descriptioncontentinner text--ellipsis text--ellipsis--two">
+                        {{toolData.description}}
+                    </p>
+                </div>
+            </div>
+            <div class="vp-sttoolinfo__tagswrap mt--md">
+                <label class="vp-sttoolinfo__label vp-sttoolinfo__tagslabel text--cs03 text--light text--md vertical--top inblock">Tags:</label>
+                <!--TAGS SECTION-->
+                <div class="vp-sttoolinfo__content vp-sttoolinfo__tagsinputwrap ml--xxl inblock">
+                    <div class="vp-sttoolinfo__tagsinputwrapinner inblock">
+                        <input type="text" class="vp-sttoolinfo__tagsinput text--cs03 text--regular text--lg input--clear pl--md" ng-model="toolData.tag"readonly>
+                        <!--<p class="text&#45;&#45;cs08 text&#45;&#45;light text&#45;&#45;md lh&#45;&#45;font"> (tags must be separated by comma ",")</p>-->
+                    </div>
+                    <!--<button type="button" class="vp-uielement__button vp-uielement__button&#45;&#45;cleanenabled vertical&#45;&#45;top mt&#45;&#45;sm">Save</button>-->
+                </div>
+                <!--SUPPORT SECTION-->
+                <div class="vp-sttoolinfo__supportwrap mt--sm">
+                    <label class="vp-sttoolinfo__label vp-sttoolinfo__supportlabel text--cs03 text--light text--md vertical--top inblock">Support:</label>
+                    <div class="vp-sttoolinfo__content vp-sttoolinfo__supportwrapinner inblock">
+                        <a href="{{toolData.support_details}}" class="text--cs03 text--regular text--lg text--cs07 ml--xxl no--decor text--ellipsis text--ellipsis--single">{{toolData.support_details}}</a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<!--TOOL INFO COMPONENT END-->

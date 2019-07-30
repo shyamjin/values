@@ -1,0 +1,24 @@
+<!--SHOW TOOL PARTIALS ASSEMBLY START-->
+<div class="vp-showtool vp-control mx--width relative" ng-controller="ShowProposedToolPartialController">
+    <!--SIDE NAVBAR SECTION-->
+    <div class="vp-showtool__navaside fixed pos--top pos--bottom" ng-include="'static/components/dashboard/navaside/navaside.component.html'"></div>
+    <!--SCREENSHOTS BROWSER/CAROUSEL WRAPPER (MODIFIERS: # vp-showtool__screenshotbrowserwrap--show )-->
+    <div class="vp-showtool__screenshotbrowserwrap absolute hidden" id="view_screenshot">
+        <div class="vp-showtool__screenshotbrowser ma-hor--auto table" ng-include="'static/components/tools/show-proposed-tool/screenshots-browser/screenshots-browser.component.html'"></div>
+    </div>
+    <div class="vp-showtool__content bg--white full--height relative" ng-if="application.data">
+        <!-- HEADER MESSAGE SECTION-->
+        <div class="vp-toolspage__headnotificationwrap">
+		    <div class="vp-toolspage__headnotification" ng-include="'static/components/dashboard/header-message/headermessage.component.html'"></div>
+	    </div>
+        <!--HEADER SECTION-->
+        <div class="vp-showtool__header " ng-include="'static/components/tools/show-proposed-tool/header/header.component.html'"></div>
+        <div class="vp-showtool__contentbounded pt--xxxl">
+            <!--TOOL INFORMATION SECTION-->
+            <div class="vp-showtool__toolinfo" ng-include="'static/components/tools/show-proposed-tool/tool-info/toolinfo.component.html'"></div>
+            <!--TABS SECTION-->
+            <div class="vp-showtool__tabs pa--xxxl" ng-include="'static/components/tools/show-proposed-tool/tabs/verticaltabs.component.html'"></div>
+        </div>
+    </div>
+</div>
+<!--SHOW TOOL PARTIALS ASSEMBLY END-->

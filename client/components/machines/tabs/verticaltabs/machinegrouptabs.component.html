@@ -1,0 +1,32 @@
+<!--TAB COMPONENT START-->
+<div class="vp-tabsvertical vp-control max--width max--height clearfix" ng-controller="MachineGroupsDetailsTabController" ng-if="machineGroupData" >
+    <!--TABS HEADER NAVIGATION BAR-->
+    <div class="vp-tabsvertical__nav max--width left">
+        <nav>
+            <ul class="vp-tabsvertical__navlist text--center table">
+                <!--TAB ACTIVE 'VERSION' STATE ( MODIFIERS: # vp-tabsvertical__tab--active )-->
+                <li class="vp-tabsvertical__tab pointer left" ng-class="getActiveMachineGroupsDetailsTab(0)" id="machineGroups_details" ng-click="showActiveMachineGroupsDetailsTab(0)">
+                    <div class="vp-tabsvertical__tabinner max--height max--width intable">
+                        <div class="vp-tabsvertical__labelwrap pl--sm lh--font inblock table--cell vertical--middle">
+                            <a class="vp-tabsvertical__tabversion word-break text--cs03 text--light text--md  block ">Group details</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="vp-tabsvertical__tab vp-tabsvertical__tab--nolabel pointer left" ng-class="getActiveMachineGroupsDetailsTab(1)"  id="deployment_details" ng-click="showActiveMachineGroupsDetailsTab(1)">
+                    <div class="vp-tabsvertical__tabinner max--height max--width intable">
+                        <div class="vp-tabsvertical__labelwrap pl--sm lh--font inblock table--cell vertical--middle">
+                            <a class="vp-tabsvertical__tabversion word-break text--cs03 text--light text--md block ">Deployment Details</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <!--TAB BODY WRAPPER, LOAD TEMPLATE INSIDE-->
+    <div class="vp-tabsvertical__body bg--white left max--height relative">
+        <!--MACHINE DETAILS TAB CONTENT-->
+        <div ng-if="machineGroupDisplayDetailsTab === 0" class="vp-tabsvertical__bodycontent max" ng-include="'static/components/machines/machine-group-details-content/machinegroupdetailscontent.component.html'"></div>
+        <div ng-if="machineGroupDisplayDetailsTab === 1" class="vp-tabsvertical__bodycontent max" ng-include="'static/components/machines/machine-group-details-content/deploymentgroupdetailscontent.component.html'"></div>
+    </div>
+</div>
+<!--TAB COMPONENT END-->

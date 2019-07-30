@@ -1,0 +1,83 @@
+<!--MANAGE MACHINES TAB CONTENT COMPONENT START-->
+<div class="vp-mmanagetab vp-control text--none max inblock nowrap max--height clearfix" ng-controller="editDUSetStateController">
+    <div class="vp-tabs__bodyheader vp-tabs__bodyheader--scrolled relative">
+        <div class="vp-tabs__bodyheaderfiltericonwrapper mr--xxxl text--light text--md text--cs03 pointer right">
+            <!--BODY HEADER FILTER BUTTON -->
+            <div class="vp-tabs__bodyheaderselectedtoolspopup absolute hidden" id="open_filter" style="margin-left: -161px; margin-top: 52px; width:260px" ng-include="'static/components/states/popups/openfilterdusetstate.component.html'"></div>
+            <button type="button" class="vp-tabs__bodyheaderfilterbtn vp-uielement__button tag_popup vp-uielement__button--cleanenabled pl--xxl text--light text--md" ng-click="openFilter()" ng-if="isFilterApplied === false" style="margin: 14px;"><span>Filter</span></button>
+            <button type="button" class="vp-tabs__bodyheaderfilterbtn_active vp-uielement__button tag_popup vp-uielement__button--cleanenabled pl--xxl text--light text--md" ng-click="openFilter()" ng-if="isFilterApplied === true" style="margin: 14px;"><span>Filter</span></button>
+
+        </div>
+    </div>
+    <!--CONTENT (WITHOUT FILTER) SECTION-->
+    <section class="vp-mmanagetab__content vertical--top inblock" style="padding-left:5%">
+        <!--MACHINES SEARCH--->
+        <div class="vp-mmanagetab__findmachinewrap vp-search bg--white vertical--top mt--md ml--md left" style="height: 90%; overflow-y: auto;">
+            <div class="vp-mmanagetab__findmachine max--height">
+                <!--MACHINES-SEARCH COLUMN COMPONENT START-->
+                <div class="vp-machinessearch bg--white max--width">
+                    <span class="vp-search__topborder block"></span>
+                    <div class="vp-search__searchboxwrap pt--md pr--md pl--md">
+                        <!--SEARCH FIELD (MODIFIERS: # vp-search__searchbox--drop)-->
+                        <div class="vp-search__searchbox vp-uielement__searchbox relative">
+                            <div class="vp-search__searchautocomplete bg--cs06 absolute hidden" ng-include="'static/components/tools/deploy-tools/search-autocomplete/searchautocomplete.component.html'"></div>
+                            <form id="vp-search__searchform vp-uielement__searchform">
+                                <!--SEARCH INPUT TEXT-->
+                                <input class="vp-search__searchinput vp-uielement__searchinput" name="searchStateSetKeyword" ng-model="searchStateSetKeyword" type="text" placeholder="Find a state Package" ng-keyup="$event.keyCode == 13 ? searchStateSetWithName(searchStateSetKeyword) : null"  ng-change="searchDUStateSet($event, searchStateSetKeyword)"/>
+                                <button class="vp-header__headsearchbtn vp-uielementt__searchbtn" type="button" ng-if="!searchProgress" ng-click="searchStateSetWithName(searchStateSetKeyword)"></button>
+					            <div class="progress_loader" ng-if="searchProgress"></div>
+                            </form>
+                            <!--SEARCH HINT-->
+                            <span class="vp-search__hint vp-uielement__hint">Use the state package name</span>
+                        </div>
+                    </div>
+                    <div class="vp-machinessearch__listwrapper max--width">
+                        <ul class="vp-machinessearch__list machine_scroll max--width">
+                            <li class="vp-machinessearch__item vp-machinessearch__item--prod outer" ng-repeat="state in AllDuSetState | filter : searchStateSetKeyword">
+                                <div class="vp-machinessearch__iteminner vp-machinessearch__item--test pl--xxxl text--regular text--md clearfix">
+                                    <tooltip id="tooltip_{{$index}}_{{du.name}}"  class="stateTips">
+                                        <div class="vp-machinessearch__itemdescriptionwrap pt--sm pb--sm word--break left" tooltip-side="bottom"  tooltips="" tooltip-template="{{state.name}}-{{state.parent_entity_name}}" style="width: 400px;">
+                                            <span class="">{{state.name}}-{{state.parent_entity_name}} </span>
+                                        </div>
+                                    </tooltip>
+                                    <div class="vp-machinessearch__itembtnwrap pointer relative right hidden" style="right: unset;margin-left: 240px;">
+                                        <span class="vp-machinessearch__itembtn bg--cs07 text--center text--cs06 text--regular text--md absolute" ng-click="selectDuSetState(state._id.$oid)">Select</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="vp-machinessearch__item vp-machinessearch__item--prod outer" ng-if="AllDuSetState.length < totalStateCount" ng-hide="hideShowMoreDuPackageState === true">
+                                <div class="vp-machinessearch__iteminner vp-machinessearch__item--test pl--xxxl text--regular text--md clearfix">
+                                    <div class="vp-machinessearch__itemdescriptionwrap pt--sm pb--sm word--break left">
+                                        <span class="">Show more State</span>
+                                    </div>
+                                    <div class="vp-machinessearch__itembtnwrap pointer relative right hidden">
+                                        <span class="vp-machinessearch__itembtn bg--cs07 text--center text--cs06 text--regular text--md absolute" ng-click="showMoreDuSetState()">Show more</span>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!--MACHINES-SEARCH COLUMN COMPONENT END-->
+        </div>
+
+        <!--VERTICAL TAB AREA-->
+        <div class="vp-mmanagetab__machinesectionwrap mt--xxl ml--md inblock"  ng-if="application.data" ng-hide="duStateisDeleted === true">
+            <div class="vp-mmanagetab__machinesectionheader text--cs03 pl--md">
+                <label class="vp-mmanagetab__machinesectionlabel text--light text--xxl"> {{application.data.name}}
+                    <!--<button ng-hide="GroupData.status=='Completed'|| GroupData.status=='Processing'" type="button" class="vp-machdetails__removemachinebtn vp-uielement__button vp-uielement__button&#45;&#45;removemachine pr&#45;&#45;md pl&#45;&#45;md ml&#45;&#45;md" ng-click="retryGroup(GroupData._id.$oid)">Retry Group</button>-->
+                </label>
+                <!--<button type="button" class="vp-mmanagetab__machineeditbtn vp-uielement__button vp-uielement__button--edit ml--md"></button>-->
+                <div class="vp-mmanagetab__machinetatewrap mr--md right">
+                    <!--MACHINE STATE ICON (MODIFIERS: # vp-uielement__versionstate--inactive # vp-uielement__versionstate--active)-->
+                    <!--<span class="status-ind {{GroupData.status}}"></span>-->
+
+                    <span class="vp-mmanagetab__machinestatemsg vertical--middle ml--md text--cs03 text--light text--md"></span>
+                </div>
+            </div>
+            <div class="vp-mmanagetab__verticaltabs mt--xl max--height" ng-include="'static/components/states/tabs/dusetstate-verticaltabs/verticaltabs.component.html'"></div>
+        </div>
+    </section>
+</div>
+<!--MANAGE MACHINES TAB CONTENT COMPONENT END-->

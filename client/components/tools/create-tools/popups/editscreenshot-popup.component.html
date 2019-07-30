@@ -1,0 +1,26 @@
+<!--SCREENSHOT EDIT POPUP COMPONENT START-->
+<div class="vp-editscreenshot vp-control mt--md">
+    <div class="vp-editscreenshot__popuptop vp-uielement__popuptop"></div>
+    <div class="vp-editscreenshot__container vp-uielement__popup pt--md pr--xl pb--xl pl--xl bg--white skip_slideup">
+
+        <form id="vp-editscreenshot__searchform vp-uielement__searchform skip_slideup">
+            <div class="vp-editscreenshot__searchbox vp-uielement__searchbox">
+                <!--SEARCH INPUT FILE-->
+                <input id="versionsc" class="vp-eteditlogo__searchfileinput skip_slideup" type="file" accesskey="{{version_id}}" type="file" screenshots-model="editscreenshots"/>
+                <label for="vp-eteditlogo__searchfileinput" class="vp-eteditlogo__searchfileinputcustomlabel inblock skip_slideup">
+                    <span class="vp-eteditlogo__inputfilename text--ellipsis text--ellipsis--single"></span>
+                </label>
+                <!--SEARCH INPUT SUBMIT BUTON-->
+                <!--<button type="button" class="vp-editscreenshot__searchbtn vp-uielementt__searchbtn" type=""></button>-->
+            </div>
+
+            <div class="vp-editscreenshot__buttonswrapper mt--xl">
+                <!--CANCEL BUTTON-->
+                <button type="button" class="vp-uielement__button  vp-uielement__button--cleanenabled" ng-click="closeEditScreenshot()">Cancel</button>
+                <!--LOAD IMAGE BUTTON-->
+                <button type="button" class="vp-uielement__button  vp-uielement__button--apply pr--lg pl--lg ml--xl" ng-click="loadScreenshot(editscreenshots)">Load screenshot</button>
+            </div>
+        </form>
+    </div>
+</div>
+<!--SCREENSHOT EDIT POPUP COMPONENT END-->

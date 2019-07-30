@@ -1,0 +1,27 @@
+<div class="vp-rdmodal vp-control bg--white relative" style="width: 1000px; right: 200px;" ng-controller="DeploymentUnitDashboardController">
+	<div class="vp-rdmodal__header">
+		<!--TITLE-->
+		<h1 class="vp-rdmodal__title text--cs06 text--xl text--light mt--xl ml--xl inblock">Running deployment progress Details</h1>
+		<!--CLOSE BUTTON-->
+		<button type="button" class="vp-rdmodal__closebtn btn--clear mt--md mr--lg right" ng-click="closeRequestStatusModal()"></button>
+	</div>
+	<!--MODAL BODY-->
+	<div class="vp-rdmodal__body">
+        <section class="vp-exportfileload__processingsection" style="margin-left:33%;" ng-if="loadingStatus===true">
+            <div class="loader mb--sm" style="margin-left: 120px;"></div>
+            <span class="vp-exportfileload__processingmsg text--cs03 text--light text--xxl">Deployment is in progress...</span>
+        </section>
+        <div class="vp-rdmodal__status">
+            <div class="vp-machdetails__fielditeminner">
+                <table>
+                    <tr>
+                        <th class="mr--xl mb--md mt--xl left">Deployment Status: </th>
+                    </tr>
+                    <tr class="mr--md mb--md" style="background-color:inherit" ng-repeat="status in requestStatusMessages track by $index">
+                        <td>{{status}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

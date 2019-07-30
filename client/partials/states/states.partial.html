@@ -1,0 +1,15 @@
+<!--DEPLOYMENTS PARTIALS ASSEMBLY START-->
+<div class="vp-machines max">
+    <div class="vp-machines__navaside fixed pos--top pos--bottom" ng-include="'static/components/dashboard/navaside/navaside.component.html'"></div>
+    <div class="vp-toolspage__headnotificationwrap" id="header_message">
+		<div class="vp-toolspage__headnotification" ng-include="'static/components/dashboard/header-message/headermessage.component.html'"></div>
+	</div>
+
+    <div class="vp-machine__contentbounded max--height">
+         <!--MACHINES HEADER COMPONENT-->
+        <div class="vp-machines__header pos--top pos--right pos--left" ng-include="'static/components/states/header/header.component.html'"></div>
+        <!--MACHINES TABS COMPONENT-->
+        <div class="vp-machines__tabs left max--width" ng-include="'static/components/states/tabs/tabs.component.html'"></div>
+    </div>
+</div>
+<!--MACHINES PARTIALS ASSEMBLY END-->

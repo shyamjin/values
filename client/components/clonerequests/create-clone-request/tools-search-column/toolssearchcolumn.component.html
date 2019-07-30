@@ -1,0 +1,42 @@
+<!--MACHINES-SEARCH COLUMN COMPONENT START-->
+<div class="vp-toolssearch bg--white max--width">
+    <span class="vp-toolssearch__topborder block"></span>
+    <div class="vp-toolssearch__searchboxwrap pt--md pr--md pl--md">
+         <!--SEARCH FIELD (MODIFIERS: # vp-machinessearch__searchbox--drop)-->
+        <div class="vp-toolssearch__searchbox vp-uielement__searchbox relative">
+            <div class="vp-toolssearch__searchautocomplete bg--cs06 absolute hidden" ng-include="'static/components/tools/deploy-tools/search-autocomplete/searchautocomplete.component.html'"></div>
+            <form id="vp-toolssearch__searchform vp-uielement__searchform">
+                <!--SEARCH INPUT TEXT-->
+                <input class="vp-toolssearch__searchinput vp-uielement__searchinput" name="searchToolField" ng-model="searchToolToAdd" type="text" placeholder="Find a tool" />
+                <!--SEARCH INPUT SUBMIT BUTON-->
+                <button class="vp-toolssearch__searchbtn vp-uielementt__searchbtn" type="button"></button>
+            </form>
+            <!--SEARCH HINT-->
+            <span class="vp-toolssearch__hint vp-uielement__hint">Use the tool name,toolset name,tags or description</span>
+        </div>
+    </div>
+    <div class="vp-toolssearch__listwrapper max--width">
+        <ul class="vp-toolssearch__list max--width">
+            <!--ITEM EXAMPLE (MODIFIERS: # vp-machinessearch__item--test # vp-machinessearch__item--prod)-->
+            <li class="vp-toolssearch__item vp-toolssearch__item" ng-repeat="tool in allTools | filter:searchToolToAdd" ng-if="tool.is_tool_cloneable === true || tool.is_tool_cloneable === 'true'">
+                <div class="vp-toolssearch__iteminner vp-toolssearch__item--test pl--xxxl text--regular text--md clearfix">
+                    <div class="vp-toolssearch__itemdescriptionwrap pt--sm pb--sm word--break left">
+                        <span class="vp-toolssearch__itemdescription text--cs03">{{tool.tool_name}} {{tool.version_name}} {{tool.version_number}}
+                        <span class="text--bold" ng-if="tool.artifacts_only === 'true'">
+                           &nbsp;&nbsp; [artifacts only]
+                        </span>
+
+                        </span>
+                    </div>
+                    <div class="vp-toolssearch__itembtnwrap pointer relative right hidden">
+                        <span class="vp-toolssearch__itembtn bg--cs07 text--center text--cs06 text--regular text--md absolute" ng-click="addTool(tool)">Add</span>
+                    </div>
+                    <!--<div class="vp-machinessearch__itembtnwrap pointer relative right hidden" ng-if="pageTitle==='Manage Machines'">
+                        <span class="vp-machinessearch__itembtn bg&#45;&#45;cs07 text&#45;&#45;center text&#45;&#45;cs06 text&#45;&#45;regular text&#45;&#45;md absolute" href="/editmachine/{{machine._id.$oid}}">Select</span>
+                    </div>-->
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<!--MACHINES-SEARCH COLUMN COMPONENT END-->

@@ -1,0 +1,195 @@
+<!--USER INFO COMPONENT START (MODIFIERS: # vp-selecteduserform--active )-->
+<div ng-class="getUserFormClass()" >
+    <form action="#" name="vp-userform__selecteduserform" class="vp-userform__selecteduserform max pl--xl" >
+        <div class="vp-userform__addsettingmodalwrap fixed max--position hidden" id="update_password">
+            <change-password class="vp-changepasswordmodal absolute" at-password-value-map="atPasswordValueMap" on-at-load="closePassword()"></change-password>
+        </div>
+        <div class="vp-userform__addsettingmodalwrap fixed max--position hidden" id="generate_token">
+            <div class="vp-changepasswordmodal absolute" ng-include="'static/components/manage-users/popups/generatepersonalaccesstoken-popup.component.html'"></div>
+        </div>
+        <ul ng-class="getUserUlClass()">
+            <!--'NAME' FIELD-->
+            <li class="vp-userform__fielditem vp-userform__nameitem pt--sm">
+                <div class="vp-userform__fielditeminner">
+                    <!--'NAME' FIELD LABEL-->
+                    <div class="vp-userform__selectedusernamewrap vertical--middle inblock" >
+                        <label  class="vp-userform__selectedusername vp-userform__fieldlabel text--xxl text--light text--ellipsis text--ellipsis--single">{{selectedData.user}} </label>
+                    </div>
+                    <!--BUTTON-->
+                    <!--<div class="vp-userform__buttonswrap vp-userform__namecontent vertical&#45;&#45;middle ml&#45;&#45;md inblock">-->
+                        <!--<button type="button" class="vp-userform__selectedusernameeditbtn vp-uielement__button vp-uielement__button&#45;&#45;edit vertical&#45;&#45;middle" ng-click="checkEditEnable()"></button>-->
+                    <!--</div>-->
+                </div>
+            </li>
+             <!--'EMPLOYEE ID' FIELD-->
+            <li class="vp-userform__fielditem vp-userform__emailitem pt--xxl">
+                <div class="vp-userform__fielditeminner">
+                    <!--'EMPLOYEE ID' FIELD LABEL-->
+                    <div class="vp-userform__fieldlabelwrap inblock">
+                        <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Employee ID<span class="mandatory">*</span> </label>
+                    </div>
+                    <!--'EMPLOYEE ID' FIELD CONTENT-->
+                    <div class="vp-userform__fieldcontent vp-userform__emailcontent inblock">
+                        <input type="number" class="vp-userform__emailinput input--clear" name="vp-userform__employeeinput" ng-model="selectedData.employeeid" min="0" >
+                         <h5 class="mandatory" ng-if="useredit_errors.employeeid">{{useredit_errors.employeed}}</h5>
+                    </div>
+                </div>
+            </li>
+            <!--'EMAIL' FIELD-->
+            <li class="vp-userform__fielditem vp-userform__emailitem pt--xxl">
+                <div class="vp-userform__fielditeminner">
+                    <!--'NAME' FIELD LABEL-->
+                    <div class="vp-userform__fieldlabelwrap inblock">
+                        <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Email<span class="mandatory">*</span></label>
+                    </div>
+                    <!--'NAME' FIELD CONTENT-->
+                    <div class="vp-userform__fieldcontent vp-userform__emailcontent inblock">
+                        <input type="email" class="vp-userform__emailinput input--clear" name="vp-userform__emailinput"  ng-model="selectedData.email"  >
+                        <h5 class="mandatory" ng-if="useredit_errors.email">{{useredit_errors.email}}</h5>
+                    </div>
+                </div>
+            </li>
+             <!--'ROLE' FIELD-->
+            <li class="vp-userform__fielditem vp-userform__roleitem pt--xxl">
+                <div class="vp-userform__fielditeminner">
+                    <!--'ROLE' FIELD LABEL-->
+                    <div class="vp-userform__fieldlabelwrap inblock">
+                        <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Role<span class="mandatory">*</span></label>
+                    </div>
+                    <!--'ROLE' FIELD CONTENT-->
+                    <div class="vp-userform__fieldcontent vp-userform__rolecontent inblock">
+                        <select name="vp-userform__role_dropdownlist" class="vp-userform__dropdownlist vp-uielement__select" ng-model="selectedData.role"   >
+                            <option  name="vp-userform__role_dropdownlistoption_{{$index}}" ng-selected="role._id.$oid==selectedData.role"  ng-repeat="role in roles.data" value="{{role._id.$oid}}">{{role.name}}</option>
+
+                      </select>
+                        <h5 class="mandatory" ng-if="useredit_errors.role">{{useredit_errors.role}}</h5>
+                    </div>
+                </div>
+            </li>
+                 <!--'ACCOUNT' FIELD-->
+            <li class="vp-userform__fielditem vp-userform__roleitem pt--xxl">
+                <div class="vp-userform__fielditeminner">
+                    <!--'ACCOUNT' FIELD LABEL-->
+                    <div class="vp-userform__fieldlabelwrap inblock">
+                        <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Account<span class="mandatory">*</span></label>
+                    </div>
+                    <!--'ACCOUNT' FIELD CONTENT-->
+                    <div class="vp-userform__fieldcontent vp-userform__rolecontent inblock">
+                        <select name="vp-userform__account_dropdownlist_{{$index}}" class="vp-userform__dropdownlist vp-uielement__select"  ng-model="selectedData.account"  ng-change="getAccountId(account)">
+                            <!--<option  name="vp-userform__account_dropdownlistoption_{{$index}}">{{selectedData.account}}</option>-->
+                            <option  name="vp-userform__account_dropdownlistoption_{{$index}}" ng-repeat="account in accounts.data" value="{{account.name}}">{{account.name}}</option>
+                      </select>
+                        <h5 class="mandatory" ng-if="useredit_errors.account">{{useredit_errors.account}}</h5>
+                    </div>
+                </div>
+            </li>
+            <!--'DEFAULT HOME' FIELD-->
+            <li class="vp-userform__fielditem vp-userform__roleitem pt--xxl">
+                <div class="vp-userform__fielditeminner">
+                    <!--'ACCOUNT' FIELD LABEL-->
+                    <div class="vp-userform__fieldlabelwrap inblock">
+                        <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Default home page</label>
+                    </div>
+                    <!--'ACCOUNT' FIELD CONTENT-->
+                    <div class="vp-userform__fieldcontent vp-userform__rolecontent inblock">
+                        <select name="vp-userform__dropdownlist_default_home_page" class="vp-userform__dropdownlist vp-uielement__select" ng-model="selectedData.homepage">
+                            <option value="">--- Select default home ---</option>
+                            <option  name="vp-userform__account_dropdownlistoption_home_tool" value="dashboard">Tool Dashboard</option>
+                            <option  name="vp-userform__account_dropdownlistoption_home_du" value="duDashboard">DU Dashboard</option>
+                      </select>
+                    </div>
+                </div>
+            </li>
+       <!--             &lt;!&ndash;'STATUS' FIELD&ndash;&gt;
+            <li class="vp-userform__fielditem vp-userform__roleitem pt&#45;&#45;xxl">
+                <div class="vp-userform__fielditeminner">
+                    &lt;!&ndash;'STATUS' FIELD LABEL&ndash;&gt;
+                    <div class="vp-userform__fieldlabelwrap inblock">
+                        <label class="vp-userform__fieldlabel text&#45;&#45;light text&#45;&#45;md text&#45;&#45;ellipsis text&#45;&#45;ellipsis&#45;&#45;single">Status:</label>
+                    </div>
+                    &lt;!&ndash;'STATUS' FIELD CONTENT&ndash;&gt;
+                    <div class="vp-userform__fieldcontent vp-userform__rolecontent inblock">
+                        <select name="vp-userform__status_dropdownlist" class="vp-userform__dropdownlist vp-uielement__select" ng-model="selectedData.status" >
+                            <option ng-selected="status==selectedData.status"  ng-repeat="status in status">{{status}}</option>
+                      </select>
+                    </div>
+                </div>
+            </li>-->
+            <!--'MEMBER OF' FIELD-->
+            <li class="vp-userform__fielditem vp-userform__roleitem pt--md">
+                <div class="vp-userform__fielditeminner">
+                    <!--'ADD USERS TO GROUP' FIELD LABEL-->
+                    <div class="vp-userform__fieldlabelwrap inblock">
+                        <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Member of</label>
+                    </div>
+                    <!--'ADD USERS TO GROUP' FIELD CONTENT-->
+                    <div class="vp-userform__fieldcontent vp-userform__memberofcontent inblock">
+                        <div class="vp-machdetails__fieldcontent inblock">
+                            <div class="vp-machdetails__fieldtypewrap vp-machdetails__editablewrap inblock set_margin_rad">
+                                <div class="vp-createnewmachform__fieldcontent vp-createnewmachform__userscontent inblock">
+                                    <ul class="vp-createnewmachform__userslist clearfix">
+                                        <!--USER ROW EXAMPLE-->
+                                        <li class="vp-createnewmachform__useritem mt--sm mr--md left" ng-repeat="team in includedIn track by $index">
+                                            <div class="vp-createnewmachform__useriteminner text--regular text--lg text--cs03 nowrap">
+                                                <div class="vp-createnewmachform__userinfowrap inblock">
+                                                    <span class="vp-createnewmachform__userinfo text--ellipsis text--ellipsis--single">{{team.team_name}}</span>
+                                                </div>
+                                                <div class="vp-createnewmachform__userremovebtnwrap vertical--top inblock">
+                                                    <button type="button" class="vp-createnewmachform__userremovebtn vp-uielement__button vp-uielement__button--smallclose vertical--middle pa--none ml--sm" ng-click="toggleSelection(team)"></button>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="vp-createnewmachform__addusersbuttonitem mt--sm mr--md pa--none left">
+                                            <div class="vp-createnewmachform__addusersbuttoniteminner inblock">
+                                                <button type="button" class="vp-uielement__button vp-uielement__button--cleanenabled"><span class="vertical--middle" ng-click="showAddTeam()">+Add this user to teams</span></button>
+                                            </div>
+                                            <div id="add_user_to_team" class="vp-versionform__addcertifieditembtnpopup hidden" ng-include="'static/components/manage-users/popups/addteamspopup.component.html'"></div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="vp-userform__fielditem vp-userform__suspentbox pt--xxl">
+                <div class="vp-uielement__checkbox">
+                    <input type="checkbox" id="vp-userform__suspendusercheckbox" name="vp-userform__suspendusercheckbox"  ng-model="selectedData.suspendCurrentUser"  ng-checked="isSuspended()" ng-click="toggleStatus()"  />
+                    <label for="vp-userform__suspendusercheckbox"></label>
+                    <label for="vp-userform__suspendusercheckbox" class="ml--sm  vertical--bottom">Suspend this user</label>
+                </div>
+            </li>
+           <!--'CHANGE PASSWORD' FIELD-->
+            <li class="vp-userform__fielditem vp-userform__suspentbox pt--xxl">
+                <div class="vp-uielement__checkbox">
+                    <button type="button" class="vp-versionform__editdeploydetails vp-uielement__button vp-uielement__button--edit" ng-click="showEditPassword()" ></button>
+                    <label for="vp-userform_changepassword" class="ml--sm  vertical--bottom">Change Password</label>
+                </div>
+            </li>
+            <li class="vp-userform__fielditem vp-userform__suspentbox pt--xxl">
+                <div class="vp-machdetails__fieldcontent ma--none inblock">
+                    <div class="vp-machdetails__fieldtypewrap vp-machdetails__editablewrap inblock">
+                        <button type="button" class="vp-machdetails__removemachinebtn vp-uielement__button vp-uielement__button--edittool pr--md pl--md ml--md" title="Generate Token" ng-click="showGenerateToken()">Generate Personal Access Token</button>
+                    </div>
+                </div>
+            </li>
+            <li class="vp-userform__fielditem vp-userform__suspentbox pt--xxl" ng-if="accessToken">
+                <div class="vp-uielement__checkbox" style="user-select: text">
+                    <label for="vp-userform__token_msg" class="ml--sm  vertical--bottom">Personal Access Token - {{accessToken}}</label>
+                </div>
+            </li>
+            <li class="vp-userform__fielditem vp-userform__suspentbox pt--xxl" ng-if="selectedData.access_token || accessToken">
+                <div class="vp-machdetails__fieldcontent ma--none inblock">
+                    <div class="vp-machdetails__fieldtypewrap vp-machdetails__editablewrap inblock">
+                        <button type="button" class="vp-machdetails__removemachinebtn vp-uielement__button vp-uielement__button--edittool pr--md pl--md ml--md" title="Delete Token" ng-click="deleteToken()">Delete Personal Access Token</button>
+                    </div>
+                </div>
+            </li>
+        </ul>
+
+
+
+
+    </form>
+</div>
+<!--USER INFO COMPONENT END-->

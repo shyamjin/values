@@ -1,0 +1,24 @@
+// VARIABLES: SECTION 35
+.vp-tooldepqeditpopup {
+    width: @dependentToolsPopupWidth;
+    overflow-y : overlay;
+    .vp-tooldepqeditpopup__input {
+        border: 1px solid @cs09;
+    }
+    .vp-tooldepqeditpopup__iteminner {
+        width: @listItemInnerWidth;
+    }
+    .vp-tooldepqeditpopup__itemnamewrap {
+        width: 180px;
+    }
+    //CHEKED CHECKBOX ITEM STYLE
+    input[type=checkbox]:checked ~ .vp-tooldepqeditpopup__itemnamewrap {
+        .vp-tooldepqeditpopup__itemname {
+            .text--cs04;
+        }
+    }
+    //POPUP TOP ARROW
+    .vp-tooldepqeditpopup__popuptop:before {
+        left: @preReqTopArrowLeft;
+    }
+}

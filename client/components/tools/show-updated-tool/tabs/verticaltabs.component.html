@@ -1,0 +1,41 @@
+<!--TAB COMPONENT START-->
+<div class="vp-tabsvertical vp-control max--width max--height clearfix" ng-controller="ShowUpdatedToolVerticalTabController">
+    <!--TABS HEADER NAVIGATION BAR-->
+    <div class="vp-tabsvertical__nav max--width left">
+        <nav>
+            <ul class="vp-tabsvertical__navlist text--center table">
+                <!--TAB ACTIVE VERSION STATE ( MODIFIERS: # vp-tabsvertical__tab--active # vp-tabsvertical__tab--empty # vp-tabsvertical__tab--nolabel)-->
+                <li class="vp-tabsvertical__tab pointer left" ng-repeat="version in versionData" id="vp_vertical_tab_{{$index}}" ng-click="showVersionDetailsTab($index)" ng-class="getActiveTab($index)">
+                    <div class="vp-tabsvertical__tabinner max--height max--width intable">
+                        <div class="vp-tabsvertical__labelwrap text--right pl--sm lh--font inblock table--cell vertical--middle">
+                            <labe class="vp-tabsvertical__tabversion text--cs03 text--light text--md text--ellipsis text--ellipsis--single block">Ver.{{version.version_number}}v</labe>
+                            <labe class="vp-tabsvertical__tabversionlabel text--cs08 text---light text--sm text--ellipsis text--ellipsis--single block">{{version.version_name}}</labe>
+                        </div>
+                        <div class="vp-tabsvertical__tabstatuswrap right table--cell max--height" ng-if="version.status==='1'">
+                            <!--VERSION STATUS STATE ICON (MODIFIERS: # vp-uielement__versionstate--inactive # vp-uielement__versionstate--active)-->
+                            <span class="vp-tabsvertical__tabstatus vp-uielement__versionstate vp-uielement__versionstate--active inblock"></span>
+                        </div>
+                        <div class="vp-tabsvertical__tabstatuswrap right table--cell max--height" ng-if="version.status==='0'">
+                            <!--VERSION STATUS STATE ICON (MODIFIERS: # vp-uielement__versionstate--inactive # vp-uielement__versionstate--active)-->
+                            <span class="vp-tabsvertical__tabstatus vp-uielement__versionstate vp-uielement__versionstate--inactive inblock"></span>
+                        </div>
+                    </div>
+                </li>
+                <!--DEAFULT INACTIVE VERSION TAB WITHOUT LABEL STATE ( MODIFIERS: # vp-tabsvertical__tab--active # vp-tabsvertical__tab--empty # vp-tabsvertical__tab--nolabel)-->
+                <!--<li class="vp-tabsvertical__tab vp-tabsvertical__tab&#45;&#45;nolabel pointer left">-->
+                    <!--<div class="vp-tabsvertical__tabinner max&#45;&#45;height max&#45;&#45;width intable">-->
+                        <!--<div class="vp-tabsvertical__labelwrap text&#45;&#45;right pl&#45;&#45;sm lh&#45;&#45;font inblock table&#45;&#45;cell vertical&#45;&#45;middle">-->
+                            <!--<labe class="vp-tabsvertical__tabversion text&#45;&#45;cs03 text&#45;&#45;light text&#45;&#45;md text&#45;&#45;ellipsis text&#45;&#45;ellipsis&#45;&#45;single block">Ver.1.1.dep</labe>-->
+                            <!--<labe class="vp-tabsvertical__tabversionlabel text&#45;&#45;cs08 text-&#45;&#45;light text&#45;&#45;sm text&#45;&#45;ellipsis text&#45;&#45;ellipsis&#45;&#45;single block">new AT&T</labe>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</li>-->
+            </ul>
+        </nav>
+    </div>
+    <!--TAB BODY WRAPPER, LOAD TEMPLATE INSIDE-->
+    <div class="vp-tabsvertical__body bg--white left pr--xxxl pb--xxxl pl--xxxl max--height relative">
+        <div class="vp-tabsvertical__versionsform" ng-include="'static/components/tools/show-updated-tool/version-form/versionsform.component.html'"></div>
+    </div>
+</div>
+<!--TAB COMPONENT END-->

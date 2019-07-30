@@ -1,0 +1,311 @@
+<div class="vp-rdmodal vp-control bg--white relative" style="width: 100%;">
+	<div class="vp-rdmodal__header">
+		<!--TITLE-->
+		<h1 class="vp-rdmodal__title text--cs06 text--xl text--light mt--xl ml--xl inblock">{{userGroupData.team_name}}</h1>
+		<!--CLOSE BUTTON-->
+		<button type="button" class="vp-rdmodal__closebtn btn--clear mt--md mr--lg right" ng-click="closeTeamDetailsModal()"></button>
+	</div>
+	<!--MODAL BODY-->
+	<div class="vp-rdmodal__body" style="padding-left: 100px;">
+        <ul class="vp-userform__fieldslist text--cs03 pr--lg export_popup_style">
+            <li class="vp-userform__fielditem vp-userform__roleitem pt--lg" style="padding-bottom: 20px;">
+                <div class="vp-userform__fielditeminner">
+                    <!--'EMPLOYEE ID' FIELD LABEL-->
+                    <div class="vp-userform__fieldlabelwrap inblock">
+                        <label class="vp-userform__fieldlabel text--light text--lg text--ellipsis text--ellipsis--single text--bold">General Details:</label>
+                    </div>
+                </div>
+            </li>
+            <!--<li class="vp-userform__fielditem vp-userform__nameitem pt&#45;&#45;xxl">-->
+                <!--<div class="vp-userform__fielditeminner">-->
+                    <!--&lt;!&ndash;'NAME' FIELD LABEL&ndash;&gt;-->
+                    <!--<div class="vp-userform__fieldlabelwrap inblock">-->
+                        <!--<label class="vp-userform__fieldlabel text&#45;&#45;light text&#45;&#45;md text&#45;&#45;ellipsis text&#45;&#45;ellipsis&#45;&#45;single">ID </label>-->
+                    <!--</div>-->
+                    <!--&lt;!&ndash;'NAME' FIELD CONTENT&ndash;&gt;-->
+                    <!--<div class="vp-userform__fieldcontent vp-userform__namecontent inblock">-->
+                        <!--<label class="vp-userform__fieldlabel text&#45;&#45;light text&#45;&#45;md text&#45;&#45;ellipsis text&#45;&#45;ellipsis&#45;&#45;single">{{userGroupData._id}} </label>-->
+                    <!--</div>-->
+                    <!--&lt;!&ndash;<div class="">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<button type="button" class="vp-uielement__button vp-uielement__button&#45;&#45;edittool absolute pos&#45;&#45;right pos&#45;&#45;top mt&#45;&#45;md" ui-sref="editDU({id:application.data._id.$oid})" style="margin-top: 12%; margin-right: 18%;">Edit</button>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<div class="">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<button type="button" class="vp-uielement__button vp_deploytoolset_btn vp-uielement__button&#45;&#45;deployenabled vp-tooltile__deploybtn right" ui-sref="deployDU({id:application.data._id.$oid, build_number: selectedBuildToDeploy.build_number, build_id : selectedBuildToDeploy._id.$oid})" style="margin-top: -20px; margin-right: 5%;">Deploy</button>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                <!--</div>-->
+            <!--</li>-->
+            <li class="vp-userform__fielditem vp-userform__roleitem pt--xxl">
+                <div class="vp-userform__fielditeminner">
+                    <!--'EMPLOYEE ID' FIELD LABEL-->
+                    <div class="vp-userform__fieldlabelwrap inblock">
+                        <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Description:</label>
+                    </div>
+                    <!--'EMPLOYEE ID' FIELD CONTENT-->
+                    <div class="vp-userform__fieldcontent vp-userform__emailcontent inblock mb---xsm">
+                        <ul class="vp-versionform__prerequisiteslist clearfix">
+                            <!--ITEM EXAMPLE-->
+                            <li class="vp-versionform__prerequisitesitem mb--sm left" style="margin-right: 20px;">
+                                <div class="vp-versionform__prerequisitesiteminner">
+                                    <p id="release_notes_du" class="vp-userform__fieldlabel text--light text--md text--ellipsis input--clear" style="width:700px; height: auto">{{userGroupData.description}}</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div style="margin-left: 134px;">
+                    <button ng-if="application.data.release_notes.length>120 && showLessDUReleaseNotes === true" type="button" class="vp-versionform__notesshowallbtn vp-uielement__button vp-uielement__button--cleanenabled mt--sm pa--none" ng-click="showLessReleaseNotesContent()">Show Less</button>
+                    <button ng-if="application.data.release_notes.length>120 && showAllDUReleaseNotes === true" type="button" class="vp-versionform__notesshowallbtn vp-uielement__button vp-uielement__button--cleanenabled mt--sm pa--none" ng-click="showMoreReleaseNotesContent()">Show all</button>
+                </div>
+            </li>
+            <li class="vp-userform__fielditem vp-userform__roleitem pt--xxl">
+                <div class="vp-userform__fielditeminner">
+                    <!--'EMPLOYEE ID' FIELD LABEL-->
+                    <div class="vp-userform__fieldlabelwrap inblock">
+                        <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Distribution List:</label>
+                    </div>
+                    <!--'EMPLOYEE ID' FIELD CONTENT-->
+                    <div class="vp-userform__fieldcontent vp-userform__emailcontent inblock mb---xsm">
+                       <ul class="vp-versionform__prerequisiteslist clearfix">
+                           <!--ITEM EXAMPLE-->
+                           <li class="vp-versionform__prerequisitesitem mb--sm left" style="margin-right: 20px;">
+                               <div class="vp-versionform__prerequisitesiteminner">
+                                   <span class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">{{userGroupData.distribution_list}}</span>
+                               </div>
+                           </li>
+                       </ul>
+                    </div>
+                </div>
+            </li>
+            <li class="vp-userform__fielditem vp-userform__roleitem pt--lg" style="padding-top: 60px; padding-bottom: 20px;">
+                <div class="vp-userform__fielditeminner">
+                    <!--'EMPLOYEE ID' FIELD LABEL-->
+                    <div class="vp-userform__fieldlabelwrap inblock">
+                        <label class="vp-userform__fieldlabel text--light text--lg text--ellipsis text--ellipsis--single text--bold">Tags:</label>
+                    </div>
+                </div>
+            </li>
+            <li class="vp-userform__fielditem vp-userform__roleitem pt--xxl" ng-if="userGroupData.tag.length>0">
+                <div class="vp-userform__fielditeminner">
+                    <!--'EMPLOYEE ID' FIELD LABEL-->
+                    <div class="vp-userform__fieldlabelwrap inblock">
+                        <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Tags:</label>
+                    </div>
+                    <!--'EMPLOYEE ID' FIELD CONTENT-->
+                    <div class="vp-userform__fieldcontent vp-userform__emailcontent inblock mb---xsm">
+                       <ul class="vp-versionform__prerequisiteslist clearfix">
+                           <!--ITEM EXAMPLE-->
+                           <li class="vp-versionform__prerequisitesitem mb--sm left" ng-repeat="tag in userGroupData.tag" style="margin-right: 20px;">
+                               <div class="vp-versionform__prerequisitesiteminner">
+                                   <span class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">{{tag.name}}<span ng-if="$index!==userGroupData.tag.length-1">, </span> </span>
+                               </div>
+                           </li>
+                       </ul>
+                    </div>
+                </div>
+            </li>
+            <li class="vp-userform__fielditem vp-userform__roleitem pt--xxl" ng-if="userGroupData.parent_entity_tag_list.length>0">
+                <div class="vp-userform__fielditeminner">
+                    <!--'EMPLOYEE ID' FIELD LABEL-->
+                    <div class="vp-userform__fieldlabelwrap inblock">
+                        <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Tool/DU Tags:</label>
+                    </div>
+                    <!--'EMPLOYEE ID' FIELD CONTENT-->
+                    <div class="vp-userform__fieldcontent vp-userform__emailcontent inblock mb---xsm">
+                       <ul class="vp-versionform__prerequisiteslist clearfix">
+                           <!--ITEM EXAMPLE-->
+                           <li class="vp-versionform__prerequisitesitem mb--sm left" ng-repeat="tag in userGroupData.parent_entity_tag_list track by $index" style="margin-right: 20px;">
+                               <div class="vp-versionform__prerequisitesiteminner">
+                                   <span class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">{{tag.name}}<span ng-if="$index!==userGroupData.parent_entity_tag_list.length-1">, </span> </span>
+                               </div>
+                           </li>
+                       </ul>
+                    </div>
+                </div>
+            </li>
+            <li class="vp-userform__fielditem vp-userform__roleitem pt--xxl" ng-if="userGroupData.parent_entity_set_tag_list.length>0">
+                <div class="vp-userform__fielditeminner">
+                    <!--'EMPLOYEE ID' FIELD LABEL-->
+                    <div class="vp-userform__fieldlabelwrap inblock">
+                        <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Tool Set/DU Package Tags:</label>
+                    </div>
+                    <!--'EMPLOYEE ID' FIELD CONTENT-->
+                    <div class="vp-userform__fieldcontent vp-userform__emailcontent inblock mb---xsm">
+                       <ul class="vp-versionform__prerequisiteslist clearfix">
+                           <!--ITEM EXAMPLE-->
+                           <li class="vp-versionform__prerequisitesitem mb--sm left" ng-repeat="tag in userGroupData.parent_entity_set_tag_list track by $index" style="margin-right: 20px;">
+                               <div class="vp-versionform__prerequisitesiteminner">
+                                   <span class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">{{tag.name}}<span ng-if="$index!==userGroupData.parent_entity_set_tag_list.length-1">, </span> </span>
+                               </div>
+                           </li>
+                       </ul>
+                    </div>
+                </div>
+            </li>
+            <li class="vp-userform__fielditem vp-userform__roleitem pt--lg" style="padding-top: 60px; padding-bottom: 20px;">
+                <div class="vp-userform__fielditeminner">
+                    <!--'EMPLOYEE ID' FIELD LABEL-->
+                    <div class="vp-userform__fieldlabelwrap inblock">
+                        <label class="vp-userform__fieldlabel text--light text--lg text--ellipsis text--ellipsis--single text--bold">Members:</label>
+                    </div>
+                </div>
+            </li>
+            <li class="vp-userform__fielditem vp-userform__roleitem pt--xxl" ng-if="userGroupData.users_id_list.length>0">
+                <div class="vp-userform__fielditeminner">
+                    <!--'EMPLOYEE ID' FIELD LABEL-->
+                    <div class="vp-userform__fieldlabelwrap inblock">
+                        <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">users:</label>
+                    </div>
+                    <!--'EMPLOYEE ID' FIELD CONTENT-->
+                    <div class="vp-userform__fieldcontent vp-userform__emailcontent inblock mb---xsm">
+                       <ul class="vp-versionform__prerequisiteslist clearfix">
+                           <!--ITEM EXAMPLE-->
+                           <li class="vp-versionform__prerequisitesitem mb--sm left" ng-repeat="user in userGroupData.users_id_list track by $index" style="margin-right: 20px;">
+                               <div class="vp-versionform__prerequisitesiteminner">
+                                   <span class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">{{user.user}}<span ng-if="$index!==userGroupData.users_id_list.length-1">, </span> </span>
+                               </div>
+                           </li>
+                       </ul>
+                    </div>
+                </div>
+            </li>
+            <li class="vp-userform__fielditem vp-userform__roleitem pt--lg" style="padding-top: 60px; padding-bottom: 20px;">
+                <div class="vp-userform__fielditeminner">
+                    <!--'EMPLOYEE ID' FIELD LABEL-->
+                    <div class="vp-userform__fieldlabelwrap inblock">
+                        <label class="vp-userform__fieldlabel text--light text--lg text--ellipsis text--ellipsis--single text--bold">Parent Entities:</label>
+                    </div>
+                </div>
+            </li>
+            <li class="vp-userform__fielditem vp-userform__roleitem pt--xxl" ng-if="userGroupData.parent_entity_id_tool_list.length>0">
+                <div class="vp-userform__fielditeminner">
+                    <!--'EMPLOYEE ID' FIELD LABEL-->
+                    <div class="vp-userform__fieldlabelwrap inblock">
+                        <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Tools:</label>
+                    </div>
+                    <!--'EMPLOYEE ID' FIELD CONTENT-->
+                    <div class="vp-userform__fieldcontent vp-userform__emailcontent inblock mb---xsm">
+                        <ul class="vp-versionform__prerequisiteslist clearfix">
+                            <!--ITEM EXAMPLE-->
+                            <li class="vp-versionform__prerequisitesitem mb--sm left" ng-repeat="tool in userGroupData.parent_entity_id_tool_list track by $index" style="margin-right: 20px;">
+                                <div class="vp-versionform__prerequisitesiteminner">
+                                    <span class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">{{tool.name}}<span ng-if="$index!==userGroupData.parent_entity_id_tool_list.length-1">, </span> </span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            <li class="vp-userform__fielditem vp-userform__roleitem pt--xxl" ng-if="userGroupData.parent_entity_id_du_list.length>0">
+                <div class="vp-userform__fielditeminner">
+                    <!--'EMPLOYEE ID' FIELD LABEL-->
+                    <div class="vp-userform__fieldlabelwrap inblock">
+                        <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">DU's:</label>
+                    </div>
+                    <!--'EMPLOYEE ID' FIELD CONTENT-->
+                    <div class="vp-userform__fieldcontent vp-userform__emailcontent inblock mb---xsm">
+                        <ul class="vp-versionform__prerequisiteslist clearfix">
+                            <!--ITEM EXAMPLE-->
+                            <li class="vp-versionform__prerequisitesitem mb--sm left" ng-repeat="du in userGroupData.parent_entity_id_du_list track by $index" style="margin-right: 20px;">
+                                <div class="vp-versionform__prerequisitesiteminner">
+                                    <span class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">{{du.name}}<span ng-if="$index!==userGroupData.parent_entity_id_du_list.length-1">, </span> </span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            <li class="vp-userform__fielditem vp-userform__roleitem pt--lg" style="padding-top: 60px; padding-bottom: 20px;">
+                <div class="vp-userform__fielditeminner">
+                    <!--'EMPLOYEE ID' FIELD LABEL-->
+                    <div class="vp-userform__fieldlabelwrap inblock">
+                        <label class="vp-userform__fieldlabel text--light text--lg text--ellipsis text--ellipsis--single text--bold">Parent Entity Sets:</label>
+                    </div>
+                </div>
+            </li>
+            <li class="vp-userform__fielditem vp-userform__roleitem pt--xxl" ng-if="userGroupData.parent_entity_set_id_tool_list.length>0">
+                <div class="vp-userform__fielditeminner">
+                    <!--'EMPLOYEE ID' FIELD LABEL-->
+                    <div class="vp-userform__fieldlabelwrap inblock">
+                        <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Tool Sets:</label>
+                    </div>
+                    <!--'EMPLOYEE ID' FIELD CONTENT-->
+                    <div class="vp-userform__fieldcontent vp-userform__emailcontent inblock mb---xsm">
+                        <ul class="vp-versionform__prerequisiteslist clearfix">
+                            <!--ITEM EXAMPLE-->
+                            <li class="vp-versionform__prerequisitesitem mb--sm left" ng-repeat="toolset in userGroupData.parent_entity_set_id_tool_list track by $index" style="margin-right: 20px;">
+                                <div class="vp-versionform__prerequisitesiteminner">
+                                    <span class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">{{toolset.name}}<span ng-if="$index!==userGroupData.parent_entity_set_id_tool_list.length-1">, </span> </span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            <li class="vp-userform__fielditem vp-userform__roleitem pt--xxl" ng-if="userGroupData.parent_entity_set_id_du_list.length>0">
+                <div class="vp-userform__fielditeminner">
+                    <!--'EMPLOYEE ID' FIELD LABEL-->
+                    <div class="vp-userform__fieldlabelwrap inblock">
+                        <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">DU Sets:</label>
+                    </div>
+                    <!--'EMPLOYEE ID' FIELD CONTENT-->
+                    <div class="vp-userform__fieldcontent vp-userform__emailcontent inblock mb---xsm">
+                        <ul class="vp-versionform__prerequisiteslist clearfix">
+                            <!--ITEM EXAMPLE-->
+                            <li class="vp-versionform__prerequisitesitem mb--sm left" ng-repeat="duset in userGroupData.parent_entity_set_id_du_list track by $index" style="margin-right: 20px;">
+                                <div class="vp-versionform__prerequisitesiteminner">
+                                    <span class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">{{duset.name}}<span ng-if="$index!==userGroupData.parent_entity_set_id_du_list.length-1">, </span> </span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            <li class="vp-userform__fielditem vp-userform__roleitem pt--lg" style="padding-top: 60px; padding-bottom: 20px;">
+                <div class="vp-userform__fielditeminner">
+                    <!--'EMPLOYEE ID' FIELD LABEL-->
+                    <div class="vp-userform__fieldlabelwrap inblock">
+                        <label class="vp-userform__fieldlabel text--light text--lg text--ellipsis text--ellipsis--single text--bold">Included In:</label>
+                    </div>
+                </div>
+            </li>
+            <li class="vp-userform__fielditem vp-userform__roleitem pt--xxl" ng-if="userGroupData.machine_id_list.length>0">
+                <div class="vp-userform__fielditeminner">
+                    <!--'EMPLOYEE ID' FIELD LABEL-->
+                    <div class="vp-userform__fieldlabelwrap inblock">
+                        <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Machines:</label>
+                    </div>
+                    <!--'EMPLOYEE ID' FIELD CONTENT-->
+                    <div class="vp-userform__fieldcontent vp-userform__emailcontent inblock mb---xsm">
+                        <ul class="vp-versionform__prerequisiteslist clearfix">
+                            <!--ITEM EXAMPLE-->
+                            <li class="vp-versionform__prerequisitesitem mb--sm left" ng-repeat="machine in userGroupData.machine_id_list track by $index" style="margin-right: 20px;">
+                                <div class="vp-versionform__prerequisitesiteminner">
+                                    <span class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">{{machine.machine_name}}<span ng-if="$index!==userGroupData.machine_id_list.length-1">, </span> </span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            <li class="vp-userform__fielditem vp-userform__roleitem pt--xxl" ng-if="userGroupData.machine_group_id_list.length>0">
+                <div class="vp-userform__fielditeminner">
+                    <!--'EMPLOYEE ID' FIELD LABEL-->
+                    <div class="vp-userform__fieldlabelwrap inblock">
+                        <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Machine Groups:</label>
+                    </div>
+                    <!--'EMPLOYEE ID' FIELD CONTENT-->
+                    <div class="vp-userform__fieldcontent vp-userform__emailcontent inblock mb---xsm">
+                        <ul class="vp-versionform__prerequisiteslist clearfix">
+                            <!--ITEM EXAMPLE-->
+                            <li class="vp-versionform__prerequisitesitem mb--sm left" ng-repeat="group in userGroupData.machine_group_id_list track by $index" style="margin-right: 20px;">
+                                <div class="vp-versionform__prerequisitesiteminner">
+                                    <span class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">{{group.group_name}}<span ng-if="$index!==userGroupData.machine_group_id_list.length-1">, </span> </span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

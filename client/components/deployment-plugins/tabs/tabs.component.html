@@ -1,0 +1,24 @@
+<!--TAB COMPONENT START-->
+<div class="vp-tabs vp-tabs--default vp-tabs--service vp-control relative max--width max--height clearfix" ng-controller="ManageDeploymentPluginsTabController">
+    <!--TABS HEADER NAVIGATION BAR-->
+    <div class="vp-tabs__nav max--width left">
+        <nav>
+            <ul class="vp-tabs__navlist  max--width text--center text--md text--light text--cs06 table">
+                <!--ACTIVE TAB STATE (MODIFIERS: # vp-tabs__tab--active   )-->
+                <li class="vp-tabs__tab pointer pr--sm pl--sm left" ng-class="getActiveTab('/manage/plugins/deployment')" ng-click="showActiveTab('/manage/plugins/deployment')" >
+                    <a href="#/manage/plugins/deployment" class="vp-tabs__tablabel vertical--top no--decor">External Plugins</a>
+                </li>
+                <li class="vp-tabs__tab pointer pr--sm pl--sm left" ng-class="getActiveTab('/plugin/deployment/upload')" ng-click="showActiveTab('/plugin/deployment/upload')">
+                    <a href="#/plugin/deployment/upload" class="vp-tabs__tablabel vertical--top no--decor">Add New Plugin</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <!--TAB BODY WRAPPER, LOAD TEMPLATE INSIDE-->
+    <div class="vp-tabs__body overflow--hidden left max--width">
+        <div  ng-if="displayTab==='/manage/plugins/deployment'" class="vp-tabs__servicetabcontent" ng-include="'static/components/deployment-plugins/manage-deployment-plugins-content/managedeploymentpluginscontent.component.html'"></div>
+        <div  ng-if="displayTab==='/plugin/deployment/upload'" class="vp-tabs__servicetabcontent" ng-include="'static/components/deployment-plugins/upload-deployment-plugin-content/uploaddeploymentplugincontent.component.html'"></div>
+    </div>
+</div>
+<!--TAB COMPONENT END-->

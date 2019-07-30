@@ -1,0 +1,53 @@
+// VARIABLES: SECTION 20
+// COPONENT CLASS
+.vp-dttoolbar {
+    height: @toolbarHeight;
+    min-width: @minWidth - @navasideToolbarWidth;
+    line-height: @toolbarHeight;
+    box-shadow: -1px 0px 9px 3px rgba(0, 0, 0, 0.14);
+    // DEPLOY BUTTON WRAPPER
+    .vp-dttoolbar__deployatwrapper {
+        height: @toolbarHeight;
+        line-height: @toolbarHeight;
+    }
+    // TOOLBAR INNER BOUNDED WIDTH
+    .vp-dttoolbar__inner {
+        width: @innerBoundedWidth;
+        padding-right: 2*@toolbarPA;
+        padding-left: @toolbarPA;
+    }
+    // SCHEDULE ICON
+    .vp-dttoolbar__scheduleicon {
+        width: @toolbarScheduleIconSize;
+        height: @toolbarScheduleIconSize;
+        background: url('../assets/images/icons/schedualed_details_icn.png') no-repeat;
+        background-size: contain;
+    }
+    // BUTTON WRAPPERS
+    .vp-dttoolbar__submitefordeploymentwrap, .vp-dttoolbar__savebtnwrap {
+        padding-right: @toolbarPA;
+    }
+    // CALENDAR BUTTON 
+    button.vp-dttoolbar__calendarbtn {
+        width: @toolbarCalendarIconSize;
+        height: @toolbarCalendarIconSize;
+        background: url('../assets/images/icons/schedualed_btn.png') no-repeat;
+        background-size: contain;
+    }
+    .vp-dttoolbar__scheduledpopup {
+        bottom: @scheduledPopupBottom;
+        right: @scheduledPopupRight;
+        z-index: 1;
+    }
+    // SCHEDULE POPUP ACTIVATE
+    .vp-dttoolbar__calendarbtnwrap {
+        &.vp-dttoolbar__calendarbtnwrap--show {
+            .vp-dttoolbar__scheduledpopup {
+                .block;
+            }
+        }
+    }
+}
+.display_prop {
+    display: none;
+}

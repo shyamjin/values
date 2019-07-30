@@ -1,0 +1,16 @@
+fetch all accounts in DPM.
+---
+tags:
+  - Accounts
+responses:
+  200:
+    description: A list of Accounts
+    examples:
+    result: "success"
+    message: null
+  404:
+    description: exception in fetching accounts
+    examples:
+    result: "failed"
+    message: "Throws an exception"
+

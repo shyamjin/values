@@ -1,0 +1,24 @@
+// VARIABLES: SECTION 12
+// COPONENT CLASS
+div.vp-rightsidebar {
+    // MACHINES and SCRIPTS SEARCHFIELD VIEW STYLE
+    div.vp-rightsidebar__searchfieldwrapper {
+        height: 23.2%; //@rightSidebarSearchFieldWrapperHeight;
+        margin-right: @searchFieldWrapperMR;
+        border-bottom: 1px solid @cs03;
+    }
+    // REQUESTS TABS SECTION HEIGHT
+    div.vp-rightsidebar__requestabswrapper{
+        height: calc(~"100% - "(@rightSidebarSearchFieldWrapperHeight*2 + 1px)); // calc(~"100% - "(@rightSidebarSearchFieldWrapperHeight*2 + 1px));
+    }
+    div.vp-rightsidebar__tabs{
+        height: 100%; //calc(~"100% - "  @requestabsLabelTotalHeight - @transparentActiveTabBorderSize)
+    }
+}
+
+.overflow_style {
+    margin-top: 32px;
+    width:420px;
+    height : 100px;
+    overflow : overlay;
+}

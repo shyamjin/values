@@ -1,0 +1,19 @@
+<!--'TEAMS' TAB CONTENT COMPONENT START-->
+<div class="vp-teamscont vp-control max" ng-controller="ManageUserGroupsController">
+    <!--SELECT PERMISSIONS FORM-->
+    <div class="vp-teamscont__form" ng-include="'static/components/manage-users/teams-form/teamsform.component.html'"></div>
+    <!--TOOLBAR-->
+    <div class="vp-teamscont__toolbar bg--cs06 max--width fixed pos--bottom pos-left">
+        <div class="vp-teamscont__innerbounded clearfix">
+            <div class="vp-teamscont__savechangesbtnwrap right">
+                <!--SAVE CHANGES BUTTON (MODIFIERS: # vp-uielement__button--deploydisabled )-->
+                <!--<button type="button" class="vp-teamscont__savechangesbtn vp-uielement__button vp-uielement__button&#45;&#45;deployenabled pr&#45;&#45;lg pl&#45;&#45;lg">Save changes</button>-->
+            </div>
+            <!--DISCARD CHANCHES BUTTON-->
+            <div class="vp-teamscont__discardbtnwrap mr--xxxl right">
+                <!--<button type="button" class="vp-teamscont__discardbtn vp-uielement__button vp-uielement__button&#45;&#45;cleanenabled" ng-click="discardUserGroupData()">Discard</button>-->
+            </div>
+        </div>
+    </div>
+</div>
+<!--'TEAMS' TAB CONTENT COMPONENT END-->

@@ -1,0 +1,33 @@
+<!--ADD distribution FORM COMPONENT START-->
+<div class="vp-addnewmachineform vp-addnewmachineformnewmachine vp-control max" >
+    <form action="#" name="vp-addnewmachineform__addnewmachineform" class="vp-addnewmachineform__addnewmachineform max">
+        <table class="vp-addnewmachineform__fieldslist text--cs03 pr--lg">
+
+            <tr>               <!--'TARGET addnewmachine' FIELD-->
+                <td class="vp-addnewmachineform__fielditem vp-addnewmachineform__roleitem pt--xxl">
+                    <div class="vp-addnewmachineform__fielditeminner">
+
+
+                        <!--'TARGET MACHINE' FIELD LABEL-->
+                    <div class="vp-userform__fieldlabelwrap inblock">
+                        <label class="vp-userform__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Target Machine<span class="mandatory">*</span></label>
+                    </div>
+                         <!--'TARGET MACHINE' FIELD CONTENT-->
+                         <div class="vp-addnewmachineform__fieldcontent vp-machineform__rolecontent inblock">
+                            <select name="vp-addnewmachineform__dropdownlist" class="vp-addnewmachineform__dropdownlist vp-uielement__select" ng-model="machine.selected" name="targetmachine">
+                                <option value="">Select target Machine...</option>
+                                <option  name="vp-addnewmachineform__targetaddnewmachine_dropdownlistoption_{{$index}}"  ng-repeat="machine in machines.data.data" value="{{machine._id.$oid}}_{{machine.host}}">
+                                    <small>
+                                        {{machine.machine_name}}
+                                    </small>
+                                </option>
+                            </select>
+                            <h5 class="mandatory" ng-if="addnewmachineadd_errors.targetmachine">{{addnewmachineadd_errors.targetmachine}}</h5>
+                         </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+<!--ADD addnewaddnewmachine FORM COMPONENT END-->

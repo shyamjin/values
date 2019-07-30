@@ -1,0 +1,85 @@
+<!--'ADD A SETTING' MODAL COMPONENT START-->
+<div class="vp-addsettingmodal vp-control bg--white relative">
+	<div class="vp-addsettingmodal__header">
+		<!--TITLE-->
+		<h1 class="vp-addsettingmodal__title text--cs06 text--xl text--light mt--xl ml--xl inblock">Add a setting</h1>
+		<!--CLOSE BUTTON-->
+		<button type="button" class="vp-addsettingmodal__closebtn btn--clear mt--md mr--lg right" ng-click="closeSettings(vIndex)"></button>
+	</div>
+
+	<!--MODAL BODY-->
+	<div class="vp-addsettingmodal__body">
+		<!--FIELD TITLE SECTION-->
+		<input type="hidden" name="order_id" ng-model="application.data.deployment_field.fields[fieldIndex].order_id" value="{{fieldIndex}}">
+		<section class="vp-addsettingmodal__title">
+			<label class="vp-addsettingmodal__fieldname text--cs03 text--light text--md inblock">Field title:</label>
+			<div class="vp-addsettingmodal__fieldcontent inblock">
+				<input type="text" class="vp-addsettingmodal__titleinput input--clear text--cs03 text--regular text--lg" name="input_name" ng-model="application.data.deployment_field.fields[fieldIndex].input_name">
+			</div>
+		</section>
+        <h5 class="validation_msg_document" ng-if="version_errors.deployment_field_errors.input_name">{{version_errors.deployment_field_errors.input_name}}</h5>
+		<!--FIELD TYPE SECTION-->
+		<section class="vp-addsettingmodal__type mt--xl"  style="margin-bottom:20px;">
+			<!--SECTION LABEL-->
+			<label class="vp-addsettingmodal__fieldname text--cs03 text--light text--md inblock">Field type:</label>
+			<div class="vp-addsettingmodal__fieldcontent inblock">
+				<!--SELECT OPTIONS SECTION-->
+				<select name="input_type" ng-model="application.data.deployment_field.fields[fieldIndex].input_type" id="" class="vp-addsettingmodal__dropdownlist vp-addsettingmodal__dropdownlist1 vp-uielement__select text--cs03 text--regular text--lg">
+					<option data-ng-repeat="input in input_types" value="{{input}}">{{input}}</option>
+				</select>
+			</div>
+		</section>
+        <h5 class="validation_msg_document" ng-if="version_errors.deployment_field_errors.input_type">{{version_errors.deployment_field_errors.input_type}}</h5>
+		<!--FIELD DEFAULT VALUE SECTION-->
+		<section class="vp-addsettingmodal__title" ng-if="application.data.deployment_field.fields[fieldIndex].input_type==='text' || application.data.deployment_field.fields[fieldIndex].input_type==='email' || application.data.deployment_field.fields[fieldIndex].input_type==='password'"  style="margin-bottom:20px;">
+			<label class="vp-addsettingmodal__fieldname text--cs03 text--light text--md inblock">Default Value:</label>
+			<div class="vp-addsettingmodal__fieldcontent inblock">
+				<input type="text" class="vp-addsettingmodal__titleinput input--clear text--cs03 text--regular text--lg" name="field_default_value" ng-model="application.data.deployment_field.fields[fieldIndex].default_value">
+			</div>
+		</section>
+		<!--OPTIONS SECTION-->
+		<section class="vp-addsettingmodal__options mt--xl" ng-if="application.data.deployment_field.fields[fieldIndex].input_type==='dropdown' || application.data.deployment_field.fields[fieldIndex].input_type==='radio' || application.data.deployment_field.fields[fieldIndex].input_type==='checkbox'"  style="margin-bottom:20px;">
+			<label class="vp-addsettingmodal__fieldname text--cs03 text--light text--md vertical--top mt--sm inblock">Options:</label>
+			<div class="vp-addsettingmodal__fieldcontent inblock">
+				<ul class="vp-addsettingmodal__optionslist">
+					<!--OPTIONS DEFAULT ITEM EXAMPLE (MODIFIERS: # vp-addsettingmodal__optionsitem--default )-->
+					<li class="vp-addsettingmodal__optionsitem mt--sm" ng-repeat="value in application.data.deployment_field.fields[fieldIndex].valid_values track by $index">
+						<div class="vp-addsettingmodal__optionsiteminner text--ellipsis text--ellipsis--single inblock">
+							<span class="vp-addsettingmodal__optionname">
+								<input type="text" id="valid_value_{{vIndex}}_{{fileIndex}}" class="vp-addsettingmodal__titleinput input--clear text--cs03 text--regular text--lg" name="field_valid_value" ng-model="application.data.deployment_field.fields[fieldIndex].valid_values[$index]">
+							</span>
+						</div>
+					</li>
+				</ul>
+                <h5 class="validation_msg_document" ng-if="version_errors.deployment_field_errors.valid_values">{{version_errors.deployment_field_errors.valid_values}}</h5>
+				<button type="button" class="vp-addsettingmodal__editbtn vp-uielement__button vp-uielement__button--cleanenabled pa--none mt--sm" ng-click="addNewValidValueField(fieldIndex, vIndex)">+ edit options</button>
+				<!--MANDATORY CHECKBOX-->
+				<div class="vp-addsettingmodal__mandatorywrap mt--md">
+					<div class="vp-addsettingmodal__checkbox vp-uielement__checkbox mr--xxxl">
+						<input type="checkbox" id="vp-addsettingmodal__mandatory1" name="vp-addsettingmodal__mandatory1" />
+						<label for="vp-addsettingmodal__mandatory1 vertical--top"></label>
+						<label for="vp-addsettingmodal__mandatory1" class="vertical--bottom ml--sm">Mandatory</label>
+					</div>
+				</div>
+            </div>
+		</section>
+		<section class="vp-addsettingmodal__title">
+			<label class="vp-addsettingmodal__fieldname text--cs03 text--light text--md inblock">Tooltip:</label>
+			<div class="vp-addsettingmodal__fieldcontent inblock">
+				<input type="text" class="vp-addsettingmodal__titleinput input--clear text--cs03 text--regular text--lg" name="tooltip" ng-model="application.data.deployment_field.fields[fieldIndex].tooltip">
+			</div>
+		</section>
+		</div>
+		<!--MODAL FOOTER-->
+		<div class="vp-addsettingmodal__footer absolute pos--bottom">
+			<!--CLOSE BUTTON-->
+			<div class="vp-addsettingmodal__closebtnwrap inblock">
+				<button type="button" class="vp-addsettingmodal__footerclosebtn vp-uielement__button vp-uielement__button--close" ng-click="closeSettings(vIndex)">Close</button>
+			</div>
+			<!--DISCARD BUTTON-->
+			<div class="vp-rdmodal__discardbtnwrap right">
+				<button type="button" ng-disabled="EditToolForm.input_type.$error.required" class="vp-addsettingmodal__donebtn vp-uielement__button vp-uielement__button--deployenabled" ng-click="closeSettings(vIndex)">Done</button>
+			</div>
+		</div>
+	</div>
+	<!--'ADD A SETTING' MODAL COMPONENT END-->

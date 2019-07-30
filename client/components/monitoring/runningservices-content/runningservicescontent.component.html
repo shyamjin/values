@@ -1,0 +1,70 @@
+<div class="vp-machdetails vp-control pt--xxxl pr--xl pb--xxxl pl--xxxl bg--white overflow-y--auto max--height clearfix"  ng-controller="RunningServicesController">
+    <ul style="width:80%" ng-repeat = "services in runningServices.data" ng-if="runningServicesCount>0">
+		<div class="split-wrapper vp-tilegrid__tile" style="padding:0px" ng-if="services.run_status === 'Running' && runningServicesInd == true" >
+           <div ng-class="{'vp-tooltile--selected': selected , 'vp-tooltile--not-selected': !selected  }" class="vp-tooltile vp-component text--cs03 pt--md pr--md pl--md vp-tooltile__containingtoolmsg--active vp-tooltile__deprecatedwarning--active vp-tooltile__favorite--active  relative" >
+            <div class="left-data split">
+                 <li class="vp-machdetails__fielditem vp-machdetails__ipitem">
+                    <div class="vp-machdetails__fielditeminner">
+                        <!--IP FIELD LABEL-->
+                        <div class="vp-machdetails__fieldlabelwrap inblock">
+                            <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Name:</label>
+                        </div>
+                        <!--IP FIELD CONTENT-->
+                        <div class="vp-machdetails__fieldcontent inblock">
+                            <div class="vp-machdetails__fieldipwrap inblock">
+                                <span class="vp-machdetails__fieldip text--regular text--lg text--ellipsis text--ellipsis--single">{{services.name}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="vp-machdetails__fielditem vp-machdetails__ipitem">
+                    <div class="vp-machdetails__fielditeminner">
+                        <!--IP FIELD LABEL-->
+                        <div class="vp-machdetails__fieldlabelwrap inblock">
+                            <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Start Time:</label>
+                        </div>
+                        <!--IP FIELD CONTENT-->
+                        <div class="vp-machdetails__fieldcontent inblock">
+                            <div class="vp-machdetails__fieldipwrap inblock">
+                                <span class="vp-machdetails__fieldip text--regular text--lg text--ellipsis text--ellipsis--single">{{services.start_time.$date | date : "M/d/y h:mma"}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </div>
+            <div class="right-data split">
+                <li class="vp-machdetails__fielditem vp-machdetails__ipitem">
+                    <div class="vp-machdetails__fielditeminner">
+                        <!--IP FIELD LABEL-->
+                        <div class="vp-machdetails__fieldlabelwrap inblock">
+                            <label class="vp-machdetails__fieldlabel text--light text--md text--ellipsis text--ellipsis--single">Run time:</label>
+                        </div>
+                        <!--IP FIELD CONTENT-->
+                        <div class="vp-machdetails__fieldcontent inblock">
+                            <div class="vp-machdetails__fieldipwrap inblock">
+                                <span class="vp-machdetails__fieldip text--regular text--lg text--ellipsis text--ellipsis--single">{{services.runningservices_run_time.hh}}:{{services.runningservices_run_time.mm}}:{{services.runningservices_run_time.ss}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </div>
+           </div>
+        </div>
+	</ul>
+    <ul style="width:80%" ng-if="runningServicesCount === 0">
+		<div class="split-wrapper vp-tilegrid__tile" style="padding:0px">
+           <div ng-class="{'vp-tooltile--selected': selected , 'vp-tooltile--not-selected': !selected  }" class="vp-tooltile vp-component text--cs03 pt--md pr--md pl--md vp-tooltile__containingtoolmsg--active vp-tooltile__deprecatedwarning--active vp-tooltile__favorite--active  relative" >
+            <div class="left-data split">
+                 <li class="vp-machdetails__fielditem vp-machdetails__ipitem">
+                    <div class="vp-machdetails__fielditeminner">
+                        <!--IP FIELD LABEL-->
+                        <div class="vp-machdetails__fieldlabelwrap inblock" style="width: 100%; margin-left: 60%;">
+                            <label class="vp-machdetails__fieldlabel text--light text--xl text--ellipsis text--ellipsis--single">No running services</label>
+                        </div>
+                    </div>
+                </li>
+            </div>
+           </div>
+        </div>
+    </ul>
+</div>

@@ -1,0 +1,60 @@
+<!--'ADD A SETTING' MODAL COMPONENT START-->
+<div class="vp-addsettingmodal vp-control bg--white relative" style="width: 470px;height: 300px;">
+	<div class="vp-addsettingmodal__header">
+		<!--TITLE-->
+		<h1 class="vp-addsettingmodal__title text--cs06 text--xl text--light mt--xl ml--xl inblock">{{title}}</h1>
+		<!--CLOSE BUTTON-->
+		<button type="button" class="vp-addsettingmodal__closebtn btn--clear mt--md mr--lg right" ng-click="closeSelectBuild()"></button>
+	</div>
+
+	<!--MODAL BODY-->
+	<div class="vp-addsettingmodal__body">
+		<!--DOCUMENT NAME SECTION-->
+		<section class="vp-addsettingmodal__title">
+			<label class="vp-addsettingmodal__fieldname text--cs03 text--light text--md inblock">Build :</label>
+			<div class="vp-addsettingmodal__fieldcontent inblock">
+				<div class="vp-versionform__statusselectwrap">
+					<select id="tool_status"  ng-model="buildToDeploy" name="build" class="vp-versionform__dropdownlist vp-versionform__dropdownlist2 vp-uielement__select max--width"  style="height:30px; width:100px;" ng-change="setDUBuild(buildToDeploy)">
+						<option ng-repeat="data in duDetails.all_available_builds" ng-if="data.build_number<duDetails.build_no" value="{{data}}">{{data.build_number}}</option>
+					</select>
+				</div>
+			</div>
+		</section>
+		<section class="vp-addsettingmodal__title mt--xl" ng-if="selectedBuild">
+			<label class="vp-addsettingmodal__fieldname text--cs03 text--light text--md inblock">File Date:</label>
+			<div class="vp-addsettingmodal__fieldcontent inblock">
+				<div class="vp-versionform__statusselectwrap">
+					<label class="vp-addsettingmodal__fieldname text--cs03 text--light text--md inblock">{{selectedBuild.build_date.$date | date : "M/d/y h:mma"}}</label>
+				</div>
+			</div>
+		</section>
+		<section class="vp-addsettingmodal__title mt--xxl" ng-if="selectedBuild">
+			<label class="vp-addsettingmodal__fieldname text--cs03 text--light text--md inblock">File Size:</label>
+			<div class="vp-addsettingmodal__fieldcontent inblock">
+				<div class="vp-versionform__statusselectwrap">
+					<label class="vp-addsettingmodal__fieldname text--cs03 text--light text--md inblock">{{selectedBuild.file_size}}</label>
+				</div>
+			</div>
+		</section>
+		<section class="vp-addsettingmodal__title mt--xxl" ng-if="selectedBuild">
+			<label class="vp-addsettingmodal__fieldname text--cs03 text--light text--md inblock">Release Notes:</label>
+			<div class="vp-addsettingmodal__fieldcontent inblock">
+				<div class="vp-versionform__statusselectwrap">
+					<label class="vp-addsettingmodal__fieldname text--cs03 text--light text--md inblock">{{selectedBuild.additional_info.release_notes}}</label>
+				</div>
+			</div>
+		</section>
+        <h5 class="validation_msg_document" ng-if="version_errors.document_errors.name">{{version_errors.document_errors.name}}</h5>
+		<!--MODAL FOOTER-->
+		<div class="vp-addsettingmodal__footer absolute pos--bottom" style="margin-top: 10px; margin-left:-50px; width: 470px;">
+			<!--CLOSE BUTTON-->
+			<div class="vp-addsettingmodal__closebtnwrap inblock">
+				<button type="button" class="vp-addsettingmodal__footerclosebtn vp-uielement__button vp-uielement__button--close" ng-click="closeSelectBuild()">Close</button>
+			</div>
+			<!--DISCARD BUTTON-->
+			<div class="vp-rdmodal__discardbtnwrap right">
+				<button class="vp-addsettingmodal__donebtn vp-uielement__button vp-uielement__button--deployenabled" ng-click="revertDeployedDU()">Done</button>
+			</div>
+		</div>
+	</div>
+	<!--'ADD A SETTING' MODAL COMPONENT END-->

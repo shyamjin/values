@@ -1,0 +1,49 @@
+// VARIABLES: SECTION 53
+.vp-teamsform {
+    li:first-of-type {
+        // FIRS SEPARATOT BOTTOM MARGIN
+        hr {
+            margin-bottom: @firstSeparatorMB;
+        }
+    }
+    padding-bottom: @toolbarHeight + 10px;
+    // TEAM NAME COLUMN
+    &__teamsnamecol {
+        width: 30%;
+        line-height: 1.1;
+    }
+    // DESCRIPTION COLUMN
+    &__descriptioncol {
+        width: 40%;
+    }
+     &__editcol {
+        width: 7%;
+    }
+      &__deletecol {
+        width: 6%;
+    }
+    .vp-teamsform__separator {
+        height: 1px;
+    }
+    .vp-teamsform__namebtnswrap {
+        width: @namesButtonWrapperWidth;
+    }
+    .vp-teamsform__namewrap {
+        width: calc(~"100% - " (@namesButtonWrapperWidth + 4px));
+    }
+    // TEXT AREA STYLES
+    .vp-teamsform___teamdescriptiontextarea {
+        resize: none;
+        box-sizing: border-box;
+        height: @teamTextareaHeight;
+        outline: none;
+        overflow: auto;
+    }
+}
+
+
+
+
+.vp-teamsform__delete {
+    width: 5%;
+}

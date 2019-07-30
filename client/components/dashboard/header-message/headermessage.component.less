@@ -1,0 +1,23 @@
+// VARIABLES: SECTION 17
+// COPONENT CLASS
+div.vp-headermsg {
+    height: @headerMsgHeight;
+    line-height: @headerMsgHeight;
+    //MODIFIERS
+    //NOTIFICATION STATE
+    &.vp-headermsg--notification{
+        background-color: @csnotifocation;
+    }
+    //WARNING STATE
+    &.vp-headermsg--warning{
+        background-color: @cswarning;
+    }
+    //ERROR STATE
+    &.vp-headermsg--error{
+        background-color: @cserror;
+    }
+     //ERROR STATE
+    &.vp-headermsg--success{
+        background-color: @cssuccess;
+    }
+}

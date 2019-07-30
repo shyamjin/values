@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>settings module &#8212; eDPM plugins 2.0.4 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.0.4',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="top" title="eDPM plugins 2.0.4 documentation" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-settings">
+<span id="settings-module"></span><h1>settings module<a class="headerlink" href="#module-settings" title="Permalink to this headline">¶</a></h1>
+<dl class="data">
+<dt id="settings.distribution_center_export_full_path">
+<code class="descclassname">settings.</code><code class="descname">distribution_center_export_full_path</code><em class="property"> = 'C:\\S_2.0.5\\DeploymentManger\\docs/static/DPMDistributionCenter/exports'</em><a class="headerlink" href="#settings.distribution_center_export_full_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>ALL PATHS END</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="settings.mongodb">
+<code class="descclassname">settings.</code><code class="descname">mongodb</code><em class="property"> = Database(MongoClient(host=['localhost:27017'], document_class=dict, tz_aware=False, connect=True), u'DeploymentManager')</em><a class="headerlink" href="#settings.mongodb" title="Permalink to this definition">¶</a></dt>
+<dd><p>MONGO END</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="settings.remote_distribution_export_path">
+<code class="descclassname">settings.</code><code class="descname">remote_distribution_export_path</code><em class="property"> = '/home/valuepack/dpm/static/DPMDistributionCenter/exports'</em><a class="headerlink" href="#settings.remote_distribution_export_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>ALL REMOTE MACHINE PATHS END</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="settings.template">
+<code class="descclassname">settings.</code><code class="descname">template</code><em class="property"> = {'info': {'termsOfService': 'TBD', 'contact': {'responsibleOrganization': 'AIO', 'responsibleDeveloper': 'TBD'}, 'description': 'list of API that can used from external service', 'version': '', 'title': 'eDPM API '}, 'swagger': '2.0', 'schemes': [['http', 'https']], 'operationId': 'getmyData'}</em><a class="headerlink" href="#settings.template" title="Permalink to this definition">¶</a></dt>
+<dd><p>MONGO START OK</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/settings.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, ilan pinto.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.9</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="_sources/settings.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

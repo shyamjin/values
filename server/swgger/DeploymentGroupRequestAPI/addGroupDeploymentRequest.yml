@@ -1,0 +1,110 @@
+Add new Group Deployment Request
+---
+tags:
+   - Group Deployment Requests
+parameters:
+- name: token
+  in: header
+  description: API key
+  required: false
+  type: string
+  format: string
+- name: access-token
+  in: header
+  description: API key
+  required: false
+  type: string
+  format: string 
+- name: input
+  in: body
+  description: Group Deployment Request data
+  required: true
+  type: string
+  format: string
+  schema:
+    $ref: "#/definitions/GroupDeployment"     # <---------
+
+
+responses:
+  200:
+    description: New Group Deployment Request has been added successfully
+    schema:
+        $ref: "#/definitions/Data"     # <---------
+    examples:
+      result: "success"
+      message: "New GroupDeployment request has been added successfully"
+  404:
+    description: exception in adding Group Deployment Request
+    examples:
+      result: "failed"
+      message: "Throws an exception"
+
+
+definitions:
+  GroupDeployment:           # <----------
+    type: object
+    required:
+      - deployment_requests
+    properties:
+      deployment_requests:
+        type: array
+        items:
+          type: object    
+          required:
+            - parent_entity_id
+            - requested_by 
+            - request_type
+            - deployment_type
+            - requests
+          properties:
+            parent_entity_id:
+              type: string
+            requested_by:
+              type: string
+            request_type:
+              type: string
+            deployment_type:
+              type: string                 
+            requests: 
+              type: object
+              required: 
+                - machine_id     
+                - tool_deployment_value    
+                - warning_flag
+                - scheduled_date                          
+              properties: 
+                  machine_id: 
+                    type: string
+                  warning_flag: 
+                    type: string 
+                  scheduled_date:            
+                    type: string
+                  tool_deployment_value:
+                    type: array
+                    items:
+                      type: object    
+                      required:
+                        - input_name
+                        - input_type
+                        - input_value
+                        - order_id
+                      properties:
+                        input_name:
+                          type: string
+                        input_type:
+                          type: string
+                        input_value:
+                          type : string
+                        order_id:
+                          type: string
+           
+     
+  Data: 
+    type: object
+    properties:
+        data:
+          type: string
+        result:
+          type: string
+        message:
+           type: string

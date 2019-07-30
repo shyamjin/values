@@ -1,0 +1,18 @@
+<!--'ADD NEW USER' TAB CONTENT COMPONENT START-->
+<div class="vp-addnewusercont vp-control max" ng-controller="CreateUserGroupController">
+    <!--ADD NEW USER FORM-->
+    <div class="vp-addnewusercont__form" ng-include="'static/components/manage-users/add-new-user-form/addnewusergroupform.component.html'"></div>
+    <!--TOOLBAR -->
+    <div class="vp-addnewusercont__toolbar fixed pos--bottom pos--left bg--cs06 max--width">
+        <div class="vp-addnewusercont__innerbounded clearfix">
+            <div class="vp-addnewusercont__adduserbtnwrap right">
+                <!--ADD USER BUTTON (MODIFIERS: # vp-uielement__button--deploydisabled )-->
+                <button type="button" class="vp-addnewusercont__addnewuserbtn vp-uielement__button vp-uielement__button--deployenabled pr--lg pl--lg"  ng-click="addUserGroup('vp-usergroupform__usergroupform')">Add user group</button>
+            </div>
+            <div class="vp-createanewmach__discardbtnwrap mr--xxxl right">
+                <button type="button" class="vp-createanewmach__discardbtn vp-uielement__button vp-uielement__button--cleanenabled" ng-click="discardTeamChanges()">Discard</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--'ADD NEW USER' TAB CONTENT COMPONENT END-->

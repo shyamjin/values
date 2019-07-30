@@ -1,0 +1,1954 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Services package &#8212; eDPM plugins 2.0.4 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.0.4',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="top" title="eDPM plugins 2.0.4 documentation" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="services-package">
+<h1>Services package<a class="headerlink" href="#services-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-Services.AppInitServices">
+<span id="services-appinitservices-module"></span><h2>Services.AppInitServices module<a class="headerlink" href="#module-Services.AppInitServices" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-Services.AppLogger">
+<span id="services-applogger-module"></span><h2>Services.AppLogger module<a class="headerlink" href="#module-Services.AppLogger" title="Permalink to this headline">¶</a></h2>
+<p>Created on Apr 20, 2016
+In docker WE NEED TO GET LOG FILES FROM COMMAND &#8216;docker logs&#8217;.Online logs are not written
+&#64;author: PDINDA</p>
+<dl class="class">
+<dt id="Services.AppLogger.AppLogger">
+<em class="property">class </em><code class="descclassname">Services.AppLogger.</code><code class="descname">AppLogger</code><span class="sig-paren">(</span><em>loggingLevel=1</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.AppLogger.AppLogger" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/2/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<dl class="method">
+<dt id="Services.AppLogger.AppLogger.changeLevel">
+<code class="descname">changeLevel</code><span class="sig-paren">(</span><em>loggingLevel</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.AppLogger.AppLogger.changeLevel" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method changes the logging level</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Services.AppLogger.AppLogger.createLogger">
+<code class="descname">createLogger</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.AppLogger.AppLogger.createLogger" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method creates a log file with respect to log levels</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Services.AppLogger.AppLogger.disableLogger">
+<code class="descname">disableLogger</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.AppLogger.AppLogger.disableLogger" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method is used to disable the logs</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Services.AppLogger.AppLogger.disableLoggerlevel">
+<code class="descname">disableLoggerlevel</code><span class="sig-paren">(</span><em>loggingLevel</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.AppLogger.AppLogger.disableLoggerlevel" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method is to disable the functionality to set the logging level</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Services.AppLogger.AppLogger.getLogger">
+<code class="descname">getLogger</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.AppLogger.AppLogger.getLogger" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method fetches the log file</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-Services.AuthServices">
+<span id="services-authservices-module"></span><h2>Services.AuthServices module<a class="headerlink" href="#module-Services.AuthServices" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="Services.AuthServices.AuthRequestService">
+<em class="property">class </em><code class="descclassname">Services.AuthServices.</code><code class="descname">AuthRequestService</code><span class="sig-paren">(</span><em>db</em>, <em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.AuthServices.AuthRequestService" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/2/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<dl class="method">
+<dt id="Services.AuthServices.AuthRequestService.AddTokenToMem">
+<code class="descname">AddTokenToMem</code><span class="sig-paren">(</span><em>token</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.AuthServices.AuthRequestService.AddTokenToMem" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method adds a TOKEN to APP memory</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Services.AuthServices.AuthRequestService.RemoveTokenFromMem">
+<code class="descname">RemoveTokenFromMem</code><span class="sig-paren">(</span><em>token</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.AuthServices.AuthRequestService.RemoveTokenFromMem" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method removes TOKEN from APP Memory</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Services.AuthServices.AuthRequestService.authPermissions">
+<code class="descname">authPermissions</code><span class="sig-paren">(</span><em>user</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.AuthServices.AuthRequestService.authPermissions" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method Checks the auth permissions for a valid user</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Services.AuthServices.AuthRequestService.authorized">
+<code class="descname">authorized</code><span class="sig-paren">(</span><em>fn</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.AuthServices.AuthRequestService.authorized" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.AuthServices.AuthRequestService.check_user">
+<code class="descname">check_user</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.AuthServices.AuthRequestService.check_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method Checks if user exists else creates a new user with role as GUEST</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Services.AuthServices.AuthRequestService.check_validToken">
+<code class="descname">check_validToken</code><span class="sig-paren">(</span><em>token</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.AuthServices.AuthRequestService.check_validToken" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.AuthServices.AuthRequestService.generate_auth_token">
+<code class="descname">generate_auth_token</code><span class="sig-paren">(</span><em>id</em>, <em>expiration=6000</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.AuthServices.AuthRequestService.generate_auth_token" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method generates the authentication token</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Services.AuthServices.AuthRequestService.getToken">
+<code class="descname">getToken</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.AuthServices.AuthRequestService.getToken" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.AuthServices.AuthRequestService.get_userid_by_auth_token">
+<code class="descname">get_userid_by_auth_token</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.AuthServices.AuthRequestService.get_userid_by_auth_token" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method fetches the USERID by decrypting the AUTH_TOKEN</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Services.AuthServices.AuthRequestService.hasTokenExpired">
+<code class="descname">hasTokenExpired</code><span class="sig-paren">(</span><em>token</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.AuthServices.AuthRequestService.hasTokenExpired" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method Checks whether the Token is valid or is invalid</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Services.AuthServices.AuthRequestService.invalidate">
+<code class="descname">invalidate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.AuthServices.AuthRequestService.invalidate" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method removes the token passed in headers and returns a dummy token</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Services.AuthServices.AuthRequestService.removeInvalidTokens">
+<code class="descname">removeInvalidTokens</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.AuthServices.AuthRequestService.removeInvalidTokens" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method Removes Invalid Tokens from Memory</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Services.AuthServices.AuthRequestService.reset_pass">
+<code class="descname">reset_pass</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.AuthServices.AuthRequestService.reset_pass" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method allows user to reset the password</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Services.AuthServices.AuthRequestService.verify_access_token">
+<code class="descname">verify_access_token</code><span class="sig-paren">(</span><em>token</em>, <em>returnUser=False</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.AuthServices.AuthRequestService.verify_access_token" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method verifiey the access token</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Services.AuthServices.AuthRequestService.verify_auth_token">
+<code class="descname">verify_auth_token</code><span class="sig-paren">(</span><em>token</em>, <em>returnUser=False</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.AuthServices.AuthRequestService.verify_auth_token" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method checks ROutes and permissions if the token is valid</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-Services.CleanerServices">
+<span id="services-cleanerservices-module"></span><h2>Services.CleanerServices module<a class="headerlink" href="#module-Services.CleanerServices" title="Permalink to this headline">¶</a></h2>
+<p>Created on OCT 12, 2016</p>
+<p>&#64;author: PDINDA</p>
+<dl class="class">
+<dt id="Services.CleanerServices.CleanerServices">
+<em class="property">class </em><code class="descclassname">Services.CleanerServices.</code><code class="descname">CleanerServices</code><span class="sig-paren">(</span><em>db</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.CleanerServices.CleanerServices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/2/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<dl class="method">
+<dt id="Services.CleanerServices.CleanerServices.cleanOldData">
+<code class="descname">cleanOldData</code><span class="sig-paren">(</span><em>path_list</em>, <em>file_Name=None</em>, <em>olderthandays=30</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.CleanerServices.CleanerServices.cleanOldData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start of cleanOldData</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Services.CleanerServices.CleanerServices.job_function">
+<code class="descname">job_function</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.CleanerServices.CleanerServices.job_function" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start of CleanerServices</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Services.CleanerServices.CleanerServices.load_configuration">
+<code class="descname">load_configuration</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.CleanerServices.CleanerServices.load_configuration" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.CleanerServices.CleanerServices.schedule">
+<code class="descname">schedule</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.CleanerServices.CleanerServices.schedule" title="Permalink to this definition">¶</a></dt>
+<dd><p># Schedules the job
+# scheduler :Scheduler object
+# interval_given:Time interval for job to rerun</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-Services.CloneAccountService">
+<span id="services-cloneaccountservice-module"></span><h2>Services.CloneAccountService module<a class="headerlink" href="#module-Services.CloneAccountService" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="Services.CloneAccountService.CloneDeployment">
+<em class="property">class </em><code class="descclassname">Services.CloneAccountService.</code><code class="descname">CloneDeployment</code><a class="headerlink" href="#Services.CloneAccountService.CloneDeployment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/2/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<dl class="method">
+<dt id="Services.CloneAccountService.CloneDeployment.GetCloneRequestDetails">
+<code class="descname">GetCloneRequestDetails</code><span class="sig-paren">(</span><em>id</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.CloneAccountService.CloneDeployment.GetCloneRequestDetails" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.CloneAccountService.CloneDeployment.GetDeploymentFieldsDetail">
+<code class="descname">GetDeploymentFieldsDetail</code><span class="sig-paren">(</span><em>version_id</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.CloneAccountService.CloneDeployment.GetDeploymentFieldsDetail" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.CloneAccountService.CloneDeployment.GetMachineDetails">
+<code class="descname">GetMachineDetails</code><span class="sig-paren">(</span><em>id</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.CloneAccountService.CloneDeployment.GetMachineDetails" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.CloneAccountService.CloneDeployment.GetToolByVersion">
+<code class="descname">GetToolByVersion</code><span class="sig-paren">(</span><em>id</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.CloneAccountService.CloneDeployment.GetToolByVersion" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.CloneAccountService.CloneDeployment.GetVersionDetalis">
+<code class="descname">GetVersionDetalis</code><span class="sig-paren">(</span><em>id</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.CloneAccountService.CloneDeployment.GetVersionDetalis" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.CloneAccountService.CloneDeployment.InitStepDetailsForAddTool">
+<code class="descname">InitStepDetailsForAddTool</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.CloneAccountService.CloneDeployment.InitStepDetailsForAddTool" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.CloneAccountService.CloneDeployment.InitStepDetailsForClone">
+<code class="descname">InitStepDetailsForClone</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.CloneAccountService.CloneDeployment.InitStepDetailsForClone" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.CloneAccountService.CloneDeployment.InitStepDetailsForUpdateTool">
+<code class="descname">InitStepDetailsForUpdateTool</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.CloneAccountService.CloneDeployment.InitStepDetailsForUpdateTool" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.CloneAccountService.CloneDeployment.UpdateRequestStatus">
+<code class="descname">UpdateRequestStatus</code><span class="sig-paren">(</span><em>sts</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.CloneAccountService.CloneDeployment.UpdateRequestStatus" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.CloneAccountService.CloneDeployment.UpdateStepEndTime">
+<code class="descname">UpdateStepEndTime</code><span class="sig-paren">(</span><em>duration</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.CloneAccountService.CloneDeployment.UpdateStepEndTime" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.CloneAccountService.CloneDeployment.UpdateStepStartTime">
+<code class="descname">UpdateStepStartTime</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.CloneAccountService.CloneDeployment.UpdateStepStartTime" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.CloneAccountService.CloneDeployment.UpdateStepStatus">
+<code class="descname">UpdateStepStatus</code><span class="sig-paren">(</span><em>sts</em>, <em>msg</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.CloneAccountService.CloneDeployment.UpdateStepStatus" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.CloneAccountService.CloneDeployment.UpdateToolStepEndTime">
+<code class="descname">UpdateToolStepEndTime</code><span class="sig-paren">(</span><em>duration</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.CloneAccountService.CloneDeployment.UpdateToolStepEndTime" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.CloneAccountService.CloneDeployment.UpdateToolStepStartTime">
+<code class="descname">UpdateToolStepStartTime</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.CloneAccountService.CloneDeployment.UpdateToolStepStartTime" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.CloneAccountService.CloneDeployment.UpdateToolStepStatus">
+<code class="descname">UpdateToolStepStatus</code><span class="sig-paren">(</span><em>status</em>, <em>message</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.CloneAccountService.CloneDeployment.UpdateToolStepStatus" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.CloneAccountService.CloneDeployment.account_user_authntication">
+<code class="descname">account_user_authntication</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.CloneAccountService.CloneDeployment.account_user_authntication" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.CloneAccountService.CloneDeployment.add_into_distribution">
+<code class="descname">add_into_distribution</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.CloneAccountService.CloneDeployment.add_into_distribution" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Services.CloneAccountService.CloneDeployment.add_tool_steps">
+<code class="descname">add_tool_steps</code><em class="property"> = ('import_tools', 'assign_write_permissions_to_git', 'restart_docker_jenkins')</em><a class="headerlink" href="#Services.CloneAccountService.CloneDeployment.add_tool_steps" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.CloneAccountService.CloneDeployment.assign_account_git_user_to_group">
+<code class="descname">assign_account_git_user_to_group</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.CloneAccountService.CloneDeployment.assign_account_git_user_to_group" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.CloneAccountService.CloneDeployment.assign_write_permissions_to_git">
+<code class="descname">assign_write_permissions_to_git</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.CloneAccountService.CloneDeployment.assign_write_permissions_to_git" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.CloneAccountService.CloneDeployment.change_account_name">
+<code class="descname">change_account_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.CloneAccountService.CloneDeployment.change_account_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.CloneAccountService.CloneDeployment.check_connection">
+<code class="descname">check_connection</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.CloneAccountService.CloneDeployment.check_connection" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.CloneAccountService.CloneDeployment.checkout_tool">
+<code class="descname">checkout_tool</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.CloneAccountService.CloneDeployment.checkout_tool" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.CloneAccountService.CloneDeployment.clone_repository_to_git">
+<code class="descname">clone_repository_to_git</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.CloneAccountService.CloneDeployment.clone_repository_to_git" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.CloneAccountService.CloneDeployment.clone_tool_to_account_dpm">
+<code class="descname">clone_tool_to_account_dpm</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.CloneAccountService.CloneDeployment.clone_tool_to_account_dpm" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.CloneAccountService.CloneDeployment.clone_tools">
+<code class="descname">clone_tools</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.CloneAccountService.CloneDeployment.clone_tools" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Services.CloneAccountService.CloneDeployment.cloning_steps">
+<code class="descname">cloning_steps</code><em class="property"> = ('verify_executable_installation', 'create_validate_pack_folders', 'create_hostname_external_ip', 'create_git_user_for_account', 'create_git_group_for_account', 'assign_account_git_user_to_group', 'copy_docker_config_file', 'copy_docker_yml_file', 'copy_jenkins_files', 'copy_nexus_files', 'copy_ssl_files', 'install_docker_containers', 'restart_docker_containers', 'generate_system_details', 'change_account_name', 'clone_tools', 'add_into_distribution', 'copy_default_files', 'schedule_cleaner', 'assign_write_permissions_to_git')</em><a class="headerlink" href="#Services.CloneAccountService.CloneDeployment.cloning_steps" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.CloneAccountService.CloneDeployment.copy_default_files">
+<code class="descname">copy_default_files</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.CloneAccountService.CloneDeployment.copy_default_files" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.CloneAccountService.CloneDeployment.copy_docker_config_file">
+<code class="descname">copy_docker_config_file</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.CloneAccountService.CloneDeployment.copy_docker_config_file" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.CloneAccountService.CloneDeployment.copy_docker_yml_file">
+<code class="descname">copy_docker_yml_file</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.CloneAccountService.CloneDeployment.copy_docker_yml_file" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.CloneAccountService.CloneDeployment.copy_jenkins_files">
+<code class="descname">copy_jenkins_files</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.CloneAccountService.CloneDeployment.copy_jenkins_files" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.CloneAccountService.CloneDeployment.copy_logo_media_files">
+<code class="descname">copy_logo_media_files</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.CloneAccountService.CloneDeployment.copy_logo_media_files" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.CloneAccountService.CloneDeployment.copy_nexus_files">
+<code class="descname">copy_nexus_files</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.CloneAccountService.CloneDeployment.copy_nexus_files" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.CloneAccountService.CloneDeployment.copy_ssl_files">
+<code class="descname">copy_ssl_files</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.CloneAccountService.CloneDeployment.copy_ssl_files" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.CloneAccountService.CloneDeployment.create_alias">
+<code class="descname">create_alias</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.CloneAccountService.CloneDeployment.create_alias" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.CloneAccountService.CloneDeployment.create_git_group_for_account">
+<code class="descname">create_git_group_for_account</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.CloneAccountService.CloneDeployment.create_git_group_for_account" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.CloneAccountService.CloneDeployment.create_git_user_for_account">
+<code class="descname">create_git_user_for_account</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.CloneAccountService.CloneDeployment.create_git_user_for_account" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.CloneAccountService.CloneDeployment.create_hostname_external_ip">
+<code class="descname">create_hostname_external_ip</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.CloneAccountService.CloneDeployment.create_hostname_external_ip" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.CloneAccountService.CloneDeployment.create_jenkins_slave">
+<code class="descname">create_jenkins_slave</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.CloneAccountService.CloneDeployment.create_jenkins_slave" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.CloneAccountService.CloneDeployment.create_upstream_to_original_rep">
+<code class="descname">create_upstream_to_original_rep</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.CloneAccountService.CloneDeployment.create_upstream_to_original_rep" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.CloneAccountService.CloneDeployment.create_validate_pack_folders">
+<code class="descname">create_validate_pack_folders</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.CloneAccountService.CloneDeployment.create_validate_pack_folders" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.CloneAccountService.CloneDeployment.create_vpadmin_user">
+<code class="descname">create_vpadmin_user</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.CloneAccountService.CloneDeployment.create_vpadmin_user" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.CloneAccountService.CloneDeployment.docker_login_nexus_registry">
+<code class="descname">docker_login_nexus_registry</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.CloneAccountService.CloneDeployment.docker_login_nexus_registry" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.CloneAccountService.CloneDeployment.executeCloneSteps">
+<code class="descname">executeCloneSteps</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.CloneAccountService.CloneDeployment.executeCloneSteps" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.CloneAccountService.CloneDeployment.executeCloneToolSteps">
+<code class="descname">executeCloneToolSteps</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.CloneAccountService.CloneDeployment.executeCloneToolSteps" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.CloneAccountService.CloneDeployment.executeToolSteps">
+<code class="descname">executeToolSteps</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.CloneAccountService.CloneDeployment.executeToolSteps" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.CloneAccountService.CloneDeployment.fetch_upstream_to_original_rep">
+<code class="descname">fetch_upstream_to_original_rep</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.CloneAccountService.CloneDeployment.fetch_upstream_to_original_rep" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Services.CloneAccountService.CloneDeployment.folder_list_to_create">
+<code class="descname">folder_list_to_create</code><em class="property"> = ('/home/valuepack/git', '/home/valuepack/jenkins/jobs', '/home/valuepack/nexus/conf', '/home/valuepack/nexus/storage', '/home/valuepack/mongo', '/home/valuepack/dpm', '/home/valuepack/dpm/static/files/documents', '/home/valuepack/dpm/static/files/logos', '/home/valuepack/dpm/static/files/media_files', '/home/valuepack/dpm/ssl', '/home/valuepack/dpm/static/DPMDataUpdates/imports', '/home/valuepack/dpm/static/DPMDataUpdates/exports', '/home/valuepack/dpm/static/DPMDistributionCenter/imports', '/home/valuepack/dpm/static/DPMDistributionCenter/exports')</em><a class="headerlink" href="#Services.CloneAccountService.CloneDeployment.folder_list_to_create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.CloneAccountService.CloneDeployment.fork_project_with_account_group">
+<code class="descname">fork_project_with_account_group</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.CloneAccountService.CloneDeployment.fork_project_with_account_group" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.CloneAccountService.CloneDeployment.generate_system_details">
+<code class="descname">generate_system_details</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.CloneAccountService.CloneDeployment.generate_system_details" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.CloneAccountService.CloneDeployment.get_account_group_name_and_user">
+<code class="descname">get_account_group_name_and_user</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.CloneAccountService.CloneDeployment.get_account_group_name_and_user" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.CloneAccountService.CloneDeployment.get_group_details">
+<code class="descname">get_group_details</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.CloneAccountService.CloneDeployment.get_group_details" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.CloneAccountService.CloneDeployment.get_tool_data">
+<code class="descname">get_tool_data</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.CloneAccountService.CloneDeployment.get_tool_data" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.CloneAccountService.CloneDeployment.grant_perm_to_git_tool_folder">
+<code class="descname">grant_perm_to_git_tool_folder</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.CloneAccountService.CloneDeployment.grant_perm_to_git_tool_folder" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.CloneAccountService.CloneDeployment.grant_sudo_perms_to_vpadmin">
+<code class="descname">grant_sudo_perms_to_vpadmin</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.CloneAccountService.CloneDeployment.grant_sudo_perms_to_vpadmin" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.CloneAccountService.CloneDeployment.grant_valuepack_folder_full_control_to_vpadmin">
+<code class="descname">grant_valuepack_folder_full_control_to_vpadmin</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.CloneAccountService.CloneDeployment.grant_valuepack_folder_full_control_to_vpadmin" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.CloneAccountService.CloneDeployment.handleLogs">
+<code class="descname">handleLogs</code><span class="sig-paren">(</span><em>newLogLine</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.CloneAccountService.CloneDeployment.handleLogs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Services.CloneAccountService.CloneDeployment.import_tool">
+<code class="descname">import_tool</code><em class="property"> = ('get_tool_data', 'get_account_group_name_and_user', 'validate_jenkins_job', 'validate_git_project', 'clone_tool_to_account_dpm', 'copy_logo_media_files', 'fork_project_with_account_group', 'clone_repository_to_git', 'create_upstream_to_original_rep', 'jenkins_copy_job', 'jenkins_update_job', 'update_distribution_sync_data_in_account_dpm')</em><a class="headerlink" href="#Services.CloneAccountService.CloneDeployment.import_tool" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.CloneAccountService.CloneDeployment.import_tools">
+<code class="descname">import_tools</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.CloneAccountService.CloneDeployment.import_tools" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.CloneAccountService.CloneDeployment.init_data">
+<code class="descname">init_data</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.CloneAccountService.CloneDeployment.init_data" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.CloneAccountService.CloneDeployment.initilizeVersionDetails">
+<code class="descname">initilizeVersionDetails</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.CloneAccountService.CloneDeployment.initilizeVersionDetails" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.CloneAccountService.CloneDeployment.install_docker_containers">
+<code class="descname">install_docker_containers</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.CloneAccountService.CloneDeployment.install_docker_containers" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.CloneAccountService.CloneDeployment.jenkins_copy_job">
+<code class="descname">jenkins_copy_job</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.CloneAccountService.CloneDeployment.jenkins_copy_job" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.CloneAccountService.CloneDeployment.jenkins_update_job">
+<code class="descname">jenkins_update_job</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.CloneAccountService.CloneDeployment.jenkins_update_job" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.CloneAccountService.CloneDeployment.load_gitlab_projects">
+<code class="descname">load_gitlab_projects</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.CloneAccountService.CloneDeployment.load_gitlab_projects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.CloneAccountService.CloneDeployment.make_json_serializable">
+<code class="descname">make_json_serializable</code><span class="sig-paren">(</span><em>list_to_pass</em>, <em>list_having_cursor</em>, <em>list_to_pop</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.CloneAccountService.CloneDeployment.make_json_serializable" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.CloneAccountService.CloneDeployment.push_upstream_to_git">
+<code class="descname">push_upstream_to_git</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.CloneAccountService.CloneDeployment.push_upstream_to_git" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.CloneAccountService.CloneDeployment.restart_docker_containers">
+<code class="descname">restart_docker_containers</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.CloneAccountService.CloneDeployment.restart_docker_containers" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.CloneAccountService.CloneDeployment.restart_docker_jenkins">
+<code class="descname">restart_docker_jenkins</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.CloneAccountService.CloneDeployment.restart_docker_jenkins" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.CloneAccountService.CloneDeployment.runClone">
+<code class="descname">runClone</code><span class="sig-paren">(</span><em>id</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.CloneAccountService.CloneDeployment.runClone" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.CloneAccountService.CloneDeployment.run_jenkins_job_build">
+<code class="descname">run_jenkins_job_build</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.CloneAccountService.CloneDeployment.run_jenkins_job_build" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.CloneAccountService.CloneDeployment.schedule_cleaner">
+<code class="descname">schedule_cleaner</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.CloneAccountService.CloneDeployment.schedule_cleaner" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.CloneAccountService.CloneDeployment.senf_notification">
+<code class="descname">senf_notification</code><span class="sig-paren">(</span><em>status</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.CloneAccountService.CloneDeployment.senf_notification" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.CloneAccountService.CloneDeployment.startExecution">
+<code class="descname">startExecution</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.CloneAccountService.CloneDeployment.startExecution" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.CloneAccountService.CloneDeployment.start_cloning">
+<code class="descname">start_cloning</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.CloneAccountService.CloneDeployment.start_cloning" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Services.CloneAccountService.CloneDeployment.tool_steps">
+<code class="descname">tool_steps</code><em class="property"> = ('validate_jenkins_job', 'validate_git_project', 'clone_tool_to_account_dpm', 'copy_logo_media_files', 'fork_project_with_account_group', 'clone_repository_to_git', 'create_upstream_to_original_rep', 'jenkins_copy_job', 'jenkins_update_job')</em><a class="headerlink" href="#Services.CloneAccountService.CloneDeployment.tool_steps" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.CloneAccountService.CloneDeployment.updateToolList">
+<code class="descname">updateToolList</code><span class="sig-paren">(</span><em>version_status</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.CloneAccountService.CloneDeployment.updateToolList" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.CloneAccountService.CloneDeployment.update_distribution_sync_data_in_account_dpm">
+<code class="descname">update_distribution_sync_data_in_account_dpm</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.CloneAccountService.CloneDeployment.update_distribution_sync_data_in_account_dpm" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.CloneAccountService.CloneDeployment.update_init_d_file">
+<code class="descname">update_init_d_file</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.CloneAccountService.CloneDeployment.update_init_d_file" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.CloneAccountService.CloneDeployment.update_jenkins_files">
+<code class="descname">update_jenkins_files</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.CloneAccountService.CloneDeployment.update_jenkins_files" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Services.CloneAccountService.CloneDeployment.update_tool">
+<code class="descname">update_tool</code><em class="property"> = ('validate_jenkins_job', 'update_tool_to_account_dpm', 'copy_logo_media_files', 'fetch_upstream_to_original_rep', 'checkout_tool', 'push_upstream_to_git', 'copy_jenkins_files', 'update_jenkins_files', 'jenkins_update_job', 'update_distribution_sync_data_in_account_dpm')</em><a class="headerlink" href="#Services.CloneAccountService.CloneDeployment.update_tool" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Services.CloneAccountService.CloneDeployment.update_tool_steps">
+<code class="descname">update_tool_steps</code><em class="property"> = ('update_tools', 'restart_docker_jenkins')</em><a class="headerlink" href="#Services.CloneAccountService.CloneDeployment.update_tool_steps" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.CloneAccountService.CloneDeployment.update_tool_to_account_dpm">
+<code class="descname">update_tool_to_account_dpm</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.CloneAccountService.CloneDeployment.update_tool_to_account_dpm" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.CloneAccountService.CloneDeployment.update_tools">
+<code class="descname">update_tools</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.CloneAccountService.CloneDeployment.update_tools" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.CloneAccountService.CloneDeployment.validate_git_project">
+<code class="descname">validate_git_project</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.CloneAccountService.CloneDeployment.validate_git_project" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.CloneAccountService.CloneDeployment.validate_jenkins_job">
+<code class="descname">validate_jenkins_job</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.CloneAccountService.CloneDeployment.validate_jenkins_job" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.CloneAccountService.CloneDeployment.verify_executable_installation">
+<code class="descname">verify_executable_installation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.CloneAccountService.CloneDeployment.verify_executable_installation" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-Services.CloneRequestService">
+<span id="services-clonerequestservice-module"></span><h2>Services.CloneRequestService module<a class="headerlink" href="#module-Services.CloneRequestService" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="Services.CloneRequestService.CloneRequestService">
+<em class="property">class </em><code class="descclassname">Services.CloneRequestService.</code><code class="descname">CloneRequestService</code><span class="sig-paren">(</span><em>db</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.CloneRequestService.CloneRequestService" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/2/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<dl class="method">
+<dt id="Services.CloneRequestService.CloneRequestService.do_stuff">
+<code class="descname">do_stuff</code><span class="sig-paren">(</span><em>task</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.CloneRequestService.CloneRequestService.do_stuff" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.CloneRequestService.CloneRequestService.job_function">
+<code class="descname">job_function</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.CloneRequestService.CloneRequestService.job_function" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.CloneRequestService.CloneRequestService.load_configuration">
+<code class="descname">load_configuration</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.CloneRequestService.CloneRequestService.load_configuration" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.CloneRequestService.CloneRequestService.schedule">
+<code class="descname">schedule</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.CloneRequestService.CloneRequestService.schedule" title="Permalink to this definition">¶</a></dt>
+<dd><p># Schedules the job
+# scheduler :Scheduler object
+# interval_given:Time interval for job to rerun</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-Services.ContributionGitPushService">
+<span id="services-contributiongitpushservice-module"></span><h2>Services.ContributionGitPushService module<a class="headerlink" href="#module-Services.ContributionGitPushService" title="Permalink to this headline">¶</a></h2>
+<p>Created on Mar 16, 2016</p>
+<p>&#64;author: PDINDA</p>
+<dl class="class">
+<dt id="Services.ContributionGitPushService.ContributionGitPushService">
+<em class="property">class </em><code class="descclassname">Services.ContributionGitPushService.</code><code class="descname">ContributionGitPushService</code><span class="sig-paren">(</span><em>db</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.ContributionGitPushService.ContributionGitPushService" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/2/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<dl class="method">
+<dt id="Services.ContributionGitPushService.ContributionGitPushService.job_function">
+<code class="descname">job_function</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.ContributionGitPushService.ContributionGitPushService.job_function" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method initiates Git contribution service for all tools</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Services.ContributionGitPushService.ContributionGitPushService.load_configuration">
+<code class="descname">load_configuration</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.ContributionGitPushService.ContributionGitPushService.load_configuration" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.ContributionGitPushService.ContributionGitPushService.notify">
+<code class="descname">notify</code><span class="sig-paren">(</span><em>user_list</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.ContributionGitPushService.ContributionGitPushService.notify" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method notifies the owner of TOOL / DU about any code changes made.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Services.ContributionGitPushService.ContributionGitPushService.schedule">
+<code class="descname">schedule</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.ContributionGitPushService.ContributionGitPushService.schedule" title="Permalink to this definition">¶</a></dt>
+<dd><p># Schedules the job
+# scheduler :Scheduler object
+# interval_given:Time interval for job to rerun</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-Services.CustomExceptionHandler">
+<span id="services-customexceptionhandler-module"></span><h2>Services.CustomExceptionHandler module<a class="headerlink" href="#module-Services.CustomExceptionHandler" title="Permalink to this headline">¶</a></h2>
+<p>Created on Nov 23, 2016</p>
+<p>&#64;author: pdinda</p>
+<dl class="exception">
+<dt id="Services.CustomExceptionHandler.FabricException">
+<em class="property">exception </em><code class="descclassname">Services.CustomExceptionHandler.</code><code class="descname">FabricException</code><a class="headerlink" href="#Services.CustomExceptionHandler.FabricException" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/2/library/exceptions.html#exceptions.Exception" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">exceptions.Exception</span></code></a></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Services.CustomExceptionHandler.exceptionHandler">
+<code class="descclassname">Services.CustomExceptionHandler.</code><code class="descname">exceptionHandler</code><span class="sig-paren">(</span><em>f</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.CustomExceptionHandler.exceptionHandler" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="services-deploymentrequestservice-module">
+<h2>Services.DeploymentRequestService module<a class="headerlink" href="#services-deploymentrequestservice-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="services-deploymentservices-module">
+<h2>Services.DeploymentServices module<a class="headerlink" href="#services-deploymentservices-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-Services.DistributionCenterService">
+<span id="services-distributioncenterservice-module"></span><h2>Services.DistributionCenterService module<a class="headerlink" href="#module-Services.DistributionCenterService" title="Permalink to this headline">¶</a></h2>
+<p>Created on Mar 16, 2016</p>
+<p>&#64;author: PDINDA</p>
+<dl class="class">
+<dt id="Services.DistributionCenterService.DistributionCenterService">
+<em class="property">class </em><code class="descclassname">Services.DistributionCenterService.</code><code class="descname">DistributionCenterService</code><span class="sig-paren">(</span><em>db</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.DistributionCenterService.DistributionCenterService" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/2/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<dl class="method">
+<dt id="Services.DistributionCenterService.DistributionCenterService.job_function">
+<code class="descname">job_function</code><span class="sig-paren">(</span><em>id=None</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.DistributionCenterService.DistributionCenterService.job_function" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start of DistributionCenterService</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Services.DistributionCenterService.DistributionCenterService.load_configuration">
+<code class="descname">load_configuration</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.DistributionCenterService.DistributionCenterService.load_configuration" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.DistributionCenterService.DistributionCenterService.notify">
+<code class="descname">notify</code><span class="sig-paren">(</span><em>status_email</em>, <em>toolNameExported</em>, <em>toolNamesNotExported</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.DistributionCenterService.DistributionCenterService.notify" title="Permalink to this definition">¶</a></dt>
+<dd><p>Notify User after Pushed</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Services.DistributionCenterService.DistributionCenterService.prepareRequest">
+<code class="descname">prepareRequest</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.DistributionCenterService.DistributionCenterService.prepareRequest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prepared Zip File For Push</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Services.DistributionCenterService.DistributionCenterService.push">
+<code class="descname">push</code><span class="sig-paren">(</span><em>rec</em>, <em>file_created</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.DistributionCenterService.DistributionCenterService.push" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start to Pushing file</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Services.DistributionCenterService.DistributionCenterService.schedule">
+<code class="descname">schedule</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.DistributionCenterService.DistributionCenterService.schedule" title="Permalink to this definition">¶</a></dt>
+<dd><p># Schedules the job
+# scheduler :Scheduler object
+# interval_given:Time interval for job to rerun</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Services.DistributionCenterService.DistributionCenterService.validate">
+<code class="descname">validate</code><span class="sig-paren">(</span><em>rec</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.DistributionCenterService.DistributionCenterService.validate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validate Machine Id</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-Services.DistributionSyncServices">
+<span id="services-distributionsyncservices-module"></span><h2>Services.DistributionSyncServices module<a class="headerlink" href="#module-Services.DistributionSyncServices" title="Permalink to this headline">¶</a></h2>
+<p>Created on Mar 16, 2016</p>
+<p>&#64;author: PDINDA</p>
+<dl class="class">
+<dt id="Services.DistributionSyncServices.DistributionSyncServices">
+<em class="property">class </em><code class="descclassname">Services.DistributionSyncServices.</code><code class="descname">DistributionSyncServices</code><a class="headerlink" href="#Services.DistributionSyncServices.DistributionSyncServices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/2/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<dl class="method">
+<dt id="Services.DistributionSyncServices.DistributionSyncServices.checkPendingImports">
+<code class="descname">checkPendingImports</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.DistributionSyncServices.DistributionSyncServices.checkPendingImports" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checking Pending Import</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Services.DistributionSyncServices.DistributionSyncServices.compare">
+<code class="descname">compare</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.DistributionSyncServices.DistributionSyncServices.compare" title="Permalink to this definition">¶</a></dt>
+<dd><p>Comparing sync data</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Services.DistributionSyncServices.DistributionSyncServices.job_function">
+<code class="descname">job_function</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.DistributionSyncServices.DistributionSyncServices.job_function" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start of DistributionSyncServices</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Services.DistributionSyncServices.DistributionSyncServices.load_configuration">
+<code class="descname">load_configuration</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.DistributionSyncServices.DistributionSyncServices.load_configuration" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.DistributionSyncServices.DistributionSyncServices.notifyAddition">
+<code class="descname">notifyAddition</code><span class="sig-paren">(</span><em>distribution_list=None</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.DistributionSyncServices.DistributionSyncServices.notifyAddition" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send Notify Email Once DistributionSyncServices Done</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Services.DistributionSyncServices.DistributionSyncServices.notifyCompared">
+<code class="descname">notifyCompared</code><span class="sig-paren">(</span><em>distribution_list=None</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.DistributionSyncServices.DistributionSyncServices.notifyCompared" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send Notify Email Once DistributionSyncServices Compared Done</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Services.DistributionSyncServices.DistributionSyncServices.schedule">
+<code class="descname">schedule</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.DistributionSyncServices.DistributionSyncServices.schedule" title="Permalink to this definition">¶</a></dt>
+<dd><p># Schedules the job
+# scheduler :Scheduler object
+# interval_given:Time interval for job to rerun</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Services.DistributionSyncServices.DistributionSyncServices.updatePaths">
+<code class="descname">updatePaths</code><span class="sig-paren">(</span><em>folder_path</em>, <em>rec</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.DistributionSyncServices.DistributionSyncServices.updatePaths" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update path For Logo and Thumbnail</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Services.DistributionSyncServices.DistributionSyncServices.zipFileCreatorLock">
+<code class="descname">zipFileCreatorLock</code><em class="property"> = &lt;thread.lock object at 0x081AB340&gt;</em><a class="headerlink" href="#Services.DistributionSyncServices.DistributionSyncServices.zipFileCreatorLock" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="Services.DistributionSyncServices.synchronized">
+<code class="descclassname">Services.DistributionSyncServices.</code><code class="descname">synchronized</code><span class="sig-paren">(</span><em>lock</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.DistributionSyncServices.synchronized" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start Lock acquired for createZipToExport</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-Services.FileUtils">
+<span id="services-fileutils-module"></span><h2>Services.FileUtils module<a class="headerlink" href="#module-Services.FileUtils" title="Permalink to this headline">¶</a></h2>
+<p>Created on May 31, 2016</p>
+<p>&#64;author: PDINDA</p>
+<dl class="function">
+<dt id="Services.FileUtils.addFolderToZip">
+<code class="descclassname">Services.FileUtils.</code><code class="descname">addFolderToZip</code><span class="sig-paren">(</span><em>myZipFile</em>, <em>folder_to_zip</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.FileUtils.addFolderToZip" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="Services.FileUtils.createZipFile">
+<code class="descclassname">Services.FileUtils.</code><code class="descname">createZipFile</code><span class="sig-paren">(</span><em>src</em>, <em>dst</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.FileUtils.createZipFile" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="Services.FileUtils.fileToJson">
+<code class="descclassname">Services.FileUtils.</code><code class="descname">fileToJson</code><span class="sig-paren">(</span><em>file_path=None</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.FileUtils.fileToJson" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="Services.FileUtils.jsontoFile">
+<code class="descclassname">Services.FileUtils.</code><code class="descname">jsontoFile</code><span class="sig-paren">(</span><em>filename_with_path=None</em>, <em>data=None</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.FileUtils.jsontoFile" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="Services.FileUtils.renameFile">
+<code class="descclassname">Services.FileUtils.</code><code class="descname">renameFile</code><span class="sig-paren">(</span><em>old_name_with_path</em>, <em>new_name</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.FileUtils.renameFile" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="Services.FileUtils.returnJsonFromFiles">
+<code class="descclassname">Services.FileUtils.</code><code class="descname">returnJsonFromFiles</code><span class="sig-paren">(</span><em>file_path</em>, <em>file_name</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.FileUtils.returnJsonFromFiles" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="Services.FileUtils.thumbnail">
+<code class="descclassname">Services.FileUtils.</code><code class="descname">thumbnail</code><span class="sig-paren">(</span><em>image_details</em>, <em>thumbnail_file_path</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.FileUtils.thumbnail" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="Services.FileUtils.unzipImportFile">
+<code class="descclassname">Services.FileUtils.</code><code class="descname">unzipImportFile</code><span class="sig-paren">(</span><em>file_path</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.FileUtils.unzipImportFile" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-Services.HelperServices">
+<span id="services-helperservices-module"></span><h2>Services.HelperServices module<a class="headerlink" href="#module-Services.HelperServices" title="Permalink to this headline">¶</a></h2>
+<p>Created on Jul 20, 2016</p>
+<p>&#64;author: pdinda</p>
+<dl class="function">
+<dt id="Services.HelperServices.addDeploymentUnitSet">
+<code class="descclassname">Services.HelperServices.</code><code class="descname">addDeploymentUnitSet</code><span class="sig-paren">(</span><em>deploymentUnitSetData</em>, <em>deployment_unit_set_id=None</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.HelperServices.addDeploymentUnitSet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add update DeploymentUnitSet data</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Services.HelperServices.addTool">
+<code class="descclassname">Services.HelperServices.</code><code class="descname">addTool</code><span class="sig-paren">(</span><em>tooldata</em>, <em>tool_id</em>, <em>logo_path</em>, <em>folder_to_import_from</em>, <em>full_logo_path</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.HelperServices.addTool" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add Update a Tool</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Services.HelperServices.addToolSet">
+<code class="descclassname">Services.HelperServices.</code><code class="descname">addToolSet</code><span class="sig-paren">(</span><em>toolSetData</em>, <em>tool_set_id=None</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.HelperServices.addToolSet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add ToolSetData</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Services.HelperServices.addUpdateBuild">
+<code class="descclassname">Services.HelperServices.</code><code class="descname">addUpdateBuild</code><span class="sig-paren">(</span><em>build</em>, <em>parent_entity_id</em>, <em>folder_to_import_from=None</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.HelperServices.addUpdateBuild" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add Update a Build</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Services.HelperServices.addUpdateDeploymentFields">
+<code class="descclassname">Services.HelperServices.</code><code class="descname">addUpdateDeploymentFields</code><span class="sig-paren">(</span><em>deploymentFieldData</em>, <em>parent_entity_id</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.HelperServices.addUpdateDeploymentFields" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add Update a DeploymentField</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Services.HelperServices.addUpdateDeploymentUnit">
+<code class="descclassname">Services.HelperServices.</code><code class="descname">addUpdateDeploymentUnit</code><span class="sig-paren">(</span><em>deploymentUnitData</em>, <em>deploymentUnitId=None</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.HelperServices.addUpdateDeploymentUnit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add update DeploymentUnit data</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Services.HelperServices.addUpdateDocuments">
+<code class="descclassname">Services.HelperServices.</code><code class="descname">addUpdateDocuments</code><span class="sig-paren">(</span><em>Documents</em>, <em>parent_entity_id</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.HelperServices.addUpdateDocuments" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add Update a Document</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Services.HelperServices.addUpdateMediaFiles">
+<code class="descclassname">Services.HelperServices.</code><code class="descname">addUpdateMediaFiles</code><span class="sig-paren">(</span><em>MediaFiles</em>, <em>version_id</em>, <em>folder_to_import_from=None</em>, <em>full_media_files_path=None</em>, <em>media_files_path=None</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.HelperServices.addUpdateMediaFiles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add Update a MediaFile</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Services.HelperServices.addVersion">
+<code class="descclassname">Services.HelperServices.</code><code class="descname">addVersion</code><span class="sig-paren">(</span><em>VersionsData</em>, <em>tool_id</em>, <em>version_id</em>, <em>allDetails=False</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.HelperServices.addVersion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add Update a Version</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Services.HelperServices.checkIfToolDataDoesNotExists">
+<code class="descclassname">Services.HelperServices.</code><code class="descname">checkIfToolDataDoesNotExists</code><span class="sig-paren">(</span><em>tooldata</em>, <em>localTool</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.HelperServices.checkIfToolDataDoesNotExists" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if tool data exists in database</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Services.HelperServices.checkIfToolExists">
+<code class="descclassname">Services.HelperServices.</code><code class="descname">checkIfToolExists</code><span class="sig-paren">(</span><em>tooldata</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.HelperServices.checkIfToolExists" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if tool data dependent data exists in database</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Services.HelperServices.clean_processed_sync">
+<code class="descclassname">Services.HelperServices.</code><code class="descname">clean_processed_sync</code><span class="sig-paren">(</span><em>sync_id</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.HelperServices.clean_processed_sync" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="Services.HelperServices.compare">
+<code class="descclassname">Services.HelperServices.</code><code class="descname">compare</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.HelperServices.compare" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compare data for sync</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Services.HelperServices.compareToolData">
+<code class="descclassname">Services.HelperServices.</code><code class="descname">compareToolData</code><span class="sig-paren">(</span><em>copytool</em>, <em>copyltool</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.HelperServices.compareToolData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compare a tool data</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Services.HelperServices.compareVersionData">
+<code class="descclassname">Services.HelperServices.</code><code class="descname">compareVersionData</code><span class="sig-paren">(</span><em>copyversion</em>, <em>copylversion</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.HelperServices.compareVersionData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compare a version data</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Services.HelperServices.deleteVersionAndItsBuild">
+<code class="descclassname">Services.HelperServices.</code><code class="descname">deleteVersionAndItsBuild</code><span class="sig-paren">(</span><em>version_id</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.HelperServices.deleteVersionAndItsBuild" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove a version and dependent builds</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Services.HelperServices.deletetool">
+<code class="descclassname">Services.HelperServices.</code><code class="descname">deletetool</code><span class="sig-paren">(</span><em>tool_id</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.HelperServices.deletetool" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start Tool Deletion</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Services.HelperServices.downloadBuildFiles">
+<code class="descclassname">Services.HelperServices.</code><code class="descname">downloadBuildFiles</code><span class="sig-paren">(</span><em>version</em>, <em>error_prefix</em>, <em>artifact_path</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.HelperServices.downloadBuildFiles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Download MediaFiles Files</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Services.HelperServices.downloadLogoFiles">
+<code class="descclassname">Services.HelperServices.</code><code class="descname">downloadLogoFiles</code><span class="sig-paren">(</span><em>tool_data</em>, <em>static_folder_path</em>, <em>logo_file_path</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.HelperServices.downloadLogoFiles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Download LogoFiles Files</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Services.HelperServices.downloadMediaFiles">
+<code class="descclassname">Services.HelperServices.</code><code class="descname">downloadMediaFiles</code><span class="sig-paren">(</span><em>version</em>, <em>error_prefix</em>, <em>static_folder_path</em>, <em>media_file_path</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.HelperServices.downloadMediaFiles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Download MediaFiles Files</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Services.HelperServices.getDependendTools">
+<code class="descclassname">Services.HelperServices.</code><code class="descname">getDependendTools</code><span class="sig-paren">(</span><em>version</em>, <em>delete_ids=False</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.HelperServices.getDependendTools" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get DependendTools for version</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Services.HelperServices.getDistributionListAndStaus">
+<code class="descclassname">Services.HelperServices.</code><code class="descname">getDistributionListAndStaus</code><span class="sig-paren">(</span><em>config</em>, <em>type=''</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.HelperServices.getDistributionListAndStaus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get distribution list for sync</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Services.HelperServices.getFinalOrderProcess">
+<code class="descclassname">Services.HelperServices.</code><code class="descname">getFinalOrderProcess</code><span class="sig-paren">(</span><em>versions</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.HelperServices.getFinalOrderProcess" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate FinalOrderProcess of tool</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Services.HelperServices.getOrderProcess">
+<code class="descclassname">Services.HelperServices.</code><code class="descname">getOrderProcess</code><span class="sig-paren">(</span><em>version_details</em>, <em>order_process</em>, <em>visitedToolVersionName=[]</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.HelperServices.getOrderProcess" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate OrderProcess of tool</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Services.HelperServices.getSyncIdandType">
+<code class="descclassname">Services.HelperServices.</code><code class="descname">getSyncIdandType</code><span class="sig-paren">(</span><em>record</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.HelperServices.getSyncIdandType" title="Permalink to this definition">¶</a></dt>
+<dd><p>GEt Sync Id and Type from record</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Services.HelperServices.notify">
+<code class="descclassname">Services.HelperServices.</code><code class="descname">notify</code><span class="sig-paren">(</span><em>sync_id</em>, <em>distribution_list</em>, <em>mailer</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.HelperServices.notify" title="Permalink to this definition">¶</a></dt>
+<dd><p>Email User</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Services.HelperServices.notifyAddition">
+<code class="descclassname">Services.HelperServices.</code><code class="descname">notifyAddition</code><span class="sig-paren">(</span><em>sync_id</em>, <em>distribution_list</em>, <em>mailer</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.HelperServices.notifyAddition" title="Permalink to this definition">¶</a></dt>
+<dd><p>Email User about a new sync request</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Services.HelperServices.setDependendTools">
+<code class="descclassname">Services.HelperServices.</code><code class="descname">setDependendTools</code><span class="sig-paren">(</span><em>version</em>, <em>delete_ids=False</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.HelperServices.setDependendTools" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set DependendTools for version</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Services.HelperServices.trimDeploymentUnitData">
+<code class="descclassname">Services.HelperServices.</code><code class="descname">trimDeploymentUnitData</code><span class="sig-paren">(</span><em>deploymentUnitData</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.HelperServices.trimDeploymentUnitData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Trim DeploymentUnitData</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Services.HelperServices.validateToolData">
+<code class="descclassname">Services.HelperServices.</code><code class="descname">validateToolData</code><span class="sig-paren">(</span><em>tooldata=None</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.HelperServices.validateToolData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validate a ToolJson Data</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Services.HelperServices.validateToolJsonData">
+<code class="descclassname">Services.HelperServices.</code><code class="descname">validateToolJsonData</code><span class="sig-paren">(</span><em>toolJsonData</em>, <em>validateSyncId=True</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.HelperServices.validateToolJsonData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validate a ToolJson</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Services.HelperServices.verifyDeploymentUnitSetData">
+<code class="descclassname">Services.HelperServices.</code><code class="descname">verifyDeploymentUnitSetData</code><span class="sig-paren">(</span><em>deploymentUnitSetData</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.HelperServices.verifyDeploymentUnitSetData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Verify DeploymentUnitSetData</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Services.HelperServices.verifyDu_DuSetData">
+<code class="descclassname">Services.HelperServices.</code><code class="descname">verifyDu_DuSetData</code><span class="sig-paren">(</span><em>myData</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.HelperServices.verifyDu_DuSetData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Verify DuSetData</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Services.HelperServices.verifyToolSetData">
+<code class="descclassname">Services.HelperServices.</code><code class="descname">verifyToolSetData</code><span class="sig-paren">(</span><em>toolsetData</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.HelperServices.verifyToolSetData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Verify ToolSetData</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-Services.Mailer">
+<span id="services-mailer-module"></span><h2>Services.Mailer module<a class="headerlink" href="#module-Services.Mailer" title="Permalink to this headline">¶</a></h2>
+<p>Created on Mar 16, 2016</p>
+<p>&#64;author: PDINDA</p>
+<dl class="class">
+<dt id="Services.Mailer.Mailer">
+<em class="property">class </em><code class="descclassname">Services.Mailer.</code><code class="descname">Mailer</code><span class="sig-paren">(</span><em>db=None</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.Mailer.Mailer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/2/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<dl class="method">
+<dt id="Services.Mailer.Mailer.handle_pending_notification">
+<code class="descname">handle_pending_notification</code><span class="sig-paren">(</span><em>id</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.Mailer.Mailer.handle_pending_notification" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div># Check pending email&#8217;s in db and retry sending them</div></blockquote>
+<p># Returns 200 when record handled
+# Returns 404 not found
+# Return 500 when error occurs while sending email</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Services.Mailer.Mailer.save_email_to_db">
+<code class="descname">save_email_to_db</code><span class="sig-paren">(</span><em>to</em>, <em>bcc</em>, <em>cc</em>, <em>subject</em>, <em>msg</em>, <em>templateid</em>, <em>msgtype</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.Mailer.Mailer.save_email_to_db" title="Permalink to this definition">¶</a></dt>
+<dd><p># Saves email to db
+# Return 404 when error occurs while saving to db
+# Returns 200 when success
+# Returns 500 on unexpected exception</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Services.Mailer.Mailer.send_email">
+<code class="descname">send_email</code><span class="sig-paren">(</span><em>to</em>, <em>cc</em>, <em>bcc</em>, <em>subject</em>, <em>emaildata</em>, <em>emailtype</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.Mailer.Mailer.send_email" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div># Sends the email</div></blockquote>
+<p># Returns 404 when invalid email type,mandatory not found
+# Returns 200 on success
+# Returns 500 on unexpected exception
+######################################################################
+# THIS METHOD SHOULD ONLY BE CALLED FROM handle_pending_notification(id)
+######################################################################</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Services.Mailer.Mailer.send_html_notification">
+<code class="descname">send_html_notification</code><span class="sig-paren">(</span><em>to</em>, <em>bcc</em>, <em>cc</em>, <em>templateid</em>, <em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.Mailer.Mailer.send_html_notification" title="Permalink to this definition">¶</a></dt>
+<dd><p>convert data to html mail template using render template
+and save it to database</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Services.Mailer.Mailer.send_plain_notification">
+<code class="descname">send_plain_notification</code><span class="sig-paren">(</span><em>to</em>, <em>bcc</em>, <em>cc</em>, <em>subject</em>, <em>body</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.Mailer.Mailer.send_plain_notification" title="Permalink to this definition">¶</a></dt>
+<dd><p># Returns 404 when not found occurs
+# Returns 200 on success</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Services.Mailer.Mailer.str_to_bool">
+<code class="descname">str_to_bool</code><span class="sig-paren">(</span><em>s</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.Mailer.Mailer.str_to_bool" title="Permalink to this definition">¶</a></dt>
+<dd><p># Converter Function</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-Services.MailerService">
+<span id="services-mailerservice-module"></span><h2>Services.MailerService module<a class="headerlink" href="#module-Services.MailerService" title="Permalink to this headline">¶</a></h2>
+<p>Created on Mar 16, 2016</p>
+<p>&#64;author: PDINDA</p>
+<dl class="class">
+<dt id="Services.MailerService.MailerService">
+<em class="property">class </em><code class="descclassname">Services.MailerService.</code><code class="descname">MailerService</code><a class="headerlink" href="#Services.MailerService.MailerService" title="Permalink to this definition">¶</a></dt>
+<dd><p>search for new or pending mails in database and
+send it to receipents</p>
+<dl class="method">
+<dt id="Services.MailerService.MailerService.job_function">
+<code class="descname">job_function</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.MailerService.MailerService.job_function" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.MailerService.MailerService.load_configuration">
+<code class="descname">load_configuration</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.MailerService.MailerService.load_configuration" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.MailerService.MailerService.schedule">
+<code class="descname">schedule</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.MailerService.MailerService.schedule" title="Permalink to this definition">¶</a></dt>
+<dd><p># Schedules the job
+# scheduler :Scheduler object
+# interval_given:Time interval for job to rerun</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Services.MailerService.MailerService.str_to_bool">
+<code class="descname">str_to_bool</code><span class="sig-paren">(</span><em>s</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.MailerService.MailerService.str_to_bool" title="Permalink to this definition">¶</a></dt>
+<dd><p># Converter Function</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-Services.PasswordHelper">
+<span id="services-passwordhelper-module"></span><h2>Services.PasswordHelper module<a class="headerlink" href="#module-Services.PasswordHelper" title="Permalink to this headline">¶</a></h2>
+<p>Created on Sep 2, 2016</p>
+<p>&#64;author: pdinda</p>
+<dl class="class">
+<dt id="Services.PasswordHelper.PasswordHelper">
+<em class="property">class </em><code class="descclassname">Services.PasswordHelper.</code><code class="descname">PasswordHelper</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.PasswordHelper.PasswordHelper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/2/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<dl class="method">
+<dt id="Services.PasswordHelper.PasswordHelper.decrypt">
+<code class="descname">decrypt</code><span class="sig-paren">(</span><em>enc</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.PasswordHelper.PasswordHelper.decrypt" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.PasswordHelper.PasswordHelper.encrypt">
+<code class="descname">encrypt</code><span class="sig-paren">(</span><em>raw</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.PasswordHelper.PasswordHelper.encrypt" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.PasswordHelper.PasswordHelper.verify">
+<code class="descname">verify</code><span class="sig-paren">(</span><em>userEnteredPassword</em>, <em>encryptedValue</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.PasswordHelper.PasswordHelper.verify" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-Services.PluginsManagerService">
+<span id="services-pluginsmanagerservice-module"></span><h2>Services.PluginsManagerService module<a class="headerlink" href="#module-Services.PluginsManagerService" title="Permalink to this headline">¶</a></h2>
+<p>Created on April 13, 2017
+&#64;author: ILANPI
+this module  is managing all the connection,activation,triggering,installation of plugins
+all the connection to the plugin should be done from this plugin</p>
+<dl class="class">
+<dt id="Services.PluginsManagerService.PluginsManagerService">
+<em class="property">class </em><code class="descclassname">Services.PluginsManagerService.</code><code class="descname">PluginsManagerService</code><a class="headerlink" href="#Services.PluginsManagerService.PluginsManagerService" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/2/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<p>Description: main class in order to manage all the plugin operations like loading and triggering</p>
+<dl class="method">
+<dt id="Services.PluginsManagerService.PluginsManagerService.activate">
+<code class="descname">activate</code><span class="sig-paren">(</span><em>plugin_name</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.PluginsManagerService.PluginsManagerService.activate" title="Permalink to this definition">¶</a></dt>
+<dd><p>activates plugin by name</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>plugin_name</strong> &#8211; </td>
+</tr>
+</tbody>
+</table>
+<dl class="docutils">
+<dt>:raise</dt>
+<dd>RuntimeError &#8220;could not activate plugin&#8221;</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="Services.PluginsManagerService.PluginsManagerService.deactivate">
+<code class="descname">deactivate</code><span class="sig-paren">(</span><em>plugin_name</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.PluginsManagerService.PluginsManagerService.deactivate" title="Permalink to this definition">¶</a></dt>
+<dd><p>deactivates plugin by name</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>plugin_name</strong> &#8211; string</td>
+</tr>
+</tbody>
+</table>
+<dl class="docutils">
+<dt>:raise</dt>
+<dd>RuntimeError &#8220;could not deactivate plugin&#8221;</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="Services.PluginsManagerService.PluginsManagerService.detect_new_plugins">
+<code class="descname">detect_new_plugins</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.PluginsManagerService.PluginsManagerService.detect_new_plugins" title="Permalink to this definition">¶</a></dt>
+<dd><p>updates new plugins in db</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>loaded_plugin_from_folder</strong> &#8211; </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="Services.PluginsManagerService.PluginsManagerService.install_plugin">
+<code class="descname">install_plugin</code><span class="sig-paren">(</span><em>plugin_name</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.PluginsManagerService.PluginsManagerService.install_plugin" title="Permalink to this definition">¶</a></dt>
+<dd><p>activates the plugin and triggers the install method of the plugin</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>plugin_name</strong> &#8211; string</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<dl class="docutils">
+<dt>:raises</dt>
+<dd>RuntimeError &#8220;unable to insert the plugin to DB&#8221;</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="Services.PluginsManagerService.PluginsManagerService.is_valid_plugin">
+<code class="descname">is_valid_plugin</code><span class="sig-paren">(</span><em>plugin</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.PluginsManagerService.PluginsManagerService.is_valid_plugin" title="Permalink to this definition">¶</a></dt>
+<dd><p>validate that plugin has all the required methods and attributes</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>plugin</strong> &#8211; </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True or False</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="Services.PluginsManagerService.PluginsManagerService.load_plugin">
+<code class="descname">load_plugin</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.PluginsManagerService.PluginsManagerService.load_plugin" title="Permalink to this definition">¶</a></dt>
+<dd><p>loads all  plugins from folder and activates the plugins</p>
+<dl class="docutils">
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">dict:</th><td class="field-body">active_plugins_dict_from_db</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Raises:</dt>
+<dd>no_value
+no_active_plugins</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="Services.PluginsManagerService.PluginsManagerService.preform">
+<code class="descname">preform</code><span class="sig-paren">(</span><em>category</em>, <em>plugin_name</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.PluginsManagerService.PluginsManagerService.preform" title="Permalink to this definition">¶</a></dt>
+<dd><p>execute the preform method of plugin in category</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>plugin_name</strong> &#8211; string</li>
+<li><strong>category</strong> &#8211; string</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="docutils">
+<dt>:raises</dt>
+<dd>RuntimeError unable to trigger operation of plugin:</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="Services.PluginsManagerService.PluginsManagerService.preform_all_in_category">
+<code class="descname">preform_all_in_category</code><span class="sig-paren">(</span><em>category</em>, <em>**keyargs</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.PluginsManagerService.PluginsManagerService.preform_all_in_category" title="Permalink to this definition">¶</a></dt>
+<dd><p>triggers all preform methods of plugin in the provided category</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>category</strong> &#8211; </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<dl class="docutils">
+<dt>:raises</dt>
+<dd>RuntimeError &#8220;unable to execute the plugin logic&#8221;</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="Services.PluginsManagerService.PluginsManagerService.test">
+<code class="descname">test</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.PluginsManagerService.PluginsManagerService.test" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.PluginsManagerService.PluginsManagerService.uninstall_plugin">
+<code class="descname">uninstall_plugin</code><span class="sig-paren">(</span><em>plugin</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.PluginsManagerService.PluginsManagerService.uninstall_plugin" title="Permalink to this definition">¶</a></dt>
+<dd><p>triggers the uninstall method of the  plugin by name
+remove the db details
+rename the plugin folder</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>plugin_name</strong> &#8211; </td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-Services.PullServices">
+<span id="services-pullservices-module"></span><h2>Services.PullServices module<a class="headerlink" href="#module-Services.PullServices" title="Permalink to this headline">¶</a></h2>
+<p>Created on Mar 16, 2016</p>
+<p>&#64;author: PDINDA</p>
+<dl class="class">
+<dt id="Services.PullServices.PullServices">
+<em class="property">class </em><code class="descclassname">Services.PullServices.</code><code class="descname">PullServices</code><a class="headerlink" href="#Services.PullServices.PullServices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/2/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<dl class="method">
+<dt id="Services.PullServices.PullServices.job_function">
+<code class="descname">job_function</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.PullServices.PullServices.job_function" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start of Push</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Services.PullServices.PullServices.load_configuration">
+<code class="descname">load_configuration</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.PullServices.PullServices.load_configuration" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Services.PullServices.PullServices.locker">
+<code class="descname">locker</code><em class="property"> = &lt;thread.lock object&gt;</em><a class="headerlink" href="#Services.PullServices.PullServices.locker" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.PullServices.PullServices.notify">
+<code class="descname">notify</code><span class="sig-paren">(</span><em>rec</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.PullServices.PullServices.notify" title="Permalink to this definition">¶</a></dt>
+<dd><p>Email user for a record</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Services.PullServices.PullServices.pull">
+<code class="descname">pull</code><span class="sig-paren">(</span><em>rec</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.PullServices.PullServices.pull" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determine pull type</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Services.PullServices.PullServices.pullByFile">
+<code class="descname">pullByFile</code><span class="sig-paren">(</span><em>rec</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.PullServices.PullServices.pullByFile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pull by type FILE</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Services.PullServices.PullServices.pullByUrl">
+<code class="descname">pullByUrl</code><span class="sig-paren">(</span><em>rec</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.PullServices.PullServices.pullByUrl" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pull by type URL</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Services.PullServices.PullServices.schedule">
+<code class="descname">schedule</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.PullServices.PullServices.schedule" title="Permalink to this definition">¶</a></dt>
+<dd><p># Schedules the job
+# scheduler :Scheduler object
+# interval_given:Time interval for job to rerun</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Services.PullServices.PullServices.syncCall">
+<code class="descname">syncCall</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.PullServices.PullServices.syncCall" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.PullServices.PullServices.validatePullByFileEntry">
+<code class="descname">validatePullByFileEntry</code><span class="sig-paren">(</span><em>rec</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.PullServices.PullServices.validatePullByFileEntry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validate if the pull request is valid</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Services.PullServices.PullServices.validatePullByUrlEntry">
+<code class="descname">validatePullByUrlEntry</code><span class="sig-paren">(</span><em>rec</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.PullServices.PullServices.validatePullByUrlEntry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validate if the pull request is valid</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="Services.PullServices.synchronized">
+<code class="descclassname">Services.PullServices.</code><code class="descname">synchronized</code><span class="sig-paren">(</span><em>lock</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.PullServices.synchronized" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-Services.PushServices">
+<span id="services-pushservices-module"></span><h2>Services.PushServices module<a class="headerlink" href="#module-Services.PushServices" title="Permalink to this headline">¶</a></h2>
+<p>Created on Mar 16, 2016</p>
+<p>&#64;author: PDINDA</p>
+<dl class="class">
+<dt id="Services.PushServices.PushServices">
+<em class="property">class </em><code class="descclassname">Services.PushServices.</code><code class="descname">PushServices</code><a class="headerlink" href="#Services.PushServices.PushServices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/2/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<dl class="method">
+<dt id="Services.PushServices.PushServices.AddfileDetails">
+<code class="descname">AddfileDetails</code><span class="sig-paren">(</span><em>file_created</em>, <em>rec</em>, <em>is_file_ind</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.PushServices.PushServices.AddfileDetails" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.PushServices.PushServices.get_folder_to_push_to">
+<code class="descname">get_folder_to_push_to</code><span class="sig-paren">(</span><em>rec</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.PushServices.PushServices.get_folder_to_push_to" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.PushServices.PushServices.job_function">
+<code class="descname">job_function</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.PushServices.PushServices.job_function" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start of Push</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Services.PushServices.PushServices.load_configuration">
+<code class="descname">load_configuration</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.PushServices.PushServices.load_configuration" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Services.PushServices.PushServices.locker">
+<code class="descname">locker</code><em class="property"> = &lt;thread.lock object at 0x07DBB9B0&gt;</em><a class="headerlink" href="#Services.PushServices.PushServices.locker" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.PushServices.PushServices.notify">
+<code class="descname">notify</code><span class="sig-paren">(</span><em>rec</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.PushServices.PushServices.notify" title="Permalink to this definition">¶</a></dt>
+<dd><p>Email user for a record</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Services.PushServices.PushServices.prepareRequest">
+<code class="descname">prepareRequest</code><span class="sig-paren">(</span><em>rec</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.PushServices.PushServices.prepareRequest" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.PushServices.PushServices.push">
+<code class="descname">push</code><span class="sig-paren">(</span><em>rec</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.PushServices.PushServices.push" title="Permalink to this definition">¶</a></dt>
+<dd><p>Created zip file to be pushed by this method</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Services.PushServices.PushServices.remove_old_file">
+<code class="descname">remove_old_file</code><span class="sig-paren">(</span><em>rec</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.PushServices.PushServices.remove_old_file" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.PushServices.PushServices.schedule">
+<code class="descname">schedule</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.PushServices.PushServices.schedule" title="Permalink to this definition">¶</a></dt>
+<dd><p># Schedules the job
+# scheduler :Scheduler object
+# interval_given:Time interval for job to rerun</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Services.PushServices.PushServices.start_data_push">
+<code class="descname">start_data_push</code><span class="sig-paren">(</span><em>rec</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.PushServices.PushServices.start_data_push" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.PushServices.PushServices.start_push">
+<code class="descname">start_push</code><span class="sig-paren">(</span><em>rec</em>, <em>file_num</em>, <em>file_name</em>, <em>source_file</em>, <em>folder_to_push_to</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.PushServices.PushServices.start_push" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.PushServices.PushServices.start_thread">
+<code class="descname">start_thread</code><span class="sig-paren">(</span><em>rec</em>, <em>folder_to_push_to</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.PushServices.PushServices.start_thread" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.PushServices.PushServices.syncCall">
+<code class="descname">syncCall</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.PushServices.PushServices.syncCall" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.PushServices.PushServices.triggerRequest">
+<code class="descname">triggerRequest</code><span class="sig-paren">(</span><em>rec</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.PushServices.PushServices.triggerRequest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform a trigger request</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Services.PushServices.PushServices.update_request_in_database">
+<code class="descname">update_request_in_database</code><span class="sig-paren">(</span><em>rec</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.PushServices.PushServices.update_request_in_database" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.PushServices.PushServices.validatePushFile">
+<code class="descname">validatePushFile</code><span class="sig-paren">(</span><em>rec</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.PushServices.PushServices.validatePushFile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validate if the push request is valid</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Services.PushServices.PushServices.validateTriggerRequest">
+<code class="descname">validateTriggerRequest</code><span class="sig-paren">(</span><em>rec</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.PushServices.PushServices.validateTriggerRequest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validate if the trigger request is valid</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="Services.PushServices.synchronized">
+<code class="descclassname">Services.PushServices.</code><code class="descname">synchronized</code><span class="sig-paren">(</span><em>lock</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.PushServices.synchronized" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-Services.RemoteAuthenticationService">
+<span id="services-remoteauthenticationservice-module"></span><h2>Services.RemoteAuthenticationService module<a class="headerlink" href="#module-Services.RemoteAuthenticationService" title="Permalink to this headline">¶</a></h2>
+<p>Created on Nov 17, 2016</p>
+<p>&#64;author: PDINDA</p>
+<p>Expected Input:</p>
+<dl class="docutils">
+<dt>{</dt>
+<dd><blockquote class="first last">
+<div><p>&#8220;steps_to_auth&#8221; : [
+{</p>
+<blockquote>
+<div><blockquote>
+<div>&#8220;username&#8221; : &#8220;asdsds&#8221;,//
+&#8220;host&#8221; : &#8220;pdinda02&#8221;,
+&#8220;password&#8221; : &#8220;asdsdsad&#8221;,
+&#8220;type&#8221; : &#8220;telnet&#8221;,
+&#8220;order&#8221; : 1</div></blockquote>
+<dl class="docutils">
+<dt>},</dt>
+<dd><dl class="first last docutils">
+<dt>{</dt>
+<dd>&#8220;username&#8221; : &#8220;asdsds&#8221;,//
+&#8220;host&#8221; : &#8220;pdinda02&#8221;,
+&#8220;password&#8221; : &#8220;asdsdsad&#8221;,
+&#8220;type&#8221; : &#8220;ssh&#8221;,
+&#8220;order&#8221; : 2</dd>
+</dl>
+</dd>
+<dt>},</dt>
+<dd><dl class="first last docutils">
+<dt>{</dt>
+<dd>&#8220;username&#8221; : &#8220;asdsds&#8221;,//
+&#8220;host&#8221; : &#8220;pdinda02&#8221;,
+&#8220;password&#8221; : &#8220;asdsdsad&#8221;,
+&#8220;type&#8221; : &#8220;ssh&#8221;,
+&#8220;order&#8221; : 3</dd>
+</dl>
+</dd>
+</dl>
+<p>}</p>
+</div></blockquote>
+<p><strong>***********EXTRA NOT REQUIRED DETAILS***************</strong></p>
+</div></blockquote>
+</dd>
+</dl>
+<p>}</p>
+<dl class="class">
+<dt id="Services.RemoteAuthenticationService.RemoteAuthenticationService">
+<em class="property">class </em><code class="descclassname">Services.RemoteAuthenticationService.</code><code class="descname">RemoteAuthenticationService</code><a class="headerlink" href="#Services.RemoteAuthenticationService.RemoteAuthenticationService" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="Services.RemoteAuthenticationService.RemoteAuthenticationService.authenticate">
+<code class="descname">authenticate</code><span class="sig-paren">(</span><em>step</em>, <em>fn</em>, <em>passStepAsArgument=False</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.RemoteAuthenticationService.RemoteAuthenticationService.authenticate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start of Authentication</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Services.RemoteAuthenticationService.RemoteAuthenticationService.callFinalMethod">
+<code class="descname">callFinalMethod</code><span class="sig-paren">(</span><em>step</em>, <em>current_step_id</em>, <em>fn</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.RemoteAuthenticationService.RemoteAuthenticationService.callFinalMethod" title="Permalink to this definition">¶</a></dt>
+<dd><p>This Method Call Final Method With Argument or Without Argument</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Services.RemoteAuthenticationService.RemoteAuthenticationService.extract_time">
+<code class="descname">extract_time</code><span class="sig-paren">(</span><em>json</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.RemoteAuthenticationService.RemoteAuthenticationService.extract_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>convert update_time string to int</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Services.RemoteAuthenticationService.RemoteAuthenticationService.ssh">
+<code class="descname">ssh</code><span class="sig-paren">(</span><em>step</em>, <em>current_step_id</em>, <em>fn</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.RemoteAuthenticationService.RemoteAuthenticationService.ssh" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start of SSH</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Services.RemoteAuthenticationService.RemoteAuthenticationService.telnet">
+<code class="descname">telnet</code><span class="sig-paren">(</span><em>step</em>, <em>current_step_id</em>, <em>fn</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.RemoteAuthenticationService.RemoteAuthenticationService.telnet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start of Telnet</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Services.RemoteAuthenticationService.RemoteAuthenticationService.validateConnectionSettings">
+<code class="descname">validateConnectionSettings</code><span class="sig-paren">(</span><em>rec</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.RemoteAuthenticationService.RemoteAuthenticationService.validateConnectionSettings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start of validate Connection Settings</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="services-scheduler-module">
+<h2>Services.Scheduler module<a class="headerlink" href="#services-scheduler-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-Services.StreamToLogger">
+<span id="services-streamtologger-module"></span><h2>Services.StreamToLogger module<a class="headerlink" href="#module-Services.StreamToLogger" title="Permalink to this headline">¶</a></h2>
+<p>Created on Apr 11, 2016</p>
+<p>&#64;author: PDINDA</p>
+<dl class="class">
+<dt id="Services.StreamToLogger.StreamToLogger">
+<em class="property">class </em><code class="descclassname">Services.StreamToLogger.</code><code class="descname">StreamToLogger</code><span class="sig-paren">(</span><em>logger</em>, <em>log_level=20</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.StreamToLogger.StreamToLogger" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/2/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<dl class="method">
+<dt id="Services.StreamToLogger.StreamToLogger.flush">
+<code class="descname">flush</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.StreamToLogger.StreamToLogger.flush" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.StreamToLogger.StreamToLogger.write">
+<code class="descname">write</code><span class="sig-paren">(</span><em>buf</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.StreamToLogger.StreamToLogger.write" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-Services.SyncServices">
+<span id="services-syncservices-module"></span><h2>Services.SyncServices module<a class="headerlink" href="#module-Services.SyncServices" title="Permalink to this headline">¶</a></h2>
+<p>Created on Mar 16, 2016</p>
+<p>&#64;author: PDINDA</p>
+<dl class="class">
+<dt id="Services.SyncServices.SyncServices">
+<em class="property">class </em><code class="descclassname">Services.SyncServices.</code><code class="descname">SyncServices</code><a class="headerlink" href="#Services.SyncServices.SyncServices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/2/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<dl class="method">
+<dt id="Services.SyncServices.SyncServices.addtool">
+<code class="descname">addtool</code><span class="sig-paren">(</span><em>tool</em>, <em>full_sync_flag='false'</em>, <em>folder_to_import_from=None</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.SyncServices.SyncServices.addtool" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start Tool Addition</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Services.SyncServices.SyncServices.bulkUpload">
+<code class="descname">bulkUpload</code><span class="sig-paren">(</span><em>artifacts_folder</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.SyncServices.SyncServices.bulkUpload" title="Permalink to this definition">¶</a></dt>
+<dd><p>WE BULK UPLOAD ALL ARTIFACTS HERE</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Services.SyncServices.SyncServices.checkPendingImports">
+<code class="descname">checkPendingImports</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.SyncServices.SyncServices.checkPendingImports" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checking Pending Imports</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Services.SyncServices.SyncServices.cleanSync">
+<code class="descname">cleanSync</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.SyncServices.SyncServices.cleanSync" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.SyncServices.SyncServices.createZipToExport">
+<code class="descname">createZipToExport</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.SyncServices.SyncServices.createZipToExport" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.SyncServices.SyncServices.getSourceDir">
+<code class="descname">getSourceDir</code><span class="sig-paren">(</span><em>record</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.SyncServices.SyncServices.getSourceDir" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checking Import Folder and Write Access</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Services.SyncServices.SyncServices.job_function">
+<code class="descname">job_function</code><span class="sig-paren">(</span><em>*args</em>, <em>**kw</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.SyncServices.SyncServices.job_function" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.SyncServices.SyncServices.load_configuration">
+<code class="descname">load_configuration</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.SyncServices.SyncServices.load_configuration" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Services.SyncServices.SyncServices.locker">
+<code class="descname">locker</code><em class="property"> = &lt;thread.lock object at 0x08176FC0&gt;</em><a class="headerlink" href="#Services.SyncServices.SyncServices.locker" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.SyncServices.SyncServices.meargezipfile">
+<code class="descname">meargezipfile</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.SyncServices.SyncServices.meargezipfile" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="Services.SyncServices.SyncServices.process">
+<code class="descname">process</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.SyncServices.SyncServices.process" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start of Processing</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Services.SyncServices.SyncServices.renameInvalidFiles">
+<code class="descname">renameInvalidFiles</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.SyncServices.SyncServices.renameInvalidFiles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rename Invalid Files</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Services.SyncServices.SyncServices.schedule">
+<code class="descname">schedule</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Services.SyncServices.SyncServices.schedule" title="Permalink to this definition">¶</a></dt>
+<dd><p># Schedules the job
+# scheduler :Scheduler object
+# interval_given:Time interval for job to rerun</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Services.SyncServices.SyncServices.updatetool">
+<code class="descname">updatetool</code><span class="sig-paren">(</span><em>tool</em>, <em>full_sync_flag='false'</em>, <em>folder_to_import_from=None</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.SyncServices.SyncServices.updatetool" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start Tool Update</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="Services.SyncServices.synchronized">
+<code class="descclassname">Services.SyncServices.</code><code class="descname">synchronized</code><span class="sig-paren">(</span><em>lock</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.SyncServices.synchronized" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start Lock acquired for createZipToExport</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-Services.Utils">
+<span id="services-utils-module"></span><h2>Services.Utils module<a class="headerlink" href="#module-Services.Utils" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="Services.Utils.get_file_name_from_path">
+<code class="descclassname">Services.Utils.</code><code class="descname">get_file_name_from_path</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span><a class="headerlink" href="#Services.Utils.get_file_name_from_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-Services.fabfile">
+<span id="services-fabfile-module"></span><h2>Services.fabfile module<a class="headerlink" href="#module-Services.fabfile" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-Services">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-Services" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Services package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-Services.AppInitServices">Services.AppInitServices module</a></li>
+<li><a class="reference internal" href="#module-Services.AppLogger">Services.AppLogger module</a></li>
+<li><a class="reference internal" href="#module-Services.AuthServices">Services.AuthServices module</a></li>
+<li><a class="reference internal" href="#module-Services.CleanerServices">Services.CleanerServices module</a></li>
+<li><a class="reference internal" href="#module-Services.CloneAccountService">Services.CloneAccountService module</a></li>
+<li><a class="reference internal" href="#module-Services.CloneRequestService">Services.CloneRequestService module</a></li>
+<li><a class="reference internal" href="#module-Services.ContributionGitPushService">Services.ContributionGitPushService module</a></li>
+<li><a class="reference internal" href="#module-Services.CustomExceptionHandler">Services.CustomExceptionHandler module</a></li>
+<li><a class="reference internal" href="#services-deploymentrequestservice-module">Services.DeploymentRequestService module</a></li>
+<li><a class="reference internal" href="#services-deploymentservices-module">Services.DeploymentServices module</a></li>
+<li><a class="reference internal" href="#module-Services.DistributionCenterService">Services.DistributionCenterService module</a></li>
+<li><a class="reference internal" href="#module-Services.DistributionSyncServices">Services.DistributionSyncServices module</a></li>
+<li><a class="reference internal" href="#module-Services.FileUtils">Services.FileUtils module</a></li>
+<li><a class="reference internal" href="#module-Services.HelperServices">Services.HelperServices module</a></li>
+<li><a class="reference internal" href="#module-Services.Mailer">Services.Mailer module</a></li>
+<li><a class="reference internal" href="#module-Services.MailerService">Services.MailerService module</a></li>
+<li><a class="reference internal" href="#module-Services.PasswordHelper">Services.PasswordHelper module</a></li>
+<li><a class="reference internal" href="#module-Services.PluginsManagerService">Services.PluginsManagerService module</a></li>
+<li><a class="reference internal" href="#module-Services.PullServices">Services.PullServices module</a></li>
+<li><a class="reference internal" href="#module-Services.PushServices">Services.PushServices module</a></li>
+<li><a class="reference internal" href="#module-Services.RemoteAuthenticationService">Services.RemoteAuthenticationService module</a></li>
+<li><a class="reference internal" href="#services-scheduler-module">Services.Scheduler module</a></li>
+<li><a class="reference internal" href="#module-Services.StreamToLogger">Services.StreamToLogger module</a></li>
+<li><a class="reference internal" href="#module-Services.SyncServices">Services.SyncServices module</a></li>
+<li><a class="reference internal" href="#module-Services.Utils">Services.Utils module</a></li>
+<li><a class="reference internal" href="#module-Services.fabfile">Services.fabfile module</a></li>
+<li><a class="reference internal" href="#module-Services">Module contents</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/Services.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, ilan pinto.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.9</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="_sources/Services.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

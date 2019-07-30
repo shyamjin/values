@@ -1,0 +1,20 @@
+<div class="vp-rdmodal__status mt--xxl">
+	<div class="log-modal" style="display:block;pointer-events:all">
+		<div class="vp-addtoolmodal__header fixed" style="width: 89vw; margin-left: -50px; margin-top: -50px;">
+			<!--TITLE-->
+			<h1 class="vp-addtoolmodal__title text--cs06 text--xl text--light mt--xl ml--xl inblock">{{auditDataById.url}}</h1>
+			<!--CLOSE BUTTON-->
+			<button type="button" class="vp-addtoolmodal__closebtn btn--clear mt--md mr--xxxl right" ng-click="closeAuditsDetailsModal()"></button>
+		</div>
+		<div class="vp-machdetails__fielditeminner">
+			<table st-table="display_records" class="table table-striped" style="padding-top: 2%;">
+				<tbody>
+					<tr st-select-row="row" st-select-mode="multiple" ng-repeat="(key, value) in auditDataById">
+						<td style="font-weight: bold;"> {{key}} </td>
+						<td style="word-break: break-all"> {{ value }} </td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

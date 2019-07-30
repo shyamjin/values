@@ -1,0 +1,30 @@
+<!--PRE REQUISITIES EDIT POPUP COMPONENT START-->
+<div class="vp-prereqeditpopup vp-control">
+    <div class="vp-prereqeditpopup__popuptop vp-uielement__popuptop"></div>
+    <div class="vp-prereqeditpopup__container vp-uielement__popup pt--md pr--xl pb--xl pl--xl bg--white skip_slideup">
+        <div class="vp-prereqeditpopup__inputwrap">
+            <input type="text" class="vp-prereqeditpopup__input input--clear max--width text--cs03 text--regular text--lg skip_slideup">
+        </div>
+        <div class="vp-prereqeditpopup__optionswrap mt--lg">
+            <!--VERSION OPTIONS LIST-->
+            <ul class="vp-prereqeditpopup__optionslist text--cs03 text--regular text--md skip_slideup">
+                <!--VERSION ITEM EXAMPLE-->
+                <li class="vp-prereqeditpopup__optionsitem mt--md" ng-repeat="item in prerequisites">
+                    <div class="vp-prereqeditpopup__iteminner text--ellipsis">
+                        <div class="vp-prereqeditpopup__checkbox vp-uielement__checkbox">
+                            <!--ITEM CHECKBOX-->
+                            <input type="checkbox" id="vp-prereqeditpopup__c1_{{$index}}" class="skip_slideup" name="vp-prereqeditpopup__c1" ng-model="prerequisiteDetails[$index]" value="{{item}}" ng-click="selectPrerequisite(item)" ng-checked="isPrerequisiteSelected(item)"/>
+                            <label for="vp-prereqeditpopup__c1_{{$index}}" class="skip_slideup"></label>
+                            <!--ITEM NAME WRAPPER-->
+                            <div class="vp-prereqeditpopup__itemnamewrap ml--sm inblock vertical--bottom">
+                                <label for="vp-prereqeditpopup__c1" class="vp-prereqeditpopup__itemname text--ellipsis text--ellipsis--single skip_slideup" title="Java 1.6Java 1.6Java 1.6Java 1.6Java 1.6">{{item.prerequisites_name}} {{item.version}}</label>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <button type="button" class="vp-uielement__button  vp-uielement__button--apply mt--xl" ng-click="closeEditPrerequisites()">Apply</button>
+    </div>
+</div>
+<!--PRE REQUISITIES EDIT POPUP COMPONENT END-->

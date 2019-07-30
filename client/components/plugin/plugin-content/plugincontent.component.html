@@ -1,0 +1,60 @@
+<div class="vp-mmanagetab vp-control text--none max inblock nowrap" ng-controller="PluginController">
+    <!--MANAGE MACHINES TAB CONTENT FILTER (MODIFIERS: # vp-mmanagetab__filterwrap--close )-->
+    <section class="vp-mmanagetab__filterwrap vp-mmanagetab__filterwrap--close max--height relative inblock">
+        <button type="button" class="vp-mmanagetab__filterclosebtn vp-uielement__button vp-uielement__button--dropdownarrowclosed  absolute"></button>
+        <div class="vp-mmanagetab__filter max--height" ng-include="'components/dashboard/filter/dashboardfilter.component.html'"></div>
+    </section>
+<section class="vp-mmanagetab__content vertical--top inblock">
+        <!--plugin SEARCH-->
+        <div class="vp-mmanagetab__findmachinewrap vertical--top mt--md ml--md left">
+            <div class="vp-mmanagetab__findmachine max--height">
+                <!--Plugin-SEARCH COLUMN COMPONENT START-->
+                <div class="vp-machinessearch bg--white max--width">
+                    <span class="vp-machinessearch__topborder block"></span>
+                    <div class="vp-machinessearch__listwrapper max--width">
+                        <ul class="vp-machinessearch__list max--width">
+
+                            <!--ITEM EXAMPLE (MODIFIERS: # vp-machinessearch__item--test # vp-Plugin--prod)-->
+                            <li class="vp-machinessearch__item vp-machinessearch__item--prod outer" ng-repeat="plu in plugin.data">
+                                <div class="vp-machinessearch__iteminner vp-machinessearch__item--test pl--xxxl text--regular text--md clearfix">
+                                    <div class="vp-machinessearch__itemdescriptionwrap pt--sm pb--sm word--break left">
+                                        <span class="status-ind {{plu.status}}"></span>
+                                        <span class="{{plu.status}}">{{plu.name}} - {{plu.category}} </span>
+                                    </div>
+                                    <div class="vp-machinessearch__itembtnwrap pointer relative right hidden">
+                                        <span class="vp-machinessearch__itembtn bg--cs07 text--center text--cs06 text--regular text--md absolute" ng-click="selectPlugin(plu._id.$oid)">Select</span>
+
+                                    </div>
+                                    <!--<div class="vp-machinessearch__itembtnwrap pointer relative right hidden" ng-if="pageTitle==='Manage Machines'">
+                        <span class="vp-machinessearch__itembtn bg&#45;&#45;cs07 text&#45;&#45;center text&#45;&#45;cs06 text&#45;&#45;regular text&#45;&#45;md absolute" href="/editmachine/{{machine._id.$oid}}">Select</span>
+                    </div>-->
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!--MACHINES-SEARCH COLUMN COMPONENT END-->
+        </div>
+
+    <div class="vp-mmanagetab__verticaltabs mt--xl max--height" ng-include="'static/components/plugin/reload/reload.html'" ng-hide="PluginData"></div>
+
+      <div class="vp-mmanagetab__machinesectionwrap mt--xxl ml--md inblock" style="width:100%" ng-if="PluginData">
+            <div class="vp-mmanagetab__machinesectionheader text--cs03 pl--md">
+                <label class="vp-mmanagetab__machinesectionlabel text--light text--xxl"> {{PluginData.name}}
+                   <!-- <button ng-hide="PluginData.status=='active'" type="button" class="vp-machdetails__removemachinebtn vp-uielement__button vp-uielement__button&#45;&#45;removemachine pr&#45;&#45;md pl&#45;&#45;md ml&#45;&#45;md" ng-click="retryGroup(PluginData._id.$oid)">Retry Group</button>-->
+                </label>
+              <!--  <button type="button" class="vp-mmanagetab__machineeditbtn vp-uielement__button vp-uielement__button&#45;&#45;edit ml&#45;&#45;md"></button>-->
+                <div class="vp-mmanagetab__machinetatewrap mr--md right">
+                    <!--MACHINE STATE ICON (MODIFIERS: # vp-uielement__versionstate--inactive # vp-uielement__versionstate--active)-->
+                    <span class="status-ind {{PluginData.status}}"></span>
+
+                    <span class="vp-mmanagetab__machinestatemsg vertical--middle ml--md text--cs03 text--light text--md"></span>
+                </div>
+            </div>
+            <div class="vp-mmanagetab__verticaltabs mt--xl max--height" ng-include="'static/components/plugin/tabs/verticaltabs/verticaltabs.component.html'"></div>
+      </div>
+</section>
+
+</div>
